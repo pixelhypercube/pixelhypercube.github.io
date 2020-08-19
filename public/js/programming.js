@@ -16,9 +16,11 @@ function getDevelopment(dev) {
     }
 }
 
+
 function genCodingProjects() {
     $.get(`${url}/codingprojects`)
     .done((res)=>{
+        $("#loadingOverlay").remove();
         for (let i in res) {
             var insertHTML = `
                 <div class="card m-3">

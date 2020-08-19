@@ -155,3 +155,12 @@ img#image_location {
     width:80%;
     border:4px solid #264a74;
 }
+img#loadingSpinner {
+    width:64px;
+    height:64px;
+    animation:rotating 4s linear 0s infinite reverse;
+}
+@keyframes rotating {
+    from{transform:rotate(360deg)};
+    to{transform:rotate(360deg)};
+}

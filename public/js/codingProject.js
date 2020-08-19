@@ -20,6 +20,8 @@ function getDevelopment(dev) {
 function retrieveProj() {
     $.get(`${url}/codingproject/${params.get("proj_id")}`)
     .done((res)=>{
+        $("#loadingOverlay").remove();
+        $("#project").css({"display":"block"});
         $("#title").text(res.title);
         $("#in_development").text(getDevelopment(res.in_development));
         $("#brief_description").text(res.brief_description);
@@ -28,6 +30,7 @@ function retrieveProj() {
         $("#image_location").attr("src",res.image_location); 
     })
     .fail((err)=>{
+        $("#loadingOverlay").remove();
         console.error(err);
     });
 }
