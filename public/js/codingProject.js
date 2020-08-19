@@ -1,7 +1,7 @@
 var url = `http://localhost:3000`;
 const DEBUG = false;
 if (!DEBUG) {
-    url = `http://phcWebsite.herokuapp.com`;
+    url = `https://phcwebsite.herokuapp.com`;
 }
 
 var params = new URLSearchParams(window.location.search);
