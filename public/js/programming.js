@@ -1,5 +1,5 @@
 var url = `http://localhost:3000`;
-const DEBUG = true;
+const DEBUG = false;
 if (!DEBUG) {
     url = `http://phcWebsite.herokuapp.com`;
 }
