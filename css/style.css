@@ -61,7 +61,7 @@ div#canvas,div#mainCanvas {
 }
 section {
     /* padding:0% 0% 5% 0%; */
-    margin:0% 5%;
+    margin:6% 5%;
     text-align:center;
     /* line-height:50px; */
 }
@@ -87,6 +87,11 @@ div.interestCell {
 }
 a.sectionBtn {
     background:rgb(255, 255, 255);
+    padding:10px;
+    color:black;
+}
+a.sectionBtn.disabled {
+    background:rgba(255, 255, 255, 0.5);
     padding:10px;
     color:black;
 }
@@ -145,11 +150,16 @@ div.card li {
     list-style-type: none;
 }
 .list-group-item {
-    background:rgba(20, 57, 126, 0.781);
-    color:white;
+    background:rgba(29, 67, 138, 0);
+    color:rgb(0, 0, 0);
+    border:none;
+}
+.list-group-item:not(:last-child) {
+    border-bottom:1px solid rgba(0,0,0,0.2);
 }
 .list-group {
     border-radius:0;
+    border-color:rgba(0,0,0,0);
 }
 img#image_location {
     width:80%;
@@ -163,4 +173,8 @@ img#loadingSpinner {
 @keyframes rotating {
     from{transform:rotate(360deg)};
     to{transform:rotate(360deg)};
+}
+hr {
+    border:1px solid rgba(90, 90, 90, 0.5);
+    background:rgba(90, 90, 90, 0.5)
 }
