@@ -51,6 +51,7 @@ $(document).ready(function(){
     $("#date").text(getDate());
     // randomizeWordToSolve("My Codes","#codes");
     increasingNumber("span#year");
+    getMcBlocks();
 });
 function getDate() {
     var date = new Date();
@@ -112,4 +113,31 @@ function printArr(arr) {
         outputText+=arr[i];
     }
     return outputText;
+}
+
+function getMcBlocks() {
+    $("div.mcDiv").each(function(i){
+        var mcBlocks = [
+            "stone",
+            "grass_side",
+            "dirt",
+            "command_block",
+            "cobblestone",
+            "diamond_block",
+            "emerald_block",
+            "log_oak",
+            "planks_oak",
+            "sand",
+            "sandstone",
+            "wool"
+            
+        ];
+        $(this).css({
+            "background":`linear-gradient(
+            rgba(0, 0, 0, 0.5), 
+            rgba(0, 0, 0, 0.9)
+            ), url(./img/minecraft/${mcBlocks[i]}.png) 
+            center`,"background-size":"cover"
+        });
+    });
 }
