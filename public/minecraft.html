@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./css/bootstrap.min.css"></script>
+        <script src="./js/client.min.js"></script>
+        <script src="./js/p5.min.js"></script>
+        <script src="./js/Circle.js" defer></script>
+        <!-- <script src="./js/mainCanvas.js" defer></script> -->
+        <script src="./js/headerCanvas.js" defer></script>
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="" style="position:fixed;z-index:2;width:100%;">
+            <ul class="navbar nav">
+                <a href="./index.html" class="navbar-brand">PHC</a>
+                <li>
+                    <a href="./programming.html">Coding</a>
+                </li>
+                <li>
+                    <a href="./minecraft.html">Minecraft</a>
+                </li>
+                <!-- <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Programming</a>
+                </li>
+                <li>
+                    <a href="#">Running</a>
+                </li> -->
+            </ul>
+        </nav>
+        <header id="header">
+            <div id="canvas"></div>
+            <h1 style="text-align:center;" id="headerName">Minecraft</h1>
+            <h6>My favorite game since 2012!</h6>
+            <!-- <h5>A coder, minecrafter, runner and an knowledge addict! ;)</h5> -->
+        </header>
+        <body>
+            <main>
+                <section>
+                    <h1><u>What's Minecraft?</u></h1>
+                    <h4>A sandbox indie game that helps you to roam around your world wthout any given rules.</h4>
+                    <h4>Created by Markus Persson (Notch)</h4>
+                    <h4>Has two core game modes:</h4>
+                    <h4>Survival:</h4>
+                    <p>Survive the night by gathering resources and fighting enemies!</p>
+                    <h4>Creative:</h4>
+                    <p>Build anything from your imagination - ranging from skyscrapers, bridges and so much more!</p>
+                </section>
+                <section>
+                    <h1><u>Here are <span id="noOfThings"></span> reasons why I like Minecraft:</u></h1>
+                    <div id="mcDivs">
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>Unlimited Creativity!</h3>
+                                <p>I love Minecraft's concept of the freedom to build whatever you want in your world! It helped me to improve my creativity skills!</p>
+                            </div>
+                        </div>
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>No given rules to follow</h3>
+                                <p>Again, you can set your own rules you want in your game, and you can change it if you like!</p>
+                            </div>
+                        </div>
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>Helped me with computer file management!</h3>
+                                <p>It also requires computer file management if I want to mod the game the way I want!</p>
+                            </div>
+                        </div>
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>There's logic in the game!</h3>
+                                <p>With redstone and command blocks, they are the ones that help me to learn how mechanics and commands work in Minecraft!</p>
+                            </div>
+                        </div>
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>It also has great multiplayer servers!</h3>
+                                <p>Servers like Hypixel and Mineplex are one of the biggest Minecraft servers out there and I enjoy playing with my friends on these servers!</p>
+                            </div>
+                        </div>
+                        <div class="mcDiv">
+                            <div class="mcDivContent">
+                                <h3>It made me set some goals by myself!</h3>
+                                <p>Minecraft has also inspired me to be motivated by having a chance to set goals for myself. These goals can also make me more motivated to work hard!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="text-align:left;" class="mcDivFinal">
+                        <div class="mcDivContent">
+                            <h2>Last but not least,</h2>
+                            <h3>I believe it's an extraordinary game</h3>
+                            <p>Minecraft is unlike most games in the market. The concept of the game made me learn a numerous things from the game (such as building, chatting online, etc.). It also helped me to pursue an interest in programming, without it I wouldn't have much ideas of what I would want to do in life.</p>
+                        </div>
+                    </div>
+                </section>
+                <hr style="width:50%;">
+                <section>
+                    <img style="width:200px;" src="./img/development.png" alt="development"/>
+                    <h1>There's more fun stuff on the way!</h1>
+                </section>
+                <p id="textDemo"></p>
+            </main>
+            <footer>
+                <ul class="navbar nav">
+                    <li>
+                        &copy; 2020 All Rights Reserved
+                    </li>
+                </ul>
+            </footer>
+        </body>
+        <script src="./js/script.js" type="module"></script>
+    </body>
+</html>
