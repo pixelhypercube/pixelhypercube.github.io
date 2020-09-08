@@ -10,9 +10,9 @@ function getDevelopment(dev) {
     } else if (dev==1) {
         return "(In development)";
     } else if (dev==2) {
-        return "(Alpha Phase)";
+        return "(Alpha)";
     } else if (dev==3) {
-        return "(Beta Phase)";
+        return "(Beta)";
     }
 }
 

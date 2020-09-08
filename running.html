@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./css/bootstrap.min.css"></script>
+        <script src="./js/client.min.js"></script>
+        <script src="./js/p5.min.js"></script>
+        <script src="./js/Circle.js" defer></script>
+        <!-- <script src="./js/mainCanvas.js" defer></script> -->
+        <script src="./js/headerCanvas.js" defer></script>
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="" style="position:fixed;z-index:2;width:100%;">
+            <ul class="navbar nav">
+                <a href="./index.html" class="navbar-brand">PHC</a>
+                <li>
+                    <a href="./programming.html">Coding</a>
+                </li>
+                <li>
+                    <a href="./minecraft.html">Minecraft</a>
+                </li>
+                <li>
+                    <a href="./running.html">Running</a>
+                </li>
+            </ul>
+        </nav>
+        <header id="header">
+            <div id="canvas"></div>
+            <h1 style="text-align:center;" id="headerName">Running</h1>
+            <!-- <h6>My favorite game since 2012!</h6> -->
+            <!-- <h5>A coder, minecrafter, runner and an knowledge addict! ;)</h5> -->
+        </header>
+        <body>
+            <main>
+                <section style="text-align:left;">
+                    <h1><u>Why running?</u></h1>
+                    <p>Even though running may seem boring just by using only your 2 legs to move, I feel that it adds a lot of positives to it.</p>
+                    <p>It helps me to manage my stress levels and it sets myself new challenges to tackle with, such as finishing 15 km of running in a single day.</p>
+                    <h3>Why I got into running:</h3>
+                    <p>Before running became my habit, I didn't have much of a positive mood as compared to now. Exercise wasn't much of a thing to me, and I wasn't conscious of its benefits.</p>
+                    <p>Thanks to the workout options on my Apple Watch (and Strava), it helps me manage and track my workouts, especially for running.</p>
+                    <p>I chose running because I feel accomplished by going to other places in the fastest way, using only my two feet!</p>
+                </section>
+                <section>
+                    <h1>Recent Activity</h1>
+                    <p>(the text seems to be a bit small)</p>
+                    <p>(may need to refresh if any one says 'OK')</p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3>Recent Activities</h3>
+                            <iframe height='464' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/46840386/latest-rides/e670d4f166bf61a269da8223d59cc620a3481948'></iframe>
+                        </div>
+                        <div class="collg-6">
+                            <h3>Weekly Mileage</h3>
+                            <iframe height='170'  frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/46840386/activity-summary/e670d4f166bf61a269da8223d59cc620a3481948'></iframe>
+                        </div>
+                    </div>
+                </section>
+                <section>                
+                    <div>
+                        <h1>My Longest Run</h1>
+                        <br>
+                        <h5>Sorry it doesn't show the whole map on mobile :( Will try to fix it</h5>
+                        <p>(may need to refresh if any one says 'OK')</p>
+                        <iframe style="max-width:590px;" height='355' width='100%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/3193177625/embed/0227aa24ae5b91cf57ea3eae4ee182b79ee25bfd'></iframe>
+                        <hr style="border:none;">
+                        <h2><u>How I felt about it</u></h2>
+                        <p>I felt that it's a good challenge, as this was my first successful attempt of a half marathon distance. I liked the cooling weather and the scenery as well!</p>
+                    </div>
+                </section>
+                <hr style="width:50%;">
+                <section>
+                    <img style="width:200px;" src="./img/development.png" alt="development"/>
+                    <h1>There's more fun stuff on the way!</h1>
+                </section>
+                <p id="textDemo"></p>
+            </main>
+            <footer>
+                <ul class="navbar nav">
+                    <li>
+                        &copy; 2020 All Rights Reserved
+                    </li>
+                </ul>
+            </footer>
+        </body>
+        <script src="./js/script.js" type="module"></script>
+    </body>
+</html>
