@@ -28,7 +28,7 @@ function genCodingProjects() {
                                 <h3>${res[i].title}</h3>
                             </div>
                             <div class="card-body">
-                                <img style="width:250px;" class="coding-logo" src="${res[i].image_location}" alt="proj${res[i].image_location}" >
+                                <img style="width:100%;" class="coding-logo" src="${res[i].image_location}" alt="proj${res[i].image_location}" >
                                 <hr>
                                 <div class="container">
                                     <p>${getDevelopment(res[i].in_development)}</p>

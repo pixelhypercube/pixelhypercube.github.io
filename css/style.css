@@ -6,7 +6,7 @@
     .card-columns {
         column-count: 2;
     }
-    div#mcDivs {
+    div#mcDivs, div#runningDivs {
         display:grid;
         grid-template-columns:repeat(1,1fr);
         grid-gap:10px;
@@ -17,7 +17,7 @@
     .card-columns {
         column-count: 2;
     }
-    div#mcDivs {
+    div#mcDivs, div#runningDivs {
         display:grid;
         grid-template-columns:repeat(2,1fr);
         grid-gap:10px;
@@ -28,7 +28,7 @@
     .card-columns {
         column-count: 3;
     }
-    div#mcDivs {
+    div#mcDivs, div#runningDivs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
         grid-gap:10px;
@@ -39,7 +39,7 @@
     .card-columns {
         column-count: 3;
     }
-    div#mcDivs {
+    div#mcDivs, div#runningDivs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
         grid-gap:10px;
@@ -220,17 +220,31 @@ div.mcDiv {
     border:5px solid #112944;
     border-radius:25px;
 }
-div.mcDiv p {
+div.runningDiv {
+    width:100%;
+    max-width:400px;
+    margin:2.5% auto;
+    position:relative;
+    border:2px solid black;
+    background:#112944;
+    background-position:center center;
+    background-size:cover;
+    image-rendering: pixelated;
+    color:white;
+    border:5px solid #112944;
+    border-radius:400px;
+}
+div.mcDiv p, div.runningDiv p {
     font-size:15px;
 }
-div.mcDiv:after {
+div.mcDiv:after,div.runningDiv:after {
     display:block;
     content:"";
     padding-bottom:100%;
 }
-div.mcDiv div.mcDivContent {
+div.mcDiv div.mcDivContent,div.runningDiv div.runningDivContent {
     position:absolute;
-    padding:40px 20px;
+    padding:60px 40px 40px 40px;
     width:100%;
     height:100%;
 }
