@@ -15,6 +15,14 @@ function getDevelopment(dev) {
         return "(Beta)";
     }
 }
+function isMiniProj(state) {
+    console.log(state)
+    if (state==1) {
+        return "(Mini Project)";
+    } else {
+        return "";
+    }
+} 
 
 
 function genCodingProjects() {
@@ -25,6 +33,7 @@ function genCodingProjects() {
             var insertHTML = `
                 <div class="card m-3">
                             <div class="card-header">
+                                <h6>${isMiniProj(res[i].is_mini_project)}</h6>
                                 <h3>${res[i].title}</h3>
                             </div>
                             <div class="card-body">
