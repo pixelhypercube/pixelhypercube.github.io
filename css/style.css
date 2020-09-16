@@ -2,11 +2,15 @@
     src:url(../fonts/Montserrat-SemiBold.ttf);
     font-family:Montserrat;
 }
+@font-face {
+    src:url(../fonts/Montserrat-Regular.ttf);
+    font-family:Montserrat-Regular;
+}
 @media (min-width: 576px) {
     .card-columns {
         column-count: 2;
     }
-    div#mcDivs, div#runningDivs {
+    div#mcDivs, div#runningDivs, div#codingDivs {
         display:grid;
         grid-template-columns:repeat(1,1fr);
         grid-gap:10px;
@@ -17,7 +21,7 @@
     .card-columns {
         column-count: 2;
     }
-    div#mcDivs, div#runningDivs {
+    div#mcDivs, div#runningDivs, div#codingDivs {
         display:grid;
         grid-template-columns:repeat(2,1fr);
         grid-gap:10px;
@@ -28,7 +32,7 @@
     .card-columns {
         column-count: 3;
     }
-    div#mcDivs, div#runningDivs {
+    div#mcDivs, div#runningDivs, div#codingDivs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
         grid-gap:10px;
@@ -39,7 +43,7 @@
     .card-columns {
         column-count: 3;
     }
-    div#mcDivs, div#runningDivs {
+    div#mcDivs, div#runningDivs, div#codingDivs {
         display:grid;
         grid-template-columns:repeat(3,1fr);
         grid-gap:10px;
@@ -99,6 +103,7 @@ footer {
 }
 p {
     font-size:20px;
+    font-family:Montserrat-Regular;
 }
 div.interestCell {
     background: #264a74;
@@ -173,6 +178,7 @@ div.card li {
     background:rgba(29, 67, 138, 0);
     color:rgb(0, 0, 0);
     border:none;
+    font-family:Montserrat-Regular;
 }
 .list-group-item:not(:last-child) {
     border-bottom:1px solid rgba(0,0,0,0.2);
@@ -234,19 +240,52 @@ div.runningDiv {
     border:5px solid #112944;
     border-radius:400px;
 }
-div.mcDiv p, div.runningDiv p {
+div.codingDiv {
+    width:100%;
+    max-width:400px;
+    margin:2.5% auto;
+    position:relative;
+    border:2px solid black;
+    background:#112944;
+    background-position:center center;
+    background-size:cover;
+    image-rendering: pixelated;
+    color:white;
+    border:5px solid #112944;
+    border-radius:20px;
+}
+div.mcDiv p, div.runningDiv p, div.codingDiv p {
     font-size:15px;
+}
+div.codingDiv p {
+    font-size:24px;
 }
 div.mcDiv:after,div.runningDiv:after {
     display:block;
     content:"";
     padding-bottom:100%;
 }
-div.mcDiv div.mcDivContent,div.runningDiv div.runningDivContent {
+div.codingDiv:after {
+    display:block;
+    content:"";
+    padding-bottom:95%;
+}
+div.mcDiv div.mcDivContent
+,div.runningDiv div.runningDivContent
+,div.codingDiv div.codingDivContent {
     position:absolute;
     padding:60px 40px 40px 40px;
     width:100%;
     height:100%;
+}
+div.codingDiv div.codingDivContent {
+    position:absolute;
+    padding:20px 20px 20px 20px;
+    width:100%;
+    height:100%;
+}
+div.codingDivContent h2 {
+    font-size:22px;
 }
 iframe {
     border:5px solid #264a74;
