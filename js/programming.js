@@ -3,61 +3,104 @@ const DEBUG = false;
 if (!DEBUG) {
     url = `https://phcwebsite.herokuapp.com`;
 }
+var projInfo = [{
+    "proj_id": 1,
+    "title": "Minecraft Fill Generator!",
+    "brief_description": "Generate a 3d model of what you have drawn!",
+    "image_location": "./img/coding/coding_proj1.png",
+    "link": "/Minecraft-Fill-Generator",
+    "in_development": 3,
+    "detailed_description": null,
+    "is_mini_project": 1
+}, {
+    "proj_id": 2,
+    "title": "Minecraft Like Replica!",
+    "brief_description": "Voxel simulation with player movement!",
+    "image_location": "./img/coding/coding_proj2.png",
+    "link": "/Minecraft-Like-Replica",
+    "in_development": 2,
+    "detailed_description": "My first time attempting player controls and rendering Minecraft-like blocks in Three.js!",
+    "is_mini_project": 1
+}, {
+    "proj_id": 3,
+    "title": "Video To Text!",
+    "brief_description": "Play a video and see the magic from the text below!",
+    "image_location": "./img/coding/coding_proj3.png",
+    "link": "/Video-To-Text",
+    "in_development": 0,
+    "detailed_description": "",
+    "is_mini_project": 1
+}, {
+    "proj_id": 4,
+    "title": "2D Spleef!",
+    "brief_description": "2D version of Spleef!",
+    "image_location": "./img/coding/coding_proj4.png",
+    "link": "https://github.com/pixelhypercube/2d-Spleef",
+    "in_development": 0,
+    "detailed_description": "A two-dimensional spleef game made using Java!",
+    "is_mini_project": 1
+}, {
+    "proj_id": 5,
+    "title": "Escape The Bombfield!",
+    "brief_description": "Run to the finish cell by escaping the bombfield!",
+    "image_location": "./img/coding/coding_proj5.png",
+    "link": "/Escape-The-Bombfield",
+    "in_development": 2,
+    "detailed_description": "Use the WASD or arrow keys to let the person escape from the minefield!",
+    "is_mini_project": 1
+}];
 
 function getDevelopment(dev) {
-    if (dev==0) {
+    if (dev == 0) {
         return "";
-    } else if (dev==1) {
+    } else if (dev == 1) {
         return "(In development)";
-    } else if (dev==2) {
+    } else if (dev == 2) {
         return "(Alpha)";
-    } else if (dev==3) {
+    } else if (dev == 3) {
         return "(Beta)";
     }
 }
+
 function isMiniProj(state) {
     console.log(state)
-    if (state==1) {
+    if (state == 1) {
         return "(Mini Project)";
     } else {
         return "";
     }
-} 
+}
 
 
 function genCodingProjects() {
-    $.get(`${url}/codingprojects`)
-    .done((res)=>{
-        $("#loadingOverlay").remove();
-        for (let i in res) {
-            var insertHTML = `
+    $("#loadingOverlay").remove();
+    for (let i in projInfo) {
+        var insertHTML = `
                 <div class="card m-3">
                             <div class="card-header">
-                                <h6>${isMiniProj(res[i].is_mini_project)}</h6>
-                                <h3>${res[i].title}</h3>
+                                <h6>${isMiniProj(projInfo[i].is_mini_project)}</h6>
+                                <h3>${projInfo[i].title}</h3>
                             </div>
                             <div class="card-body">
-                                <img style="width:100%;" class="coding-logo" src="${res[i].image_location}" alt="proj${res[i].image_location}" >
+                                <img style="width:100%;" class="coding-logo" src="${projInfo[i].image_location}" alt="proj${projInfo[i].image_location}" >
                                 <hr>
                                 <div class="container">
-                                    <p>${getDevelopment(res[i].in_development)}</p>
-                                    <p>${res[i].brief_description}</p>
-                                    <a class="btn m-1" style="background-color: #185050;color:white;border-radius:0" class="sectionBtn" href="./codingProject.html?proj_id=${res[i].proj_id}">View Project</a>
-                                    <a class="btn m-1" style="background-color: #183250;color:white;border-radius:0" class="sectionBtn" href="${res[i].link}">Go to project!</a>
+                                    <p>${getDevelopment(projInfo[i].in_development)}</p>
+                                    <p>${projInfo[i].brief_description}</p>
+                                    <a class="btn m-1" style="background-color: #185050;color:white;border-radius:0" class="sectionBtn" href="./codingProject.html?proj_id=${projInfo[i].proj_id}">View Project</a>
+                                    <a class="btn m-1" style="background-color: #183250;color:white;border-radius:0" class="sectionBtn" href="${projInfo[i].link}">Go to project!</a>
                                 </div>
                             </div>
                         </div>
             `;
-            $("#coding_projects").append(insertHTML);
-            $("div.card-body").each(function(i){
-                $(this).css({"background":`rgb(130, ${185+Math.floor(Math.random()*5)}, ${240+Math.floor(Math.random()*20)})`})
-            });
-        }
-    })
-    .fail((err)=>{
-
-    });
+        $("#coding_projects").append(insertHTML);
+        $("div.card-body").each(function (i) {
+            $(this).css({
+                "background": `rgb(130, ${185+Math.floor(Math.random()*5)}, ${240+Math.floor(Math.random()*20)})`
+            })
+        });
+    }
 }
-$(document).ready(function(){
+$(document).ready(function () {
     genCodingProjects();
 });
