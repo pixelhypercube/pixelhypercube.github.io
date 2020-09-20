@@ -48,6 +48,15 @@ var projInfo = [{
     "in_development": 2,
     "detailed_description": "Use the WASD or arrow keys to let the person escape from the minefield!",
     "is_mini_project": 1
+}, {
+    "proj_id": 6,
+    "title": "Visual Matrix Operators!",
+    "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
+    "image_location": "./img/coding/coding_proj6.png",
+    "link": "/Visual-Matrix-Operations",
+    "in_development": 2,
+    "detailed_description": null,
+    "is_mini_project": 0
 }];
 
 var params = new URLSearchParams(window.location.search);
