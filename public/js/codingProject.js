@@ -56,7 +56,16 @@ var projInfo = [{
     "link": "/Visual-Matrix-Operations",
     "in_development": 2,
     "detailed_description": null,
-    "is_mini_project": 0
+    "is_mini_project": 1
+}, {
+    "proj_id": 7,
+    "title": "Console Spaceship Battle!",
+    "brief_description": "A spaceship battle game in a console! Made using Python",
+    "image_location": "./img/coding/coding_proj7.png",
+    "link": "https://github.com/pixelhypercube/Console-Spaceship-Battle",
+    "in_development": 2,
+    "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
+    "is_mini_project": 1
 }];
 
 var params = new URLSearchParams(window.location.search);
