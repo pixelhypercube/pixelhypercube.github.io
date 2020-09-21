@@ -1,8 +1,8 @@
-# Hi everyone! Welcome to my website repo!
+# PixelHyperCube's website
 
-This repo stores all of my codes to render my personal website - [pixelhypercube.github.io](https://pixelhypercube.github.io) .
+This repo stores all of my codes for my personal website - [pixelhypercube.github.io](https://pixelhypercube.github.io) .
 
-This website is a portfolio about who I am, what I like to do and my coding projects (more of a resume).
+This website is a portfolio about who I am, my hobbies and the programming projects that I've done (something like a resume).
 
 Feel free to breeze through my website!
 
