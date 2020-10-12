@@ -29,7 +29,7 @@ textAppear("h2#headerName");
 horiSwivel("h2#headerName");
 elementAppear("div#hobbies");
 function calcAge(bYear,bMonth,bDay) {
-    var birthTime = new Date().setFullYear(bYear,bMonth,bDay);
+    var birthTime = new Date("2002-09-30");
     var currentTime = new Date();
     var duration = currentTime-birthTime;
     var age = Math.floor(duration/(365*24*60*60*1000));
