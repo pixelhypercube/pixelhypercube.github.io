@@ -66,6 +66,15 @@ var projInfo = [{
     "in_development": 2,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
     "is_mini_project": 1
+}, {
+    "proj_id": 8,
+    "title": "PHC Minigolf",
+    "brief_description": "A minigolf game made using python (pygame!)",
+    "image_location": "./img/coding/coding_proj8.png",
+    "link": "https://github.com/pixelhypercube/PHC-Minigolf",
+    "in_development": 2,
+    "detailed_description": "",
+    "is_mini_project": 0
 }];
 
 function getDevelopment(dev) {
@@ -105,7 +114,6 @@ function genCodingProjects() {
                                 <div class="container">
                                     <p>${getDevelopment(projInfo[i].in_development)}</p>
                                     <p>${projInfo[i].brief_description}</p>
-                                    <a class="btn m-1" style="background-color: #185050;color:white;border-radius:0" class="sectionBtn" href="./codingProject.html?proj_id=${projInfo[i].proj_id}">View Project</a>
                                     <a class="btn m-1" style="background-color: #183250;color:white;border-radius:0" class="sectionBtn" href="${projInfo[i].link}">Go to project!</a>
                                 </div>
                             </div>
