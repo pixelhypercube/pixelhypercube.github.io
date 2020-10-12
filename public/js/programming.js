@@ -72,7 +72,7 @@ var projInfo = [{
     "brief_description": "A minigolf game made using python (pygame!)",
     "image_location": "./img/coding/coding_proj8.png",
     "link": "https://github.com/pixelhypercube/PHC-Minigolf",
-    "in_development": 2,
+    "in_development": 3,
     "detailed_description": "",
     "is_mini_project": 0
 }];
