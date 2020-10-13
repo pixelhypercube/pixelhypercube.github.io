@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
         <script src="./js/jquery.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="./css/bootstrap.min.css"></script>
@@ -37,49 +38,73 @@
         <body>
             <main>
                 <section style="text-align:left;">
-                    <h1><u>Why running?</u></h1>
+                    <h1><u>Why I run</u></h1>
                     <p>Even though running may seem boring just by using only your 2 legs to move, I feel that it adds a lot of positives to it.</p>
                     <p>It helps me to manage my stress levels and it sets myself new challenges to tackle with, such as finishing 15 km of running in a single day.</p>
-                    <h3>Why I got into running:</h3>
-                    <p>Before running became my habit, I didn't have much of a positive mood as compared to now. Exercise wasn't much of a thing to me, and I wasn't conscious of its benefits.</p>
-                    <p>Thanks to the workout options on my Apple Watch (and Strava), it helps me manage and track my workouts, especially for running.</p>
-                    <p>I chose running because I feel accomplished by going to other places in the fastest way, using only my two feet!</p>
+                    <h3>How I came back to running:</h3>
+                    <p>Before coming back to running, I didn't have much of a positive mood as compared to now. Exercise wasn't much of a thing to me, and I wasn't conscious of its benefits.</p>
+                    <p>Even though I was in a fitness club when I was a kid, I haven't developed the interest in running yet. However, it gave me a number of opportunities for me to exercise.</p>
+                    <p>Thanks to the workout options on my Apple Watch (and Strava), it helps me manage and track my workouts, especially for running. It also gets me more motivated to exercise!</p>
                 </section>
                 <section>
                     <h1>What type of runner am I?</h1>
                     <div id="runningDivs">
                         <div class="runningDiv">
                             <div class="runningDivContent">
-                                <h2>5-10K Runner</h2>
-                                <p>My most used distance for running is 5K</p>
+                                <img src="./img/running/distance.png" alt="">
+                                <h3>Distance Range:</h3>
+                                <h2>5-10K</h2>
+                                <p>(usually)</p>
                             </div>
                         </div>
                         <div class="runningDiv">
                             <div class="runningDivContent">
-                                <h2>Runs about 5-6 times a week</h2>
-                                <p>May change if I'm busy</p>
+                                <img src="./img/running/calendar.png" alt="">
+                                <h3>Running Frequency:</3>
+                                <h2>5-6 / week</h2>
+                                <p>(May change if I'm busy)</p>
                             </div>
                         </div>
                         <div class="runningDiv">
                             <div class="runningDivContent">
-                                <h2>Morning Runner</h2>
-                                <p>Running can help me start my day, but I run in the evening sometimes</p>
+                                <img src="./img/running/morning.png" alt="">
+                                <h3>Morning Runner</h3>
+                                <p>Running can help me have a good start to the day, but I run in the evening sometimes.</p>
+                            </div>
+                        </div>
+                        <div class="runningDiv">
+                            <div class="runningDivContent">
+                                <img src="./img/running/runner.png" alt="">
+                                <h3>Solo Runner</h3>
+                                <h5>(Usually)</h5>
+                                <p>I'm generally introverted, so I run alone most of the time.</p>
+                                <p>I also find it fun to run with my friends once in a while.</p>
                             </div>
                         </div>
                     </div>
                 </section>
                 <hr style="width:50%;">
                 <section>
+                    <h1>How competitive am I?</h1>
+                    <h6>approximately - pie chart is used for fun ;) </h6>
+                    <canvas width="400" height="200" id="competitiveChart"></canvas>
+                    <hr style="width:30%;border:0.5px solid rgba(145, 145, 145, 0.123)">
+                    <h3>Not quite</h3>
+                    <p>As you can tell from the chart, I mainly run to improve my health and well-being, as well as using it as a stress reliever.</p>
+                    <p>However, I sometimes find it fun if I want to set myself challenges - such as breaking personal bests!</p>
+                </section>
+                <hr style="width:50%;">
+                <section>
                     <h1>Recent Activity</h1>
-                    <p>(the text seems to be a bit small)</p>
-                    <p>(may need to refresh if any one says 'OK')</p>
                     <div class="row">
                         <div class="col-lg-6">
                             <h3>Recent Activities</h3>
+                            <p>Shows the latest 5 activities</p>
                             <iframe height='464' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/46840386/latest-rides/e670d4f166bf61a269da8223d59cc620a3481948'></iframe>
                         </div>
-                        <div class="collg-6">
+                        <div class="col-lg-6">
                             <h3>This Week's Mileage</h3>
+                            <p>Shows how much I've ran this week</p>
                             <iframe height='170'  frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/46840386/activity-summary/e670d4f166bf61a269da8223d59cc620a3481948'></iframe>
                         </div>
                     </div>
@@ -101,6 +126,15 @@
                             <hr style="border:none;">
                             <p>During my last few km it was pretty tiring, but overall I felt that I've achieved a great sense of accomplishment after finishing it! To me, I find running in new places fascinating as I get to try routes that I haven't explored before!</p>
                         </div>
+                        <div>
+                            <h3>18km Birthday Run for my 18th birthday</h3>
+                            <iframe height='405' width='100%' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/activities/4135410300/embed/e3aaf1cdf09c43249317107ceae752bf55243edf'></iframe>
+                            <hr style="border:none;">
+                            <p>I wanted to do something special during the day after my birthday - so I decided to do 1 km for 1 year I've lived.</p>
+                            <p>Again, another exhausting run during the later portions where I was literally 'steaming' when I stopped at the 12.5km mark! Because of that, I walked for a while when I was in need for air.</p>
+                            <p>But I tried my best and finished the 18 km!</p>
+                            <p>Overall, another great experience!</p>
+                        </div>
                     </div>
                 </section>
                 <hr style="width:50%;">
@@ -118,6 +152,26 @@
                 </ul>
             </footer>
         </body>
+        <script>
+            var ctx = document.getElementById("competitiveChart");
+            var data = {
+                datasets:[{
+                    data:[10,90],
+                    backgroundColor:[
+                        "rgba(255, 253, 161,0.75)",
+                        "rgba(217, 161, 255,0.75)"
+                    ]
+                }],
+                labels:[
+                    "Competitive",
+                    "Not Competitive"
+                ]
+            }
+            var competitiveChart = new Chart(ctx,{
+                type:"pie",
+                data,
+            })
+        </script>
         <script src="./js/script.js" type="module"></script>
     </body>
 </html>

@@ -238,7 +238,10 @@ div.runningDiv {
     image-rendering: pixelated;
     color:white;
     border:5px solid #112944;
-    border-radius:400px;
+    border-radius:20px;
+}
+div.runningDiv img {
+    width:100px;
 }
 div.codingDiv {
     width:100%;
@@ -274,7 +277,7 @@ div.mcDiv div.mcDivContent
 ,div.runningDiv div.runningDivContent
 ,div.codingDiv div.codingDivContent {
     position:absolute;
-    padding:60px 40px 40px 40px;
+    padding:25px 40px 40px 40px;
     width:100%;
     height:100%;
 }
