@@ -7,3 +7,5 @@ This website is a portfolio about who I am, my hobbies and the programming proje
 Feel free to breeze through my website!
 
 Thanks a lot for stopping by!
+
+*P.S. I'm not much of a writer so it'll be nice if you can forgive me if my sentences written on my website are a bit weird haha 😂*
