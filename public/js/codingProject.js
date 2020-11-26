@@ -66,6 +66,24 @@ var projInfo = [{
     "in_development": 2,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
     "is_mini_project": 1
+}, {
+    "proj_id": 8,
+    "title": "PHC Minigolf",
+    "brief_description": "A minigolf game made using python (pygame!)",
+    "image_location": "./img/coding/coding_proj8.png",
+    "link": "https://github.com/pixelhypercube/PHC-Minigolf",
+    "in_development": 3,
+    "detailed_description": "",
+    "is_mini_project": 0
+}, {
+    "proj_id": 9,
+    "title": "Pi Approximation",
+    "brief_description": "Simulates one of the methods of estimating the mathematical constant pi (π).",
+    "image_location": "./img/coding/coding_proj9.png",
+    "link": "/Pi-Approximation",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
 }];
 
 var params = new URLSearchParams(window.location.search);
