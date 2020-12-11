@@ -163,7 +163,7 @@ img.coding-logo {
     width:80px;
 }
 .card {
-    border-radius:0px;
+    /* border-radius:0px; */
     color:black;
     background-color: #264a74;
 }

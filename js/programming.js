@@ -54,7 +54,7 @@ var projInfo = [{
     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
     "image_location": "./img/coding/coding_proj6.png",
     "link": "/Visual-Matrix-Operations",
-    "in_development": 2,
+    "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
 }, {
@@ -63,7 +63,7 @@ var projInfo = [{
     "brief_description": "A spaceship battle game in a console! Made using Python",
     "image_location": "./img/coding/coding_proj7.png",
     "link": "https://github.com/pixelhypercube/Console-Spaceship-Battle",
-    "in_development": 2,
+    "in_development": 0,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
     "is_mini_project": 1
 }, {
@@ -83,7 +83,7 @@ var projInfo = [{
     "link": "/Pi-Approximation",
     "in_development": 0,
     "detailed_description": null,
-    "is_mini_project": 0
+    "is_mini_project": 1
 }];
 
 function getDevelopment(dev) {
