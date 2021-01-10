@@ -90,7 +90,7 @@ var projInfo = [{
     "brief_description": "A mini 2D online Coin Dozer made using matter.js and p5.js!",
     "image_location": "./img/coding/coding_proj10.png",
     "link": "/Coin-Dozer-Replica",
-    "in_development": 2,
+    "in_development": 3,
     "detailed_description": null,
     "is_mini_project": 1
 }];
