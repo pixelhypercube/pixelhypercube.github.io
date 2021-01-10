@@ -54,7 +54,7 @@ var projInfo = [{
     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
     "image_location": "./img/coding/coding_proj6.png",
     "link": "/Visual-Matrix-Operations",
-    "in_development": 0,
+    "in_development": 2,
     "detailed_description": null,
     "is_mini_project": 1
 }, {
@@ -63,7 +63,7 @@ var projInfo = [{
     "brief_description": "A spaceship battle game in a console! Made using Python",
     "image_location": "./img/coding/coding_proj7.png",
     "link": "https://github.com/pixelhypercube/Console-Spaceship-Battle",
-    "in_development": 0,
+    "in_development": 2,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
     "is_mini_project": 1
 }, {
@@ -82,6 +82,15 @@ var projInfo = [{
     "image_location": "./img/coding/coding_proj9.png",
     "link": "/Pi-Approximation",
     "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
+}, {
+    "proj_id": 10,
+    "title": "Coin Dozer Replica!",
+    "brief_description": "A mini 2D online Coin Dozer made using matter.js and p5.js!",
+    "image_location": "./img/coding/coding_proj10.png",
+    "link": "/Coin-Dozer-Replica",
+    "in_development": 2,
     "detailed_description": null,
     "is_mini_project": 1
 }];

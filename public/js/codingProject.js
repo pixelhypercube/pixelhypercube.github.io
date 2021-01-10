@@ -84,6 +84,15 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
+}, {
+    "proj_id": 10,
+    "title": "Coin Dozer Replica!",
+    "brief_description": "A mini 2D online Coin Dozer made using matter.js and p5.js!",
+    "image_location": "./img/coding/coding_proj10.png",
+    "link": "/Coin-Dozer-Replica",
+    "in_development": 2,
+    "detailed_description": null,
+    "is_mini_project": 1
 }];
 
 var params = new URLSearchParams(window.location.search);
