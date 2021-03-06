@@ -65,7 +65,7 @@ ul a:hover {
     color:white;
 }
 header {
-    padding:240px 0 180px 0;
+    padding:240px 0 240px 0;
     text-align:center;
     background:rgb(175, 215, 247);
     z-index:1;
@@ -293,4 +293,13 @@ div.codingDivContent h2 {
 iframe {
     border:5px solid #264a74;
     border-radius:10px;
+}
+img#avatar_hi {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    max-width:256px;
+    width:100%;
+    transform:translate(-50%,0);
+    position:absolute;
 }
