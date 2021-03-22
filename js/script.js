@@ -141,3 +141,26 @@ function getMcBlocks() {
         });
     });
 }
+
+// Toggling the avatar window
+
+$("#avatar_hi").click(function(){
+    // $(".overlay,#avatarWindow").css("display","block");
+    $(".overlay,#avatarWindow").css({display:"block"});
+    $(".overlay,#avatarWindow").animate({opacity:1});
+});
+$("#closeAvatarBtn").click(function(){
+    // $(".overlay,#avatarWindow").css("display","none");
+    $(".overlay,#avatarWindow").animate({opacity:0},function(){
+        $(".overlay,#avatarWindow").css({display:"none"});
+    });
+})
+$("img#avatar_hi").mouseover(function(){
+    $("#hintBox").css({display:"block"});
+    $("#hintBox").animate({opacity:1});
+});
+$("img#avatar_hi").mouseout(function(){
+    $("#hintBox").animate({opacity:0},function(){
+        $("#hintBox").css({display:"none"});
+    });
+})
