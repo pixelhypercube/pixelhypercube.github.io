@@ -17,7 +17,7 @@ var projInfo = [{
     "title": "Minecraft Like Replica!",
     "brief_description": "Voxel simulation with player movement!",
     "image_location": "./img/coding/coding_proj2.png",
-    "link": "/Side-Projects/Minecraft-Like-Replica/index.html",
+    "link": "https://pixelhypercube.github.io/Side-Projects/Minecraft-Like-Replica/public/",
     "in_development": 2,
     "detailed_description": "My first time attempting player controls and rendering Minecraft-like blocks in Three.js!",
     "is_mini_project": 1
@@ -26,7 +26,7 @@ var projInfo = [{
     "title": "Video To Text!",
     "brief_description": "Play a video and see the magic from the text below!",
     "image_location": "./img/coding/coding_proj3.png",
-    "link": "/Side-Projects/Video-To-Text",
+    "link": "/Side-Projects/Video-To-Text/public/",
     "in_development": 0,
     "detailed_description": "",
     "is_mini_project": 1
@@ -44,7 +44,7 @@ var projInfo = [{
     "title": "Escape The Bombfield!",
     "brief_description": "Run to the finish cell by escaping the bombfield!",
     "image_location": "./img/coding/coding_proj5.png",
-    "link": "/Side-Projects/Escape-The-Bombfield",
+    "link": "/Side-Projects/Escape-The-Bombfield/public/",
     "in_development": 2,
     "detailed_description": "Use the WASD or arrow keys to let the person escape from the minefield!",
     "is_mini_project": 1
@@ -53,7 +53,7 @@ var projInfo = [{
     "title": "Visual Matrix Operators!",
     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
     "image_location": "./img/coding/coding_proj6.png",
-    "link": "/Side-Projects/Visual-Matrix-Operations",
+    "link": "/Side-Projects/Visual-Matrix-Operators/",
     "in_development": 2,
     "detailed_description": null,
     "is_mini_project": 1
