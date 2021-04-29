@@ -35,7 +35,7 @@ var projInfo = [{
     "title": "2D Spleef!",
     "brief_description": "2D version of Spleef!",
     "image_location": "./img/coding/coding_proj4.png",
-    "link": "https://github.com/pixelhypercube/2d-Spleef",
+    "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/2d-Spleef",
     "in_development": 0,
     "detailed_description": "A two-dimensional spleef game made using Java!",
     "is_mini_project": 1
@@ -53,7 +53,7 @@ var projInfo = [{
     "title": "Visual Matrix Operators!",
     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
     "image_location": "./img/coding/coding_proj6.png",
-    "link": "/Side-Projects/Visual-Matrix-Operations/index.html",
+    "link": "/Side-Projects/Visual-Matrix-Operations",
     "in_development": 2,
     "detailed_description": null,
     "is_mini_project": 1
@@ -62,7 +62,7 @@ var projInfo = [{
     "title": "Console Spaceship Battle!",
     "brief_description": "A spaceship battle game in a console! Made using Python",
     "image_location": "./img/coding/coding_proj7.png",
-    "link": "https://github.com/pixelhypercube/Console-Spaceship-Battle/index.html",
+    "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Console-Spaceship-Battle",
     "in_development": 2,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
     "is_mini_project": 1
@@ -71,7 +71,7 @@ var projInfo = [{
     "title": "PHC Minigolf",
     "brief_description": "A minigolf game made using python (pygame!)",
     "image_location": "./img/coding/coding_proj8.png",
-    "link": "https://github.com/pixelhypercube/PHC-Minigolf/index.html",
+    "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
     "in_development": 3,
     "detailed_description": "",
     "is_mini_project": 0
@@ -91,6 +91,15 @@ var projInfo = [{
     "image_location": "./img/coding/coding_proj10.png",
     "link": "/Side-Projects/Coin-Dozer-Replica/index.html",
     "in_development": 3,
+    "detailed_description": null,
+    "is_mini_project": 1
+}, {
+    "proj_id": 11,
+    "title": "Telegram Tic Tac Toe Bot",
+    "brief_description": "A telegram bot that let's you play tic tac toe!",
+    "image_location": "./img/coding/coding_proj11.png",
+    "link": "https://github.com/pixelhypercube/Telegram-Tic-Tac-Toe",
+    "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
 }];
