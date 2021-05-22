@@ -102,6 +102,15 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
+}, {
+    "proj_id": 12,
+    "title": "Loves Me... ?",
+    "brief_description": "A remake of a minigame from Super Mario 64 DS!",
+    "image_location": "./img/coding/coding_proj12.png",
+    "link": "https://github.com/pixelhypercube/Loves-Me-Replica",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 1
 }];
 
 function getDevelopment(dev) {
