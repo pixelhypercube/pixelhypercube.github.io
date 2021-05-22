@@ -27,7 +27,34 @@ async function elementAppear(elem,delayAmount) {
 }
 textAppear("h2#headerName");
 horiSwivel("h2#headerName");
-elementAppear("div#hobbies");
+// elementAppear("div#hobbies");
+
+function updateScroll() {
+    var elemStrings = ["div#hobbies","div#ageBubble"];
+    for (let i = 0;i<elemStrings.length && $(elemStrings[i]).css("opacity")==0;i++) {
+        var position = $(elemStrings[i]).position();
+        if (window.scrollY>=position.top) {
+            console.log(elemStrings[i]);
+            if ($(elemStrings[i]).css("opacity")==0) {
+                elementAppear(elemStrings[i]);
+                if (elemStrings[i]=="div#ageBubble") {
+                    $("#year").text(calcAge(2002,9,30));
+                    $("#date").text(getDate());
+                    increasingNumber("span#year");
+                }
+            }
+        }
+    }
+}
+
+$(window).scroll(function(event) {
+    updateScroll();
+
+    // console.log($("div#hobbies").position())
+    // if ($("div#hobbies").is(":visible")) {
+    //     elementAppear("div#hobbies");
+    // }
+})
 function calcAge(bYear,bMonth,bDay) {
     var birthTime = new Date("2002-09-30");
     var currentTime = new Date();
@@ -47,11 +74,12 @@ async function increasingNumber(elem,num) {
     }
 }
 $(document).ready(function(){
-    $("#year").text(calcAge(2002,9,30));
-    $("#date").text(getDate());
+    // $("#year").text(calcAge(2002,9,30));
+    // $("#date").text(getDate());
     // randomizeWordToSolve("My Codes","#codes");
-    increasingNumber("span#year");
+    // increasingNumber("span#year");
     getMcBlocks();
+    updateScroll();
 });
 function getDate() {
     var date = new Date();

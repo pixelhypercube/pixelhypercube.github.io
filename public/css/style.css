@@ -14,6 +14,10 @@
     src:url(../fonts/Lato-Regular.ttf);
     font-family:Lato-Regular;
 }
+@font-face {
+    src:url(../fonts/Peepo.otf);
+    font-family:Peepo;
+}
 @media (min-width: 576px) {
     .card-columns {
         column-count: 2;
@@ -153,6 +157,7 @@ a.sectionBtn {
     background:rgb(255, 255, 255);
     padding:10px;
     color:black;
+    text-decoration: none;
 }
 a.sectionBtn.disabled {
     background:rgba(255, 255, 255, 0.5);
@@ -428,6 +433,13 @@ img#avatar_default {
     padding-top:8px;
     display:none;
     opacity: 0;
+}
+
+div#hobbies {
+    opacity:0;
+}
+div#ageBubble {
+    opacity:0;
 }
 /* .tooltip {
     position:relative;
