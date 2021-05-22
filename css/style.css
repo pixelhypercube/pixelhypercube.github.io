@@ -1,14 +1,18 @@
-@font-face {
-    src:url(../fonts/Montserrat-SemiBold.ttf);
-    font-family:Montserrat;
+/* @font-face {
+    src:url(../fonts/Lato-Bold-SemiBold.ttf);
+    font-family:Lato-Bold;
 }
 @font-face {
-    src:url(../fonts/Montserrat-Regular.ttf);
-    font-family:Montserrat-Regular;
+    src:url(../fonts/Lato-Regular.ttf);
+    font-family:Lato-Regular;
+} */
+@font-face {
+    src:url(../fonts/Lato-Bold.ttf);
+    font-family:Lato-Bold;
 }
 @font-face {
-    src:url(../fonts/Peepo.otf);
-    font-family:Peepo;
+    src:url(../fonts/Lato-Regular.ttf);
+    font-family:Lato-Regular;
 }
 @media (min-width: 576px) {
     .card-columns {
@@ -80,9 +84,13 @@
         grid-gap:10px;
     }
 }
+div a {
+    color:black;
+    text-decoration: underline;
+}
 body {
     background:#c0e6ff;
-    font-family:Montserrat;
+    font-family:Lato-Bold;
     overflow-x:hidden;
 }
 ul.nav {
@@ -134,7 +142,7 @@ footer {
 }
 p {
     font-size:20px;
-    font-family:Montserrat-Regular;
+    font-family:Lato-Regular;
 }
 div.interestCell {
     background: #264a74;
@@ -209,7 +217,7 @@ div.card li {
     background:rgba(29, 67, 138, 0);
     color:rgb(0, 0, 0);
     border:none;
-    font-family:Montserrat-Regular;
+    font-family:Lato-Regular;
 }
 .list-group-item:not(:last-child) {
     border-bottom:1px solid rgba(0,0,0,0.2);
