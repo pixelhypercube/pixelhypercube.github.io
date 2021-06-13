@@ -352,9 +352,9 @@ img#avatar_default {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     max-width:256px;
-    min-width:128px;
+    min-width:256px;
     /* width:196px; */
-    transform:translate(-10%,0%);
+    /* transform:translate(-10%,0%); */
     /* width:100%; */
     /* position:absolute; */
 }
