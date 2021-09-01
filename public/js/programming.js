@@ -107,7 +107,7 @@ var projInfo = [{
     "title": "Loves Me... ?",
     "brief_description": "A remake of a minigame from Super Mario 64 DS!",
     "image_location": "./img/coding/coding_proj12.png",
-    "link": "/Side-Projects/Loves-Me-Replica",
+    "link": "/Loves-Me-Replica",
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
