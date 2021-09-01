@@ -99,7 +99,7 @@ var projInfo = [{
     "brief_description": "A telegram bot that let's you play tic tac toe!",
     "image_location": "./img/coding/coding_proj11.png",
     "link": "https://github.com/pixelhypercube/Telegram-Tic-Tac-Toe",
-    "in_development": 0,
+    "in_development": 1,
     "detailed_description": null,
     "is_mini_project": 1
 }, {
@@ -107,7 +107,7 @@ var projInfo = [{
     "title": "Loves Me... ?",
     "brief_description": "A remake of a minigame from Super Mario 64 DS!",
     "image_location": "./img/coding/coding_proj12.png",
-    "link": "https://github.com/pixelhypercube/Loves-Me-Replica",
+    "link": "/Side-Projects/Loves-Me-Replica",
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
@@ -134,6 +134,48 @@ function isMiniProj(state) {
     }
 }
 
+$(window).on(function(event) {
+    updateScroll();
+})
+
+$(window).scroll(function(event) {
+    updateScroll(); 
+});
+// window.addEventListener("scroll",function(){
+//     updateScroll();
+// })
+
+async function elementAppear(elem,delayAmount) {
+    $(elem).each(function(i,e){
+        $(this).css({"opacity":0});
+    });
+    $(elem).each(function(i,e){
+        // await delay(delayAmount);
+        $(this).animate({"opacity":1},delayAmount);
+    });
+}
+
+function updateScroll() {
+    // var elemStrings = ["div#hobbies","div#ageBubble"];
+    var elemStrings = $("#coding_projects .card");
+    for (let i = 0;i<elemStrings.length;i++) {
+        var position = $(elemStrings[i]).position();
+        // console.log($(elemStrings[i]).height());
+        // console.log(window.scrollY,position.top-$(elemStrings[i]).height());
+        if (window.scrollY>=position.top-$(elemStrings[i]).height()) {
+            // console.log(elemStrings[i]);
+            if ($(elemStrings[i]).css("opacity")==0) {
+                elementAppear(elemStrings[i],1000);
+                // if (elemStrings[i]=="div#ageBubble") {
+                //     $("#year").text(calcAge(2002,9,30));
+                //     $("#date").text(getDate());
+                //     increasingNumber("span#year");
+                // }
+            }
+        }
+    }
+}
+
 
 function genCodingProjects() {
     $("#loadingOverlay").remove();
@@ -142,15 +184,14 @@ function genCodingProjects() {
                 <div class="card m-3">
                             <div class="card-header">
                                 <h6>${isMiniProj(projInfo[i].is_mini_project)}</h6>
-                                <h3>${projInfo[i].title}</h3>
+                                <h3>${projInfo[i].title} <span style="font-size:22px;">${getDevelopment(projInfo[i].in_development)}</span></h3>
                             </div>
                             <div class="card-body">
                                 <img style="width:100%;" class="coding-logo" src="${projInfo[i].image_location}" alt="proj${projInfo[i].image_location}" >
                                 <hr>
                                 <div class="container">
-                                    <p>${getDevelopment(projInfo[i].in_development)}</p>
                                     <p>${projInfo[i].brief_description}</p>
-                                    <a class="btn m-1" style="background-color: #183250;color:white;border-radius:0" class="sectionBtn" href="${projInfo[i].link}">Go to project!</a>
+                                    <a class="side-proj-btn btn m-1" style="color:white;border-radius:0" class="sectionBtn" href="${projInfo[i].link}">Go to project!</a>
                                 </div>
                             </div>
                         </div>
@@ -158,10 +199,11 @@ function genCodingProjects() {
         $("#coding_projects").append(insertHTML);
         $("div.card-body").each(function (i) {
             $(this).css({
-                "background": `rgb(130, ${185+Math.floor(Math.random()*5)}, ${240+Math.floor(Math.random()*20)})`
+                "background": `#555555`
             })
         });
     }
+    updateScroll();
 }
 $(document).ready(function () {
     genCodingProjects();
