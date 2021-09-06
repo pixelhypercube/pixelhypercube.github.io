@@ -1,83 +1,107 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172669196-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<html lang="en">
 
-            gtag('config', 'UA-172669196-1');
-        </script>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172669196-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/bootstrap.min.css"></script>
-        <script src="./js/client.min.js"></script>
-        <script src="./js/p5.min.js"></script>
-        <script src="./js/Circle.js" defer></script>
-        <script src="./js/mainCanvas.js" defer></script>
-        <script src="./js/headerCanvas.js" defer></script>
-        <link href="./css/style.css" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kai Jie</title>
-    </head>
-    <body>
-        <header style="padding:10% 0px 0% 0px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img id="avatar_hi" src="./img/avatar_default.png"/>
-                    </div>
-                    <div class="col-md-9 m-auto">
-                        <nav class="">
-                            <ul style="padding: 0;" class="nav">
-                                <li>
-                                    <a class="header-nav" href="./index.html">Home</a>
-                                </li>
-                                <li>
-                                    <a class="header-nav" href="./side_projects.html">Side Projects</a>
-                                </li>
-                                <li>
-                                    <a class="header-nav" href="#" aria-disabled="true">100 Facts About Me (Coming Soon!)</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <h3>Hi there! I'm</h3>
-                        <h1>Teo Kai Jie <span style="font-size:16px">(he/him)</span></h1>
-                        <h6>19 y.o. Final Year Student of Singapore Polytechnic</h6>
-                        <h6>Diploma in Information Technology</h6>
-                    </div>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172669196-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    </script>
+    <script src="./js/client.min.js"></script>
+    <script src="./js/p5.min.js"></script>
+    <script src="./js/Circle.js" defer></script>
+    <script src="./js/mainCanvas.js" defer></script>
+    <script src="./js/headerCanvas.js" defer></script>
+    <script src="./js/projectList.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kai Jie</title>
+</head>
+
+<body>
+    <header style="padding:10% 0px 0% 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img id="avatar_hi" src="./img/avatar_default.png" />
+                </div>
+                <div class="col-md-9 m-auto">
+                    <nav class="">
+                        <ul style="padding: 0;" class="nav">
+                            <li>
+                                <a class="header-nav" href="./index.html">Home</a>
+                            </li>
+                            <li>
+                                <a class="header-nav" href="./side_projects.html">Side Projects</a>
+                            </li>
+                            <li>
+                                <a class="header-nav" href="#" aria-disabled="true">100 Facts About Me (Coming
+                                    Soon!)</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <h3>Hi there! I'm</h3>
+                    <h1>Teo Kai Jie <span style="font-size:16px">(he/him)</span></h1>
+                    <h6>19 y.o. Final Year Student of Singapore Polytechnic</h6>
+                    <h6>Diploma in Information Technology</h6>
                 </div>
             </div>
-        </header>
-        <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
-        <main>
-            <div class="container">
-                <img style="filter:invert();width:150px;margin:0 auto;display:block" src="./img/coding_icon.png"/>
-                <p>How's life going! I'm Kai Jie (or KJ for short), and I like developing and using software programs! Ever since I was a kid, I've been fascinated with computers, where I would spend countless hours on them daily. Thanks to games like Minecraft and animation programs like Cinema 4D, my passion has successfully stepped into the enormous realm of IT!</p>
-                <p style="display:none;">I also like to experiment with other software programs, such as emulators, game modding programs, etc. Not only that, but I also like to work on my side projects during my free time!</p>
-                <p>Outside of the IT realm, I'm an avid runner, and it helps me control my mental health and be fitter! I also like to play Minecraft, where I usually build my worlds and play on popular servers like Hypixel! Apart from that, I like to read Wikipedia articles, learn Japanese and exploring different places in Singapore (due to COVID)!</p>
+        </div>
+    </header>
+    <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
+    <main>
+        <div class="container">
+            <img style="filter:invert();width:150px;margin:0 auto;display:block" src="./img/coding_icon.png" />
+            <p>How's life going! I'm Kai Jie (or KJ for short), and I like developing and using software programs! Ever
+                since I was a kid, I've been fascinated with computers, where I would spend countless hours on them
+                daily. Thanks to games like Minecraft and animation programs like Cinema 4D, my passion has successfully
+                stepped into the enormous realm of IT!</p>
+            <p style="display:none;">I also like to experiment with other software programs, such as emulators, game
+                modding programs, etc. Not only that, but I also like to work on my side projects during my free time!
+            </p>
+            <p>Outside of the IT realm, I'm an avid runner, and it helps me control my mental health and be fitter! I
+                also like to play Minecraft, where I usually build my worlds and play on popular servers like Hypixel!
+                Apart from that, I like to read Wikipedia articles, learn Japanese and exploring different places in
+                Singapore (due to COVID)!</p>
+            <h3>My Side Projects </h3>
+            <div id="coding_projects" class="card-columns">
             </div>
-        </main>
-        <footer>
-            <div class="container">
-                <h4>Links</h4>
-                <a style="font-size:32px;color:white;" href="https://github.com/pixelhypercube">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a style="font-size:32px;color:white;" href="https://www.linkedin.com/in/kai-jie-teo/">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a style="font-size:32px;color:white;" href="https://www.instagram.com/kjteo0/">
-                    <i class="fa fa-instagram"></i>
-                </a>
-            </div>
-        </footer>
-    </body>
+            <button id="view_more">
+                <a href="side_projects.html">Click to view more!</a>
+            </button>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <h4>Links</h4>
+            <a style="font-size:32px;color:white;" href="https://github.com/pixelhypercube">
+                <i class="fa fa-github"></i>
+            </a>
+            <a style="font-size:32px;color:white;" href="https://www.linkedin.com/in/kai-jie-teo/">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a style="font-size:32px;color:white;" href="https://www.instagram.com/kjteo0/">
+                <i class="fa fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
 </html>
