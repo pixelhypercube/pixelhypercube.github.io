@@ -9,13 +9,13 @@ class Circle {
         this.highlighted = false;
         this.factList = [
             {
-                "title": "I think I'm more of a cat person 🐱 because I like the sound of cats meowing! However, I'm allergic to cat fur 😥",
-                "description":"",
+                "title": "I think I'm more of a cat person 🐱!",
+                "description":"I like the sound of cats meowing! However, I'm allergic to cat fur 😥",
                 "icon":"🐱"
             },
             {
-                "title": "My eyes turn brown under sunlight, but are completely dark otherwise",
-                "description":"",
+                "title": "My eyes turn brown under sunlight",
+                "description":"However, they are completely dark otherwise",
                 "icon":"👁"
             },
             {
@@ -25,7 +25,7 @@ class Circle {
             },
             {
                 "title": "My Chinese name is 张凯杰",
-                "description":"",
+                "description":"Hanyu Pinyin: zhāng kǎi jié",
                 "icon":"中"
             },
             {
@@ -35,7 +35,7 @@ class Circle {
             },
             {
                 "title": "I'm a very clumsy person",
-                "description":"",
+                "description":"I tend to trip over somethings sometimes and I even got some bruises before!",
                 "icon":""
             },
             {
@@ -45,27 +45,27 @@ class Circle {
             },
             {
                 "title": "I'm addicted to Nintendo music (I listen to their soundtracks everyday!)",
-                "description":"",
+                "description":"I was listening to some Nintendo lofi music when I was searching on Youtube and I'm listening to many of their original soundtracks, such as those from Mario and Zelda!",
                 "icon":""
             },
             {
                 "title": "Minecraft was my all time favorite game since 2012! Coming to 9 years since I started playing!",
-                "description":"",
+                "description":"It is one of the games that influenced me to learn more about computing!",
                 "icon":""
             },
             {
                 "title": "I'm geeky in a way that I read Wikia articles about Nintendo games",
-                "description":"",
+                "description":"I surf on on Wikia articles sometimes about Nintendo games!",
                 "icon":"🤓"
             },
             {
                 "title": "I've ran overseas in the UK, Vietnam and New Zealand!",
-                "description":"",
+                "description":"I wanted to discover new places when I'm travelling overseas, but because of COVID, I'm still constrained to running to different places in SG!",
                 "icon":"🏃‍♂️"
             },
             {
                 "title": "The constant π (pi) is one of my favorite constants!",
-                "description":"",
+                "description":"I even stop at π miles (literally 3.14 miles) during my runs!",
                 "icon":"π"
             },
             {
@@ -74,13 +74,13 @@ class Circle {
                 "icon":""
             },
             {
-                "title": "I have phobias related to dealing with rubber materials, for instance I'm afraid of unwrapping rubber bands and tieing balloons",
-                "description":"",
+                "title": "I'm afraid to deal with rubber bands and balloons!",
+                "description":"For instance I'm afraid of unwrapping rubber bands and tieing balloons",
                 "icon":"🎈"
             },
             {
                 "title": "I want to add 'Kendric' to my name in the future!",
-                "description":"",
+                "description":"So that people can remember me better! Planning to change it after I graduate from Polytechnic!",
                 "icon":""
             },
             {
@@ -90,12 +90,12 @@ class Circle {
             },
             {
                 "title": "I don't drink coffee - because I can't sleep at night!",
-                "description":"",
+                "description":"I had trouble sleeping after I drank coffee late in the afternoon!",
                 "icon":"☕"
             },
             {
                 "title": "I go to bed at around 10-11pm and wake up at around 7-8 am (7-8 hrs of sleep)",
-                "description":"",
+                "description":"It may change during different circusmstances, but this is my default bedtime routine!",
                 "icon":"🛌"
             },
             {
@@ -105,17 +105,17 @@ class Circle {
             },
             {
                 "title": "I used to be a picky eater when I was young",
-                "description":"",
+                "description":"I was restricted to only liking French fries and Chicken Mcnuggets as a kid, but I've improved a big deal now!",
                 "icon":"🍴"
             },
             {
                 "title": "I'm a 'carnivore' - I eat quite a lot of meat!",
-                "description":"",
+                "description":"I just like the flavor and texture of meat, but I also strive to eat as many veggies as I can!",
                 "icon":"🥩"
             },
             {
                 "title": "I like cooking fried rice during my free time!",
-                "description":"",
+                "description":"With a hint of MSG! Fuiyoh!",
                 "icon":"🍚"
             },
             {
@@ -125,22 +125,22 @@ class Circle {
             },
             {
                 "title": "I don't drink gassy drinks like Coke often",
-                "description":"",
+                "description":"I'm sensitive to the texture of carbonate!",
                 "icon":"🥤"
             },
             {
-                "title": "Apart from learning Japanese, I also attempted learning and experimenting other languages like Korean and other European languages",
-                "description":"",
+                "title": "Apart from learning Japanese, I attempted learning and experimenting other languages!",
+                "description":"I've experimented with Korean and a variety of European languages including Frendh and Spanish, but I decided to narrow it down to Japanese because it suits me better!",
                 "icon":"🌐"
             },
             {
                 "title": "New Zealand is one of my favorite countries to travel to!",
-                "description":"",
+                "description":"I just love the scenery there! It's just breathtaking!",
                 "icon":"🇳🇿"
             },
             {
                 "title": "I don't consume alcohol at the moment",
-                "description":"",
+                "description":"I'm not that interested in consuming it at the moment, but maybe one day I may change!",
                 "icon":"🍺"
             },
             {
@@ -150,22 +150,22 @@ class Circle {
             },
             {
                 "title": "I also like to play the electric bass sometimes!",
-                "description":"",
+                "description":"I decided to give an electric bass a go due to my inspiration of Davie504's videos!",
                 "icon":"🎸"
             },
             {
                 "title": "My ideal outdoor weather is temperate!",
-                "description":"",
+                "description":"Singapore's weather is just too hot for my liking!!!",
                 "icon":"🌡️"
             },
             {
                 "title": "I used to be addicted to speedcubing!",
-                "description":"",
+                "description":"I used to practice speedcubing almost everyday during my teenage years! However, the interest died down after that.",
                 "icon":""
             },
             {
                 "title": "Japanese and Western cuisines are my two favorites!",
-                "description":"",
+                "description":"When I was young, my parents brought me to eat at a variety of Western and Japanese food outlets!",
                 "icon":"🍔"
             },
             {
@@ -180,7 +180,7 @@ class Circle {
             },
             {
                 "title": "I've never smoked a single cigarette in my life!",
-                "description":"",
+                "description":"I don't promote smoking - it's bad for your health! I'm just not interested in it at all!",
                 "icon":"🚭"
             }
         ];
