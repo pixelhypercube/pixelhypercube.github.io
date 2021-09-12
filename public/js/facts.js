@@ -219,13 +219,7 @@ function mouseMoved() {
     }
 }
 
-$(document).ready(function(){
-    $("#fact_overlay,#fact_back_btn").click(function(){
-        $("#fact_overlay").animate({"opacity":0},250,function(){
-            $("#fact_overlay").css({"display":"none"});
-            factWindowVisible=false;
-        });
-    });
+function getAcceleration() {
     DeviceMotionEvent.requestPermission()
     .then((res)=>{
         if (res=='granted') {
@@ -236,4 +230,14 @@ $(document).ready(function(){
             }, true);
         }
     });
+}
+
+$(document).ready(function(){
+    $("#fact_overlay,#fact_back_btn").click(function(){
+        $("#fact_overlay").animate({"opacity":0},250,function(){
+            $("#fact_overlay").css({"display":"none"});
+            factWindowVisible=false;
+        });
+    });
+    getAcceleration();
 })
