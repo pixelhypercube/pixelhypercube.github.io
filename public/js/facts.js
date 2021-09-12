@@ -227,13 +227,13 @@ $(document).ready(function(){
         });
     });
     DeviceMotionEvent.requestPermission()
-.then((res)=>{
-    if (res=='granted') {
-        window.addEventListener("deviceorientation", function () {
-            // tilt([event.beta, event.gamma]);
-            engine.world.gravity.x = event.gamma/100;
-            engine.world.gravity.y = event.beta/100;
-        }, true);
-    }
-});
+    .then((res)=>{
+        if (res=='granted') {
+            window.addEventListener("deviceorientation", function () {
+                // tilt([event.beta, event.gamma]);
+                engine.world.gravity.x = event.gamma/100;
+                engine.world.gravity.y = event.beta/100;
+            }, true);
+        }
+    });
 })
