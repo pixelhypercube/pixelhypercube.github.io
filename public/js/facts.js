@@ -42,7 +42,7 @@ function setup() {
     canvas.parent("#canvas");
     engine = Engine.create();
     world = engine.world;
-    // engine.world.gravity.y = 0.5;
+    engine.world.gravity.y = 0.5;
     let mouse = Matter.Mouse.create(canvas.elt);
     mouse.pixelRatio = pixelDensity();
     let options = {
@@ -183,18 +183,26 @@ function mousePressed() {
     }
 }
 if (window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", function () {
-        // tilt([event.beta, event.gamma]);
-        engine.world.gravity.x = event.gamma/100;
-        engine.world.gravity.y = event.beta/100;
-    }, true);
-} else if (window.DeviceMotionEvent) {
-    window.addEventListener('devicemotion', function () {
-        for (let circle of circles) {
-            Body.setVelocity(circle.body,{x:event.acceleration.x,y:event.acceleration.y});
+    DeviceMotionEvent.requestPermission()
+    .then((res)=>{
+        if (res=='granted') {
+            window.addEventListener("deviceorientation", function () {
+                // tilt([event.beta, event.gamma]);
+                engine.world.gravity.x = event.gamma/100;
+                engine.world.gravity.y = event.beta/100;
+            }, true);
         }
-        // tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
-    }, true);
+    });
+} else if (window.DeviceMotionEvent) {
+    DeviceMotionEvent.requestPermission()
+    .then((res)=>{
+        window.addEventListener('devicemotion', function () {
+            for (let circle of circles) {
+                Body.setVelocity(circle.body,{x:event.acceleration.x,y:event.acceleration.y});
+            }
+            // tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+        }, true);
+    })
 }
 
 function mouseMoved() {
