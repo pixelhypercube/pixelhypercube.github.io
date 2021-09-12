@@ -182,16 +182,7 @@ function mousePressed() {
         }
     }
 }
-DeviceMotionEvent.requestPermission()
-.then((res)=>{
-    if (res=='granted') {
-        window.addEventListener("deviceorientation", function () {
-            // tilt([event.beta, event.gamma]);
-            engine.world.gravity.x = event.gamma/100;
-            engine.world.gravity.y = event.beta/100;
-        }, true);
-    }
-});
+
 // if (window.DeviceOrientationEvent) {
 //     DeviceMotionEvent.requestPermission()
 //     .then((res)=>{
@@ -235,4 +226,14 @@ $(document).ready(function(){
             factWindowVisible=false;
         });
     });
+    DeviceMotionEvent.requestPermission()
+.then((res)=>{
+    if (res=='granted') {
+        window.addEventListener("deviceorientation", function () {
+            // tilt([event.beta, event.gamma]);
+            engine.world.gravity.x = event.gamma/100;
+            engine.world.gravity.y = event.beta/100;
+        }, true);
+    }
+});
 })
