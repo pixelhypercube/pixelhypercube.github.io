@@ -182,28 +182,38 @@ function mousePressed() {
         }
     }
 }
-if (window.DeviceOrientationEvent) {
-    DeviceMotionEvent.requestPermission()
-    .then((res)=>{
-        if (res=='granted') {
-            window.addEventListener("deviceorientation", function () {
-                // tilt([event.beta, event.gamma]);
-                engine.world.gravity.x = event.gamma/100;
-                engine.world.gravity.y = event.beta/100;
-            }, true);
-        }
-    });
-} else if (window.DeviceMotionEvent) {
-    DeviceMotionEvent.requestPermission()
-    .then((res)=>{
-        window.addEventListener('devicemotion', function () {
-            for (let circle of circles) {
-                Body.setVelocity(circle.body,{x:event.acceleration.x,y:event.acceleration.y});
-            }
-            // tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+DeviceMotionEvent.requestPermission()
+.then((res)=>{
+    if (res=='granted') {
+        window.addEventListener("deviceorientation", function () {
+            // tilt([event.beta, event.gamma]);
+            engine.world.gravity.x = event.gamma/100;
+            engine.world.gravity.y = event.beta/100;
         }, true);
-    })
-}
+    }
+});
+// if (window.DeviceOrientationEvent) {
+//     DeviceMotionEvent.requestPermission()
+//     .then((res)=>{
+//         if (res=='granted') {
+//             window.addEventListener("deviceorientation", function () {
+//                 // tilt([event.beta, event.gamma]);
+//                 engine.world.gravity.x = event.gamma/100;
+//                 engine.world.gravity.y = event.beta/100;
+//             }, true);
+//         }
+//     });
+// } else if (window.DeviceMotionEvent) {
+//     DeviceMotionEvent.requestPermission()
+//     .then((res)=>{
+//         window.addEventListener('devicemotion', function () {
+//             for (let circle of circles) {
+//                 Body.setVelocity(circle.body,{x:event.acceleration.x,y:event.acceleration.y});
+//             }
+//             // tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+//         }, true);
+//     })
+// }
 
 function mouseMoved() {
     if (!factWindowVisible) {
