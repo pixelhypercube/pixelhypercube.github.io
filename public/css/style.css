@@ -186,7 +186,7 @@ div#fact_overlay {
 
 div#fact_window {
     background:rgb(54, 54, 54);
-    width:50%;
+    width:90%;
     max-width:600px;
     /* height:50%; */
     padding:30px;
