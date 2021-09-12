@@ -99,7 +99,7 @@ footer {
 
 /* View more btn and side proj btn */
 
-button#view_more,button.side_proj {
+button {
     display:block;
     background:white;
     color:black;
@@ -109,15 +109,16 @@ button#view_more,button.side_proj {
     transition: 0.1s;
     border: none;
     border-radius: 100px;
-    width:200px;
+    width:100%;
+    max-width:200px;
 }
-button#view_more > a,button.side_proj > a {
+button > a {
     color:black;
     text-decoration: none;
     font-family:Heebo-Medium;
 }
 
-button#view_more:hover,button.side_proj:hover {
+/* button:hover {
     display:block;
     background:rgb(160, 160, 160);
     color:black;
@@ -127,8 +128,9 @@ button#view_more:hover,button.side_proj:hover {
     transition: 0.1s;
     border: none;
     border-radius: 100px;
-    width:200px;
-}
+    width:100%;
+    max-width:200px;
+} */
 
 /* Side Project Image Overlay */
 
@@ -155,4 +157,41 @@ button#view_more:hover,button.side_proj:hover {
 
 .side_project_img:hover .overlay {
     opacity: 1;
+}
+
+/* p5.js Canvas */
+
+canvas#defaultCanvas0 {
+    width:100%;
+    max-width:600px;
+    height:100%;
+    display:block;
+    margin:auto;
+}
+
+/* Fact Overlay */
+
+div#fact_overlay {
+    position:fixed;
+    display:flex;
+    background:rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    margin:auto;
+    display:none;
+    opacity: 0;
+}
+
+div#fact_window {
+    background:rgb(54, 54, 54);
+    width:50%;
+    max-width:600px;
+    /* height:50%; */
+    padding:30px;
+    margin:auto;
+    justify-content: center;
+    text-align:center;
+    border-radius: 10px;
 }
