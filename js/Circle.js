@@ -11,177 +11,212 @@ class Circle {
             {
                 "title": "I think I'm more of a cat person 🐱!",
                 "description":"I like the sound of cats meowing! However, I'm allergic to cat fur 😥",
-                "icon":"🐱"
+                "icon":"🐱",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "My eyes turn brown under sunlight",
                 "description":"However, they are completely dark otherwise",
-                "icon":"👁"
+                "icon":"👁",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm a cishet (cisgender & straight) guy",
                 "description":"",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "My Chinese name is 张凯杰",
                 "description":"Hanyu Pinyin: zhāng kǎi jié",
-                "icon":"中"
+                "icon":"中",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm 176cm (5' 9.3\") tall",
                 "description":"",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm a very clumsy person",
-                "description":"I tend to trip over somethings sometimes and I even got some bruises before!",
-                "icon":""
+                "description":"I tend to trip over things sometimes and I even got some bruises before!",
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Maths is one of my favorite subjects in school",
                 "description":"",
-                "icon":"🔢"
+                "icon":"🔢",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm addicted to Nintendo music (I listen to their soundtracks everyday!)",
                 "description":"I was listening to some Nintendo lofi music when I was searching on Youtube and I'm listening to many of their original soundtracks, such as those from Mario and Zelda!",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Minecraft was my all time favorite game since 2012! Coming to 9 years since I started playing!",
                 "description":"It is one of the games that influenced me to learn more about computing!",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm geeky in a way that I read Wikia articles about Nintendo games",
                 "description":"I surf on on Wikia articles sometimes about Nintendo games!",
-                "icon":"🤓"
+                "icon":"🤓",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I've ran overseas in the UK, Vietnam and New Zealand!",
                 "description":"I wanted to discover new places when I'm travelling overseas, but because of COVID, I'm still constrained to running to different places in SG!",
-                "icon":"🏃‍♂️"
+                "icon":"🏃‍♂️",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "The constant π (pi) is one of my favorite constants!",
                 "description":"I even stop at π miles (literally 3.14 miles) during my runs!",
-                "icon":"π"
+                "icon":"π",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I dislike the sound of styrofoam",
                 "description":"",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm afraid to deal with rubber bands and balloons!",
                 "description":"For instance I'm afraid of unwrapping rubber bands and tieing balloons",
-                "icon":"🎈"
+                "icon":"🎈",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I want to add 'Kendric' to my name in the future!",
                 "description":"So that people can remember me better! Planning to change it after I graduate from Polytechnic!",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Blue is my favorite color and green is my second favorite",
                 "description":"",
-                "icon":"🔵"
+                "icon":"🔵",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I don't drink coffee - because I can't sleep at night!",
                 "description":"I had trouble sleeping after I drank coffee late in the afternoon!",
-                "icon":"☕"
+                "icon":"☕",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I go to bed at around 10-11pm and wake up at around 7-8 am (7-8 hrs of sleep)",
                 "description":"It may change during different circusmstances, but this is my default bedtime routine!",
-                "icon":"🛌"
+                "icon":"🛌",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I used to dislike reading stuff because I couldn't picture",
                 "description":"",
-                "icon":"📖"
+                "icon":"📖",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I used to be a picky eater when I was young",
                 "description":"I was restricted to only liking French fries and Chicken Mcnuggets as a kid, but I've improved a big deal now!",
-                "icon":"🍴"
+                "icon":"🍴",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm a 'carnivore' - I eat quite a lot of meat!",
                 "description":"I just like the flavor and texture of meat, but I also strive to eat as many veggies as I can!",
-                "icon":"🥩"
+                "icon":"🥩",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I like cooking fried rice during my free time!",
                 "description":"With a hint of MSG! Fuiyoh!",
-                "icon":"🍚"
+                "icon":"🍚",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm generally not a sporty person",
                 "description":"",
-                "icon":"🤾‍♂️"
+                "icon":"🤾‍♂️",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I don't drink gassy drinks like Coke often",
                 "description":"I'm sensitive to the texture of carbonate!",
-                "icon":"🥤"
+                "icon":"🥤",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Apart from learning Japanese, I attempted learning and experimenting other languages!",
                 "description":"I've experimented with Korean and a variety of European languages including Frendh and Spanish, but I decided to narrow it down to Japanese because it suits me better!",
-                "icon":"🌐"
+                "icon":"🌐",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "New Zealand is one of my favorite countries to travel to!",
                 "description":"I just love the scenery there! It's just breathtaking!",
-                "icon":"🇳🇿"
+                "icon":"🇳🇿",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I don't consume alcohol at the moment",
                 "description":"I'm not that interested in consuming it at the moment, but maybe one day I may change!",
-                "icon":"🍺"
+                "icon":"🍺",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Making videos is also one of my hobbies!",
                 "description":"",
-                "icon":"📽"
+                "icon":"📽",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I also like to play the electric bass sometimes!",
                 "description":"I decided to give an electric bass a go due to my inspiration of Davie504's videos!",
-                "icon":"🎸"
+                "icon":"🎸",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "My ideal outdoor weather is temperate!",
                 "description":"Singapore's weather is just too hot for my liking!!!",
-                "icon":"🌡️"
+                "icon":"🌡️",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I used to be addicted to speedcubing!",
                 "description":"I used to practice speedcubing almost everyday during my teenage years! However, the interest died down after that.",
-                "icon":""
+                "icon":"",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Japanese and Western cuisines are my two favorites!",
                 "description":"When I was young, my parents brought me to eat at a variety of Western and Japanese food outlets!",
-                "icon":"🍔"
+                "icon":"🍔",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I don't believe in ghosts",
+                "title": "I'm not religious at the moment",
                 "description":"",
-                "icon":"👻"
+                "icon":"👻",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "Dishonesty is one of my biggest pet peeves",
+                "title": "I'm horrible at dancing!",
                 "description":"",
-                "icon":"🤥"
+                "icon":"🤥",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I've never smoked a single cigarette in my life!",
                 "description":"I don't promote smoking - it's bad for your health! I'm just not interested in it at all!",
-                "icon":"🚭"
+                "icon":"🚭",
+                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             }
         ];
         let options = {
@@ -225,9 +260,10 @@ class Circle {
             push();
             translate(pos.x,pos.y);
             rotate(angle);
-            textSize(32);
-            textAlign(CENTER,CENTER);
-            text(this.factList[this.circleValue-1]["icon"],0,0);
+            image(this.factList[this.circleValue-1]["image"],-this.r,-this.r,this.r*1.8,this.r*1.8);
+            // textSize(32);
+            // textAlign(CENTER,CENTER);
+            // text(this.factList[this.circleValue-1]["icon"],0,0);
             pop();
         } else {
             push();
