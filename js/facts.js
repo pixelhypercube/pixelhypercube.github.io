@@ -95,7 +95,7 @@ async function genCircles() {
     for (let i = 0;i<7;i++) {
         for (let j = 0;j<5;j++,count++) {
             // circles.push(new Circle(j*56+200,i*56+50,28,true,count));
-            circles.push(new Circle(j*56+200,50,28,true,count));
+            circles.push(new Circle(j*80+100,50,40,true,'hsl('+count*10+',100%,90%)',count));
             await delay(50);
         }
     }
