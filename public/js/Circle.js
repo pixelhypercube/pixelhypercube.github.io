@@ -34,26 +34,26 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I'm 176cm (5' 9.3\") tall",
+                "title": "I'm 175cm (5' 9\") tall",
                 "description":"Another special thing was that I was considered to be very tall in Primary 6 (11-12 years old) where I was around 170cm (~ 5' 7\")! It's probably because my puberty started early. Although I feel a bit sad that I didn't grow more, I'm learning to embrace it!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm a very clumsy person",
-                "description":"I tend to trip over things once in a while, and I even got some bruises before!",
+                "description":"I tend to trip over things once in a while, and I even got a few bruises before!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "Maths is one of my favorite subjects in school",
-                "description":"Don't mean to boast here, but it started when I topped my class in maths several times!",
+                "description":"I don't mean to boast, but it started when I topped my class in maths several times!",
                 "icon":"🔢",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I refuse to admit that I'm addicted to Nintendo game music!",
-                "description":"I was listening to some Nintendo lofi music on Youtube and I'm listening to many of their original soundtracks, including those from Mario and The Legend of Zelda!",
+                "title": "I'm addicted to Nintendo game music at the moment!",
+                "description":"It began when Nintendo lofi music popped up on my search feed on Youtube and from there on, I've been listening to many of their original soundtracks, including those from Mario and The Legend of Zelda!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -65,13 +65,13 @@ class Circle {
             },
             {
                 "title": "I can become geeky sometimes!",
-                "description":"For instance, I read Wikia articles that are related to what I feel like reading, such as Nintendo games!",
+                "description":"For instance, I read Wikia articles that are related to what I feel like reading, such as the in-depth analysis of Nintendo games and video game characters!",
                 "icon":"🤓",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'd ran overseas in the UK, Vietnam and New Zealand!",
-                "description":"I wanted to discover new places when I'm travelling overseas, but because of COVID, I'm still constrained to running to different places in SG. I'm doing fine right now as I'm used to the limitations of not travelling!",
+                "description":"I wanted to discover new places when I'm travelling overseas, but because of COVID, I'm still constrained to running to different places in SG. I'm doing fine right now as I'm used to the limitations of not travelling! Singapore has plenty of places to discover and run!",
                 "icon":"🏃‍♂️",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -88,7 +88,7 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I'm get scared when I use rubber bands and tieing balloons!",
+                "title": "I get scared when I use rubber bands and tieing balloons!",
                 "description":"Because I'm afraid that the rubber band may snap at me, as well as hearing the balloon pop unexpectedly!",
                 "icon":"🎈",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
@@ -125,13 +125,13 @@ class Circle {
             },
             {
                 "title": "I used to be a picky eater when I was young",
-                "description":"I was restricted to only liking French fries and Chicken Mcnuggets as a kid, but I've improved a big deal now because my parents have been wanting me to try new food!",
+                "description":"I was restricted to only liking French fries and Chicken Nuggets as a kid, but I've improved a big deal now because my parents have been wanting me to try new food!",
                 "icon":"🍴",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
                 "title": "I'm a more carnivorous than herbivorous",
-                "description":"I just like the flavor and texture of meat, but I also strive to eat as many veggies as I can!",
+                "description":"I just like the flavor and texture of meat, but I also strive to eat as many veggies on the plate as I can!",
                 "icon":"🥩",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -143,7 +143,7 @@ class Circle {
             },
             {
                 "title": "I don't come from a sporty background",
-                "description":"However, I've participated in a few sports day competitions, such as table tennis and track and field!",
+                "description":"I've never really represented my school in sports competitions. However, I've participated in a few sports day competitions, such as table tennis and track and field!",
                 "icon":"🤾‍♂️",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -167,7 +167,7 @@ class Circle {
             },
             {
                 "title": "I don't consume alcohol at the moment",
-                "description":"I'm not that interested in consuming it at the moment, but maybe one day I may change if I'm told to!",
+                "description":"Even though I'm considered legal to drink (I'm 19) I don't have much interest in consuming it, but maybe one day I may change if I'm told to!",
                 "icon":"🍺",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -185,7 +185,7 @@ class Circle {
             },
             {
                 "title": "My ideal outdoor weather is temperate!",
-                "description":"Singapore's weather is just too hot for my liking! Especially because I'm literally pouring with sweat after my runs!",
+                "description":"Singapore's weather is just too hot and humid for my liking, especially because I'm literally pouring with sweat after my runs! My ideal temeperature while running is somewhere around 15°C (59°F)!",
                 "icon":"🌡️",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -203,7 +203,7 @@ class Circle {
             },
             {
                 "title": "I'm registered as a Buddhist, but I'm not religious",
-                "description":"I don't feel that I have any attachment to religion at the moment, but I do agree that religion teaches us how to be a good person and live healthily!",
+                "description":"I don't feel that I have an attachment to religion at the moment, but I do agree that religion teaches us how to be a good person and live healthily!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
