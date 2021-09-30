@@ -58,10 +58,10 @@ function setup() {
     // World.add(world,mConstraint);
     // mConstraint.collisionFilter.mask = null;
 
-    boundaries.push(new Boundary(-50, height / 2, 100, height));
-    boundaries.push(new Boundary(width+50, height / 2, 100, height));
-    boundaries.push(new Boundary(width/2, -50, width, 100));
-    boundaries.push(new Boundary(width/2, height+50, width, 100));
+    boundaries.push(new Boundary(-40, height / 2, 100, height));
+    boundaries.push(new Boundary(width+40, height / 2, 100, height));
+    boundaries.push(new Boundary(width/2, -40, width, 100));
+    boundaries.push(new Boundary(width/2, height+40, width, 100));
 
     // rects.push(new Rect(0, height / 2, 250, height,false,"black"));
     // rects.push(new Rect(width, height / 2, 250,height,false,"black"));
