@@ -106,6 +106,15 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
+}, {
+    "proj_id": 13,
+    "title": "pySquidGame",
+    "brief_description": "A playable pygame application based on Netflix's 'Squid Game'!",
+    "image_location": "./img/coding/coding_proj13.png",
+    "link": "https://github.com/pixelhypercube/pySquidGame",
+    "in_development": 3,
+    "detailed_description": null,
+    "is_mini_project": 1
 }];
 
 projInfo.reverse();
