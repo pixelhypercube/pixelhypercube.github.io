@@ -35,7 +35,7 @@ class Circle {
             },
             {
                 "title": "I'm 175cm (5' 9\") tall",
-                "description":"Another special thing was that I was considered to be very tall in Primary 6 (11-12 years old) where I was around 170cm (~ 5' 7\")! It's probably because my puberty started early. Although I feel a bit sad that I didn't grow more, I'm learning to embrace it!",
+                "description":"Another special thing was that I was considered to be very tall in Primary 6 (11-12 years old) where I was around 170cm (~ 5' 7\")! It's probably because my puberty started early. A bit sad that I didn't continue to grow more, but I believe there are so many factors that are more important than height itself!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -59,7 +59,7 @@ class Circle {
             },
             {
                 "title": "Minecraft got me interested in computing!",
-                "description":"Even since I started playing 2012 (coming to 9 years), it is my most influential game that got be interested to learn more about computing!",
+                "description":"Even since I started playing 2012 (coming to 9 years), it is my most influential game that got be interested to learn more about computing! Huge thanks to Markus \"Notch\" Persson for creating this wonderful game!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -203,7 +203,7 @@ class Circle {
             },
             {
                 "title": "I'm registered as a Buddhist, but I'm not religious",
-                "description":"I don't feel that I have an attachment to religion at the moment, but I do agree that religion teaches us how to be a good person and live healthily!",
+                "description":"I don't feel that I have an attachment to religion at the moment, but I do believe that religion teaches us how to be a good person and live healthily!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -218,6 +218,30 @@ class Circle {
                 "description":"I'm totally not interested in it as I believe that it's not good for your health! Unfortunately, my late grandfather passed away due to complications of smoking in his youth and adult years (he quit smoking at some point).",
                 "icon":"🚭",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+            },
+            {
+                "title": "I used to be a double bass player in my secondary school orchestra!",
+            },
+            {
+                "title": "I'm a shy and introverted person!"
+            },
+            {
+                "title": "I'm an ACS Old Boy!"
+            },
+            {
+                "title": "I have plans to add in 'Kendric' to my name!"
+            },
+            {
+                "title": "I have sinus issues!",
+                "description": "I started to develop a lot of mucus as a kid, but thanks to Nasonex, I'm controlled!"
+            },
+            {
+                "title": "I used to have a language delay",
+                "description": "When I was young, I was way behind my peers in terms of my language skills, but as of now, I would say that I've made an improvement, and I'm striving to continue improving on it!"
+            },
+            {
+                "title": "I have high functioning autism!",
+                "description:": "Diagnosed as a teenager, I faced countless issues with picking up social cues with people my age and I was very late in development"
             }
         ];
         let options = {
