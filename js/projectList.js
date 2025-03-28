@@ -4,9 +4,9 @@ var projInfo = [{
     "brief_description": "Generate a 3d model of what you have drawn!",
     "image_location": "./img/coding/coding_proj1.png",
     "link": "https://pixelhypercube.github.io/Side-Projects/Minecraft-Fill-Generator/index.html",
-    "in_development": 3,
+    "in_development": 0,
     "detailed_description": null,
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 2,
     "title": "Minecraft Like Replica!",
@@ -15,7 +15,7 @@ var projInfo = [{
     "link": "https://pixelhypercube.github.io/Side-Projects/Minecraft-Like-Replica/public/",
     "in_development": 2,
     "detailed_description": "My first time attempting player controls and rendering Minecraft-like blocks in Three.js!",
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 3,
     "title": "Video To Text!",
@@ -24,16 +24,16 @@ var projInfo = [{
     "link": "https://pixelhypercube.github.io/Side-Projects/Video-To-Text/public/",
     "in_development": 0,
     "detailed_description": "",
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 4,
     "title": "2D Spleef!",
-    "brief_description": "2D version of Spleef!",
+    "brief_description": "2D version of Spleef! Made using Java.",
     "image_location": "./img/coding/coding_proj4.png",
     "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/2d-Spleef",
     "in_development": 0,
     "detailed_description": "A two-dimensional spleef game made using Java!",
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 5,
     "title": "Escape The Bombfield!",
@@ -42,14 +42,14 @@ var projInfo = [{
     "link": "https://pixelhypercube.github.io/Side-Projects/Escape-The-Bombfield/public/",
     "in_development": 2,
     "detailed_description": "Use the WASD or arrow keys to let the person escape from the minefield!",
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 6,
     "title": "Visual Matrix Operators!",
     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
     "image_location": "./img/coding/coding_proj6.png",
     "link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
-    "in_development": 2,
+    "in_development": 3,
     "detailed_description": null,
     "is_mini_project": 1
 }, {
@@ -58,9 +58,9 @@ var projInfo = [{
     "brief_description": "A spaceship battle game in a console! Made using Python",
     "image_location": "./img/coding/coding_proj7.png",
     "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Console-Spaceship-Battle",
-    "in_development": 2,
+    "in_development": 0,
     "detailed_description": "Use the WASD keys to move and the spacebar to shoot! Attack and destroy as many spaceships as you can!",
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 8,
     "title": "PHC Minigolf",
@@ -87,7 +87,7 @@ var projInfo = [{
     "link": "https://pixelhypercube.github.io/Side-Projects/Coin-Dozer-Replica/index.html",
     "in_development": 0,
     "detailed_description": null,
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 11,
     "title": "Telegram Tic Tac Toe Bot",
@@ -96,7 +96,7 @@ var projInfo = [{
     "link": "https://github.com/pixelhypercube/Telegram-Tic-Tac-Toe",
     "in_development": 1,
     "detailed_description": null,
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 12,
     "title": "Loves Me... ?",
@@ -105,7 +105,7 @@ var projInfo = [{
     "link": "https://pixelhypercube.github.io/Loves-Me-Replica",
     "in_development": 0,
     "detailed_description": null,
-    "is_mini_project": 1
+    "is_mini_project": 0
 }, {
     "proj_id": 13,
     "title": "pySquidGame",
@@ -114,7 +114,7 @@ var projInfo = [{
     "link": "https://github.com/pixelhypercube/pySquidGame",
     "in_development": 3,
     "detailed_description": null,
-    "is_mini_project": 1
+    "is_mini_project": 0
 }];
 
 projInfo.reverse();

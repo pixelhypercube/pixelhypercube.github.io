@@ -10,6 +10,17 @@
     src:url(../fonts/Heebo-Light.ttf);
     font-family:Heebo-Light;
 }
+/* CHINESE FONT */
+@font-face {
+    src:url(../fonts/SongTi.otf);
+    font-family:SongTi;
+}
+/* JAPANESE FONT */
+@font-face {
+    src:url(../fonts/MS-Mincho.ttf);
+    font-family:MS-Mincho;
+}
+
 
 body {
     background-color: rgb(27, 27, 27);

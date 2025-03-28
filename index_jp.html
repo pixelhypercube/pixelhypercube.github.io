@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172669196-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172669196-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    </script>
+    <script src="./js/client.min.js"></script>
+    <script src="./js/p5.min.js"></script>
+    <script src="./js/Circle.js" defer></script>
+    <script src="./js/mainCanvas.js" defer></script>
+    <script src="./js/headerCanvas.js" defer></script>
+    <script src="./js/projectList.js" defer></script>
+    <script src="./js/script_jp.js" defer></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張 凱傑</title>
+    <style>
+        * {
+            font-family:Ms-Mincho;
+        }
+        h1,h2,h3,h4,h5,h6 {
+            font-family:Ms-Mincho;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="padding:10% 0px 0% 0px;">
+        <div class="container">
+            <ul class="nav float-right">
+                <li>
+                    <li>
+                        <a class="header-nav" href="./index.html">English</a>
+                    </li>
+                    <li>
+                        <a class="header-nav" href="./index_jp.html">日本語</a>
+                    </li>
+                    <li>
+                        <a class="header-nav" href="./index_zh.html">简体中文</a>
+                    </li>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-3">
+                    <img id="avatar_hi" src="./img/avatar_default.png" />
+                </div>
+                <div class="col-md-9 m-auto">
+                    <nav class="">
+                        <ul style="padding: 0;" class="nav">
+                            <li>
+                                <a class="header-nav" href="./index.html">ホーム</a>
+                            </li>
+                            <li>
+                                <a class="header-nav" href="./side_projects.html">サイドプロジェクト</a>
+                            </li>
+                            <li>
+                                <a class="header-nav" href="./about.html">35 Facts About Me</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <h3>こんにちは!　名前は</h3>
+                    <h1>
+                        <ruby>
+                        張<rt>ティオ</rt>
+                        </ruby><ruby>
+                            凱傑<rt>カイジエ</rt>
+                        </ruby>  <span style="font-size:16px">(彼/彼)</span></h1>
+                    <h3>です！</h3>
+                    <h6>南洋理工大学の計算機科学部の<span id="age"></span>歳の学生</h6>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
+    <main>
+        <div class="container">
+            <p>こんにちは！現在、南洋理工大学の計算機科学部に通っている学生です。子供の頃からパソコンに興味を持ち続けています。時々はランナーとしても活動しています。</p>
+            <p>ごめんなさい、日本語はまだまだ勉強中です 🙇‍♂️。なぜなら、すべて独学で学んでいるからです。</p>
+            <p>余暇には、マインクラフトのModpackで遊んだり 🎮、新しい言語を勉強したり 🌐、本を読んだりするのが好きです 📚！</p>
+            <hr style="width:50%;margin:2% auto;border:1px solid grey;">
+            <h5>実務経験</h5>
+            <table class="table table-borderless text-light e-table">
+                <tr>
+                    <th class="col-3">12月2022年 - 8月2024年</th>
+                    <td class="col-9">
+                        <h6>管理サポートアシスタント</h6>
+                        <p>シンガポール軍</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-3">3月2022年 - 10月2022年</th>
+                    <td class="col-9">
+                        <h6>ウェブ開発者 (フリーランス)</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-3">2月2021年 - 8月2021年</th>
+                    <td class="col-9">
+                        <h6>ソフトウェアエンジニア (インターンシップ)</h6>
+                        <p>Leaptron Engineering Pte. Ltd.</p>
+                    </td>
+                </tr>
+            </table>
+            <h5>教育</h5>
+            <table class="table table-borderless text-light e-table">
+                <tr>
+                    <th class="col-3">2024年 - 2028年</th>
+                    <td class="col-9">
+                        <h6>計算機科学専攻の優等学士（コンピューティング）</h6>
+                        <p>南洋理工大学</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-3">2019年 - 2022年</th>
+                    <td class="col-9">
+                        <h6>情報技術ディプロマ</h6>
+                        <p>シンガポールポリテクニック</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
+    <main>
+        <div class="container">
+            <h3>サイドプロジェクト</h3>
+            <div id="coding_projects" class="card-columns">
+            </div>
+            <button id="view_more">
+                <a href="side_projects.html">もっと見る！</a>
+            </button>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <a style="font-size:32px;color:white;" href="https://github.com/pixelhypercube">
+                <i class="fa fa-github"></i>
+            </a>
+            <a style="font-size:32px;color:white;" href="https://www.linkedin.com/in/kai-jie-teo/">
+                <i class="fa fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+    <!-- some mini script thing to determine age -->
+    <script>
+        const today = new Date();
+        const bDate = new Date("09/30/2002");
+
+        let age = today.getFullYear()-bDate.getFullYear();
+
+        if (today.getMonth() < bDate.getMonth() || (today.getMonth() === bDate.getMonth() && today.getDate() < bDate.getDate())) {
+            age--;
+        }
+        $("#age").text(age);
+    </script>
+</body>
+
+</html>
