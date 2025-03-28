@@ -59,8 +59,7 @@
                     </nav>
                     <h3>Hi there! I'm</h3>
                     <h1>Teo Kai Jie <span style="font-size:16px">(he/him)</span></h1>
-                    <h6>19 y.o. Graduate at Singapore Polytechnic</h6>
-                    <h6>Diploma in Information Technology</h6>
+                    <h6><span id="age"></span> y.o. Computer Science Undergraduate @ NTU</h6>
                 </div>
             </div>
         </div>
@@ -68,19 +67,55 @@
     <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
     <main>
         <div class="container">
-            <img style="filter:invert();width:150px;margin:0 auto;display:block" src="./img/coding_icon.png" />
-            <p>How's life going! I'm Kai Jie (or KJ for short), and I'm a person that is obsessed with fiddling with computers! Ever
-                since I was a kid, I've been fascinated with computers, where I would spend countless hours on them
-                daily. Thanks to games like Minecraft and animation programs like Cinema 4D, my passion has successfully
-                stepped into the enormous realm of computing!</p>
-            <p style="display:none;">I also like to experiment with other software programs, such as emulators, game
-                modding programs, etc. Not only that, but I also like to work on my side projects during my free time!
-            </p>
-            <p>Outside of the computing realm, I'm an avid casual runner, as it not only helps me control my mental health, but it also helps me become fitter! I
-                also like to play Minecraft, where I usually build my worlds and occasionally play on popular servers like Hypixel!
-                Apart from that, I like watching Youtube videos, read articles online, learning new languages and exploring different places in
-                Singapore (... due to COVID haha)!</p>
-            <h3>My Side Projects </h3>
+            <p>Hi! I'm currently an undergraduate student reading computer science at Nanyang Technological Unversity (NTU). I'd describe myself as a half-geek, half-jock - someone who loves technology and exercise (especially running)!</p>
+            <p>In my spare time, I enjoy playing Minecraft modpacks 🎮, learning new languages 🌐 and reading 📚!</p>
+            <hr style="width:50%;margin:2% auto;border:1px solid grey;">
+            <h5>Experience:</h5>
+            <table class="table table-borderless text-light">
+                <tr>
+                    <th>Dec 2022 -  Aug 2024</th>
+                    <td>
+                        <h6>Administrative Support Assistant</h6>
+                        <p>Singapore Armed Forces</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mar 2022 - Oct 2022</th>
+                    <td>
+                        <h6>Freelance Web Developer</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Feb 2021 - Aug 2021</th>
+                    <td>
+                        <h6>Software Engineer</h6>
+                        <p>Leaptron Engineering Pte. Ltd.</p>
+                    </td>
+                </tr>
+            </table>
+            <h5>Education:</h5>
+            <table class="table table-borderless text-light">
+                <tr>
+                    <th>2024 - 2028</th>
+                    <td>
+                        <h6>Bachelor of Computing (Hons) in Computer Science</h6>
+                        <i>College of Computing and Data Science, Nanyang Technological University</i>
+                    </td>
+                </tr>
+                <tr>
+                    <th>2019 - 2022</th>
+                    <td>
+                        <h6>Diploma in Information Technology</h6>
+                        <i>Singapore Polytechnic</i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <hr style="width:50%;margin:2% auto;border:1px dashed grey;">
+    <main>
+        <div class="container">
+            <h3>Software Side Projects </h3>
             <div id="coding_projects" class="card-columns">
             </div>
             <button id="view_more">
@@ -102,6 +137,18 @@
             </a>
         </div>
     </footer>
+    <!-- some mini script thing to determine age -->
+    <script>
+        const today = new Date();
+        const bDate = new Date("09/30/2002");
+
+        let age = today.getFullYear()-bDate.getFullYear();
+
+        if (today.getMonth() < bDate.getMonth() || (today.getMonth() === bDate.getMonth() && today.getDate() < bDate.getDate())) {
+            age--;
+        }
+        $("#age").text(age);
+    </script>
 </body>
 
 </html>

@@ -67,7 +67,7 @@ var projInfo = [{
     "brief_description": "A minigolf game made using python (pygame!)",
     "image_location": "./img/coding/coding_proj8.png",
     "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
-    "in_development": 3,
+    "in_development": 0,
     "detailed_description": "",
     "is_mini_project": 0
 }, {
@@ -85,7 +85,7 @@ var projInfo = [{
     "brief_description": "A mini 2D online Coin Dozer made using matter.js and p5.js!",
     "image_location": "./img/coding/coding_proj10.png",
     "link": "https://pixelhypercube.github.io/Side-Projects/Coin-Dozer-Replica/index.html",
-    "in_development": 3,
+    "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 1
 }, {

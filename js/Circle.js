@@ -10,9 +10,9 @@ class Circle {
         this.highlighted = false;
         this.factList = [
             {
-                "title": "I think I'm more of a cat person! 🐱",
-                "description":"I like the sound of cats meowing! However, I'm allergic to cat fur 😥",
-                "icon":"🐱",
+                "title": "I'm currently a dog person 🐶",
+                "description":"Fun fact - I used to be a cat person when I was younger!",
+                "icon":"🐶",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
@@ -22,8 +22,8 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I'm a cishet (cisgender & straight) guy",
-                "description":"",
+                "title": "My personal bests for running",
+                "description":"2.4km - 9:06,\n 5km - 21:21,\n 10km - 45:53, Half Marathon (~21.1km) - 1:52:22, Marathon (42.195) - 4:49:51",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -34,7 +34,7 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I'm 175cm (5' 9\") tall",
+                "title": "I'm 177-178cm (5' 10\") tall",
                 "description":"Another special thing was that I was considered to be very tall in Primary 6 (11-12 years old) where I was around 170cm (~ 5' 7\")! It's probably because my puberty started early. A bit sad that I didn't continue to grow more, but I believe there are so many factors that are more important than height itself!",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
@@ -166,9 +166,9 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I don't consume alcohol at the moment",
-                "description":"Even though I'm considered legal to drink (I'm 19) I don't have much interest in consuming it, but maybe one day I may change if I'm told to!",
-                "icon":"🍺",
+                "title": "I'm Kanji Geek!",
+                "description":"I get quite fascinated at looking at Kanji (Chinese) Characters, specifically in Japanese! The icon you clicked on just now is 魑魅魍魎 (chimimōryō), which is a term that refers to monsters of the mountains and monsters of the rivers!",
+                "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
@@ -208,8 +208,8 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I'm horrible at dancing!",
-                "description":"Replaying myself dancing just wants to make me puke 🤮, just saying!!!",
+                "title": "My brain works... a little differently!",
+                "description":"I have ASD and ADHD—conditions that are often 'invisible.' While they shape parts of who I am, they don't define me!",
                 "icon":"🤥",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -219,30 +219,6 @@ class Circle {
                 "icon":"🚭",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
-            {
-                "title": "I used to be a double bass player in my secondary school orchestra!",
-            },
-            {
-                "title": "I'm a shy and introverted person!"
-            },
-            {
-                "title": "I'm an ACS Old Boy!"
-            },
-            {
-                "title": "I have plans to add in 'Kendric' to my name!"
-            },
-            {
-                "title": "I have sinus issues!",
-                "description": "I started to develop a lot of mucus as a kid, but thanks to Nasonex, I'm controlled!"
-            },
-            {
-                "title": "I used to have a language delay",
-                "description": "When I was young, I was way behind my peers in terms of my language skills, but as of now, I would say that I've made an improvement, and I'm striving to continue improving on it!"
-            },
-            {
-                "title": "I have high functioning autism!",
-                "description:": "Diagnosed as a teenager, I faced countless issues with picking up social cues with people my age and I was very late in development"
-            }
         ];
         let options = {
             friction:0.05,
