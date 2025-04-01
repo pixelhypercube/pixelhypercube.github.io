@@ -115,6 +115,15 @@ var projInfo = [{
     "in_development": 3,
     "detailed_description": null,
     "is_mini_project": 0
+},{
+    "proj_id": 14,
+    "title": "RActive",
+    "brief_description": "A Figma prototype to assist individuals with rheumatoid arthritis (RA) in managing daily activities. Created for CC0005 – Healthy Living and Wellbeing at NTU.",
+    "image_location": "./img/coding/coding_proj14.png",
+    "link": "https://www.figma.com/design/hiWbnOFAR7KPcpiU9cQMwe/CC0005-App?node-id=210-240&t=F7NivajSw7bWbxKb-0",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
 }];
 
 projInfo.reverse();
