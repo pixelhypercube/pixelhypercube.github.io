@@ -111,4 +111,7 @@ $(document).ready(function () {
     $("button#view_more").click(function(){
         window.location.href = "https://pixelhypercube.github.io/side_projects.html";
     });
+    $("button#cv").click(function(){
+        window.location.href = "https://pixelhypercube.github.io/CV_TeoKaiJie.pdf";
+    });
 });
