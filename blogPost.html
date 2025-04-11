@@ -26,7 +26,8 @@
     <!-- <script src="./js/p5.min.js"></script> -->
     <script src="./js/mainCanvas.js" defer></script>
     <script src="./js/headerCanvas.js" defer></script>
-    <script src="./js/projectList.js" defer></script>
+    <script src="./js/blogList.js" defer></script>
+    <script src="./js/blog.js" defer></script>
     <script src="./js/script.js" defer></script>
     <link href="./css/style.css" rel="stylesheet">
     <meta charset="UTF-8">
@@ -54,15 +55,18 @@
                     </li>
                 </ul>
             </nav>
-            <h1>My Blogs</h1>
-            <p>Feel free to have a read in one of my blogs!</p>
-            <div id="blogs">
-                <!-- <div id="blog_1" class="blog">
-                    <h6>How I survived Polytechnic with poor conversational skills</h6>
-                    <p>12th April 2025 | 3 min read</p>
-                    <hr style="border:1px solid grey">
-                    <p>As a person who used to face numerous communication difficulties in my youth, it was a big challenge to navigate through complex social interactions with my peers...</p>
-                </div> -->
+            <div id="blog">
+                <h4 id="title">How I mentally cope Polytechnic as a shy and reticent person with less-than-ideal conversational skills</h4>
+                <p><span id="publishDate"></span> | <span id="duration"></span> min read</p>
+                <hr style="border:1px solid grey">
+                <div id="blogBody">
+                    
+                </div>
+                <div class="d-flex">
+                    <button>
+                        <a href="./blog.html">Back</a>
+                    </button>
+                </div>
             </div>
             <!-- <p>Coming soon! 🏗️</p> -->
             <!-- <i style="font-size:50px;" class="fa-solid fa-person-digging"></i> -->
@@ -77,31 +81,11 @@
             <a style="font-size:32px;color:white;" href="https://www.linkedin.com/in/kai-jie-teo/">
                 <i class="fa fa-linkedin"></i>
             </a>
+            <a style="font-size:32px;color:white;" href="https://www.instagram.com/kjteo0/">
+                <i class="fa fa-instagram"></i>
+            </a>
         </div>
     </footer>
-    <script>
-        var blogsList = [{
-            "title":"How I mentally cope Polytechnic as a shy and reticent person with less-than-ideal conversational skills",
-            "publishDate":new Date("04/12/2025").toDateString(),
-            "duration":3,
-            "previewText":"As someone who used to face numerous communication difficulties in my youth, it was a huge challenge to navigate through complex social interactions with my peers"
-        }];
-        $(document).ready(function(){
-            for (let i = 0;i<blogsList.length;i++) {
-                $("#blogs").append(`
-                    <div id="blog_${i+1}" class="blog">
-                        <h6>${blogsList[i]["title"]}</h6>
-                        <p>${blogsList[i]["publishDate"]} | ${blogsList[i]["duration"]} min read</p>
-                        <hr style="border:1px solid grey">
-                        <p>${blogsList[i]["previewText"]}...</p>
-                    </div>
-                `);
-                $(`#blog_${i+1}`).click(function() {
-                    window.location = "./blogPost.html?index="+(i+1);
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
