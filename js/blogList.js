@@ -1,7 +1,7 @@
 var blogList = [
     {
         "id":1,
-        "title":"How I mentally coped in Polytechnic as a shy and reticent person with less-than-ideal conversational skills",
+        "title":"How I mentally cope Polytechnic as a shy and reticent person with less-than-ideal conversational skills",
         "publishDate":new Date("04/12/2025").toDateString(),
         "duration":4,
         "htmlContent":`
@@ -30,7 +30,7 @@ var blogList = [
         `
     },
     {
-        "id":1,
+        "id":2,
         "title":"How joining my hall's running CCA helped me with running!",
         "publishDate":new Date("04/13/2025").toDateString(),
         "duration":3,
@@ -54,6 +54,24 @@ var blogList = [
                 </div>
             </div>
             <p>Looking back, I felt like joining a running CCA was one of the best decisions I made to improve my running stamina. I was surrounded by people who shared similar experiences and were willing to endure the hardships of training along together. The fact that I was surrounded with like-minded people not only made the journey more enjoyable but also pushed me to reach new heights. Therefore, I highly recommend stepping outside your comfort zone and joining a club that motivates you to become better at something you're passionate about! 💪</p>
+        `,
+    },
+    {    
+        "id":3,
+        "title":"Navigating the Ambiverted World as an Introvert",
+        "publishDate":new Date("04/19/2025").toDateString(),
+        "duration":3,
+        "htmlContent":`
+        <h6>Early Days:</h6>
+        <p>Ever since I was young, I have usually kept to myself as I was mainly glued to my interests that didn&#039;t involve a lot of interaction with people - mainly computer games (especially Minecraft) and other tech-related stuff. Because of that, I often felt that something was inherently wrong with me for not being willing to communicate with others, resulting in me feeling rather alienated. At the same time, I was labelled as a person who was extremely quiet, rarely talking to others without prompting.</p>
+        <h6>Finding My Fellow Introverts:</h6>
+        <p>But that all changed during my Polytechnic days, where we all had to do an MBTI test in one class, which revealed that most of my classmates leaned towards the introverted side as well, as they did not appear to be as talkative as my classmates back in secondary school. For the first time, I felt like I had found people who belong to the same &#039;species&#039; as I do, and I felt like I could relate to a lot of them more. However, the environment I experienced during my Polytechnic days helped me step outside my comfort zone from simply being labelled as an &#039;extreme&#039; introvert, despite the total lockdown during COVID times. Due to COVID, I had to work on group projects purely on Microsoft Teams, where I had to do a certain degree of interaction, but I wasn&#039;t the most confident in doing so. Thankfully, everything has gone much better than I expected, and I even did quite well in those modules.</p>
+        <h6>The Challenges of Stepping Outside My Comfort Zone:</h6>
+        <p>It was definitely not an easy journey to open up myself as a shy, reticent, and introverted person. During my NS days, I faced a lot of difficulties opening up and communicating with others, as it was my very first time working in a predominantly office setting as an Administrative Support Assistant (ASA) in a HQ unit. Initially, when I first got posted to my unit, I was a soft-spoken person who didn&#039;t talk very much with others. However, when I started to familiarize myself with my others better, my voice started to get quite loud (sometimes too loud - apologies! 🙏), which might make it seem like I&#039;m more extroverted. But the truth is, my body starts to feel relatively drained after a whole day of socializing with others, even though I admit I like to socialize and chat at times. Additionally, due to my not-so-ideal mental state at the time, it made my days even more exhausting at times🥲. But thankfully, I have experienced a lot of fun moments I had with my other mates while serving, and additionally, the gifts I received from my superiors included notes that appreciated me for &quot;making the office lively&quot; - even if I was occasionally too loud (again, sorry! 🙏).</p>
+        <h6>How Introverted Brains Are Wired:</h6>
+        <p>Every time I socialize with others, my brain tires out like a depleting battery - for instance, 3 hours of non-stop socializing drains my brain battery by about 50%, and more than that will then exponentially deplete to 0%. As a result, I need to &quot;charge back&quot; my battery to 100%, allowing me to fully energize myself after that moment. That is generally how introverted brains work - you lose energy when you socialize and recharge when you&#039;re by yourself. In contrast, truly extroverted brains recharge through interacting with others and feel drained when they&#039;re alone - it&#039;s just a different kind of wiring.</p>
+        <h6>Key Takeaways:</h6>
+        <p>At the end of the day, being an introvert is perfectly fine - it&#039;s simply how the brain is wired. We introverts can be amazing at socializing with others because we humans are social creatures who thrive on social interactions. So, we should know when to recharge our batteries if things tend to get overwhelming. Thus, given the right scenario, we should also learn how to interact properly with others and appear confident and active in discussions!</p>
         `
     }
 ];

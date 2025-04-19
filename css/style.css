@@ -21,6 +21,12 @@
     font-family:MS-Mincho;
 }
 
+a {
+    color:#768EA6;
+}
+a:hover {
+    color:#96aabe;
+}
 
 body {
     background-color: rgb(27, 27, 27);
