@@ -64,9 +64,9 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I can become geeky sometimes!",
-                "description":"For instance, I read Wikia articles that are related to what I feel like reading, such as the in-depth analysis of Nintendo games and video game characters!",
-                "icon":"🤓",
+                "title": "I used to dislike reading when I was younger!",
+                "description":"At the time my brain somehow didn't let me picture when I was reading stuff and I had language delay at the time 🥲, but everything's much better right now!",
+                "icon":"📖",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
@@ -94,8 +94,8 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I want to add 'Kendric' to my name in the future!",
-                "description":"Because I feel that my given name can be mispronounced easily by some people (not blaming you!). Planning to add it after I graduate from Polytechnic!",
+                "title": "My typical running mileage is around 50-70km per week 🏃",
+                "description":"I should be focusing on studying instead HAHAHA 🥲",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
@@ -112,9 +112,9 @@ class Circle {
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {
-                "title": "I go to bed at around 10-11pm and wake up at around 7-8 am",
-                "description":"This is my default bedtime routine! However, it may change during different circumstances, where I may sleep late due to a lot of commitments I had to do, etc.",
-                "icon":"🛌",
+                "title": "I am exclusively drink only during social situations!",
+                "description":"I only drink during social situations but not when I'm by myself as I generally don't feel the need to drink unecessarily!",
+                "icon":"🍷",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },
             {

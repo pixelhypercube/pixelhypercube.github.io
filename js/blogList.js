@@ -45,11 +45,11 @@ var blogList = [
                 <div class="row">
                     <figure class="col-md-6 col-12">
                         <img class="mb-1" src="./img/blogs/runningLunch.jpg" style="max-width:300px;" alt="runningLunch.jpg">
-                        <figcaption style="font-size:14px">Me and my teammates having lunch after IHG '25 🍴</figcaption>
+                        <figcaption style="font-size:16px">Me and my teammates having lunch after IHG '25 🍴</figcaption>
                     </figure>
                     <figure class="col-md-6 col-12">
                         <img class="mb-1" src="./img/blogs/runningMedal.jpg" style="max-width:300px;" alt="runningMedal.jpg">
-                        <figcaption style="font-size:14px">My IHG'25 Medal! 🥈</figcaption>
+                        <figcaption style="font-size:16px">My IHG'25 Medal! 🥈</figcaption>
                     </figure>
                 </div>
             </div>

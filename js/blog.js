@@ -5,6 +5,6 @@ $(document).ready(function() {
     const blogObj = blogList[value-1];
     $("#title").text(blogObj["title"]);
     $("#publishDate").text(blogObj["publishDate"]);
-    $("#duration").text(blogObj["duration"]);
+    $("#duration").text(blogObj["duration"] + " min read");
     $("#blogBody").append(blogObj["htmlContent"]);
 })

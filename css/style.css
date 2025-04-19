@@ -36,6 +36,12 @@ body {
 h1,h2,h3,h4,h5,h6 {
     font-family:Heebo-Medium;
 }
+h6 {
+    font-size:20px;
+}
+p,th,td {
+    font-size:20px;
+}
 /* Header */
 header {
     /* padding:10% 0px 0% 0px; */
