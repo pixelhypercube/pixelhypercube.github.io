@@ -102,16 +102,21 @@ function genCodingProjects(num) {
 
 
 
-$(document).ready(function () {
+$(function () {
     genCodingProjects(6);
-    $("button.side_proj").click(function(){
+    
+    $("button.side_proj").on("click", function(){
         window.location.href = $(this).data("url");
     });
     
-    $("button#view_more").click(function(){
+    $("button#view_more").on("click", function(){
         window.location.href = "https://pixelhypercube.github.io/side_projects.html";
     });
-    $("button#cv").click(function(){
+    
+    $("button#cv").on("click", function(){
         window.location.href = "https://pixelhypercube.github.io/CV_TeoKaiJie.pdf";
+    });
+    $("button#resume").on("click", function(){
+        window.location.href = "https://pixelhypercube.github.io/Resume_TeoKaiJie.pdf";
     });
 });
