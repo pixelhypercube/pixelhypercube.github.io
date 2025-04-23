@@ -124,6 +124,15 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
+},{
+    "proj_id": 15,
+    "title": "CPP Physics",
+    "brief_description": "A mini C++ program that simulates physics between objects!",
+    "image_location": "./img/coding/coding_proj15.png",
+    "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/CPP-Physics",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
 }];
 
 projInfo.reverse();
