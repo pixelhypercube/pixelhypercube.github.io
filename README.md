@@ -1,4 +1,4 @@
-# PixelHyperCube's website
+# Kendrick's website
 
 This repo stores all of my codes for my personal website - [pixelhypercube.github.io](https://pixelhypercube.github.io) .
 
