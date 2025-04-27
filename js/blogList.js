@@ -73,5 +73,216 @@ var blogList = [
         <h6>Key Takeaways:</h6>
         <p>At the end of the day, being an introvert is perfectly fine - it&#039;s simply how the brain is wired. We introverts can be amazing at socializing with others because we humans are social creatures who thrive on social interactions. So, we should know when to recharge our batteries if things tend to get overwhelming. Thus, given the right scenario, we should also learn how to interact properly with others and appear confident and active in discussions!</p>
         `
+    },
+    {    
+        "id":4,
+        "title":"The Hidden Challenges of Learning Kanji",
+        "publishDate":new Date("04/28/2025").toDateString(),
+        "duration":5,
+        "htmlContent":`
+        <style>
+            .kanji-cell {
+                font-size:30px;
+            }
+        </style>
+        <p>As a person who self-learns Japanese on and off, I have undoubtedly faced numerous difficulties adapting to the complexities of Kanji - one of the 3 main scripts used in the modern Japanese language. When I first started learning Kanji, it felt like I was re-learning Chinese again, with entirely new pronunciations of the characters, and to no surprise, it took me a long time to adjust to the way that Kanji is pronounced. Additionally, reading Kanji felt like a chore in the beginning as I don't use Chinese frequently, which includes reading and writing Chinese characters.</p>
+
+        <p>The main reason Kanji can be astronomically difficult to learn is the number of readings each character can have. Most Kanji are typically divided into 2 classes of pronunciation: On'yomi (音読み) - derived from Middle Chinese pronunciation, and Kun'yomi (訓読み) - the native Japanese pronunciation.</p>
+
+        <p>As someone who occasionally speaks Teochew, a Chinese dialect, to my grandma at home, I was surprised to discover that some Sino-Japanese vocabulary have quite similar pronunciations to Teochew.</p>
+
+        <h4>Here are some examples:</h4>
+
+        <table class="table table-bordered text-light">
+            <thead>
+                <tr>
+                    <th>Kanji</th>
+                    <th>Japanese</th>
+                    <th>Mandarin (Pinyin)</th>
+                    <th>Teochew</th>
+                    <th>English</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="kanji-cell">学校</td>
+                    <td>gakkō (がっこう)</td>
+                    <td>xué xiào</td>
+                    <td>hak hao</td>
+                    <td>School</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">自動車</td>
+                    <td>jidōsha (じどうしゃ)</td>
+                    <td>zì dòng chē</td>
+                    <td>ze dong cia</td>
+                    <td>Automobile</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">電話</td>
+                    <td>denwa (でんわ)</td>
+                    <td>diàn huà</td>
+                    <td>diang uê</td>
+                    <td>Telephone</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">金</td>
+                    <td>kin (きん)</td>
+                    <td>jīn</td>
+                    <td>gim</td>
+                    <td>Gold</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">文</td>
+                    <td>bun (ぶん)</td>
+                    <td>wén</td>
+                    <td>boon</td>
+                    <td>Writing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (音読み) pronunciation. Whereas, as Kun'yomi (訓読み) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (音読み), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (訓読み), and I would not be able to guess each character correctly at first glance. Here are some examples of vocab that involves the use of Kun'yomi (訓読み):</p>
+
+        <h4>Here are some examples of Kun'yomi:</h4>
+
+        <table class="table table-bordered text-light">
+            <thead>
+                <tr>
+                    <th>Kanji</th>
+                    <th>Japanese</th>
+                    <th>Mandarin (Pinyin)</th>
+                    <th>Teochew</th>
+                    <th>English</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="kanji-cell">車</td>
+                    <td>kuruma (くるま)</td>
+                    <td>chē</td>
+                    <td>cia</td>
+                    <td>Car</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">山</td>
+                    <td>yama (やま)</td>
+                    <td>shān</td>
+                    <td>suan</td>
+                    <td>Mountain</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">手紙</td>
+                    <td>tegami (てがみ)</td>
+                    <td>shǒu zhǐ</td>
+                    <td>ciu zua</td>
+                    <td>Letter (Japanese), Toilet Paper (Chinese)</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">火花</td>
+                    <td>hibana (ひばな)</td>
+                    <td>huǒ huā</td>
+                    <td>huê huê</td>
+                    <td>Spark</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">川</td>
+                    <td>kawa (かわ)</td>
+                    <td>chuān</td>
+                    <td>cuêng</td>
+                    <td>River</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>The "Monsters" of Kanji</h4>
+        <p>And then, there are characters like 生, which have easily over 10 readings!</p>
+
+        <p><strong>生</strong> (Chinese - shēng)</p>
+
+        <p><strong>Kun'yomi (訓読み):</strong></p>
+        <ul>
+            <li><strong>i</strong>kiru (<strong>い</strong>きる)</li>
+            <li><strong>i</strong>kasu (<strong>い</strong>かす)</li>
+            <li><strong>i</strong>keru (<strong>い</strong>ける)</li>
+            <li><strong>i</strong>mareru (<strong>う</strong>まれる)</li>
+            <li><strong>u</strong>mare (<strong>う</strong>まれ)</li>
+            <li><strong>umare</strong> (<strong>うまれ</strong>)</li>
+            <li><strong>u</strong>mu (<strong>う</strong>む)</li>
+            <li><strong>o</strong> (<strong>お</strong>う)</li>
+            <li><strong>ha</strong>eru (<strong>は</strong>える)</li>
+            <li><strong>ha</strong>yasu (<strong>は</strong>やす)</li>
+            <li><strong>ki</strong> (<strong>き</strong>)</li>
+            <li><strong>nama</strong> (<strong>なま</strong>)</li>
+            <li><strong>nama</strong>- (<strong>なま</strong>-)</li>
+            <li><strong>na</strong>ru (<strong>な</strong>る)</li>
+            <li><strong>na</strong>su (<strong>な</strong>す)</li>
+            <li><strong>mu</strong>su (<strong>む</strong>す)</li>
+            <li>-<strong>u</strong> (-<strong>う</strong>)</li>
+        </ul>
+
+        <p><strong>On'yomi (音読み):</strong></p>
+        <ul>
+            <li>sei (せい)</li>
+            <li>shō (しょう)</li>
+        </ul>
+
+        <h4>Overcoming the Challenges</h4>
+        <p>Despite all these challenges, there are quite a lot of fun and intuitive approaches to combat the anxiousness of not knowing the correct pronunciation for each Kanji. For instance, I have been playing Nintendo DS games that have helped me improve my kanji reading and writing skills! However, since the games are entirely in Japanese, I have largely missed one big portion - knowing the meaning of each vocab. Despite knowing a wider variety of Kanji to pronounce correctly, I still feel like I don't fully understand its true meaning.</p>
+
+        <p>Additionally, listening to songs (with Japanese and English lyrics), as well as singing them (despite not being a great singer at all HAHAHA), have also helped me quite a big deal, as I get to know the context behind the word being used in such songs.</p>
+
+        <h4>Final Thoughts:</h4>
+        <p>I hope I don't scare you about the complexities of Kanji. But despite these challenges, there are numerous benefits to Kanji. For example, it allows to "simplify" words that might otherwise be written in long strings of unrecognizable hiragana, especially in personal names. Without Kanji, understanding the meaning of certain words in purely hiragana/katakana would be much more challenging.</p>
+
+        <p>So, my advice to you is to always take baby steps by learning a few Kanji at first and slowly progressing once you become familiar with them. It's understandable if you feel like giving up, as I've felt the same way when learning other languages. Knowing Chinese can also be a good head start, but however, do take note that the way Japanese Kanji is being written right now largely resembles Traditional Chinese, but with many simplified characters that are sometimes different from Simplified Chinese characters.</p>
+
+        <h4>Comparison of Kanji, Traditional Chinese, and Simplified Chinese</h4>
+        <table class="table table-bordered text-light">
+            <thead>
+                <tr>
+                    <th>Japanese Kanji</th>
+                    <th>Traditional Chinese</th>
+                    <th>Simplified Chinese</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="kanji-cell">鉄</td>
+                    <td class="kanji-cell">鐵</td>
+                    <td class="kanji-cell">铁</td>
+                    <td>All different</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">東</td>
+                    <td class="kanji-cell">東</td>
+                    <td class="kanji-cell">东</td>
+                    <td>Simplified Chinese different</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">欠</td>
+                    <td class="kanji-cell">缺</td>
+                    <td class="kanji-cell">缺</td>
+                    <td>Japanese Kanji different</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">国</td>
+                    <td class="kanji-cell">國</td>
+                    <td class="kanji-cell">国</td>
+                    <td>Traditional Chinese different</td>
+                </tr>
+                <tr>
+                    <td class="kanji-cell">界</td>
+                    <td class="kanji-cell">界</td>
+                    <td class="kanji-cell">界</td>
+                    <td>All the same</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Good Luck! 一緒に頑張ろう！</h4>
+        <p>I hope these tips help you navigate through the complexities of Kanji and inspire you to keep learning. Ganbatte ne (頑張ってね)!</p>
+        `
     }
 ];
