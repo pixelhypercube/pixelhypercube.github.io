@@ -103,7 +103,7 @@ var blogList = [
 
         <p>As someone who occasionally speaks Teochew, a Chinese dialect, to my grandma at home, I was surprised to discover that some Sino-Japanese vocabulary have quite similar pronunciations to Teochew.</p>
 
-        <h4>Examples of Sino-Japanese vocabulary with On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronounciation:</h4>
+        <h5>Examples of Sino-Japanese vocabulary with On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronounciation:</h5>
 
         <table class="table table-bordered text-light">
             <thead>
@@ -156,7 +156,7 @@ var blogList = [
 
         <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (音読み) pronunciation. Whereas, as Kun'yomi (訓読み) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (音読み), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (訓読み), and I would not be able to guess each character correctly at first glance. Here are some examples of vocab that involves the use of Kun'yomi (訓読み):</p>
 
-        <h4>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) pronounciation:</h4>
+        <h5>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) pronounciation:</h5>
 
         <table class="table table-bordered text-light">
             <thead>

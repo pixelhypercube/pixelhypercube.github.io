@@ -21,6 +21,11 @@
     <body>
         <header style="padding:2% 0px 0% 0px;">
             <div class="container">
+                <div class="d-flex flex-column align-items-center">
+                    <a href="./index.html">
+                        <img style="width:64px;" id="avatar_hi" src="./img/avatar_default.png" />
+                    </a>
+                </div>
                 <nav class="">
                     <ul style="padding: 0;" class="nav">
                         <li>
@@ -62,5 +67,13 @@
                 </a>
             </div>
         </footer>
+        <script>
+            $("img#avatar_hi").on("mouseover",function(){
+                $(this).attr("src","./img/avatar_home.png");
+            });
+            $("img#avatar_hi").on("mouseout",function(){
+                $(this).attr("src","./img/avatar_default.png");
+            });
+        </script>
     </body>
 </html>

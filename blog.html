@@ -19,7 +19,6 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     </script>
     <script src="./js/client.min.js"></script>
@@ -27,18 +26,43 @@
     <script src="./js/mainCanvas.js" defer></script>
     <script src="./js/headerCanvas.js" defer></script>
     <script src="./js/projectList.js" defer></script>
-    <script src="./js/script.js" defer></script>
+    <!-- <script src="./js/script.js" defer></script> -->
     <link href="./css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kai Jie</title>
+    <style>
+        #tag-list .btn-tag {
+            border:2px solid white;
+            margin:5px 10px 5px 0px;
+            padding:5px 10px 5px 10px;
+            border-radius:10px;
+        }
+        #tag-list .btn-tag-selected {
+            border:2px solid white;
+            background-color: white;
+            color:#212529;
+        }
+        #tag-list .btn-tag .tag-checked {
+            display:none;
+        }
+        #tag-list .btn-tag-selected .tag-checked {
+            display:inline;
+        }
+    </style>
 </head>
 
 <body>
     <main>
         <div class="container">
+            <br>
+            <div class="d-flex flex-column align-items-center">
+                <a href="./index.html">
+                    <img style="width:64px;" id="avatar_hi" src="./img/avatar_default.png" />
+                </a>
+            </div>
             <nav class="">
                 <ul style="padding: 0;" class="nav">
                     <li>
@@ -57,6 +81,13 @@
             </nav>
             <h1>My Blogs</h1>
             <p>Feel free to have a read on one of my blogs!</p>
+            <h6>Filter by Tags (Uncheck everything to view all):</h6>
+            <div id="tag-list" class="d-flex flex-wrap">
+                <!-- <p data-id="0" data-selected="0" class="btn-tag">Personal Development <span class="tag-checked">&#x2713;</span></p>
+                <p data-id="1" data-selected="0" class="btn-tag">Language Learning</p>
+                <p data-id="2" data-selected="0" class="btn-tag">Running</p> -->
+            </div>
+            <hr style="width:100%;border:1px solid grey;">
             <div id="blogs">
                 <!-- <div id="blog_1" class="blog">
                     <h6>How I survived Polytechnic with poor conversational skills</h6>
@@ -65,8 +96,6 @@
                     <p>As a person who used to face numerous communication difficulties in my youth, it was a big challenge to navigate through complex social interactions with my peers...</p>
                 </div> -->
             </div>
-            <!-- <p>Coming soon! 🏗️</p> -->
-            <!-- <i style="font-size:50px;" class="fa-solid fa-person-digging"></i> -->
         </div>
     </main>
     <footer>
@@ -81,28 +110,63 @@
         </div>
     </footer>
     <script>
+        var tagsList = [
+            "Personal Development",
+            "Language Learning",
+            "Running"
+        ];
         var blogsList = [{
             "title":"How I mentally cope Polytechnic as a shy and reticent person with less-than-ideal conversational skills",
             "publishDate":new Date("04/12/2025").toDateString(),
             "duration":4,
+            "tags":[0],
             "previewText":"As someone who used to face numerous communication difficulties in my youth, it was a huge challenge to navigate through complex social interactions with my peers"
         },{
             "title":"How joining my hall's running CCA helped me with running!",
             "publishDate":new Date("04/13/2025").toDateString(),
             "duration":3,
+            "tags":[2],
             "previewText":"I have been running as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high"
         },{
             "title":"Navigating the Ambiverted World as an Introvert",
             "publishDate":new Date("04/19/2025").toDateString(),
             "duration":3,
+            "tags":[0],
             "previewText":"Ever since I was young, I have usually kept to myself as I was mainly glued to my interests that didn&#039;t involve a lot of interaction with people - mainly computer games (especially Minecraft)"
         },{
             "title":"The Hidden Challenges of Learning Kanji",
             "publishDate":new Date("04/28/2025").toDateString(),
             "duration":5,
-            "previewText":"As a person who self-learns Japanese on and off, I have undoubtedly faced numerous difficulties adapting to the complexities of Kanji - one of the 3 main scripts used in the modern Japanese language"
+            "tags":[1],
+            "previewText":"Kanji (漢字) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like hiragana and katakana"
         }];
+        var selectedTags = new Array(tagsList.length).fill(false);
+
+        function updateVisibility() {
+            for (let i = 0;i<blogsList.length;i++) {
+                if (selectedTags.every(item=>item==false)) {
+                    $("#blog_"+(i+1)).show();
+                } else {
+                    var blogTags = blogsList[i]["tags"];
+                    var flag = false;
+                    for (let j = 0;j<blogTags.length;j++) {
+                        if (selectedTags[blogTags[j]]) {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag) $("#blog_"+(i+1)).show();
+                    else $("#blog_"+(i+1)).hide();
+                }
+            }
+        }
+
         $(document).ready(function(){
+            // init tag list
+            for (let i = 0;i<tagsList.length;i++) {
+                $("#tag-list").append(`<p data-id="${i}" data-selected="0" class="btn-tag">${tagsList[i]}</p>`);
+            }
+
             for (let i = blogsList.length-1;i>=0;i--) {
                 $("#blogs").append(`
                     <div id="blog_${i+1}" class="blog">
@@ -116,6 +180,31 @@
                     window.location = "./blogPost.html?index="+(i+1);
                 });
             }
+            $("#tag-list").children().each(function() {
+                $(this).click(function() {
+                    var selected = $(this).attr("data-selected");
+                    var id = $(this).attr("data-id");
+                    $(this).attr("data-selected", selected == 1 ? 0 : 1);
+                    selected = $(this).attr("data-selected");
+                    if (selected==1) {
+                        $(this).addClass("btn-tag-selected");
+                        selectedTags[id] = true;
+                    }
+                    else if (selected==0) {
+                        $(this).removeClass("btn-tag-selected");
+                        selectedTags[id] = false;
+                    }
+                    updateVisibility();
+                });
+            });
+            $("img#avatar_hi").on("mouseover",function(){
+                $(this).attr("src","./img/avatar_home.png");
+                $(this).attr("style","width:112px;transform:translate(-24px,0px);");
+            });
+            $("img#avatar_hi").on("mouseout",function(){
+                $(this).attr("src","./img/avatar_default.png");
+                $(this).attr("style","width:64px");
+            });
         });
     </script>
 </body>

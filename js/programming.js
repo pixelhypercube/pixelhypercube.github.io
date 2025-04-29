@@ -25,43 +25,30 @@ function isMiniProj(state) {
     }
 }
 
-$(document).ready(function(event) {
+window.addEventListener("scroll",function(){
     updateScroll();
-})
-
-$(window).scroll(function(event) {
-    updateScroll(); 
 });
-// window.addEventListener("scroll",function(){
-//     updateScroll();
-// })
+
+window.addEventListener("load",function(){
+    updateScroll();
+});
 
 async function elementAppear(elem,delayAmount) {
     $(elem).each(function(i,e){
         $(this).css({"opacity":0});
     });
     $(elem).each(function(i,e){
-        // await delay(delayAmount);
         $(this).animate({"opacity":1},delayAmount);
     });
 }
 
 function updateScroll() {
-    // var elemStrings = ["div#hobbies","div#ageBubble"];
     var elemStrings = $("#coding_projects .card");
     for (let i = 0;i<elemStrings.length;i++) {
         var position = $(elemStrings[i]).position();
-        // console.log($(elemStrings[i]).height());
-        // console.log(window.scrollY,position.top-$(elemStrings[i]).height());
         if (window.scrollY>=position.top-$(elemStrings[i]).height()) {
-            // console.log(elemStrings[i]);
             if ($(elemStrings[i]).css("opacity")==0) {
                 elementAppear(elemStrings[i],1000);
-                // if (elemStrings[i]=="div#ageBubble") {
-                //     $("#year").text(calcAge(2002,9,30));
-                //     $("#date").text(getDate());
-                //     increasingNumber("span#year");
-                // }
             }
         }
     }
@@ -98,4 +85,12 @@ function genCodingProjects() {
 }
 $(document).ready(function () {
     genCodingProjects();
+    $("img#avatar_hi").on("mouseover",function(){
+        $(this).attr("src","./img/avatar_home.png");
+        $(this).attr("style","width:112px;transform:translate(-24px,0px);");
+    });
+    $("img#avatar_hi").on("mouseout",function(){
+        $(this).attr("src","./img/avatar_default.png");
+        $(this).attr("style","width:64px");
+    });
 });
