@@ -83,15 +83,27 @@ var blogList = [
         <style>
             .kanji-cell {
                 font-size:30px;
+                font-family:MS-Mincho;
+            }
+            .chinese-cell {
+                font-size:30px;
+                font-family:SongTi;
             }
         </style>
+        <h4>What is Kanji?</h4>
+
+        <p>Kanji (<span style="font-family:MS-Mincho;">漢字</span>) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like hiragana and katakana, each Kanji character represents a word or concept and often has multiple pronunciations depending on context. Kanji is one of the three writing systems used in modern Japanese—the others being hiragana and katakana—and it’s essential for reading books, signs, newspapers, and even names.</p>
+
+        <p>For learners of Japanese, Kanji can be one of the most fascinating yet frustrating hurdles to overcome. Why? That's what I'll explore in this post.</p>
+
+        <h4>My Journey with Kanji</h4>
         <p>As a person who self-learns Japanese on and off, I have undoubtedly faced numerous difficulties adapting to the complexities of Kanji - one of the 3 main scripts used in the modern Japanese language. When I first started learning Kanji, it felt like I was re-learning Chinese again, with entirely new pronunciations of the characters, and to no surprise, it took me a long time to adjust to the way that Kanji is pronounced. Additionally, reading Kanji felt like a chore in the beginning as I don't use Chinese frequently, which includes reading and writing Chinese characters.</p>
 
         <p>The main reason Kanji can be astronomically difficult to learn is the number of readings each character can have. Most Kanji are typically divided into 2 classes of pronunciation: On'yomi (音読み) - derived from Middle Chinese pronunciation, and Kun'yomi (訓読み) - the native Japanese pronunciation.</p>
 
         <p>As someone who occasionally speaks Teochew, a Chinese dialect, to my grandma at home, I was surprised to discover that some Sino-Japanese vocabulary have quite similar pronunciations to Teochew.</p>
 
-        <h4>Here are some examples:</h4>
+        <h4>Examples of Sino-Japanese vocabulary with On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronounciation:</h4>
 
         <table class="table table-bordered text-light">
             <thead>
@@ -144,7 +156,7 @@ var blogList = [
 
         <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (音読み) pronunciation. Whereas, as Kun'yomi (訓読み) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (音読み), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (訓読み), and I would not be able to guess each character correctly at first glance. Here are some examples of vocab that involves the use of Kun'yomi (訓読み):</p>
 
-        <h4>Here are some examples of Kun'yomi:</h4>
+        <h4>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) pronounciation:</h4>
 
         <table class="table table-bordered text-light">
             <thead>
@@ -196,9 +208,10 @@ var blogList = [
         </table>
 
         <h4>The "Monsters" of Kanji</h4>
-        <p>And then, there are characters like 生, which have easily over 10 readings!</p>
+        <p>And then, there are characters like <strong style="font-family:MS-Mincho">生</strong>, which have easily over 10 readings!</p>
 
-        <p><strong>生</strong> (Chinese - shēng)</p>
+        <p><strong class="kanji-cell" style="font-size:64px;">生</strong></p>
+        <p>(Chinese - shēng)</p>
 
         <p><strong>Kun'yomi (訓読み):</strong></p>
         <ul>
@@ -230,6 +243,11 @@ var blogList = [
         <h4>Overcoming the Challenges</h4>
         <p>Despite all these challenges, there are quite a lot of fun and intuitive approaches to combat the anxiousness of not knowing the correct pronunciation for each Kanji. For instance, I have been playing Nintendo DS games that have helped me improve my kanji reading and writing skills! However, since the games are entirely in Japanese, I have largely missed one big portion - knowing the meaning of each vocab. Despite knowing a wider variety of Kanji to pronounce correctly, I still feel like I don't fully understand its true meaning.</p>
 
+        <figure>
+            <img class="mb-1" src="./img/blogs/kanjiWriting.gif" style="max-width:300px;" alt="kanjiWriting.gif">
+            <figcaption style="font-size:16px;max-width:300px;">Nintendo DS Gameplay of <i>Kanken DS: 250 Mannin no Kanken Premium</i></figcaption>
+        </figure>
+
         <p>Additionally, listening to songs (with Japanese and English lyrics), as well as singing them (despite not being a great singer at all HAHAHA), have also helped me quite a big deal, as I get to know the context behind the word being used in such songs.</p>
 
         <h4>Final Thoughts:</h4>
@@ -251,13 +269,13 @@ var blogList = [
                 <tr>
                     <td class="kanji-cell">鉄</td>
                     <td class="kanji-cell">鐵</td>
-                    <td class="kanji-cell">铁</td>
+                    <td class="chinese-cell">铁</td>
                     <td>All different</td>
                 </tr>
                 <tr>
                     <td class="kanji-cell">東</td>
                     <td class="kanji-cell">東</td>
-                    <td class="kanji-cell">东</td>
+                    <td class="chinese-cell">东</td>
                     <td>Simplified Chinese different</td>
                 </tr>
                 <tr>

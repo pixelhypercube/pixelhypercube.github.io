@@ -119,4 +119,17 @@ $(function () {
     $("button#resume").on("click", function(){
         window.location.href = "https://pixelhypercube.github.io/Resume_TeoKaiJie.pdf";
     });
+    
+    $("img#avatar_hi").on("click",function(){
+        var src = $(this).attr("src");
+        if (src=="./img/avatar_glasses.png") 
+            $(this).attr("src","./img/avatar_default.png");
+        else $(this).attr("src","./img/avatar_glasses.png");
+    });
+    $("img#avatar_hi").on("mouseover",function(){
+        $(this).attr("src","./img/avatar_glasses.png");
+    });
+    $("img#avatar_hi").on("mouseout",function(){
+        $(this).attr("src","./img/avatar_default.png");
+    });
 });
