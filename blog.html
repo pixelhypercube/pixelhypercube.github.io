@@ -33,25 +33,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kai Jie</title>
-    <style>
-        #tag-list .btn-tag {
-            border:2px solid white;
-            margin:5px 10px 5px 0px;
-            padding:5px 10px 5px 10px;
-            border-radius:10px;
-        }
-        #tag-list .btn-tag-selected {
-            border:2px solid white;
-            background-color: white;
-            color:#212529;
-        }
-        #tag-list .btn-tag .tag-checked {
-            display:none;
-        }
-        #tag-list .btn-tag-selected .tag-checked {
-            display:inline;
-        }
-    </style>
 </head>
 
 <body>
@@ -170,10 +151,10 @@
             for (let i = blogsList.length-1;i>=0;i--) {
                 $("#blogs").append(`
                     <div id="blog_${i+1}" class="blog">
-                        <h6>${blogsList[i]["title"]}</h6>
-                        <p>${blogsList[i]["publishDate"]} | ${blogsList[i]["duration"]} min read</p>
+                        <h6 class="blog-title">${blogsList[i]["title"]}</h6>
+                        <p class="blog-timestamp">${blogsList[i]["publishDate"]} | ${blogsList[i]["duration"]} min read</p>
                         <hr style="border:1px solid grey">
-                        <p>${blogsList[i]["previewText"]}...</p>
+                        <p class="blog-meta">${blogsList[i]["previewText"]}...</p>
                     </div>
                 `);
                 $(`#blog_${i+1}`).click(function() {
