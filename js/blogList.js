@@ -243,10 +243,19 @@ var blogList = [
         <h4>Overcoming the Challenges</h4>
         <p>Despite all these challenges, there are quite a lot of fun and intuitive approaches to combat the anxiousness of not knowing the correct pronunciation for each Kanji. For instance, I have been playing Nintendo DS games that have helped me improve my kanji reading and writing skills! However, since the games are entirely in Japanese, I have largely missed one big portion - knowing the meaning of each vocab. Despite knowing a wider variety of Kanji to pronounce correctly, I still feel like I don't fully understand its true meaning.</p>
 
-        <figure>
-            <img class="mb-1" src="./img/blogs/kanjiWriting.gif" style="max-width:300px;" alt="kanjiWriting.gif">
-            <figcaption style="font-size:16px;max-width:300px;">Nintendo DS Gameplay of <i>Kanken DS: 250 Mannin no Kanken Premium</i></figcaption>
-        </figure>
+        <h5>Some games that practice Kanji skills (but all in Japanese)</h5>
+        <div class="d-flex">
+            <div class="row">
+                <figure class="col-lg-6 col-12">
+                    <img class="mb-1" src="./img/blogs/kanjiWriting.gif" style="max-width:300px;" alt="kanjiWriting.gif">
+                    <figcaption style="font-size:16px;max-width:300px;">Nintendo DS Gameplay of <i>Kanken DS: 250 Mannin no Kanken Premium</i></figcaption>
+                </figure>
+                <figure class="col-lg-6 col-12">
+                    <img class="mb-1" src="./img/blogs/kanjiTyping.gif" style="max-width:500px;" alt="kanjiTyping.gif">
+                    <figcaption style="font-size:16px">Gameplay of <i>Kanji De GO! (<span style="font-family:MS-Mincho">漢字でGO!</span>)</i></figcaption>
+                </figure>
+            </div>
+        </div>
 
         <p>Additionally, listening to songs (with Japanese and English lyrics), as well as singing them (despite not being a great singer at all HAHAHA), have also helped me quite a big deal, as I get to know the context behind the word being used in such songs.</p>
 
@@ -255,7 +264,7 @@ var blogList = [
 
         <p>So, my advice to you is to always take baby steps by learning a few Kanji at first and slowly progressing once you become familiar with them. It's understandable if you feel like giving up, as I've felt the same way when learning other languages. Knowing Chinese can also be a good head start, but however, do take note that the way Japanese Kanji is being written right now largely resembles Traditional Chinese, but with many simplified characters that are sometimes different from Simplified Chinese characters.</p>
 
-        <h4>Comparison of Kanji, Traditional Chinese, and Simplified Chinese</h4>
+        <h5>Comparison of Kanji, Traditional Chinese, and Simplified Chinese</h5>
         <table class="table table-bordered text-light">
             <thead>
                 <tr>
