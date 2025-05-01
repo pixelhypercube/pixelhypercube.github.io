@@ -85,12 +85,4 @@ function genCodingProjects() {
 }
 $(document).ready(function () {
     genCodingProjects();
-    $("img#avatar_hi").on("mouseover",function(){
-        $(this).attr("src","./img/avatar_home.png");
-        $(this).attr("style","width:112px;transform:translate(-24px,0px);");
-    });
-    $("img#avatar_hi").on("mouseout",function(){
-        $(this).attr("src","./img/avatar_default.png");
-        $(this).attr("style","width:64px");
-    });
 });

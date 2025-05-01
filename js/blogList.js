@@ -92,7 +92,7 @@ var blogList = [
         </style>
         <h4>What is Kanji?</h4>
 
-        <p>Kanji (<span style="font-family:MS-Mincho;">漢字</span>) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like hiragana and katakana, each Kanji character represents a word or concept and often has multiple pronunciations depending on context. Kanji is one of the three writing systems used in modern Japanese—the others being hiragana and katakana—and it’s essential for reading books, signs, newspapers, and even names.</p>
+        <p>Kanji (<span style="font-family:MS-Mincho;">漢字</span>) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like Hiragana (<span style="font-family:MS-Mincho;">ひらがな/平仮名</span>) and Katakana (<span style="font-family:MS-Mincho;">カタカナ/片仮名</span>), each Kanji character represents a word or concept and often has multiple pronunciations depending on context. Kanji is one of the three writing systems used in modern Japanese—the others being Hiragana and Katakana—and it's essential for reading books, signs, newspapers, and even names.</p>
 
         <p>For learners of Japanese, Kanji can be one of the most fascinating yet frustrating hurdles to overcome. Why? That's what I'll explore in this post.</p>
 
@@ -154,7 +154,7 @@ var blogList = [
             </tbody>
         </table>
 
-        <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (音読み) pronunciation. Whereas, as Kun'yomi (訓読み) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (音読み), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (訓読み), and I would not be able to guess each character correctly at first glance. Here are some examples of vocab that involves the use of Kun'yomi (訓読み):</p>
+        <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronunciation. Whereas, as Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (<span style="font-family:MS-Mincho;">音読み</span>), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>), and I would not be able to guess each character correctly at first glance.</p>
 
         <h5>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) pronounciation:</h5>
 
@@ -251,7 +251,7 @@ var blogList = [
         <p>Additionally, listening to songs (with Japanese and English lyrics), as well as singing them (despite not being a great singer at all HAHAHA), have also helped me quite a big deal, as I get to know the context behind the word being used in such songs.</p>
 
         <h4>Final Thoughts:</h4>
-        <p>I hope I don't scare you about the complexities of Kanji. But despite these challenges, there are numerous benefits to Kanji. For example, it allows to "simplify" words that might otherwise be written in long strings of unrecognizable hiragana, especially in personal names. Without Kanji, understanding the meaning of certain words in purely hiragana/katakana would be much more challenging.</p>
+        <p>I hope I don't scare you about the complexities of Kanji. But despite these challenges, there are numerous benefits to Kanji. For example, it allows to "simplify" words that might otherwise be written in long strings of unrecognizable Hiragana, especially in personal names. Without Kanji, understanding the meaning of certain words in purely Hiragana/Katakana would be much more challenging.</p>
 
         <p>So, my advice to you is to always take baby steps by learning a few Kanji at first and slowly progressing once you become familiar with them. It's understandable if you feel like giving up, as I've felt the same way when learning other languages. Knowing Chinese can also be a good head start, but however, do take note that the way Japanese Kanji is being written right now largely resembles Traditional Chinese, but with many simplified characters that are sometimes different from Simplified Chinese characters.</p>
 

@@ -41,7 +41,7 @@
             <br>
             <div class="d-flex flex-column align-items-center">
                 <a href="./index.html">
-                    <img style="width:64px;" id="avatar_hi" src="./img/avatar_default.png" />
+                    <img id="avatar"/>
                 </a>
             </div>
             <nav class="">
@@ -177,14 +177,6 @@
                     }
                     updateVisibility();
                 });
-            });
-            $("img#avatar_hi").on("mouseover",function(){
-                $(this).attr("src","./img/avatar_home.png");
-                $(this).attr("style","width:112px;transform:translate(-24px,0px);");
-            });
-            $("img#avatar_hi").on("mouseout",function(){
-                $(this).attr("src","./img/avatar_default.png");
-                $(this).attr("style","width:64px");
             });
         });
     </script>

@@ -48,6 +48,25 @@ p,th,td {
     font-size:18px;
     font-weight:300;
 }
+
+/* FACE ICON */
+
+#avatar {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    width:64px;
+    content: url(../img/avatar_default.png);
+}
+
+#avatar:hover {
+    width:112px;
+    transform:translate(-24px,0px);
+    content: url(../img/avatar_home.png);
+}
+
+
+
 /* Header */
 header {
     /* padding:10% 0px 0% 0px; */
