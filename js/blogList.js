@@ -97,7 +97,7 @@ var blogList = [
         <p>For learners of Japanese, Kanji can be one of the most fascinating yet frustrating hurdles to overcome. Why? That's what I'll explore in this post.</p>
 
         <h4>My Journey with Kanji</h4>
-        <p>As a person who self-learns Japanese on and off, I have undoubtedly faced numerous difficulties adapting to the complexities of Kanji - one of the 3 main scripts used in the modern Japanese language. When I first started learning Kanji, it felt like I was re-learning Chinese again, with entirely new pronunciations of the characters, and to no surprise, it took me a long time to adjust to the way that Kanji is pronounced. Additionally, reading Kanji felt like a chore in the beginning as I don't use Chinese frequently, which includes reading and writing Chinese characters.</p>
+        <p>As a person who self-learns Japanese on and off, I have undoubtedly faced numerous difficulties adapting to the complexities of Kanji. When I first started learning Kanji, it felt like I was re-learning Chinese again, with entirely new pronunciations of the characters, and to no surprise, it took me a long time to adjust to the way that Kanji is pronounced. Additionally, reading Kanji felt like a chore in the beginning as I don't use Chinese frequently, which includes reading and writing Chinese characters.</p>
 
         <p>The main reason Kanji can be astronomically difficult to learn is the number of readings each character can have. Most Kanji are typically divided into 2 classes of pronunciation: On'yomi (音読み) - derived from Middle Chinese pronunciation, and Kun'yomi (訓読み) - the native Japanese pronunciation.</p>
 
