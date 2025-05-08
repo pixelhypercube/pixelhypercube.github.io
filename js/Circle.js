@@ -23,7 +23,7 @@ class Circle {
             },
             {
                 "title": "My personal bests for running",
-                "description":"2.4km - 9:06,\n 5km - 21:21,\n 10km - 45:53, Half Marathon (~21.1km) - 1:52:22, Marathon (42.195) - 4:49:51",
+                "description":"2.4km - 9:06,\n 5km - 21:21,\n 10km - 45:53, Half Marathon (~21.1km) - 1:52:22, Marathon (42.195km) - 4:49:51",
                 "icon":"",
                 "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
             },

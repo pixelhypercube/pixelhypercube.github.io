@@ -83,16 +83,16 @@ var blogList = [
         <style>
             .kanji-cell {
                 font-size:30px;
-                font-family:MS-Mincho;
+                font-family:MPLUS1p-Regular;
             }
             .chinese-cell {
                 font-size:30px;
-                font-family:SongTi;
+                font-family:NotoSansSC-Regular;
             }
         </style>
         <h4>What is Kanji?</h4>
 
-        <p>Kanji (<span style="font-family:MS-Mincho;">漢字</span>) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like Hiragana (<span style="font-family:MS-Mincho;">ひらがな/平仮名</span>) and Katakana (<span style="font-family:MS-Mincho;">カタカナ/片仮名</span>), each Kanji character represents a word or concept and often has multiple pronunciations depending on context. Kanji is one of the three writing systems used in modern Japanese—the others being Hiragana and Katakana—and it's essential for reading books, signs, newspapers, and even names.</p>
+        <p>Kanji (<span style="font-family:MPLUS1p-Regular;">漢字</span>) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like Hiragana (<span style="font-family:MPLUS1p-Regular;">ひらがな/平仮名</span>) and Katakana (<span style="font-family:MPLUS1p-Regular;">カタカナ/片仮名</span>), each Kanji character represents a word or concept and often has multiple pronunciations depending on context. Kanji is one of the three writing systems used in modern Japanese—the others being Hiragana and Katakana—and it's essential for reading books, signs, newspapers, and even names.</p>
 
         <p>For learners of Japanese, Kanji can be one of the most fascinating yet frustrating hurdles to overcome. Why? That's what I'll explore in this post.</p>
 
@@ -103,7 +103,7 @@ var blogList = [
 
         <p>As someone who occasionally speaks Teochew, a Chinese dialect, to my grandma at home, I was surprised to discover that some Sino-Japanese vocabulary have quite similar pronunciations to Teochew.</p>
 
-        <h5>Examples of Sino-Japanese vocabulary with On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronounciation:</h5>
+        <h5>Examples of Sino-Japanese vocabulary with On'yomi (<span style="font-family:MPLUS1p-Regular;">音読み</span>) pronounciation:</h5>
 
         <table class="table table-bordered text-light">
             <thead>
@@ -154,9 +154,9 @@ var blogList = [
             </tbody>
         </table>
 
-        <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (<span style="font-family:MS-Mincho;">音読み</span>) pronunciation. Whereas, as Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (<span style="font-family:MS-Mincho;">音読み</span>), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>), and I would not be able to guess each character correctly at first glance.</p>
+        <p>Because of these similarities, it became relatively easier for me to guess the pronunciation of each Kanji's On'yomi (<span style="font-family:MPLUS1p-Regular;">音読み</span>) pronunciation. Whereas, as Kun'yomi (<span style="font-family:MPLUS1p-Regular;">訓読み</span>) is the native, indigenous Japanese pronunciation of Kanji, their pronunciations are mostly totally unrelated to On'yomi (<span style="font-family:MPLUS1p-Regular;">音読み</span>), where the pronunciations are purely an import from the sounds of Middle Chinese characters. As a result, I am noticeably weaker in terms of memorizing Kun'yomi (<span style="font-family:MPLUS1p-Regular;">訓読み</span>), and I would not be able to guess each character correctly at first glance.</p>
 
-        <h5>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MS-Mincho;">訓読み</span>) pronounciation:</h5>
+        <h5>Examples of Sino-Japanese vocabulary with Kun'yomi (<span style="font-family:MPLUS1p-Regular;">訓読み</span>) pronounciation:</h5>
 
         <table class="table table-bordered text-light">
             <thead>
@@ -208,7 +208,7 @@ var blogList = [
         </table>
 
         <h4>The "Monsters" of Kanji</h4>
-        <p>And then, there are characters like <strong style="font-family:MS-Mincho">生</strong>, which have easily over 10 readings!</p>
+        <p>And then, there are characters like <strong style="font-family:MPLUS1p-Regular">生</strong>, which have easily over 10 readings!</p>
 
         <p><strong class="kanji-cell" style="font-size:64px;">生</strong></p>
         <p>(Chinese - shēng)</p>
@@ -252,7 +252,7 @@ var blogList = [
                 </figure>
                 <figure class="col-lg-6 col-12">
                     <img class="mb-1" src="./img/blogs/kanjiTyping.gif" style="max-width:500px;" alt="kanjiTyping.gif">
-                    <figcaption style="font-size:16px">Gameplay of <i>Kanji De GO! (<span style="font-family:MS-Mincho">漢字でGO!</span>)</i></figcaption>
+                    <figcaption style="font-size:16px">Gameplay of <i>Kanji De GO! (<span style="font-family:MPLUS1p-Regular">漢字でGO!</span>)</i></figcaption>
                 </figure>
             </div>
         </div>

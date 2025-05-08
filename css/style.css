@@ -20,10 +20,18 @@
     src:url(../fonts/SongTi.otf);
     font-family:SongTi;
 }
+@font-face {
+    src:url(../fonts/NotoSansSC-Regular.ttf);
+    font-family:NotoSansSC-Regular;
+}
 /* JAPANESE FONT */
 @font-face {
     src:url(../fonts/MS-Mincho.ttf);
     font-family:MS-Mincho;
+}
+@font-face {
+    src:url(../fonts/MPLUS1p-Medium.ttf);
+    font-family:MPLUS1p-Medium;
 }
 
 a {

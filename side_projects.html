@@ -18,6 +18,48 @@
         <link href="./css/style.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
         <title>Kendrick Teo Kai Jie</title>
+        <script>
+            var lang = new URLSearchParams(document.location.search).get("lang");
+            const tags = {
+                "home":{
+                    en: "Home",
+                    jp: "ホーム",
+                    zh: "主页",
+                },
+                "side-projects": {
+                    en: "Side Projects",
+                    jp: "サイドプロジェクト",
+                    zh: "小项目"
+                },
+                "side-projects-desc": {
+                    en: "Side Projects",
+                    jp: "ぜひご覧いただき、自由に試してみてください！",
+                    zh: "欢迎探索和尝试这些项目！"
+                },
+                "facts": {
+                    en: "35 Facts About Me",
+                    jp: "私に関する35のこと",
+                    zh: "关于我的35个事实"
+                },
+                "blogs": {
+                    en: "Blogs",
+                    jp: "ブログ (英語)",
+                    zh: "博客 (英语)"
+                }
+            }
+            function loadLanguage(l) {
+                $('[data-tag]').each(function () {
+                    const tag = $(this).data('tag');
+                    if (tags[tag] && tags[tag][l]) {
+                        $(this).text(tags[tag][l]);
+                        if (tag=="home") $(this).attr("href",`./index_${l}.html`)
+                    }
+                });
+            }
+            $(document).ready(function () {
+                loadLanguage(lang);
+            });
+        </script>
     </head>
     <body>
         <header style="padding:2% 0px 0% 0px;">
@@ -30,25 +72,25 @@
                 <nav class="">
                     <ul style="padding: 0;" class="nav">
                         <li>
-                            <a class="header-nav" href="./index.html">Home</a>
+                            <a data-tag="home" class="header-nav" href="./index.html">Home</a>
                         </li>
                         <li>
-                            <a class="header-nav" href="./side_projects.html">Side Projects</a>
+                            <a data-tag="side-projects" class="header-nav" href="./side_projects.html">Side Projects</a>
                         </li>
                         <li>
-                            <a class="header-nav" href="./about.html">35 Facts About Me</a>
+                            <a data-tag="facts" class="header-nav" href="./about.html">35 Facts About Me</a>
                         </li>
                         <li>
-                            <a class="header-nav" href="./blog.html">Blogs</a>
+                            <a data-tag="blogs" class="header-nav" href="./blog.html">Blogs</a>
                         </li>
                     </ul>
                 </nav>
-                <h1>Side Projects</h1>
+                <h1 data-tag="side-projects">Side Projects</h1>
             </div>
         </header>
         <main>
             <div class="container">
-                <p>Feel free to discover and experiment with them!</p>
+                <p data-tag="side-projects-desc">Feel free to discover and experiment with them!</p>
                 <div id="coding_projects" class="card-columns">
                 </div>
             </div>

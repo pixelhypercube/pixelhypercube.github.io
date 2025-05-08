@@ -1,19 +1,14 @@
 function getDevelopment(dev) {
-    if (dev == 0) {
-        return "";
-    } else if (dev == 1) {
-        return "(正在开发中)";
-    } else if (dev == 2) {
-        return "(Alpha)";
-    } else if (dev == 3) {
-        return "(Beta)";
-    }
+    if (dev == 0) return ""; 
+    else if (dev == 1) return "(正在开发中)"; 
+    else if (dev == 2) return "(阿尔法)";
+    else if (dev == 3) return "(贝塔)";
 }
 
 function isMiniProj(state) {
     console.log(state)
     if (state == 1) {
-        return "(Mini Project)";
+        return "(小型项目)";
     } else {
         return "";
     }

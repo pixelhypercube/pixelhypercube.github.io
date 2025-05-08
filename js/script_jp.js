@@ -1,13 +1,8 @@
 function getDevelopment(dev) {
-    if (dev == 0) {
-        return "";
-    } else if (dev == 1) {
-        return "(開発中)";
-    } else if (dev == 2) {
-        return "(Alpha)";
-    } else if (dev == 3) {
-        return "(Beta)";
-    }
+    if (dev == 0) return ""; 
+    else if (dev == 1) return "(開発中)"; 
+    else if (dev == 2) return "(アルファ)";
+    else if (dev == 3) return "(ベータ)";
 }
 
 function isMiniProj(state) {
