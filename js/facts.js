@@ -1,5 +1,3 @@
-var lang = new URLSearchParams(document.location.search).get("lang");
-
 var Engine = Matter.Engine,
 World = Matter.World,
 Mouse = Matter.Mouse,
@@ -180,8 +178,20 @@ function mousePressed() {
             if (circle.mouseIntersect()) {
                 console.log(circle,mouseX,mouseY);
                 $("#fact_overlay").css({"display":"flex"});
-                $("#fact_name").text(circle.factList[circle.circleValue-1]["title"]);
-                $("#fact_desc").text(circle.factList[circle.circleValue-1]["description"]);
+
+                if (lang=="jp") {
+                    $("#fact_name").text(circle.factList[circle.circleValue-1]["translations_title"]["jp"]);
+                    $("#fact_desc").text(circle.factList[circle.circleValue-1]["translations_desc"]["jp"]);
+                }
+                else if (lang=="zh") {
+                    $("#fact_name").text(circle.factList[circle.circleValue-1]["translations_title"]["zh"]);
+                    $("#fact_desc").text(circle.factList[circle.circleValue-1]["translations_desc"]["zh"]);
+                }
+                else {
+                    $("#fact_name").text(circle.factList[circle.circleValue-1]["title"]);
+                    $("#fact_desc").text(circle.factList[circle.circleValue-1]["description"]);
+                }
+
                 $("#fact_overlay").animate({"opacity":1},250);
                 factWindowVisible=true;
             }
