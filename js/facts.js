@@ -1,3 +1,5 @@
+var lang = new URLSearchParams(document.location.search).get("lang");
+
 var Engine = Matter.Engine,
 World = Matter.World,
 Mouse = Matter.Mouse,
@@ -92,11 +94,11 @@ function setup() {
 
 async function genCircles() {
     let count = 1;
-    for (let i = 0;i<7;i++) {
+    for (let i = 0;i<5;i++) {
         for (let j = 0;j<5;j++,count++) {
             // circles.push(new Circle(j*56+200,i*56+50,28,true,count));
-            circles.push(new Circle(j*80+100,50,40,true,'hsl('+count*10+',100%,90%)',count));
-            await delay(50);
+            circles.push(new Circle(j*80+100,50,40,true,'hsl('+count*10+',100%,80%)',count));
+            await delay(100);
         }
     }
 }
@@ -109,6 +111,7 @@ function delay(amount) {
     })
 }
 
+let textRendered = false;
 
 function draw() {
     clear();
@@ -118,6 +121,7 @@ function draw() {
     pusher.show();
     // pusher.oscillate();
     
+    frameRate(60);
 
     Body.setPosition(pusher.body,{x:pusher.x,y:pusher.y});
     for (let rect of rects) {
@@ -130,13 +134,15 @@ function draw() {
         }
     }
     // collector.show();
-    push();
-    fill("black");
-    textSize(35);
-    textStyle(BOLD);
-    textAlign(CENTER);
-    text("Drop circles here!",width/2,900);
-    pop();
+    if (!textRendered) {
+        push();
+        fill("black");
+        textSize(35);
+        textStyle(BOLD);
+        textAlign(CENTER);
+        text("Drop circles here!",width/2,900);
+        pop();
+    }
     for (let circle of circles) {
         circle.show();
         // if (circle.intersect(collector)) {
@@ -239,6 +245,4 @@ $(document).ready(function(){
             factWindowVisible=false;
         });
     });
-    // getAcceleration();
-
 })

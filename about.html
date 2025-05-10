@@ -32,6 +32,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var lang = new URLSearchParams(document.location.search).get("lang");
+        const tags = {
+            "home":{
+                en: "Home",
+                jp: "ホーム",
+                zh: "主页",
+            },
+            "side-projects": {
+                en: "Side Projects",
+                jp: "サイドプロジェクト",
+                zh: "小项目"
+            },
+            "side-projects-desc": {
+                en: "Side Projects",
+                jp: "ぜひご覧いただき、自由に試してみてください！",
+                zh: "欢迎探索和尝试这些项目！"
+            },
+            "facts": {
+                en: "25 Facts About Me",
+                jp: "私に関する25のこと",
+                zh: "关于我的25个事实"
+            },
+            "blogs": {
+                en: "Blogs",
+                jp: "ブログ (英語)",
+                zh: "博客 (英语)"
+            },
+            "header-title": {
+                en: "25 Facts About Me",
+                jp: "私に関する25のこと",
+                zh: "关于我的25个事实"
+            },
+            "header-desc": {
+                en: "Each circle will have an icon that describes one of my facts! Click/Tap on a circle to see the fact!",
+                jp: "各円には、私の豆知識を表すアイコンがあります！円をクリックまたはタップして事実を見てね！",
+                zh: "每个圆圈里都有一个图标，代表我的一个小知识！点击或轻触圆圈查看内容！"
+            },
+            "made-using": {
+                en: `Made using <a class="text-light" href="https://p5js.org/"><u>p5.js</u></a> and <a class="text-light" href="https://brm.io/matter-js/"><u>matter.js</u></a>!`,
+                jp: `<a class="text-light" href="https://p5js.org/"><u>p5.js</u></a> と <a class="text-light" href="https://brm.io/matter-js/"><u>matter.js</u></a> を使って作りました！`,
+                zh: `使用 <a class="text-light" href="https://p5js.org/"><u>p5.js</u></a> 和 <a class="text-light" href="https://brm.io/matter-js/"><u>matter.js</u></a> 制作！`
+            }
+        }
+        function loadLanguage(l) {
+            $('[data-tag]').each(function () {
+                const tag = $(this).data('tag');
+                if (tags[tag] && tags[tag][l]) {
+                    $(this).html(tags[tag][l]);
+                    if (tag=="home" && l!="en") $(this).attr("href",`./index_${l}.html`)
+                }
+            });
+        }
+        $(document).ready(function () {
+            loadLanguage(lang);
+        });
+    </script>
     <title>Kendrick Teo Kai Jie</title>
 </head>
 
@@ -47,22 +104,22 @@
             <nav class="">
                 <ul style="padding: 0;" class="nav">
                     <li>
-                        <a class="header-nav" href="./index.html">Home</a>
+                        <a data-tag="home" class="header-nav" href="./index.html">Home</a>
                     </li>
                     <li>
-                        <a class="header-nav" href="./side_projects.html">Side Projects</a>
+                        <a data-tag="side-projects" class="header-nav" href="./side_projects.html">Side Projects</a>
                     </li>
                     <li>
-                        <a class="header-nav" href="./about.html">35 Facts About Me</a>
+                        <a data-tag="facts" class="header-nav" href="./about.html">25 Facts About Me</a>
                     </li>
                     <li>
-                        <a class="header-nav" href="./blog.html">Blogs</a>
+                        <a data-tag="blogs" class="header-nav" href="./blog.html">Blogs</a>
                     </li>
                 </ul>
             </nav>
-            <h1>35 Facts About Me!</h1>
-            <p>Each circle will have an icon that describes one of my facts! Click/Tap on a circle to see the fact!</p>
-            <p style="text-align: center;font-weight: 600;"><i>Made using <a class="text-light" href="https://p5js.org/"><u>p5.js</u></a> and <a class="text-light" href="https://brm.io/matter-js/"><u>matter.js</u></a>!</i></p>
+            <h1 data-tag="header-title">25 Facts About Me!</h1>
+            <p data-tag="header-desc">Each circle will have an icon that describes one of my facts! Click/Tap on a circle to see the fact!</p>
+            <p style="text-align: center;font-weight: 600;" data-tag="made-using"><i>Made using <a class="text-light" href="https://p5js.org/"><u>p5.js</u></a> and <a class="text-light" href="https://brm.io/matter-js/"><u>matter.js</u></a>!</i></p>
             <div id="canvas"></div>
             <br>
             <div id="fact_overlay">

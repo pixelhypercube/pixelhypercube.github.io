@@ -10,215 +10,255 @@ class Circle {
         this.highlighted = false;
         this.factList = [
             {
-                "title": "I'm currently a dog person 🐶",
-                "description":"Fun fact - I used to be a cat person when I was younger!",
-                "icon":"🐶",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I couldn't read and write Chinese characters until secondary school",
+                "description": "I was exempt from Chinese in primary school due to my learning needs but eventually caught up after taking basic Chinese lessons when I transferred Secondary schools. My fluency is still a work in progress, but I continue to improve when I have the time!",
+                "icon": "🀄",
+                "image": loadImage("../img/fact_imgs/fact1.png"),
+                "translations": {
+                    "Japanese": "私は中学校に入るまで中国語の文字を読むことも書くこともできませんでした。小学校では学習のニーズから中国語を免除されていましたが、後に転校した際に基本的な中国語の授業を受け、徐々に追いつきました。流暢さはまだ進行中ですが、時間があるときに改善を続けています。",
+                    "Chinese": "我直到中学才会读写汉字。由于在小学时有学习需求，我被免除了中文课，但在转校后，我通过参加基础中文课程赶上了进度。我的流利程度仍在进步中，但我会在有时间时继续提高。"
+                }
             },
             {
-                "title": "My eyes turn brown under sunlight",
-                "description":"However, they are completely dark otherwise",
-                "icon":"👁",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I am a free thinker who was once a Buddhist when I was younger",
+                "description": "When I was a kid, I tended to follow my father’s religion, but now as I grew older, I don’t really practice religion very much. I also don’t label myself as an atheist or agnostic - just a free-thinker.",
+                "icon": "🧠",
+                "image": loadImage("../img/fact_imgs/fact2.png"),
+                "translations": {
+                    "Japanese": "私は自由な思考者で、子供の頃は仏教徒でした。子供の頃は父の宗教に従っていましたが、年齢を重ねるうちに宗教をあまり実践しなくなりました。また、私は自分を無神論者や不可知論者とはラベル付けしていません - 単なる自由な思考者です。",
+                    "Chinese": "我是一个自由思想者，年轻时曾是佛教徒。小时候，我倾向于遵循父亲的宗教，但随着年龄的增长，我不再很积极地实践宗教。我也不认为自己是无神论者或不可知论者 - 只是一个自由思想者。"
+                }
             },
             {
-                "title": "My personal bests for running",
-                "description":"2.4km - 9:06,\n 5km - 21:21,\n 10km - 45:53, Half Marathon (~21.1km) - 1:52:22, Marathon (42.195km) - 4:49:51",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I used to dislike reading as a child",
+                "description": "I had numerous difficulties visualizing what I read, which made it bland and uninteresting. Now, as I can picture things better, reading has become much more enjoyable for me!",
+                "icon": "📚",
+                "image": loadImage("../img/fact_imgs/fact3.png"),
+                "translations": {
+                    "Japanese": "子供の頃、私は読書が嫌いでした。読むことを視覚化するのが非常に苦手で、退屈で面白くありませんでした。今では物事をより良くイメージできるようになり、読書がとても楽しくなりました！",
+                    "Chinese": "我小时候不喜欢阅读。我在阅读时有很多困难，尤其是在视觉化内容上，这让阅读变得枯燥无味。现在，我能更好地想象内容，阅读变得更加有趣！"
+                }
             },
             {
-                "title": "My Chinese name is 张凯杰",
-                "description":"Hanyu Pinyin: zhāng kǎi jié",
-                "icon":"中",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "My most listened workout song",
+                "description": "'KICK BACK' by Kenshi Yonezu (米津 玄師)",
+                "icon": "🎶",
+                "image": loadImage("../img/fact_imgs/fact4.png"),
+                "translations": {
+                    "Japanese": "私の最も聴いたワークアウトソングは、米津玄師の「KICK BACK」です。",
+                    "Chinese": "我最常听的锻炼歌曲是米津玄师的《KICK BACK》"
+                }
             },
             {
-                "title": "I'm 177-178cm (5' 10\") tall",
-                "description":"Another special thing was that I was considered to be very tall in Primary 6 (11-12 years old) where I was around 170cm (~ 5' 7\")! It's probably because my puberty started early. A bit sad that I didn't continue to grow more, but I believe there are so many factors that are more important than height itself!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "Minecraft is one of my biggest inspirations for studying Computer Science!",
+                "description": "I’ve been addicted to the game since 2012 due to its endless possibilities and creativity and I have been immensely fascinated about the fun and interesting aspects this game can offer!",
+                "icon": "🎮",
+                "image": loadImage("../img/fact_imgs/fact5.png"),
+                "translations": {
+                    "Japanese": "Minecraftは私がコンピュータサイエンスを学ぶ最大のインスピレーションの一つです！2012年からその無限の可能性と創造性に夢中になっており、このゲームが提供する楽しく興味深い側面に非常に魅了されています！",
+                    "Chinese": "《Minecraft》是我学习计算机科学的最大灵感之一！自2012年起，我就沉迷于这款游戏，它提供了无尽的可能性和创造力，我深深着迷于这款游戏所能提供的有趣和令人着迷的方面！"
+                }
             },
             {
-                "title": "I'm a very clumsy person",
-                "description":"I tend to trip over things once in a while, and I even got a few bruises before!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I was a cat person as a child but have since shifted towards dogs!",
+                "description": "I used to prefer cats, but over time, I've developed a strong preference for dogs!",
+                "icon": "🐶",
+                "image": loadImage("../img/fact_imgs/fact6.png"),
+                "translations": {
+                    "Japanese": "子供の頃は猫派でしたが、今では犬派に変わりました！",
+                    "Chinese": "我小时候是猫派，但现在已经转向了狗派！"
+                }
             },
             {
-                "title": "Maths is one of my favorite subjects in school",
-                "description":"I don't mean to boast, but it started when I topped my class in maths several times!",
-                "icon":"🔢",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "My Personal Bests for running",
+                "description": "2.4 km: 9:06, 5 km: 21:21, 10 km: 45:53, Half Marathon (~21.1 km): 1:52:22, Marathon (42.195 km): 4:49:51",
+                "icon": "🏃‍♂️",
+                "image": loadImage("../img/fact_imgs/fact7.png"),
+                "translations": {
+                    "Japanese": "私のランニングのパーソナルベスト： 2.4 km：9:06、5 km：21:21、10 km：45:53、ハーフマラソン（約21.1 km）：1:52:22、フルマラソン（42.195 km）：4:49:51",
+                    "Chinese": "我的跑步个人最佳：2.4公里：9:06，5公里：21:21，10公里：45:53，半马拉松（约21.1公里）：1:52:22，全程马拉松（42.195公里）：4:49:51"
+                }
             },
             {
-                "title": "I'm addicted to Nintendo game music at the moment!",
-                "description":"It began when Nintendo lofi music popped up on my search feed on Youtube and from there on, I've been listening to many of their original soundtracks, including those from Mario and The Legend of Zelda!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "My left thumb could bend while my right thumb can’t!",
+                "description": "I wonder how many people share this trait!",
+                "icon": "👍",
+                "image": loadImage("../img/fact_imgs/fact8.png"),
+                "translations": {
+                    "Japanese": "左手の親指は曲がるけど、右手の親指は曲がりません！この特性を持っている人がどれだけいるのか気になります！",
+                    "Chinese": "我的左手拇指能弯曲，但右手拇指不能！我想知道有多少人和我一样！"
+                }
             },
             {
-                "title": "Minecraft got me interested in computing!",
-                "description":"Even since I started playing 2012 (coming to 9 years), it is my most influential game that got be interested to learn more about computing! Huge thanks to Markus \"Notch\" Persson for creating this wonderful game!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I'm a huge lover of Japanese food",
+                "description": "I have a wide variety of favourites, ranging from sashimi to tonkatsu!",
+                "icon": "🍣",
+                "image": loadImage("../img/fact_imgs/fact9.png"),
+                "translations": {
+                    "Japanese": "私は日本食が大好きです！寿司から豚カツまで、幅広いお気に入りがあります！",
+                    "Chinese": "我非常喜欢日本料理！从生鱼片到炸猪排，我都有很多喜欢的！"
+                }
             },
             {
-                "title": "I used to dislike reading when I was younger!",
-                "description":"At the time my brain somehow didn't let me picture when I was reading stuff and I had language delay at the time 🥲, but everything's much better right now!",
-                "icon":"📖",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I'm predominantly introverted",
+                "description": "People are typically surprised to find out because I tend to be quite loud at times when I'm with people I'm very familiar with!",
+                "icon": "😌",
+                "image": loadImage("../img/fact_imgs/fact10.png"),
+                "translations": {
+                    "Japanese": "私は主に内向的です。人々は、私が非常に親しい人たちと一緒にいる時、時々とても大きな声を出すことに驚くことがよくあります！",
+                    "Chinese": "我是一个主要内向的人。人们通常会感到惊讶，因为当我和非常熟悉的人在一起时，我有时会变得很吵！"
+                }
             },
             {
-                "title": "I'd ran overseas in the UK, Vietnam and New Zealand!",
-                "description":"I wanted to discover new places when I'm travelling overseas, but because of COVID, I'm still constrained to running to different places in SG. I'm doing fine right now as I'm used to the limitations of not travelling! Singapore has plenty of places to discover and run!",
-                "icon":"🏃‍♂️",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "My MBTI type is INTJ",
+                "description": "I was originally an INFJ in the beginning of my polytechnic days, but after making so many computers go brr.., my feeling (F) trait shifted to thinking (T).",
+                "icon": "💻",
+                "image": loadImage("../img/fact_imgs/fact11.png"),
+                "translations": {
+                    "Japanese": "私のMBTIタイプはINTJです。最初のポリテクニック時代ではINFJでしたが、多くのコンピュータを動かすうちに、感情（F）から思考（T）に変わりました。",
+                    "Chinese": "我的MBTI类型是INTJ。最开始在理工学院时，我是INFJ，但在让许多计算机运作后，我的情感（F）特质转变为思维（T）。"
+                }
             },
             {
-                "title": "The constant π (pi) is one of my favorite constants!",
-                "description":"I even stop at π miles (literally 3.14 miles) during my runs when I plan to run a 5K!",
-                "icon":"π",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I feel down over long hair on the sides of my head",
+                "description": "As Singapore generally has a warm climate my hair at the sides could get pretty warm, and my sides will feel pretty itchy.",
+                "icon": "💇‍♂️",
+                "image": loadImage("../img/fact_imgs/fact12.png"),
+                "translations": {
+                    "Japanese": "私は頭の横の長い髪に悩まされています。シンガポールは一般的に温暖な気候なので、横の髪がかなり温かくなり、横がかなりかゆく感じます。",
+                    "Chinese": "我对头部两侧的长发感到不舒服。由于新加坡气候温暖，头部两侧的头发会变得相当温热，侧面也会感到痒。"
+                }
             },
             {
-                "title": "I dislike the sound of styrofoam rubbing each other!",
-                "description":"For instance, when I'm opening a packet of chicken rice, I will have to open it quickly so that I don't hear the noise for longer periods of time!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I have a phobia of balloons and stretched rubber bands",
+                "description": "The sensation is especially intense when blowing up balloons or stretching rubber bands!",
+                "icon": "🎈",
+                "image": loadImage("../img/fact_imgs/fact13.png"),
+                "translations": {
+                    "Japanese": "私は風船や伸ばしたゴムバンドに恐怖症があります。特に風船を膨らませたりゴムバンドを伸ばすと、その感覚が非常に強烈です！",
+                    "Chinese": "我有气球和拉伸橡皮筋的恐惧症。在吹气球或拉伸橡皮筋时，这种感觉尤为强烈！"
+                }
             },
             {
-                "title": "I get scared when I use rubber bands and tieing balloons!",
-                "description":"Because I'm afraid that the rubber band may snap at me, as well as hearing the balloon pop unexpectedly!",
-                "icon":"🎈",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I am a speedcuber!",
+                "description": "I have participated in speedcubing competitions during my secondary school days and I also have a collection of 60+ Rubik’s Cubes!",
+                "icon": "🔲",
+                "image": loadImage("../img/fact_imgs/fact14.png"),
+                "translations": {
+                    "Japanese": "私はスピードキューバーです！中学校の時にスピードキュービング大会に参加したことがあり、60個以上のルービックキューブを集めています！",
+                    "Chinese": "我是一个速拧魔方者！在中学时，我参加过速拧魔方比赛，而且我还有60多个魔方的收藏！"
+                }
             },
             {
-                "title": "My typical running mileage is around 50-70km per week 🏃",
-                "description":"I should be focusing on studying instead HAHAHA 🥲",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "Maths was my favourite subject in secondary school",
+                "description": "Unfortunately, computing subjects weren’t offered during my secondary school days, so maths has been my closest subject where I excelled!",
+                "icon": "➗",
+                "image": loadImage("../img/fact_imgs/fact15.png"),
+                "translations": {
+                    "Japanese": "数学は私の中学校時代のお気に入りの科目でした。残念ながら、私の中学校時代にはコンピュータに関する科目は提供されていなかったので、数学が私の得意な科目となりました！",
+                    "Chinese": "数学是我在中学时最喜欢的科目。不幸的是，中学时没有提供计算机类科目，因此数学成了我最擅长的学科！"
+                }
             },
             {
-                "title": "My top 3 priorities in life include self-improvement, mental health and physical health!",
-                "description":"Not only do I want to improve myself in my passions, but I also feel that mental health and physical health are also very important! Without them, I wouldn't be living a comfortable life!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I'm somewhat of a Kanji geek",
+                "description": "Kanji is one of the most difficult aspects of Japanese, and I find it fascinating to learn about what each Kanji is like!",
+                "icon": "🈶",
+                "image": loadImage("../img/fact_imgs/fact16.png"),
+                "translations": {
+                    "Japanese": "私はちょっとした漢字オタクです。漢字は日本語で最も難しい部分の一つで、各漢字がどんなものかを学ぶのが非常に魅力的です！",
+                    "Chinese": "我有点是汉字迷。汉字是日语中最难的部分之一，我发现了解每个汉字的特征非常有趣！"
+                }
             },
             {
-                "title": "I don't drink coffee",
-                "description":"It could get me very hyperactive where I will have problems concentrating. And worse, I have trouble sleeping at night!",
-                "icon":"☕",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I played the double bass for my school's orchestra!",
+                "description": "Despite having no prior musical background, I was able to pick it up over time, despite not being very good at it!",
+                "icon": "🎻",
+                "image": loadImage("../img/fact_imgs/fact17.png"),
+                "translations": {
+                    "Japanese": "私は学校のオーケストラでダブルベースを演奏していました！音楽のバックグラウンドが全くなかったにもかかわらず、時間が経つにつれて習得することができましたが、あまり上手ではありませんでした！",
+                    "Chinese": "我在学校的乐团中演奏低音提琴！尽管我没有任何音乐背景，但随着时间的推移，我还是学会了它，尽管我并不擅长！"
+                }
             },
             {
-                "title": "I am exclusively drink only during social situations!",
-                "description":"I only drink during social situations but not when I'm by myself as I generally don't feel the need to drink unecessarily!",
-                "icon":"🍷",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "Running stabilized my overall mental health!",
-                "description":"It got me out of my depressive state after I started to run! Give it a try to see the effects!",
-                "icon":"🏃‍♂️",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I dislike the stinging texture of carbonated drinks at times",
+                "description": "Sometimes, I tend to just shake bottles containing carbonated drinks until I let out the gas, so it’s smoother.",
+                "icon": "🥤",
+                "image": loadImage("../img/fact_imgs/fact18.png"),
+                "translations": {
+                    "Japanese": "時々、炭酸飲料のしびれるような感覚が嫌いです。時には炭酸飲料が入ったボトルを振って、ガスを抜くことで、より滑らかにしています。",
+                    "Chinese": "有时我不喜欢碳酸饮料那种刺痛的口感。有时我会摇晃碳酸饮料瓶，直到释放出气体，使其更加顺滑。"
+                }
             },
             {
                 "title": "I used to be a picky eater when I was young",
-                "description":"I was restricted to only liking French fries and Chicken Nuggets as a kid, but I've improved a big deal now because my parents have been wanting me to try new food!",
-                "icon":"🍴",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "description": "I was sometimes way too picky, as I would only either eat McDonald's fries and nuggets, or homemade porridge. But now this is not a major issue anymore!",
+                "icon": "🍟",
+                "image": loadImage("../img/fact_imgs/fact19.png"),
+                "translations": {
+                    "Japanese": "私は子供の頃、食べ物にとてもわがままで、マクドナルドのフライドポテトやナゲット、または手作りのおかゆしか食べませんでした。でも今では、これはもう大きな問題ではありません！",
+                    "Chinese": "我小时候曾是个挑食的人，有时候非常挑剔，只吃麦当劳的薯条和鸡块，或者吃自制的粥。但现在这个问题已经不再是大问题了！"
+                }
             },
             {
-                "title": "I'm a more carnivorous than herbivorous",
-                "description":"I just like the flavor and texture of meat, but I also strive to eat as many veggies on the plate as I can!",
-                "icon":"🥩",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "My favourite travel destinations",
+                "description": "Japan, New Zealand and Taiwan",
+                "icon": "✈️",
+                "image": loadImage("../img/fact_imgs/fact20.png"),
+                "translations": {
+                    "Japanese": "私のお気に入りの旅行先は、日本、ニュージーランド、台湾です。",
+                    "Chinese": "我最喜欢的旅行目的地是日本、新西兰和台湾。"
+                }
             },
             {
-                "title": "I like cooking fried rice sometimes!",
-                "description":"With a hint of MSG! Fuiyoh!",
-                "icon":"🍚",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I could wiggle my ears",
+                "description": "Fun fact: about 10-20% of humans can do this!",
+                "icon": "👂",
+                "image": loadImage("../img/fact_imgs/fact21.png"),
+                "translations": {
+                    "Japanese": "私は耳を動かすことができます。面白い事実：人間の約10〜20％がこれをできる！",
+                    "Chinese": "我能wiggle我的耳朵！有趣的事实：大约10-20%的人类能做到这一点！"
+                }
             },
             {
-                "title": "I don't come from a sporty background",
-                "description":"I've never really represented my school in sports competitions. However, I've participated in a few sports day competitions, such as table tennis and track and field!",
-                "icon":"🤾‍♂️",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I prefer cooler weather to warmer weather",
+                "description": "The ideal temperature for me is around 15°C - anything hotter or colder feels uncomfortable.",
+                "icon": "🌡️",
+                "image": loadImage("../img/fact_imgs/fact22.png"),
+                "translations": {
+                    "Japanese": "私は暖かい天気よりも涼しい天気が好きです。理想的な温度は約15°Cです。それ以上またはそれ以下の温度は不快に感じます。",
+                    "Chinese": "我更喜欢凉爽的天气而不是温暖的天气。理想的温度大约是15°C，任何更热或更冷的天气都会让我感到不舒服。"
+                }
             },
             {
-                "title": "I don't drink gassy drinks like Coke often",
-                "description":"I'm sensitive to the texture of carbonate! Because of that, I tend to shake the drinks pretty often and I have to be careful when it 'explodes'!",
-                "icon":"🥤",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "I’ve run in five countries",
+                "description": "I like to run in other countries, particularly in colder temperatures as I can't really stand the heat in Singapore. I’ve even completed half marathons in both Japan and New Zealand!",
+                "icon": "🌏",
+                "image": loadImage("../img/fact_imgs/fact23.png"),
+                "translations": {
+                    "Japanese": "私は5か国でランニングしたことがあります。他の国で走るのが好きで、特に寒い気温の中で走るのが好きです。シンガポールの暑さには耐えられません。日本とニュージーランドでハーフマラソンも完走しました！",
+                    "Chinese": "我已经在五个国家跑过步。我喜欢在其他国家跑步，特别是在较冷的气温下，因为我真的无法忍受新加坡的炎热。我甚至在日本和新西兰完成了半程马拉松！"
+                }
             },
             {
-                "title": "Apart from learning Japanese, I attempted learning and experimenting with other languages!",
-                "description":"I've experimented with Korean and a variety of European languages, including French and Spanish, but I decided to narrow it down to Japanese because it suits me better!",
-                "icon":"🌐",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
+                "title": "The biggest risk I've ever taken",
+                "description": "Running 20 miles (~32 km) to celebrate my 20th birthday in advance, with my phone running on less than 5% battery nearing the end.",
+                "icon": "⚡",
+                "image": loadImage("../img/fact_imgs/fact24.png"),
+                "translations": {
+                    "Japanese": "私が今まで取った最大のリスクは、20歳の誕生日を前倒しで祝うために、電話のバッテリーが5％未満になりかけていた時に20マイル（約32km）走ったことです。",
+                    "Chinese": "我曾经采取的最大风险是为了提前庆祝我的20岁生日，跑了20英里（大约32公里），当时我的手机电量快低于5%。"
+                }
             },
             {
-                "title": "New Zealand is one of my favorite countries to travel to!",
-                "description":"I just love the scenery there, especially Queenstown! It's simply breathtaking!",
-                "icon":"🇳🇿",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "I'm Kanji Geek!",
-                "description":"I get quite fascinated at looking at Kanji (Chinese) Characters, specifically in Japanese! The icon you clicked on just now is 魑魅魍魎 (chimimōryō), which is a term that refers to monsters of the mountains and monsters of the rivers!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "Making videos is also one of my hobbies!",
-                "description": "I enjoy the process of making videos! However, it can be very time-consuming and it can easily interfere with my important tasks that I have to do. 😢",
-                "icon":"📽",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "I also like to play the electric bass sometimes!",
-                "description":"I decided to give an electric bass a go due to my inspiration of Davie504's videos! However, I'm not confident if I have to perform it when other people are listening to it yet!",
-                "icon":"🎸",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "My ideal outdoor weather is temperate!",
-                "description":"Singapore's weather is just too hot and humid for my liking, especially because I'm literally pouring with sweat after my runs! My ideal temeperature while running is somewhere around 15°C (59°F)!",
-                "icon":"🌡️",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "I used to be hooked on to speedcubing!",
-                "description":"I used to practice speedcubing almost everyday during my teenage years! However, the interest died down after a while 😢. But it's normal that interests can change at some point in time!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "Japanese and Western cuisines are my two favorites!",
-                "description":"When I was young, my parents brought me to eat at a variety of Western and Japanese food outlets!",
-                "icon":"🍔",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "I'm registered as a Buddhist, but I'm not religious",
-                "description":"I don't feel that I have an attachment to religion at the moment, but I do believe that religion teaches us how to be a good person and live healthily!",
-                "icon":"",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "My brain works... a little differently!",
-                "description":"I have ASD and ADHD—conditions that are often 'invisible.' While they shape parts of who I am, they don't define me!",
-                "icon":"🤥",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
-            {
-                "title": "I've never smoked a single cigarette in my life (if I could recall)!",
-                "description":"I'm totally not interested in it as I believe that it's not good for your health! Unfortunately, my late grandfather passed away due to complications of smoking in his youth and adult years (he quit smoking at some point).",
-                "icon":"🚭",
-                "image":loadImage("./img/fact_imgs/fact_"+this.circleValue+".png")
-            },
+                "title": "I only drink socially",
+                "description": "The only fun part of drinking is during social gatherings, which makes drinking moments much more exciting! However, I don't really drink when I'm by myself because I generally don't feel the joy of drinking alone.",
+                "icon": "🍻",
+                "image": loadImage("../img/fact_imgs/fact25.png"),
+                "translations": {
+                    "Japanese": "私は社交的な場面でのみ飲みます。飲むことの唯一楽しい部分は、社交の場であり、その瞬間がさらに興奮します！しかし、ひとりでいるときはあまり飲まないのは、ひとりで飲むことの楽しさをあまり感じないからです。",
+                    "Chinese": "我只在社交场合饮酒。饮酒的唯一有趣部分是在社交聚会上，这让喝酒时的时刻更加兴奋！然而，我一个人时并不常喝酒，因为我通常不享受独自饮酒的乐趣。"
+                }
+            }
         ];
         let options = {
             friction:0.05,
@@ -261,11 +301,14 @@ class Circle {
             push();
             translate(pos.x,pos.y);
             rotate(angle);
-            imageMode(CENTER,CENTER);
-            image(this.factList[this.circleValue-1]["image"],0,0,this.r*1.7,this.r*1.7);
-            // textSize(32);
-            // textAlign(CENTER,CENTER);
-            // text(this.factList[this.circleValue-1]["icon"],0,0);
+            if (this.factList[this.circleValue-1]["image"]) {
+                imageMode(CENTER,CENTER);
+                image(this.factList[this.circleValue-1]["image"],0,0,this.r*1.7,this.r*1.7);
+            } else {
+                textSize(30);
+                textAlign(CENTER,CENTER);
+                text(this.factList[this.circleValue-1]["icon"],0,0);   
+            }
             pop();
         } else {
             push();

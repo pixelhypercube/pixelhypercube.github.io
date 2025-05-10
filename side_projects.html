@@ -37,9 +37,9 @@
                     zh: "欢迎探索和尝试这些项目！"
                 },
                 "facts": {
-                    en: "35 Facts About Me",
-                    jp: "私に関する35のこと",
-                    zh: "关于我的35个事实"
+                    en: "25 Facts About Me",
+                    jp: "私に関する25のこと",
+                    zh: "关于我的25个事实"
                 },
                 "blogs": {
                     en: "Blogs",
@@ -52,7 +52,7 @@
                     const tag = $(this).data('tag');
                     if (tags[tag] && tags[tag][l]) {
                         $(this).text(tags[tag][l]);
-                        if (tag=="home") $(this).attr("href",`./index_${l}.html`)
+                        if (tag=="home" && l!="en") $(this).attr("href",`./index_${l}.html`)
                     }
                 });
             }
@@ -78,7 +78,7 @@
                             <a data-tag="side-projects" class="header-nav" href="./side_projects.html">Side Projects</a>
                         </li>
                         <li>
-                            <a data-tag="facts" class="header-nav" href="./about.html">35 Facts About Me</a>
+                            <a data-tag="facts" class="header-nav" href="./about.html">25 Facts About Me</a>
                         </li>
                         <li>
                             <a data-tag="blogs" class="header-nav" href="./blog.html">Blogs</a>
