@@ -120,25 +120,26 @@ function setup() {
     const requestMotionPermissionsBtn = document.getElementById("enable-motion");
     if (isMobileDevice()) {
         if (isIOS()) {
-            requestMotionPermissionsBtn.style.display = "block";
-            requestMotionPermissionsBtn.addEventListener("click",function() {
-                if (typeof DeviceMotionEvent.requestPermission === 'function') {
-                    DeviceMotionEvent.requestPermission()
-                    .then((res)=>{
-                        if (res==='granted') {
-                            window.addEventListener('devicemotion',handleMotion);
-                            window.addEventListener('deviceorientation',handleOrientation);
-                            requestMotionPermissionsBtn.style.display = "none";
-                        }
-                    })
-                    .catch(console.error);
-                } else {
-                    // non-iOS or older versions
-                    window.addEventListener("devicemotion",handleMotion);
-                    window.addEventListener("deviceorientation",handleOrientation);
-                    requestMotionPermissionsBtn.style.display = "none";
-                }
-            });
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                DeviceMotionEvent.requestPermission()
+                .then((res)=>{
+                    if (res==='granted') {
+                        window.addEventListener('devicemotion',handleMotion);
+                        window.addEventListener('deviceorientation',handleOrientation);
+                        requestMotionPermissionsBtn.style.display = "none";
+                    }
+                })
+                .catch(console.error);
+            } else {
+                // non-iOS or older versions
+                window.addEventListener("devicemotion",handleMotion);
+                window.addEventListener("deviceorientation",handleOrientation);
+                requestMotionPermissionsBtn.style.display = "none";
+            }
+            // requestMotionPermissionsBtn.style.display = "block";
+            // requestMotionPermissionsBtn.addEventListener("click",function() {
+                
+            // });
         } else {
             window.addEventListener("devicemotion",handleMotion);
             window.addEventListener("deviceorientation",handleOrientation);
