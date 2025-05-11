@@ -403,7 +403,7 @@ class Circle {
             rotate(angle);
             if (this.factList[this.circleValue-1]["image"]) {
                 imageMode(CENTER,CENTER);
-                image(this.factList[this.circleValue-1]["image"],0,0,this.r*1.7,this.r*1.7);
+                image(this.factList[this.circleValue-1]["image"],0,0,this.r*1.5,this.r*1.5);
             } else {
                 textSize(30);
                 textAlign(CENTER,CENTER);
