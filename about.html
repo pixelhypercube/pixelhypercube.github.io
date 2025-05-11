@@ -81,7 +81,9 @@
                 const tag = $(this).data('tag');
                 if (tags[tag] && tags[tag][l]) {
                     $(this).html(tags[tag][l]);
-                    if (tag=="home" && l!="en") $(this).attr("href",`./index_${l}.html`)
+                    if (tag=="home" && l!="en") $(this).attr("href",`./index_${l}.html`);
+                    if (tag=="facts" && l!="en") $(this).attr("href",`./about.html?lang=${l}`);
+                    if (tag=="side-projects" && l!="en") $(this).attr("href",`./side_projects.html?lang=${l}`);
                 }
             });
         }
