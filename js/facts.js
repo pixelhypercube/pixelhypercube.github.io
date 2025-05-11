@@ -217,13 +217,13 @@ function draw() {
 
     // TEXT DEBUG
 
-    push();
-    fill("white");
-    textSize(35);
-    textStyle(BOLD);
-    textAlign(CENTER);
-    text(`(${engine.world.gravity.x},${engine.world.gravity.y})`,width/2,100);
-    pop();
+    // push();
+    // fill("white");
+    // textSize(35);
+    // textStyle(BOLD);
+    // textAlign(CENTER);
+    // text(`(${engine.world.gravity.x},${engine.world.gravity.y})`,width/2,100);
+    // pop();
 
     // TEXT DEBUG
 }
