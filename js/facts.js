@@ -43,7 +43,7 @@ function isMobileDevice() {
 
 // check if platform is iOS
 function isIOS() {
-    return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+    return /iPhone|iPad|iPod|MacIntel/.test(navigator.userAgent) && !window.MSStream;
 }
 
 function handleOrientation(event) {
@@ -128,6 +128,7 @@ function setup() {
                         if (res==='granted') {
                             window.addEventListener('devicemotion',handleMotion);
                             window.addEventListener('deviceorientation',handleOrientation);
+                            requestMotionPermissionsBtn.style.display = "none";
                         }
                     })
                     .catch(console.error);
