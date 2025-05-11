@@ -37,6 +37,34 @@ var settings = {
 }
 var {canvasWidth,canvasHeight} = settings;
 
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// check if platform is iOS
+function isIOS() {
+    return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function handleOrientation(event) {
+    const gamma = event.gamma || 0;
+    const beta = event.beta || 0;
+    engine.world.gravity.x = gamma/90;
+    engine.world.gravity.y = beta/90;
+    console.log(engine.world.gravity);
+}
+
+function handleMotion(event) {
+    let ax = event.acceleration.x || 0;
+    let ay = event.acceleration.y || 0;
+    for (let circle of circles) {
+        Body.applyForce(circle.body,circle.body.position,{
+            x: ax * 0.01,
+            y: -ay * 0.01
+        });
+    }
+}
+
 function setup() {
     canvas = createCanvas(canvasWidth,canvasHeight);
     canvas.parent("#canvas");
@@ -88,6 +116,36 @@ function setup() {
     // diamondCircleImg = loadImage("./diamondCircle.png");
     // circleShowerCircleImg = loadImage("./circleShowerCircle.png")
     $("canvas").removeAttr("style");
+
+    const requestMotionPermissionsBtn = document.getElementById("enable-motion");
+    if (isMobileDevice()) {
+        if (isIOS()) {
+            requestMotionPermissionsBtn.style.display = "block";
+            requestMotionPermissionsBtn.addEventListener("click",function() {
+                if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                    DeviceMotionEvent.requestPermission()
+                    .then((res)=>{
+                        if (res==='granted') {
+                            window.addEventListener('devicemotion',handleMotion);
+                            window.addEventListener('deviceorientation',handleOrientation);
+                        }
+                    })
+                    .catch(console.error);
+                } else {
+                    // non-iOS or older versions
+                    window.addEventListener("devicemotion",handleMotion);
+                    window.addEventListener("deviceorientation",handleOrientation);
+                    requestMotionPermissionsBtn.style.display = "none";
+                }
+            });
+        } else {
+            window.addEventListener("devicemotion",handleMotion);
+            window.addEventListener("deviceorientation",handleOrientation);
+            requestMotionPermissionsBtn.style.display = "none";
+        }
+    } else {
+        requestMotionPermissionsBtn.style.display = "none";
+    }
 }
 
 async function genCircles() {
@@ -109,7 +167,6 @@ function delay(amount) {
     })
 }
 
-let textRendered = false;
 
 function draw() {
     clear();
@@ -132,15 +189,7 @@ function draw() {
         }
     }
     // collector.show();
-    if (!textRendered) {
-        push();
-        fill("black");
-        textSize(35);
-        textStyle(BOLD);
-        textAlign(CENTER);
-        text("Drop circles here!",width/2,900);
-        pop();
-    }
+
     for (let circle of circles) {
         circle.show();
         // if (circle.intersect(collector)) {
@@ -166,10 +215,17 @@ function draw() {
         boundary.show();
     }
 
-    // if (showPutCirclesHelp) {
-    //     renderInfo();
-    // }
-    // showNoCircles();
+    // TEXT DEBUG
+
+    push();
+    fill("white");
+    textSize(35);
+    textStyle(BOLD);
+    textAlign(CENTER);
+    text(`(${engine.world.gravity.x},${engine.world.gravity.y})`,width/2,100);
+    pop();
+
+    // TEXT DEBUG
 }
 
 function mousePressed() {
@@ -199,29 +255,6 @@ function mousePressed() {
     }
 }
 
-// if (window.DeviceOrientationEvent) {
-//     DeviceMotionEvent.requestPermission()
-//     .then((res)=>{
-//         if (res=='granted') {
-//             window.addEventListener("deviceorientation", function () {
-//                 // tilt([event.beta, event.gamma]);
-//                 engine.world.gravity.x = event.gamma/100;
-//                 engine.world.gravity.y = event.beta/100;
-//             }, true);
-//         }
-//     });
-// } else if (window.DeviceMotionEvent) {
-//     DeviceMotionEvent.requestPermission()
-//     .then((res)=>{
-//         window.addEventListener('devicemotion', function () {
-//             for (let circle of circles) {
-//                 Body.setVelocity(circle.body,{x:event.acceleration.x,y:event.acceleration.y});
-//             }
-//             // tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
-//         }, true);
-//     })
-// }
-
 function mouseMoved() {
     if (!factWindowVisible) {
         for (let circle of circles) {
@@ -235,18 +268,6 @@ function mouseMoved() {
     }
 }
 
-function getAcceleration() {
-    DeviceMotionEvent.requestPermission()
-    .then((res)=>{
-        if (res=='granted') {
-            window.addEventListener("deviceorientation", function () {
-                // tilt([event.beta, event.gamma]);
-                engine.world.gravity.x = event.gamma/100;
-                engine.world.gravity.y = event.beta/100;
-            }, true);
-        }
-    });
-}
 
 $(document).ready(function(){
     $("#fact_overlay,#fact_back_btn").click(function(){
