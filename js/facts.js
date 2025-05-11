@@ -132,7 +132,7 @@ function setup() {
                         }
                     })
                     .catch(console.error);
-                } else if (!navigator.userAgent.includes("Safari")) {
+                } else if (!navigator.userAgent.includes("Version")) {
                     alert("For full functionality, please open this page in Safari on your iOS device. Apologies for the inconvenience! 🙇‍♂️");
                     requestMotionPermissionsBtn.style.display = "none";
                 } else {
@@ -223,10 +223,10 @@ function draw() {
 
     // push();
     // fill("white");
-    // textSize(35);
+    // textSize(5);
     // textStyle(BOLD);
     // textAlign(CENTER);
-    // text(`(${engine.world.gravity.x},${engine.world.gravity.y})`,width/2,100);
+    // text(`${navigator.userAgent}`,width/2,100);
     // pop();
 
     // TEXT DEBUG
