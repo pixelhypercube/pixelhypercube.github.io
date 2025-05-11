@@ -120,26 +120,28 @@ function setup() {
     const requestMotionPermissionsBtn = document.getElementById("enable-motion");
     if (isMobileDevice()) {
         if (isIOS()) {
-            if (typeof DeviceMotionEvent.requestPermission === 'function') {
-                DeviceMotionEvent.requestPermission()
-                .then((res)=>{
-                    if (res==='granted') {
-                        window.addEventListener('devicemotion',handleMotion);
-                        window.addEventListener('deviceorientation',handleOrientation);
-                        requestMotionPermissionsBtn.style.display = "none";
-                    }
-                })
-                .catch(console.error);
-            } else {
-                // non-iOS or older versions
-                window.addEventListener("devicemotion",handleMotion);
-                window.addEventListener("deviceorientation",handleOrientation);
-                requestMotionPermissionsBtn.style.display = "none";
-            }
-            // requestMotionPermissionsBtn.style.display = "block";
-            // requestMotionPermissionsBtn.addEventListener("click",function() {
-                
-            // });
+            requestMotionPermissionsBtn.style.display = "block";
+            requestMotionPermissionsBtn.addEventListener("click",function() {
+                if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                    DeviceMotionEvent.requestPermission()
+                    .then((res)=>{
+                        if (res==='granted') {
+                            window.addEventListener('devicemotion',handleMotion);
+                            window.addEventListener('deviceorientation',handleOrientation);
+                            requestMotionPermissionsBtn.style.display = "none";
+                        }
+                    })
+                    .catch(console.error);
+                } else if (!navigator.userAgent.includes("Safari")) {
+                    alert("For full functionality, please open this page in Safari on your iOS device. Apologies for the inconvenience! 🙇‍♂️");
+                    requestMotionPermissionsBtn.style.display = "none";
+                } else {
+                    // non-iOS or older versions
+                    window.addEventListener("devicemotion",handleMotion);
+                    window.addEventListener("deviceorientation",handleOrientation);
+                    requestMotionPermissionsBtn.style.display = "none";
+                }
+            });
         } else {
             window.addEventListener("devicemotion",handleMotion);
             window.addEventListener("deviceorientation",handleOrientation);
