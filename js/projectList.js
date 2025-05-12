@@ -182,14 +182,14 @@ var projInfo = [{
     "is_mini_project": 0
 },{
     "proj_id": 15,
-    "title": "Multiplayer Conway Sandbox",
+    "title": "CellCollab",
     "brief_description": "A multiplayer sandbox implementation of Conway's Game of Life with real-time interactions. Made using React.js and Socket.IO.",
-    "title_jp": "マルチプレイヤー・コンウェイ・サンドボックス",
-    "title_zh": "多人康威生命游戏沙盒",
+    "title_jp": "セルコラボ",
+    "title_zh": "细胞协作",
     "brief_description_jp": "React.jsとSocket.IOを使用して作られた、コンウェイのライフゲームをマルチプレイヤーで楽しめるリアルタイムのサンドボックスです。",
     "brief_description_zh": "使用React.js和Socket.IO构建的一个支持多人实时互动的康威生命游戏沙盒。",
     "image_location": "./img/coding/coding_proj16.png",
-    "link": "https://pixelhypercube.github.io/mp-conway-sandbox/",
+    "link": "https://pixelhypercube.github.io/CellCollab/",
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
