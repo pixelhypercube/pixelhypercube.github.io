@@ -193,6 +193,19 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
+},{
+    "proj_id": 16,
+    "title": "Pi Visualizer",
+    "brief_description": "An interactive visualizer that transforms the digits of π into beautiful geometric patterns.",
+    "title_jp": "パイ・ビジュアライザー",
+    "title_zh": "圆周率可视化",
+    "brief_description_jp": "円周率の数字を美しい幾何学模様として視覚化するインタラクティブなビジュアライザーです。",
+    "brief_description_zh": "一个将圆周率的数字转化为几何图案的互动可视化工具。",
+    "image_location": "./img/coding/coding_proj17.png",
+    "link": "https://pixelhypercube.github.io/pi-visualizations/",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
 }];
 
 projInfo.reverse();
