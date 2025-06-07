@@ -311,5 +311,50 @@ var blogList = [
         <h4>Good Luck! 一緒に頑張ろう！</h4>
         <p>I hope these tips help you navigate through the complexities of Kanji and inspire you to keep learning. Ganbatte ne (頑張ってね)!</p>
         `
-    }
+    },
+    {
+        "id":5,
+        "title":"Some Tips I Used to Improve My Mathematical Abilities!",
+        "publishDate":new Date("06/07/2025").toDateString(),
+        "duration":3,
+        "htmlContent":`
+            <p>
+                As someone who has never touched a math question for 2 years because of my National Service (NS) obligations, I initially found it challenging to get back into solving mathematical problems during my first semester in university. On top of that, math at university is on a whole different level — it involves more than just learning how to solve equations and finding the right answer.
+            </p>
+            <p>
+                As I ventured into mathematical modules like discrete maths and linear algebra, there is a ton of proving involved, and knowing the steps to prove them is quite a daunting task for me, even for relatively basic mathematical equations. However, I have found a cure that would assist me in making sure I grasp the concepts with ease. With that said, here are some of my top tips I used to combat the difficulties I was facing when solving mathematical problems!
+            </p>
+
+            <h3>Tip 1: Practice, practice... and more practice!</h3>
+            <p>
+                This is undoubtedly one of the best ways to not only understand how to just solve mathematical equations, but also making sure that you are familiar with understanding the theoretical concepts behind those problems. The focus shouldn't be just on the final answer, but on the methods and thought processes that lead you there. If you are initially unsure about a problem, you can refer to the steps and methodologies used to solve the problem (you can use Generative AI tools like ChatGPT, but at your own risk! 😶). If you are only hooked onto the final answer, you likely won’t know how to arrive at the answer, because your best tools for solving problems are the steps and methods, not just the final answer. Even though I was not the fastest to keep up with the rigor, the hard work paid off eventually!
+            </p>
+
+            <h3>Tip 2: Come up with flashcards, especially for tests and exams!</h3>
+            <p>
+                Flashcards are known to be quite useful for spaced repeititon, where it had been relatively useful for me to remember mathematical concepts during my finals! I designed my flashcards to reinforce key concepts, formulas, and exam tricks. For instance, while I was preparing for my discrete maths finals, I came up with cards that contain useful supplementary information, formulas and methods in addition to the main concepts used in the whole module (<a href="https://pixelhypercube.github.io/ntu/#/FileViewer/files/MH1812/MH1812.csv">Check out my flashcards here!</a>). In this way, I have benefitted from this to some degree, where I began quite confident to do the finals, despite fumbling over with the questions a bit!
+            </p>
+
+            <h3>Tip 3: Write down more notes and 'engage' with them!</h3>
+            <p>
+                Despite having an average typing speed of around 100-120 words per minute, the effects of writing notes significantly boosts my memory retention. This is because most of the time, we spend more time writing than typing while performing mathematical operations, and that writing is relatively easier than simply typing out mathematical formulas and equations.
+            </p>
+            <p>
+                Additionally, learning how to 'engage' while writing notes is extremely beneficial instead of blindly copying and pasting information. What I meant by 'engaging' is the fact that you are actively using the mathematical concepts you're already trying to grasp into your own notes independently, where for instance, you are able to come up with more definitive examples in certain mathematical problems, as well as applying the steps in greater detail.
+            </p>
+
+            <div class="honorable mb-4">
+                <h3>Honorable Mention: Discover the <a href="https://www.reddit.com/r/mathmemes/">r/mathmemes</a> subreddit! 😀</h3>
+                <p>
+                    As someone who scrolls Reddit from time to time, I found this subreddit to be surprisingly hilarious and useful at the same time as I get to see math being used in a humorous way. Discovering this subreddit made me realize that mathematics can be used in a funny and joking way, and my perception of maths is less of being a chore of brainlessly solving problems without any sort of humor around it. In a way, the humor and the impressive visualizations of the posts help me picture maths better, as these posts mostly provide useful examples to mathematical concepts, which will yet, also be extremely useful in tests and exams!
+                </p>
+                <h6>One example:</h6>
+                <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/mathmemes/comments/1l1u5rz/if_youre_given_the_formula_proving_it_is_usually/">If you're given the formula, proving it is usually easier than deriving it</a><br> by<a href="https://www.reddit.com/user/94rud4/">u/94rud4</a> in<a href="https://www.reddit.com/r/mathmemes/">mathmemes</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+            </div>
+            <h3>To Conclude...</h3>
+            <p>
+                I hope these tips are useful in helping you improve your mathematical abilities! Everyone learns differently, so try different approaches until you find what works best for you. That way, you’ll not only survive math — you’ll thrive in it. Good luck! 🍀
+            </p>
+        `,
+    },
 ];
