@@ -141,21 +141,8 @@ var projInfo = [{
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
-}, {
-    "proj_id": 12,
-    "title": "pySquidGame",
-    "title_jp": "pyイカゲーム",
-    "title_zh": "py鱿鱼游戏",
-    "brief_description": "A playable pygame application based on Netflix's 'Squid Game'!",
-    "brief_description_jp": "Netflixの「イカゲーム」に基づいたプレイ可能なpygameアプリ！",
-    "brief_description_zh": "基于 Netflix《鱿鱼游戏》的可玩 pygame 应用！",
-    "image_location": "./img/coding/coding_proj13.png",
-    "link": "https://github.com/pixelhypercube/pySquidGame",
-    "in_development": 3,
-    "detailed_description": null,
-    "is_mini_project": 0
 },{
-    "proj_id": 13,
+    "proj_id": 12,
     "title": "RActive",
     "title_jp": "RActive：RA支援アプリ",
     "title_zh": "RActive：类风湿性关节炎管理应用",
@@ -168,7 +155,7 @@ var projInfo = [{
     "detailed_description": null,
     "is_mini_project": 0
 },{
-    "proj_id": 14,
+    "proj_id": 13,
     "title": "CPP Physics",
     "brief_description": "A mini C++ program that simulates physics between objects!",
     "title_jp": "CPP物理シミュレーション",
@@ -177,6 +164,19 @@ var projInfo = [{
     "brief_description_zh": "一个模拟物体间物理互动的小型 C++ 程序！",
     "image_location": "./img/coding/coding_proj15.png",
     "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/CPP-Physics",
+    "in_development": 0,
+    "detailed_description": null,
+    "is_mini_project": 0
+},{
+    "proj_id": 14,
+    "title": "Pi Visualizer",
+    "brief_description": "An interactive visualizer that transforms the digits of π into beautiful geometric patterns.",
+    "title_jp": "パイ・ビジュアライザー",
+    "title_zh": "圆周率可视化",
+    "brief_description_jp": "円周率の数字を美しい幾何学模様として視覚化するインタラクティブなビジュアライザーです。",
+    "brief_description_zh": "一个将圆周率的数字转化为几何图案的互动可视化工具。",
+    "image_location": "./img/coding/coding_proj17.png",
+    "link": "https://pixelhypercube.github.io/pi-visualizations/",
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
@@ -195,17 +195,17 @@ var projInfo = [{
     "is_mini_project": 0
 },{
     "proj_id": 16,
-    "title": "Pi Visualizer",
-    "brief_description": "An interactive visualizer that transforms the digits of π into beautiful geometric patterns.",
-    "title_jp": "パイ・ビジュアライザー",
-    "title_zh": "圆周率可视化",
-    "brief_description_jp": "円周率の数字を美しい幾何学模様として視覚化するインタラクティブなビジュアライザーです。",
-    "brief_description_zh": "一个将圆周率的数字转化为几何图案的互动可视化工具。",
-    "image_location": "./img/coding/coding_proj17.png",
-    "link": "https://pixelhypercube.github.io/pi-visualizations/",
+    "title": "pySquidGame",
+    "title_jp": "pyイカゲーム",
+    "title_zh": "py鱿鱼游戏",
+    "brief_description": "A playable pygame application based on Netflix's 'Squid Game'!",
+    "brief_description_jp": "Netflixの「イカゲーム」に基づいたプレイ可能なpygameアプリ！",
+    "brief_description_zh": "基于 Netflix《鱿鱼游戏》的可玩 pygame 应用！",
+    "image_location": "./img/coding/coding_proj13.png",
+    "link": "https://github.com/pixelhypercube/pySquidGame",
     "in_development": 0,
     "detailed_description": null,
     "is_mini_project": 0
-}];
+},];
 
 projInfo.reverse();
