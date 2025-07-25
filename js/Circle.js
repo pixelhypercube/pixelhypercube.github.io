@@ -29,7 +29,7 @@ class Circle {
                     "jp": "私は自由な思考者で、子供の頃は仏教徒でした",
                     "zh": "我是一个自由思想者，年轻时曾是佛教徒"
                 },
-                "description": "When I was a kid, I tended to follow my father’s religion, but now as I grew older, I don’t really practice religion very much. I also don’t label myself as an atheist or agnostic - just a free-thinker.",
+                "description": "When I was a kid, I tended to follow my father's religion, but now as I grew older, I don't really practice religion very much. I also don't label myself as an atheist or agnostic - just a free-thinker.",
                 "icon": "🧠",
                 "image": loadImage("../img/fact_imgs/fact2.png"),
                 "translations_desc": {
@@ -52,17 +52,17 @@ class Circle {
                 }
             },
             {
-                "title": "My most listened workout song",
-                "description": "'KICK BACK' by Kenshi Yonezu (米津 玄師)",
+                "title": "Kenshi Yonezu is one of the most inspirational artists I've ever looked up to",
+                "description": "He was diagnosed with autism when he was 20, but that didn't stop him from making amazing music. His song “Kick Back” even went Gold with the RIAA - really shows how talented and hardworking he is.",
                 "translations_title": {
-                    "jp": "私の最も聴いたワークアウトソング",
-                    "zh": "我最常听的锻炼歌曲"
+                    "jp": "米津玄師は僕がこれまでに尊敬してきた最も感動的なアーティストの一人です",
+                    "zh": "米津玄師是我见过最励志的艺术家之一"
                 },
                 "icon": "🎶",
                 "image": loadImage("../img/fact_imgs/fact4.png"),
                 "translations_desc": {
-                    "jp": "米津玄師の「KICK BACK」です。",
-                    "zh": "米津玄师的《KICK BACK》"
+                    "jp": "彼は20歳の時に自閉症と診断されましたが、それでも素晴らしい音楽を作り続けています。彼の曲「Kick Back」はRIAAでゴールド認定されており、その才能と努力がよく分かります。",
+                    "zh": "他在20岁时被诊断出自闭症，但这并没有阻止他创作出精彩的音乐。他的歌曲《Kick Back》甚至获得了美国唱片业协会（RIAA）的金唱片认证，真的证明了他的才华和努力。"
                 }
             },
             {
@@ -71,7 +71,7 @@ class Circle {
                     "jp": "Minecraftは私がコンピュータサイエンスを学ぶ最大のインスピレーションの一つです！",
                     "zh": "《Minecraft》是我学习计算机科学的最大灵感之一！"
                 },
-                "description": "I’ve been addicted to the game since 2012 due to its endless possibilities and creativity and I have been immensely fascinated about the fun and interesting aspects this game can offer!",
+                "description": "I've been addicted to the game since 2012 due to its endless possibilities and creativity and I have been immensely fascinated about the fun and interesting aspects this game can offer!",
                 "icon": "🎮",
                 "image": loadImage("../img/fact_imgs/fact5.png"),
                 "translations_desc": {
@@ -108,7 +108,7 @@ class Circle {
                 }
             },
             {
-                "title": "My left thumb could bend while my right thumb can’t!",
+                "title": "My left thumb could bend while my right thumb can't!",
                 "translations_title": {
                     "jp": "左手の親指は曲がるけど、右手の親指は曲がりません！",
                     "zh": "我的左手拇指能弯曲，但右手拇指不能！"
@@ -164,17 +164,17 @@ class Circle {
                 }
             },
             {
-                "title": "I feel down over long hair on the sides of my head",
+                "title": "I tend to sweat excessively when I exercise 😅",
                 "translations_title": {
-                    "jp": "私は頭の横の長い髪に悩まされています",
-                    "zh": "我对头部两侧的长发感到不舒服"
+                    "jp": "運動するとめちゃくちゃ汗かきます 😅",
+                    "zh": "我一运动就汗如雨下 😅"
                 },
-                "description": "As Singapore generally has a warm climate my hair at the sides could get pretty warm, and my sides will feel pretty itchy.",
-                "icon": "💇‍♂️",
+                "description": "There have been times when I've perspired so much that puddles would literally form beneath me!",
+                "icon": "💦",
                 "image": loadImage("../img/fact_imgs/fact12.png"),
                 "translations_desc": {
-                    "jp": "シンガポールは一般的に温暖な気候なので、横の髪がかなり温かくなり、横がかなりかゆく感じます。",
-                    "zh": "由于新加坡气候温暖，头部两侧的头发会变得相当温热，侧面也会感到痒。"
+                    "jp": "汗をかきすぎて、足元に水たまりができることもあるんです！",
+                    "zh": "有时候我流汗多到，地上都会出现一滩水！"
                 }
             },
             {
@@ -192,17 +192,17 @@ class Circle {
                 }
             },
             {
-                "title": "I am a speedcuber!",
+                "title": "I am terrible and slow at mental arithmetic!",
                 "translations_title": {
-                    "jp": "私はスピードキューバーです！",
-                    "zh": "我是一个速拧魔方者！"
+                    "jp": "私は心算が苦手で遅いです！",
+                    "zh": "我在心算方面很糟糕而且很慢！"
                 },
-                "description": "I have participated in speedcubing competitions during my secondary school days and I also have a collection of 60+ Rubik’s Cubes!",
-                "icon": "🔲",
+                "description": "Despite being a Computer Science student, I still struggle with mental arithmetic, especially when it comes to multiplication, division and... fractions!",
+                "icon": "🟰",
                 "image": loadImage("../img/fact_imgs/fact14.png"),
                 "translations_desc": {
-                    "jp": "中学校の時にスピードキュービング大会に参加したことがあり、60個以上のルービックキューブを集めています！",
-                    "zh": "在中学时，我参加过速拧魔方比赛，而且我还有60多个魔方的收藏！"
+                    "jp": "コンピュータサイエンスの学生でありながら、心算、特に掛け算、割り算、そして...分数の計算が苦手です！",
+                    "zh": "尽管我是计算机科学专业的学生，但我在心算方面仍然很挣扎，尤其是在乘法、除法和...分数方面！"
                 }
             },
             {
@@ -211,7 +211,7 @@ class Circle {
                     "jp": "数学は中学校で一番好きな科目でした",
                     "zh": "数学是我在中学时最喜欢的科目"
                 },
-                "description": "Unfortunately, computing subjects weren’t offered during my secondary school days, so maths has been my closest subject where I excelled!",
+                "description": "Unfortunately, computing subjects weren't offered during my secondary school days, so maths has been my closest subject where I excelled!",
                 "icon": "➗",
                 "image": loadImage("../img/fact_imgs/fact15.png"),
                 "translations_desc": {
@@ -248,17 +248,17 @@ class Circle {
                 }
             },
             {
-                "title": "I dislike the stinging texture of carbonated drinks at times",
+                "title": "Sparkling water is my least favourite drink",
                 "translations_title": {
-                    "jp": "炭酸飲料のしびれる感触が嫌いな時があります",
-                    "zh": "我有时不喜欢碳酸饮料那种刺痛的口感"
+                    "jp": "炭酸水は私の最も嫌いな飲み物です",
+                    "zh": "碳酸水是我最不喜欢的饮料"
                 },
-                "description": "Sometimes, I tend to just shake bottles containing carbonated drinks until I let out the gas, so it’s smoother.",
+                "description": "I just don't like the tingling sensation it gives me, so I sometimes shake the bottle to release the gas to make it smoother.",
                 "icon": "🥤",
                 "image": loadImage("../img/fact_imgs/fact18.png"),
                 "translations_desc": {
-                    "jp": "時々、炭酸飲料のしびれるような感覚が嫌いです。時には炭酸飲料が入ったボトルを振って、ガスを抜くことで、より滑らかにしています。",
-                    "zh": "有时我不喜欢碳酸饮料那种刺痛的口感。有时我会摇晃碳酸饮料瓶，直到释放出气体，使其更加顺滑。"
+                    "jp": "あのチクチクする感じが好きじゃないので、時々ボトルを振ってガスを抜き、もっと飲みやすくしています。",
+                    "zh": "我就是不喜欢那种刺痛的感觉，所以有时候会摇晃瓶子，让气体释放出来，这样喝起来更顺滑。"
                 }
             },
             {
@@ -276,31 +276,31 @@ class Circle {
                 }
             },
             {
-                "title": "My favourite travel destinations",
+                "title": "I have crossed 2 country borders by bus without showing my passport on the same day!",
                 "translations_title": {
-                    "jp": "私のお気に入りの旅行先",
-                    "zh": "我最喜欢的旅行目的地"
+                    "jp": "1日にパスポートを見せずにバスで2つの国境を越えました！",
+                    "zh": "我在一天之内坐巴士跨越了两个国家的边境，而且没出示护照！"
                 },
-                "description": "Japan, New Zealand and Taiwan",
-                "icon": "✈️",
+                "description": "During my school's orchestra trip to Europe, I crossed the border from France, then to Belgium and then the Netherlands without showing my passport, thanks to the Schengen Agreement!",
+                "icon": "🚌🌍",
                 "image": loadImage("../img/fact_imgs/fact20.png"),
                 "translations_desc": {
-                    "jp": "日本、ニュージーランド、台湾です。",
-                    "zh": "日本、新西兰和台湾。"
+                    "jp": "学校のオーケストラのヨーロッパ旅行中に、フランスからベルギー、そしてオランダへと国境を越えましたが、パスポートを一度も見せずに済みました！これもシェンゲン協定のおかげです！",
+                    "zh": "在我校管弦乐团的欧洲旅行中，我从法国跨境到比利时，再到荷兰，全程都没查护照——多亏了申根协议！"
                 }
             },
             {
-                "title": "I could wiggle my ears",
+                "title": "I can wiggle my ears!",
                 "translations_title": {
-                    "jp": "私は耳を動かせます",
-                    "zh": "我能动耳朵"
+                    "jp": "耳を動かせます！",
+                    "zh": "我会动耳朵！"
                 },
                 "description": "Fun fact: about 10-20% of humans can do this!",
                 "icon": "👂",
                 "image": loadImage("../img/fact_imgs/fact21.png"),
                 "translations_desc": {
-                    "jp": "私は耳を動かすことができます。面白い事実：人間の約10〜20％がこれをできる！",
-                    "zh": "我会摇晃我的耳朵！有趣的事实：大约10-20%的人类能做到这一点！"
+                    "jp": "豆知識：これができる人は人類の約10〜20％だけなんです！",
+                    "zh": "趣闻：大约只有 10% 到 20% 的人类能做到这点哦！"
                 }
             },
             {
@@ -318,12 +318,12 @@ class Circle {
                 }
             },
             {
-                "title": "I’ve run in five countries",
+                "title": "I've ran in five countries",
                 "translations_title": {
                     "jp": "私は5か国でランニングしたことがあります",
                     "zh": "我已经在五个国家跑过步"
                 },
-                "description": "I like to run in other countries, particularly in colder temperatures as I can't really stand the heat in Singapore. I’ve even completed half marathons in both Japan and New Zealand!",
+                "description": "I like to run in other countries, particularly in colder temperatures as I can't really stand the heat in Singapore. I've even completed half marathons in both Japan and New Zealand!",
                 "icon": "🌏",
                 "image": loadImage("../img/fact_imgs/fact23.png"),
                 "translations_desc": {
