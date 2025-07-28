@@ -107,7 +107,7 @@
             "title":"How joining my hall's running CCA helped me with running!",
             "publishDate":new Date("04/13/2025").toDateString(),
             "duration":3,
-            "tags":[2],
+            "tags":[2,3],
             "previewText":"I have been running as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high"
         },{
             "title":"Navigating the Ambiverted World as an Introvert",
@@ -131,7 +131,7 @@
             "title":"Is Duolingo Still Worth It in 2025? An Honest Review from a Self-Directed Learner",
             "publishDate":new Date("07/28/2025").toDateString(),
             "duration":6,
-            "tags":[2],
+            "tags":[1],
             "previewText":"During my secondary school days, I discovered Duolingo, a widely popular language learning app, because I had a dream of becoming multilingual one day. I remember being incredibly proud when I could say"
         }];
         var selectedTags = new Array(tagsList.length).fill(false);
@@ -167,7 +167,15 @@
                         <h6 class="blog-title">${blogsList[i]["title"]}</h6>
                         <p class="blog-timestamp">${blogsList[i]["publishDate"]} | ${blogsList[i]["duration"]} min read</p>
                         <hr style="border:1px solid grey">
-                        <p class="blog-meta">${blogsList[i]["previewText"]}...</p>
+                        <p style="margin-bottom:4px;" class="blog-meta">${blogsList[i]["previewText"]}...</p>
+                        <h6>Tags:</h6>
+                        <div class="post-tags d-flex flex-wrap">
+                            ${blogsList[i].tags.map(item=>
+                                `
+                                    <p class="tag-cell">${tagsList[item]}</p>
+                                `
+                            ).join("")}
+                        </div>
                     </div>
                 `);
                 $(`#blog_${i+1}`).click(function() {
