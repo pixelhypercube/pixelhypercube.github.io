@@ -357,4 +357,64 @@ var blogList = [
             </p>
         `,
     },
+    {
+        "id":6,
+        "title":"Is Duolingo Still Worth It in 2025? An Honest Review from a Self-Directed Learner",
+        "publishDate":new Date("07/28/2025").toDateString(),
+        "duration":6,
+        "htmlContent":`
+            <p>During my secondary school days, I discovered Duolingo, a widely popular language learning app, because I had a dream of becoming multilingual one day. I remember being incredibly proud when I could say and write simple phrases in Japanese, such as "こんにちは、お元気ですか？" after just a few lessons. However, as time passed, my enthusiasm evolved into a love-hate relationship with <i>Duo</i>, the green owl. Despite periods of intense use, I started taking long breaks, unsure whether it was truly helping me improve my language skills as a casual language learner.</p>
+
+            <h4>Gamification Aspects</h4>
+            <p>One of the main features that stands out from many other language learning apps is the heavy use of gamification, which includes XP, health bars, gems, and, of course, streaks. At first, I thought this was sort of a fun idea for me to get hooked on language learning. However, there were times when I felt that I was relatively distracted by it, especially the weekly leaderboards and the pressure of maintaining a streak. As a result, these major distractions defeat the primary purpose of learning new languages, the core goal of language learning apps. Additionally, I find Duolingo's streak tracker to be somewhat annoying at times, as it sends reminders constantly.</p>
+            
+            <div class="d-flex">
+                <div class="row">
+                    <figure class="col-lg-6 col-12">
+                        <img alt="rankings" style="max-width:400px;" src="./img/blogs/duolingoRankings.png" />
+                        <figcaption>Duolingo's Rankings</figcaption>
+                    </figure>
+                    <figure class="col-lg-6 col-12">
+                        <img alt="stats" style="max-width:500px;" src="./img/blogs/duolingoStats.png" />
+                        <figcaption>Duolingo's Stats</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+
+            <h4>Shallow Learning Behind Convenient Design</h4>
+            <p>There is no doubt that Duolingo's word bank drag-and-drop functionality to form sentences quickly has been very helpful and efficient. However, since these errors occur frequently across exercises, many users complete exercises mindlessly, without thinking through accurate translations. This again significantly defeats the purpose of accurately forming sentences, and it doesn't give a perfect scenario of forming the sentences with minimal external guidance, as you are not guided by tools that help you form sentences in real life. However, if you want to practice further using a keyboard while typing out sentences, it'll be much more beneficial as it will help you hone your language skills much faster (but at your own risk - you might easily lose out on lives if you get them wrong!)</p>
+            <p>Another drawback I've noticed is the quality of Duolingo's audio, especially for certain languages. Some of the voice recordings sound unnatural and have accents that don't fully reflect native pronunciation, which may confuse learners trying to develop proper speaking and listening skills.</p>
+
+            <figure class="col-12">
+                <img alt="drag-and-drop" style="max-width:700px;" src="./img/blogs/duolingoSelect.gif" />
+                <figcaption>Duolingo's Drag-And-Drop Functionality</figcaption>
+            </figure>
+
+            <h4>Easy to Get Motivated for Beginners</h4>
+            <p>When I first started using Duolingo, it felt quite enjoyable because I got my first taste of what learning a new language is like. The addition of gamification to the app made it more enjoyable, especially for first-time users. It was a great first introduction to new languages, and I felt proud to form simple sentences early on.</p>
+
+            <h4>But Not Enough for Intermediate Learners</h4>
+            <p>However, as I ventured deeper into the language, I felt that there were many better opportunities to learn it in a unique and fun way, as Duolingo’s repetitive and competitive gamified system can start to feel limiting. In my opinion, if you already understand the basic structure of the language(s) you're currently learning, there are more fun ways to boost your language skills, by actively watching videos & movies, listening to music, and reading simple articles & books in your target language. If you feel that your level of understanding is not optimal, you can enable subtitles in your native language or use a translator to comprehend the content thoroughly. Additionally, browser extensions that help further boost language learning skills can be beneficial too — try extensions like <a href="https://www.languagereactor.com/">Language Reactor</a>!</p>
+
+            <figure class="col-12">
+                <img alt="language-reactor" style="max-width:700px;" src="./img/blogs/languageReactor.png" />
+                <figcaption><a href="https://www.languagereactor.com/">Language Reactor</a> Extension (Chrome)</figcaption>
+            </figure>
+
+            <h4>How I use Duolingo Today</h4>
+            <p>Eventually, I stopped relying on Duolingo as my primary learning tool. Now, I use it more as a supplementary activity to review vocabulary, get daily exposure, or stay consistent on lazy days. For more serious progress, I turn to other resources, such as using flashcards (like Anki), specialised language learning games/apps, and eventually practising talking to native speakers in your target language. It's all about finding the right balance. Duolingo, like every other app, is not perfect — it has its perks, but it is also riddled with its flaws.</p>
+
+            <h4>Would I Recommend Duolingo?</h4>
+            <p>I think Duolingo is a great app for absolute beginners with little to no proficiency in the target language. It is also quite convenient — you can simply open the app to learn or review in a relatively short amount of time, especially when you are busy with other commitments. For that reason, it offers an excellent introduction to a new language. The gamified atmosphere makes it more engaging for users to get hooked on the learning process and start building basic sentence skills for daily use.</p>
+
+            <p>However, once you transition to an intermediate or advanced level of proficiency, Duolingo starts to reveal its limitations. It relies heavily on repetitive sentence structures and guided aids, and it doesn't do a great job of teaching more complex grammar or cultural nuances.</p>
+
+            <h4>Beyond Duolingo</h4>
+            <p>If you already have a grasp of the fundamentals, it's worth branching out — watch videos or movies in your target language, listen to music, chat with native speakers, or even play games by switching the language settings to the language you're learning. And don't be afraid to use subtitles or translation tools while you build confidence.</p>
+
+            <p>In the end, real language learning takes more than daily streaks — it takes curiosity, commitment, and the courage to step outside the app. Though I've moved beyond Duolingo, it was the first step toward fulfilling my dream of becoming multilingual — and for that, I'll always be grateful to <i>Duo</i>.</p>
+
+        `
+    }
 ];
