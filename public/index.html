@@ -1,221 +1,43 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172669196-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-            gtag('config', 'UA-172669196-1');
-        </script>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
-        <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./css/bootstrap.min.css"></script>
-        <script src="./js/client.min.js"></script>
-        <script src="./js/p5.min.js"></script>
-        <script src="./js/Circle.js" defer></script>
-        <script src="./js/mainCanvas.js" defer></script>
-        <script src="./js/headerCanvas.js" defer></script>
-        <link href="./css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="" style="position:fixed;z-index:2;width:100%;">
-            <ul class="navbar nav">
-                <a href="./index.html" class="navbar-brand">TKJ</a>
-                <li>
-                    <a href="./about.html">About Me</a>
-                </li>
-                <li>
-                    <a href="./programming.html">Programming</a>
-                </li>
-                <li>
-                    <a href="./minecraft.html">Minecraft</a>
-                </li>
-                <li>
-                    <a href="./running.html">Running</a>
-                </li>
-            </ul>
-        </nav>
-        <header id="header">
-            <div id="canvas"></div>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-            
-
-            <h3>Hi, I'm</h3>
-            <h2 style="font-size:240%;text-align:center" id="headerName">Teo <strong>Kai Jie</strong> (KJ)</h2>
-            <h5>aka. PixelHyperCube</h5>
-            <!-- TOOLTIP -->
-            <div id="hintBox">
-                <p style="font-size:12px;">Click on me to see my avatar!</p>
-            </div>
-            <img id="avatar_hi" src="./img/avatar_hi.png"/>
-            
-            
-            <!-- <hr style="border:2px solid black;width:100px;background:black;">
-            <h3>Aspiring Software Developer</h3> -->
-        </header>
-        <body>
-            <main>
-                <div id="mainCanvas"></div>
-                <section style="margin-top:5%;">
-                    <!-- Alerts used for special purposes -->
-
-                    <!-- <div class="alert alert-warning alert-dismissable fade show" role="alert">
-                        <button class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <p style="font-size:16px;">Hi there, apologies if you couldn't see my page last time or if the styles look odd because the Github servers that are responsible for managing the pages were down.</p>
-                        <p style="font-size:16px;">Thanks for your understanding! ;)</p>
-                    </div> -->
-                    <!-- <hr style="border:2px solid black;"> -->
-                    <br>
-                    <section>
-                        <h1 style="margin-bottom:1%">Hello World!</h1>
-                        <p style="font-size:24px">I'm an introverted human being from Singapore who is generally hungry about technology and writing code!</p>
-                        <p style="font-size:24px">Other than that, I like playing Minecraft, distance running and trying out new experiences!</p>
-                    </section>
-                    <!-- <hr style="width:50%"> -->
-                    <section>
-                        <h1 style="margin-bottom:1%">Where am I studying?</h1>
-                        <figure>
-                            <img alt="Singapore Polytecnic" id="school" style="margin:5% 0%;min-width:100px;max-width:800px;width:100%;padding:20px;" src="./img/sp_logo.png"/>
-                            <!-- <caption>Singapore Polytechnic</caption> -->
-                        </figure>
-                        <h5>Diploma in Information Technology</h5>
-                        <br>
-                    </section>
-                    <!-- <hr style="width:50%"> -->
-                    <h1 style="margin-bottom:1%">How old am I?</h1>
-                    <br>
-                    <div id="ageBubble">
-                        <h1><span style="display:none;" id="year"></span></h1>
-                        <p>years old</p>
-                    </div>
-                    <p>as of <span id="date"></span> (now) </p>
-                </section>
-                <hr style="width:50%">
-                <section>
-                    <h2>Find out more about my hobbies!</h2>
-                    <hr style="width:50%;margin:4% auto;border:none;">
-                    <div class="row flex align-items-stretch card-deck" id="hobbies">
-                        <div style="background:#426aa5" class="col-sm-12 col-md-12 col-lg-12 col-xl-4 card mb-3 interestCell">
-                            <div class="card-body">
-                                <h3>Minecraft</h3>
-                                <img style="width:100px;filter:invert()" src="./img/icon_minecraft.png"/>
-                            </div>
-                            <a class="sectionBtn" href="./minecraft.html">Click to view!</a>
-                            <hr style="background:rgb(202, 202, 202);">
-                        </div>
-                        <div style="background:#1b3b69" class="col-sm-6 col-md-6 col-lg-6 col-xl-4 card mb-3 interestCell">
-                            <div class="card-body">
-                                <h3>Programming</h3>
-                                <img style="width:100px;filter:invert()" src="./img/icon_coding.png"/>
-                            </div>
-                            <a class="sectionBtn" href="./programming.html">Click to view!</a>
-                            <hr style="background:rgb(202, 202, 202);">
-                        </div>
-                        <div style="background:#1f57ac" class="col-sm-12 col-md-12 col-lg-12 col-xl-4 card mb-3 interestCell">
-                            <div class="card-body">
-                                <h3>Running</h3>
-                                <img style="width:100px;filter:invert()" src="./img/icon_running.png"/>
-                            </div>
-                            <a class="sectionBtn" href="./running.html">Click to view!</a>
-                            <hr style="background:rgb(202, 202, 202);">
-                        </div>
-                        <!-- <div class="col-sm-6 col-md-4 col-lg-3 card mb-3 interestCell">
-                            <div class="card-body">
-                                <h3>Thirst for knowledge</h3>
-                                <img style="width:100px;filter:invert()" src="./img/icon_knowledge.png"/>
-                            </div>
-                        </div> -->
-                    </div>
-                </section>
-                <hr style="width:50%">
-                <section>
-                    <h2>My Other Links</h2>
-                    <a style="font-size:32px;color:black;" href="https://github.com/pixelhypercube">
-                        <i class="fa fa-github"></i>
-                    </a>
-                    <a style="font-size:32px;color:black;" href="https://www.linkedin.com/in/kai-jie-teo/">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                </section>
-                <p id="textDemo"></p>
-                <a style="display:none;" href="https://info.flagcounter.com/SpGP">
-                    <img src="https://s11.flagcounter.com/count2/SpGP/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-                </a>
-            </main>
-            <footer>
-                <ul class="navbar nav">
-                    <li>
-                        &copy; 2020 All Rights Reserved
-                    </li>
-                </ul>
-            </footer>
-            <div id="avatarDiv">
-                <div class="overlay"></div>
-                <div id="avatarWindow">
-                    <button id="closeAvatarBtn">X</button>
-                    <div class="row h-70 justify-content-center align-items-center">
-                        <div class="col-sm-4">
-                            <img id="avatar_default" src="./img/avatar_default.png"/>
-                        </div>
-                        <div class="col-sm-8">
-                            <h2>Teo Kai Jie</h2>
-                            <h4>(PixelHyperCube)</h4>
-                            <table>
-                                <tr>
-                                    <th>Age</th>
-                                    <td>18</td>
-                                </tr>
-                                <tr>
-                                    <th>Gender</th>
-                                    <td>Male</td>
-                                </tr>
-                                <tr>
-                                    <th>Residence & Birthplace</th>
-                                    <td>Singapore</td>
-                                </tr>
-                                <tr>
-                                    <th>School</th>
-                                    <td>Singapore Polytechnic</td>
-                                </tr>
-                                <tr>
-                                    <th>Height</td>
-                                    <td>175cm (5' 9")</th>
-                                </tr>
-                                <tr>
-                                    <th>Weight</td>
-                                    <td>64kg (141 lbs)</th>
-                                </tr>
-                                <tr>
-                                    <th>Hair & Eye Color</td>
-                                    <td>Dark Brown</th>
-                                </tr>
-                                <tr>
-                                    <th>Hobbies</th>
-                                    <td>Programming, Minecraft, Running</td>
-                                </tr>
-                                <tr>
-                                    <th>Languages</th>
-                                    <td>English, Chinese, basic Japanese</td>
-                                </tr>
-                                <tr>
-                                    <th>Personality Type</th>
-                                    <td>INTJ (Architect)</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </body>
-        <script src="./js/script.js"></script>
-    </body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>

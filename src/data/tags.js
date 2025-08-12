@@ -1,0 +1,44 @@
+const iconsDir = "./assets/img/coding_icons/";
+let tags = {
+    "Python":{
+        "type":"programming",
+        "icon_path":iconsDir+"python.svg"
+    },
+    "Pygame":{
+        "type":"framework",
+        "icon_path":iconsDir+"pygame.svg"
+    },
+    "C++":{
+        "type":"programming",
+        "icon_path":iconsDir+"cpp.svg"
+    },
+    "C":{
+        "type":"programming",
+        "icon_path":iconsDir+"c.svg"
+    },
+    "C#":{
+        "icon":"programming",
+        "icon_path":iconsDir+"cs.svg"
+    },
+    "HTML":{
+        "type":"markup",
+        "icon_path":iconsDir+"html.svg"
+    },
+    "CSS":{
+        "type":"stylesheet",
+        "icon_path":iconsDir+"css.svg"
+    },
+    "React.js":{
+        "type":"framework",
+        "icon_path":iconsDir+"reactjs.svg"
+    },
+    "Node.js":{
+        "type":"framework",
+        "icon_path":iconsDir+"nodejs.svg"
+    },
+    "Java":{
+        "type":"language",
+        "icon_path":iconsDir+"java.svg"
+    }
+};
+export default tags;
