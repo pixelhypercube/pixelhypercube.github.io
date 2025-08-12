@@ -28,6 +28,10 @@ let tags = {
         "type":"stylesheet",
         "icon_path":iconsDir+"css.svg"
     },
+    "Javascript":{
+        "type":"language",
+        "icon_path":iconsDir+"js.svg"
+    },
     "React.js":{
         "type":"framework",
         "icon_path":iconsDir+"reactjs.svg"
@@ -39,6 +43,10 @@ let tags = {
     "Java":{
         "type":"language",
         "icon_path":iconsDir+"java.svg"
+    },
+    "Figma":{
+        "type":"tool",
+        "icon_path":iconsDir+"figma.svg"
     }
 };
 export default tags;

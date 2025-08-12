@@ -14,13 +14,14 @@ export default class Tag extends React.Component {
             style={{
                 border:`1px solid ${color}`,
                 marginRight:"5px",
+                marginBottom:"5px",
                 color,
-                borderRadius:"10px",
+                borderRadius:"8px",
                 justifyContent:"center",
                 alignItems:"center"
             }}>
-                <img alt={tag} style={{width:"15px",margin:"0px 5px 0px 5px"}} src={tags[tag]["icon_path"]} />
-                <span style={{margin:"0px 5px 0px 5px"}}>{tag}</span>
+                <img alt={tag} style={{width:"15px",margin:"4px"}} src={tags[tag]["icon_path"]} />
+                <span style={{margin:"0px 4px 0px 4px"}}>{tag}</span>
             </div>
         ) : <></>
     }
