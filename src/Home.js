@@ -10,6 +10,7 @@ import { faGear, faProjectDiagram, faSchool, faSuitcase } from "@fortawesome/fre
 import SkillBox from "./components/SkillBox";
 
 import tagObj from "./data/tags";
+import { Link } from "react-router-dom";
 const {tags,tagKeys} = tagObj;
 
 export default class Home extends React.Component {
@@ -83,7 +84,7 @@ export default class Home extends React.Component {
         // className="d-md-block d-none" 
         ref={this.navbarElem} sticky="top" variant="dark">
           <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
               KJ
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -91,7 +92,7 @@ export default class Home extends React.Component {
               <Nav className="me-auto">
                 {/* <Nav.Link href="projects">Projects</Nav.Link>
                 <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                <Nav.Link href="blogs">Blogs</Nav.Link>
+                <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
               </Nav>
             </Navbar.Collapse>
             <Navbar.Collapse className="justify-content-end">
@@ -166,7 +167,7 @@ export default class Home extends React.Component {
               <p>Hi!👋 I'm currently a second year undergraduate reading Computer Science at Nanyang Technological University (NTU)!</p>
               <p>I'd describe myself as a part nerd, part geek and part jock - someone who enjoys both techie stuff and fitness!</p>
               <p>
-                I enjoy tinkering with <a href="./proj">projects</a>, sharing knowledge on my <a href="./blogs">blogs</a>, 
+                I enjoy tinkering with projects, sharing knowledge on my <Link to="/blogs">blogs</Link>, 
                   and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Portfolio Website</a> 📚.
               </p>
               <p>In my spare time, I enjoy playing Minecraft 🎮, speedsolving Rubik's Cubes 🧊, learning new languages 🌐, reading books 📖 and working out at the gym 🏋️‍♂️!</p>

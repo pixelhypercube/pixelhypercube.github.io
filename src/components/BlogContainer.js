@@ -13,7 +13,7 @@ export default class BlogContainer extends React.Component {
         const {blog} = this.props;
         const {id,title,publishDate,duration,previewText,tags} = blog;
         return (
-            <div onClick={()=>window.location.href="/blogs/"+id} className="blog">
+            <div onClick={()=>window.location.href="/#/blogs/"+id} className="blog">
                 <h6 className="blog-title">{title}</h6>
                 <p className="blog-timestamp">{publishDate} | {duration} min read</p>
                 <hr style={{border:"1px solid grey"}}/>

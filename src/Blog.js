@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import blogsObj from "./data/blogsList";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
@@ -25,7 +25,7 @@ class Blog extends React.Component {
                     // className="d-md-block d-none" 
                     ref={this.navbarElem} sticky="top" variant="dark">
                     <Container>
-                        <Navbar.Brand href="/">
+                        <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
                         KJ
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -33,7 +33,7 @@ class Blog extends React.Component {
                         <Nav className="me-auto">
                             {/* <Nav.Link href="projects">Projects</Nav.Link>
                             <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                            <Nav.Link href="/blogs">Blogs</Nav.Link>
+                            <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
                         </Nav>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
@@ -72,7 +72,7 @@ class Blog extends React.Component {
                     // className="d-md-block d-none" 
                     ref={this.navbarElem} sticky="top" variant="dark">
                     <Container>
-                        <Navbar.Brand href="/">
+                        <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
                         KJ
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -80,7 +80,7 @@ class Blog extends React.Component {
                         <Nav className="me-auto">
                             {/* <Nav.Link href="projects">Projects</Nav.Link>
                             <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                            <Nav.Link href="/blogs">Blogs</Nav.Link>
+                            <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
                         </Nav>
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
