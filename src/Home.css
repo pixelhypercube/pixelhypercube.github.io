@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Rubik;
+  src: url("./assets/fonts/Rubik.ttf");
+}
+
+html,body {
+  font-family: Rubik;
+  background-color: rgb(30, 28, 27);
+  color:white;
+}
+
+@keyframes blinking {
+  0%, 100% { border-left: 4px solid white; }
+  50%      { border-left: 4px solid rgba(255,255,255,0); }
+}
+
+span#typer {
+  border-left:4px solid white;
+  margin-left:5px;
+  animation: blinking 1s ease-in-out infinite;
+}
+
+a.btn {
+  border-radius:15px;
+}
+
+footer {
+  background-color: rgba(225,255,255,0.1);
+}
+
+p {
+  font-weight: 100;
+}
+
+.me-auto {
+  font-size:20px;
+  color:white;
+}
+
+a {
+  color:#ffffff;
+}
+
+a:hover {
+  color:#cacaca;
+}

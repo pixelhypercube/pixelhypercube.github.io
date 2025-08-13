@@ -1,0 +1,53 @@
+.blog {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding:10px 15px 1px 15px;
+    margin:15px 0px 15px 0px;
+    border-radius:10px;
+}
+
+.blog:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.blog:active {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.blog-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.blog-timestamp {
+    font-size: 1rem;
+}
+.blog-meta {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+#tag-list .btn-tag {
+    border:2px solid white;
+    margin:5px 10px 5px 0px;
+    padding:5px 10px 5px 10px;
+    border-radius:10px;
+}
+#tag-list .btn-tag-selected {
+    border:2px solid white;
+    background-color: white;
+    color:#212529;
+}
+
+.post-tags .tag-cell {
+    border:2px solid white;
+    padding:5px 10px 5px 10px;
+    border-radius:10px;
+    font-size:13px;
+    margin:5px 10px 5px 0px;
+}
+
+#tag-list .btn-tag .tag-checked {
+    display:none;
+}
+#tag-list .btn-tag-selected .tag-checked {
+    display:inline;
+}

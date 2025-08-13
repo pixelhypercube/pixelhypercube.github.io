@@ -1,52 +1,99 @@
-const iconsDir = "./assets/img/coding_icons/";
+const iconsDir = "./assets/img/icons/";
 let tags = {
     "Python":{
-        "type":"programming",
+        "type":"Programming",
         "icon_path":iconsDir+"python.svg"
     },
-    "Pygame":{
-        "type":"framework",
-        "icon_path":iconsDir+"pygame.svg"
-    },
     "C++":{
-        "type":"programming",
+        "type":"Programming",
         "icon_path":iconsDir+"cpp.svg"
     },
     "C":{
-        "type":"programming",
+        "type":"Programming",
         "icon_path":iconsDir+"c.svg"
     },
     "C#":{
-        "icon":"programming",
+        "type":"Programming",
         "icon_path":iconsDir+"cs.svg"
     },
     "HTML":{
-        "type":"markup",
+        "type":"Web Dev",
         "icon_path":iconsDir+"html.svg"
     },
     "CSS":{
-        "type":"stylesheet",
+        "type":"Web Dev",
         "icon_path":iconsDir+"css.svg"
     },
     "Javascript":{
-        "type":"language",
+        "type":"Programming",
         "icon_path":iconsDir+"js.svg"
     },
+    "EJS":{
+        "type":"Web Dev",
+        "icon_path":iconsDir+"ejs.svg"
+    },
     "React.js":{
-        "type":"framework",
+        "type":"Web Dev",
         "icon_path":iconsDir+"reactjs.svg"
     },
     "Node.js":{
-        "type":"framework",
+        "type":"Web Dev",
         "icon_path":iconsDir+"nodejs.svg"
     },
+    "Postman":{
+        "type":"Web Dev",
+        "icon_path":iconsDir+"postman.svg"
+    },
+    "SQL":{
+        "type":"Databases",
+        "icon_path":iconsDir+"sql.svg"
+    },
+    "MongoDB":{
+        "type":"Databases",
+        "icon_path":iconsDir+"mongodb.svg"
+    },
     "Java":{
-        "type":"language",
+        "type":"Programming",
         "icon_path":iconsDir+"java.svg"
     },
+    "Git":{
+        "type":"DevOps",
+        "icon_path":iconsDir+"git.svg"
+    },
+    "Github":{
+        "type":"DevOps",
+        "icon_path":iconsDir+"github.svg"
+    },
+    "Heroku":{
+        "type":"DevOps",
+        "icon_path":iconsDir+"heroku.svg"
+    },
     "Figma":{
-        "type":"tool",
+        "type":"Tools",
         "icon_path":iconsDir+"figma.svg"
-    }
+    },
+    "Canva":{
+        "type":"Tools",
+        "icon_path":iconsDir+"canva.svg"
+    },
+    "MS Office Suite":{
+        "type":"Programs",
+        "icon_path":iconsDir+"msoffice.svg"
+    },
+    "VMWare Workstation Pro":{
+        "type":"Programs",
+        "icon_path":iconsDir+"vmware.svg"
+    },
+    "Android Studio":{
+        "type":"Programs",
+        "icon_path":iconsDir+"androidstudio.svg"
+    },
+    "Pygame":{
+        "type":"Game Dev",
+        "icon_path":iconsDir+"pygame.svg"
+    },
 };
-export default tags;
+let tagKeys = Array.from(new Set(Object.keys(tags).map(item=>tags[item]["type"])));
+
+let tabsObj = {tags,tagKeys};
+export default tabsObj;

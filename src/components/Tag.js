@@ -1,5 +1,6 @@
 import React from "react";
-import tags from "../data/tags";
+import tagsObj from "../data/tags";
+const {tags} = tagsObj;
 
 export default class Tag extends React.Component {
     constructor(props) {
@@ -8,20 +9,24 @@ export default class Tag extends React.Component {
     }
 
     render() {
-        const {tag, color} = this.props;
+        const {tag} = this.props;
         return tags[tag] ? (
             <div className="d-flex"
             style={{
-                border:`1px solid ${color}`,
-                marginRight:"5px",
-                marginBottom:"5px",
-                color,
+                margin:"5px",
+                color:"black",
                 borderRadius:"8px",
                 justifyContent:"center",
-                alignItems:"center"
+                alignItems:"center",
+                background:"white",
+                paddingRight:"6px"
             }}>
-                <img alt={tag} style={{width:"15px",margin:"4px"}} src={tags[tag]["icon_path"]} />
-                <span style={{margin:"0px 4px 0px 4px"}}>{tag}</span>
+                <img alt={tag} style={{
+                    width:"20px",
+                    margin:"5px",
+                    filter:"brightness(0)"
+                }} src={tags[tag]["icon_path"]} />
+                <span style={{margin:"0",fontWeight:500}}>{tag}</span>
             </div>
         ) : <></>
     }

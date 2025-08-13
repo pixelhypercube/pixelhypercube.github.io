@@ -10,7 +10,7 @@ var projInfo = [
         "image_location": "./assets/img/coding_proj/coding_proj13.png",
         "link": "https://github.com/pixelhypercube/pySquidGame",
         "tech_stack":[
-            "Python","pygame"
+            "Python","Pygame"
         ]
     },
     {
@@ -25,6 +25,34 @@ var projInfo = [
         "link": "https://pixelhypercube.github.io/CellCollab/",
         "tech_stack":[
             "React.js","HTML","CSS","Javascript","Node.js"
+        ]
+    },
+    {
+        "proj_id": 10,
+        "title": "PHC Minigolf",
+        "title_jp": "PHCミニゴルフ",
+        "title_zh": "PHC 迷你高尔夫",
+        "brief_description_jp": "Python（pygame）で作ったミニゴルフゲーム！",
+        "brief_description_zh": "用 Python（pygame）制作的迷你高尔夫游戏！",
+        "brief_description": "A minigolf game made using python (pygame!)",
+        "image_location": "./assets/img/coding_proj/coding_proj8.png",
+        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
+        "tech_stack":[
+            "Python","Pygame"
+        ]
+    },
+    {
+        "proj_id": 13,
+        "title": "2D Spleef!",
+        "title_jp": "2Dスプリーフ！",
+        "title_zh": "2D淘汰游戏！",
+        "brief_description": "2D version of Spleef! Made using Java.",
+        "brief_description_jp": "走ると足元のブロックが消える、Java製の2Dスプリーフゲーム！",
+        "brief_description_zh": "用Java制作的2D淘汰游戏，玩家踩过的方块会消失！",
+        "image_location": "./assets/img/coding_proj/coding_proj4.png",
+        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/2d-Spleef",
+        "tech_stack":[
+            "Java"
         ]
     },
     {
@@ -126,20 +154,6 @@ var projInfo = [
         ]
     },
     {
-        "proj_id": 10,
-        "title": "PHC Minigolf",
-        "title_jp": "PHCミニゴルフ",
-        "title_zh": "PHC 迷你高尔夫",
-        "brief_description_jp": "Python（pygame）で作ったミニゴルフゲーム！",
-        "brief_description_zh": "用 Python（pygame）制作的迷你高尔夫游戏！",
-        "brief_description": "A minigolf game made using python (pygame!)",
-        "image_location": "./assets/img/coding_proj/coding_proj8.png",
-        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
-        "tech_stack":[
-            "Python","pygame"
-        ]
-    },
-    {
         "proj_id": 11,
         "title": "Console Spaceship Battle!",
         "title_jp": "コンソール宇宙船バトル！",
@@ -165,20 +179,6 @@ var projInfo = [
         "link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
         "tech_stack":[
             "HTML","CSS","Javascript"
-        ]
-    },
-    {
-        "proj_id": 13,
-        "title": "2D Spleef!",
-        "title_jp": "2Dスプリーフ！",
-        "title_zh": "2D淘汰游戏！",
-        "brief_description": "2D version of Spleef! Made using Java.",
-        "brief_description_jp": "走ると足元のブロックが消える、Java製の2Dスプリーフゲーム！",
-        "brief_description_zh": "用Java制作的2D淘汰游戏，玩家踩过的方块会消失！",
-        "image_location": "./assets/img/coding_proj/coding_proj4.png",
-        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/2d-Spleef",
-        "tech_stack":[
-            "Java"
         ]
     },
     {
