@@ -128,7 +128,7 @@ class Blog extends React.Component {
                     padding:"30px"
                 }}>
                     <Container className="d-flex justify-content-center" style={{fontWeight:500}}>
-                        <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a></h4>
+                        <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a> using <a href="https://react.dev/">React.js</a></h4>
                     </Container>
                 </footer>
             </div>

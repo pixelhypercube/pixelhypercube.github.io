@@ -146,7 +146,7 @@ export default class Home extends React.Component {
                 width:"100%",
                 marginBottom:"40px",
                 maxWidth:"300px",
-                height:"fit-content",
+                height:"auto",
                 imageRendering:"pixelated",
               }}
               alt="avatar-default" />
@@ -395,7 +395,7 @@ export default class Home extends React.Component {
           padding:"30px"
         }}>
           <Container className="d-flex justify-content-center" style={{fontWeight:500}}>
-            <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a></h4>
+            <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a> using <a href="https://react.dev/">React.js</a></h4>
           </Container>
           {/* <Container style={{
             justifyContent:"space-evenly"
