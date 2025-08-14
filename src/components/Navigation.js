@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export default class Navigation extends React.Component {
+class Navigation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -27,7 +28,13 @@ export default class Navigation extends React.Component {
         });
     }
 
+    redirectProj() {
+        let elem = document.getElementById("side-projects-container");
+        if (elem) elem.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
     render() {
+        const {pathname} = this.props.location;
         return (
             <Navbar style={{
                 background:"rgb(30, 28, 27)",
@@ -43,7 +50,14 @@ export default class Navigation extends React.Component {
                         <Nav className="me-auto">
                             {/* <Nav.Link href="projects">Projects</Nav.Link>
                             <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                            <Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link>
+                            <Link style={{textDecoration:"none"}} to="../" onClick={()=>{
+                                if (pathname!=="/") {
+                                    setTimeout(()=>{
+                                        this.redirectProj();
+                                    },100);
+                                } else this.redirectProj();
+                            }}>Projects</Link>
+                            <Link style={{textDecoration:"none",marginLeft:"15px"}} to="/blogs">Blogs</Link>
                         </Nav>
                     </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end">
@@ -66,4 +80,9 @@ export default class Navigation extends React.Component {
             </Navbar>
         )
     }
+}
+
+export default function NavigationWithLocation(props) {
+    const location = useLocation();
+    return <Navigation {...props} location={location}/>;
 }
