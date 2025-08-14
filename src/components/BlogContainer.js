@@ -16,9 +16,10 @@ export default class BlogContainer extends React.Component {
             <div onClick={()=>window.location.href="/#/blogs/"+id} className="blog">
                 <h6 className="blog-title">{title}</h6>
                 <p className="blog-timestamp">{publishDate} | {duration} min read</p>
-                <hr style={{border:"1px solid grey"}}/>
-                <p style={{marginBottom:"4px"}} className="blog-meta">{previewText}...</p>
-                <h6>Tags:</h6>
+                <hr style={{border:"1px solid grey",margin:"8px 0px"}}/>
+                <p className="blog-meta">{previewText}...</p>
+                {/* <hr style={{border:"1px solid grey",margin:"8px 0px"}}/> */}
+                {/* <h6>Tags:</h6> */}
                 <div className="post-tags d-flex flex-wrap">
                     {tags.map((item,index)=><p key={index} className="tag-cell">{blogTagsList[item]}</p>)}
                 </div>

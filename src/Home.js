@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import GridBox from "./components/GridBox";
 import projInfo from "./data/projInfo";
 
@@ -11,6 +11,9 @@ import SkillBox from "./components/SkillBox";
 
 import tagObj from "./data/tags";
 import { Link } from "react-router-dom";
+import Footer from "./components/Footer";
+import OverlayCanvas from "./components/OverlayCanvas";
+import Navigation from "./components/Navigation";
 const {tags,tagKeys} = tagObj;
 
 export default class Home extends React.Component {
@@ -20,7 +23,12 @@ export default class Home extends React.Component {
       age:this.calculateAge(),
       nameCycle: ["Kai Jie","KJ","Kendrick"],
       nameIndex: 0,
-      name:"Kai Jie"
+      name:"Kai Jie",
+
+      // overlay canvas props
+      mouseX:0,
+      mouseY:0,
+      mouseIsDown:false,
     };
     this.navbarElem = React.createRef();
   }
@@ -58,61 +66,34 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     this.cycleNames(4000);
-    window.addEventListener("scroll",()=>{
-      let navbarElem = this.navbarElem.current;
-      // disable navbar border when scrollY < 50
-      if (navbarElem) {
-        if (window.scrollY<100) {
-          navbarElem.style.borderBottom = "none";
-          navbarElem.style.boxShadow = "none";
-        }
-        else {
-          navbarElem.style.borderBottom = "2px solid rgb(50,50,50)";
-          navbarElem.style.boxShadow = "0px 0px 20px rgba(0,0,0,0.5)";
-        }
-      }
+
+    // to pass to overlay canvas
+
+    window.addEventListener("mousedown",(e)=>{
+      this.setState({
+        mouseX:e.clientX,
+        mouseY:e.clientY,
+        mouseIsDown:true
+      });
+    });
+
+    window.addEventListener("mousedown",(e)=>{
+      this.setState({
+        mouseIsDown:false,
+      });
     });
   }
 
   render() {
-    const {age} = this.state;
+    const {age, mouseX, mouseY, mouseIsDown} = this.state;
     return (
       <div>
-        <Navbar style={{
-          background:"rgb(30, 28, 27)",
-        }} 
-        // className="d-md-block d-none" 
-        ref={this.navbarElem} sticky="top" variant="dark">
-          <Container>
-            <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
-              KJ
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
-            <Navbar.Collapse className="d-flex">
-              <Nav className="me-auto">
-                {/* <Nav.Link href="projects">Projects</Nav.Link>
-                <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-            <Navbar.Collapse className="justify-content-end">
-              <Nav>
-                <Nav.Link href="https://github.com/pixelhypercube"><img alt="github-icon" style={{
-                  width:"25px",
-                  filter:"brightness(0) invert()"
-                }} src={"./assets/img/icons/github.svg"}/></Nav.Link>
-                <Nav.Link href="https://www.linkedin.com/in/kai-jie-teo/"><img alt="linkedin-icon" style={{
-                  width:"25px",
-                  filter:"brightness(0) invert()"
-                }} src={"./assets/img/icons/linkedin.svg"}/></Nav.Link>
-                <Nav.Link href="./Resume_Kendrick.pdf"><img alt="resume-icon" style={{
-                  width:"25px",
-                  filter:"brightness(0) invert()"
-                }} src={"./assets/img/icons/resume.svg"}/></Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <OverlayCanvas
+        mouseX={mouseX}
+        mouseY={mouseY}
+        mouseIsDown={mouseIsDown}
+        />
+        <Navigation/>
         <header
         style={{
           marginTop:"2vh",
@@ -127,7 +108,7 @@ export default class Home extends React.Component {
             alignItems:"center",
             justifyContent:"center",
             borderRadius:"20px",
-            height:"95vh"
+            height:"80vh"
           }}>
             <div>
               <h4>Hi there! My name is
@@ -139,16 +120,19 @@ export default class Home extends React.Component {
             </div>
           </Container>
           <Container style={{
+            marginTop:"200px",
             marginBottom:"200px"
           }} className="d-flex flex-wrap">
-            <Container className="col-md-4 col-12 d-flex justify-content-center">
+            <Container className="col-md-5 col-12 d-flex justify-content-center">
               <img src={"./assets/img/avatar/avatar_default.png"} 
               style={{
-                width:"100%",
-                marginBottom:"40px",
+                display:"block",
                 maxWidth:"300px",
+                width:"100%",
                 height:"auto",
+                marginBottom:"40px",
                 imageRendering:"pixelated",
+                objectFit:"contain"
               }}
               alt="avatar-default" />
             </Container>
@@ -162,12 +146,15 @@ export default class Home extends React.Component {
               justifyContent:"center",
               fontSize:"20px",
             }}
-            className="col-md-8 col-12"
+            className="col-md-7 col-12"
             id="header-2">
               <p>Hi!👋 I'm currently a second year undergraduate reading Computer Science at Nanyang Technological University (NTU)!</p>
               <p>I'd describe myself as a part nerd, part geek and part jock - someone who enjoys both techie stuff and fitness!</p>
               <p>
-                I enjoy tinkering with projects, sharing knowledge on my <Link to="/blogs">blogs</Link>, 
+                I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
+                  document.getElementById("side-projects-container")
+                  .scrollIntoView({behavior:"smooth",block:"start"});
+                }}>projects</span>, sharing knowledge on my <Link to="/blogs">blogs</Link>, 
                   and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Portfolio Website</a> 📚.
               </p>
               <p>In my spare time, I enjoy playing Minecraft 🎮, speedsolving Rubik's Cubes 🧊, learning new languages 🌐, reading books 📖 and working out at the gym 🏋️‍♂️!</p>
@@ -181,7 +168,7 @@ export default class Home extends React.Component {
             {
               tagKeys.map((type,typeIndex)=>(
                 <div key={typeIndex}>
-                  <h2 style={{textAlign:"center"}}>{type}</h2>
+                  <h3 style={{textAlign:"center"}}>{type}</h3>
                   <div style={{marginBottom:"15px"}} className="d-flex flex-wrap justify-content-center">
                     {
                       Object.keys(tags)
@@ -360,9 +347,9 @@ export default class Home extends React.Component {
               />
             </div>
           </Container>
-          <Container style={{marginBottom:"150px"}}>
+          <Container id="side-projects-container" style={{marginBottom:"150px"}}>
             <h1 style={{textAlign:"center",fontSize:"55px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Side Projects</h1>
-            <h5 style={{textAlign:"center",marginBottom:"50px"}}>Click on each project to expand!</h5>
+            {/* <h5 style={{textAlign:"center",marginBottom:"50px"}}>Click on a project to expand!</h5> */}
             <div className="container-side-projects d-flex flex-wrap justify-content-center">
               {
                 projInfo.map((proj,index)=>(
@@ -392,52 +379,7 @@ export default class Home extends React.Component {
             </div>
           </Container>
         </main>
-        <footer style={{
-          padding:"30px"
-        }}>
-          <Container className="d-flex justify-content-center" style={{fontWeight:500}}>
-            <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a> using <a href="https://react.dev/">React.js</a></h4>
-          </Container>
-          {/* <Container style={{
-            justifyContent:"space-evenly"
-          }} className="d-flex flex-wrap">
-            <div className="col-md-6 col-12 d-flex align-items-center">
-              <h1 style={{fontSize:"60px"}}>Have a question? Ask me about anything! <br/> I won't bite 👌</h1>
-            </div>
-            <div className="col-md-6 col-12">
-              <Form>
-                <Form.Group className="mb-3">
-                  <Form.Label style={{fontSize:"20px"}}>Name</Form.Label>
-                  <Form.Control 
-                  type="text" 
-                  placeholder="Enter your name"
-                  className="bg-dark text-light border-secondary"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label style={{fontSize:"20px"}}>Email</Form.Label>
-                  <Form.Control 
-                  type="email" 
-                  placeholder="Enter your email"
-                  className="bg-dark text-light border-secondary"
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label style={{fontSize:"20px"}}>Message</Form.Label>
-                  <Form.Control 
-                  as="textarea" 
-                  rows={4}
-                  placeholder="Type your message"
-                  className="bg-dark text-light border-secondary"
-                  />
-                </Form.Group>
-                <Button style={{fontSize:"20px"}} variant="outline-light" type="submit">
-                  Send Message
-                </Button>
-              </Form>
-            </div>
-          </Container> */}
-        </footer>
+        <Footer/>
       </div>
     )
   }

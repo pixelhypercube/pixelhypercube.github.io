@@ -14,15 +14,18 @@
 }
 
 .blog-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin:4px 0px;
 }
 .blog-timestamp {
     font-size: 1rem;
+    margin:4px 0px;
 }
 .blog-meta {
     font-size: 0.9rem;
     color: #aaaaaa;
+    margin:4px 0px;
 }
 
 #tag-list .btn-tag {
@@ -37,11 +40,15 @@
     color:#212529;
 }
 
+.post-tags {
+    margin: 5px 0px;
+}
+
 .post-tags .tag-cell {
     border:2px solid white;
     padding:5px 10px 5px 10px;
     border-radius:10px;
-    font-size:13px;
+    font-size:0.9rem;
     margin:5px 10px 5px 0px;
 }
 

@@ -1,59 +1,57 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import blogsObj from "./data/blogsList";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
 import "./Blog.css";
+import Footer from "./components/Footer";
+import OverlayCanvas from "./components/OverlayCanvas";
+import Navigation from "./components/Navigation";
 
 const {blogsList} = blogsObj;
 
 class Blog extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            // overlay canvas props
+            mouseX:0,
+            mouseY:0,
+            mouseIsDown:false,
+        };
         this.navbarElem = React.createRef();
+    }
+    
+    componentDidMount() {
+        // to pass to overlay canvas
+
+        window.addEventListener("mousedown",(e)=>{
+            this.setState({
+                mouseX:e.clientX,
+                mouseY:e.clientY,
+                mouseIsDown:true
+            });
+        });
+
+        window.addEventListener("mousedown",(e)=>{
+            this.setState({
+                mouseIsDown:false,
+            });
+        });
     }
 
     render() {
         const {id} = this.props.params;
+        const {mouseX, mouseY, mouseIsDown} = this.state;
         if (!blogsList[id-1]) return (
             <div>
-                <Navbar style={{
-                    background:"rgb(30, 28, 27)",
-                    }} 
-                    // className="d-md-block d-none" 
-                    ref={this.navbarElem} sticky="top" variant="dark">
-                    <Container>
-                        <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
-                        KJ
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
-                        <Navbar.Collapse className="d-flex">
-                        <Nav className="me-auto">
-                            {/* <Nav.Link href="projects">Projects</Nav.Link>
-                            <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                            <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
-                        </Nav>
-                        </Navbar.Collapse>
-                        <Navbar.Collapse className="justify-content-end">
-                        <Nav>
-                            <Nav.Link href="https://github.com/pixelhypercube"><img alt="github-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/github.svg"}/></Nav.Link>
-                            <Nav.Link href="https://www.linkedin.com/in/kai-jie-teo/"><img alt="linkedin-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/linkedin.svg"}/></Nav.Link>
-                            <Nav.Link href="./Resume_Kendrick.pdf"><img alt="resume-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/resume.svg"}/></Nav.Link>
-                        </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
+                <OverlayCanvas
+                mouseX={mouseX}
+                mouseY={mouseY}
+                mouseIsDown={mouseIsDown}
+                />
+                <Navigation/>
                 <Container style={{
                     height:"90vh"
                 }} className="d-flex flex-column justify-content-center align-items-center">
@@ -66,41 +64,12 @@ class Blog extends React.Component {
         const {title,publishDate,duration,htmlContent} = blogsList[id-1];
         return (
             <div>
-                <Navbar style={{
-                    background:"rgb(30, 28, 27)",
-                    }} 
-                    // className="d-md-block d-none" 
-                    ref={this.navbarElem} sticky="top" variant="dark">
-                    <Container>
-                        <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
-                        KJ
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
-                        <Navbar.Collapse className="d-flex">
-                        <Nav className="me-auto">
-                            {/* <Nav.Link href="projects">Projects</Nav.Link>
-                            <Nav.Link href="about">25 Facts About Me</Nav.Link> */}
-                            <Nav.Link><Link style={{textDecoration:"none"}} to="/blogs">Blogs</Link></Nav.Link>
-                        </Nav>
-                        </Navbar.Collapse>
-                        <Navbar.Collapse className="justify-content-end">
-                        <Nav>
-                            <Nav.Link href="https://github.com/pixelhypercube"><img alt="github-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/github.svg"}/></Nav.Link>
-                            <Nav.Link href="https://www.linkedin.com/in/kai-jie-teo/"><img alt="linkedin-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/linkedin.svg"}/></Nav.Link>
-                            <Nav.Link href="./Resume_Kendrick.pdf"><img alt="resume-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"/assets/img/icons/resume.svg"}/></Nav.Link>
-                        </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar>
+                <OverlayCanvas
+                        mouseX={mouseX}
+                        mouseY={mouseY}
+                        mouseIsDown={mouseIsDown}
+                        />
+                <Navigation/>
                 <Container>
                     <div id="blog">
                         <div className="mb-2 mt-3" id="blogHeader">
@@ -124,13 +93,7 @@ class Blog extends React.Component {
                         </div> */}
                     </div>
                 </Container>
-                <footer style={{
-                    padding:"30px"
-                }}>
-                    <Container className="d-flex justify-content-center" style={{fontWeight:500}}>
-                        <h4>Made with ❤️ by <a href="https://github.com/pixelhypercube">@pixelhypercube</a> using <a href="https://react.dev/">React.js</a></h4>
-                    </Container>
-                </footer>
+                <Footer/>
             </div>
         )
     }

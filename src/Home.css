@@ -37,10 +37,14 @@ p {
   color:white;
 }
 
-a {
+span#side-proj-link {
+  text-decoration: underline;
+}
+
+a, span#side-proj-link {
   color:#ffffff;
 }
 
-a:hover {
+a:hover, span#side-proj-link:hover {
   color:#cacaca;
 }
