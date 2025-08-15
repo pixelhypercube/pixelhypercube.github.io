@@ -54,7 +54,7 @@ class Navigation extends React.Component {
                                 if (pathname!=="/") {
                                     setTimeout(()=>{
                                         this.redirectProj();
-                                    },100);
+                                    },300);
                                 } else this.redirectProj();
                             }}>Projects</Link>
                             <Link style={{textDecoration:"none",marginLeft:"15px"}} to="/blogs">Blogs</Link>
@@ -70,6 +70,12 @@ class Navigation extends React.Component {
                             width:"25px",
                             filter:"brightness(0) invert()"
                             }} src={"./assets/img/icons/linkedin.svg"}/></Nav.Link>
+                            <Nav.Link href="mailto:6thetce@gmail.com">
+                                <img alt="envelope-icon" style={{
+                                width:"25px",
+                                filter:"brightness(0) invert()"
+                                }} src={"./assets/img/icons/envelope.svg"}/>
+                            </Nav.Link>
                             <Nav.Link href="./Resume_Kendrick.pdf"><img alt="resume-icon" style={{
                             width:"25px",
                             filter:"brightness(0) invert()"

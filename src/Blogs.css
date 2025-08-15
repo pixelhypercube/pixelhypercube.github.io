@@ -2,7 +2,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     padding:10px 15px 1px 15px;
     margin:15px 0px 15px 0px;
-    border-radius:10px;
+    border-radius:20px;
 }
 
 .blog:hover {
@@ -57,4 +57,10 @@
 }
 #tag-list .btn-tag-selected .tag-checked {
     display:inline;
+}
+
+/* REDDIT */
+
+iframe[src*="embed.reddit.com"] {
+  margin: 0 !important;
 }
