@@ -2,11 +2,17 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import HoverDialog from "./HoverDialog";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            githubIsHovering:false,
+            linkedinIsHovering:false,
+            emailIsHovering:false,
+            resumeIsHovering:false
+        };
 
         this.navbarElem = React.createRef();
     }
@@ -35,12 +41,15 @@ class Navigation extends React.Component {
 
     render() {
         const {pathname} = this.props.location;
+        let {githubIsHovering,linkedinIsHovering,emailIsHovering,resumeIsHovering} = this.state;
         return (
             <Navbar style={{
                 background:"rgb(30, 28, 27)",
+                zIndex:2
                 }} 
                 // className="d-md-block d-none" 
-                ref={this.navbarElem} sticky="top" variant="dark">
+                ref={this.navbarElem} sticky="top" variant="dark"
+            >
                 <Container>
                     <Navbar.Brand style={{fontSize:"24px",fontWeight:600}} href="/">
                     KJ
@@ -62,24 +71,66 @@ class Navigation extends React.Component {
                     </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end">
                         <Nav>
-                            <Nav.Link href="https://github.com/pixelhypercube"><img alt="github-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"./assets/img/icons/github.svg"}/></Nav.Link>
-                            <Nav.Link href="https://www.linkedin.com/in/kai-jie-teo/"><img alt="linkedin-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"./assets/img/icons/linkedin.svg"}/></Nav.Link>
-                            <Nav.Link href="mailto:6thetce@gmail.com">
-                                <img alt="envelope-icon" style={{
+                            <div 
+                            onMouseEnter={()=>this.setState({githubIsHovering:true})} 
+                            onMouseLeave={()=>this.setState({githubIsHovering:false})}
+                            style={{position:"relative"}}>
+                                <Nav.Link href="https://github.com/pixelhypercube"><img alt="github-icon" style={{
                                 width:"25px",
                                 filter:"brightness(0) invert()"
-                                }} src={"./assets/img/icons/envelope.svg"}/>
-                            </Nav.Link>
-                            <Nav.Link href="./Resume_Kendrick.pdf"><img alt="resume-icon" style={{
-                            width:"25px",
-                            filter:"brightness(0) invert()"
-                            }} src={"./assets/img/icons/resume.svg"}/></Nav.Link>
+                                }} src={"./assets/img/icons/github.svg"}/></Nav.Link>
+                                <HoverDialog
+                                    visible={githubIsHovering}
+                                    dialogWidth={50}
+                                    name={"Github"}
+                                />
+                            </div>
+                            <div 
+                            onMouseEnter={()=>this.setState({linkedinIsHovering:true})} 
+                            onMouseLeave={()=>this.setState({linkedinIsHovering:false})}
+                            style={{position:"relative"}}>
+                                <Nav.Link href="https://www.linkedin.com/in/kai-jie-teo/"><img alt="linkedin-icon" style={{
+                                width:"25px",
+                                filter:"brightness(0) invert()"
+                                }} src={"./assets/img/icons/linkedin.svg"}/></Nav.Link>
+                                <HoverDialog
+                                    visible={linkedinIsHovering}
+                                    dialogWidth={60}
+                                    name={"Linkedin"}
+                                />
+                            </div>
+                            <div 
+                            onMouseEnter={()=>this.setState({emailIsHovering:true})} 
+                            onMouseLeave={()=>this.setState({emailIsHovering:false})}
+                            style={{position:"relative"}}>
+                                <Nav.Link href="mailto:6thetce@gmail.com">
+                                    <img alt="envelope-icon" style={{
+                                    width:"25px",
+                                    filter:"brightness(0) invert()"
+                                    }} src={"./assets/img/icons/envelope.svg"}/>
+                                </Nav.Link>
+                                <HoverDialog
+                                    visible={emailIsHovering}
+                                    dialogWidth={45}
+                                    name={"Email"}
+                                />
+                            </div>
+                            <div 
+                            onMouseEnter={()=>this.setState({resumeIsHovering:true})} 
+                            onMouseLeave={()=>this.setState({resumeIsHovering:false})} 
+                            style={{position:"relative"}}>
+                                <Nav.Link href="./Resume_Kendrick.pdf">
+                                    <img alt="resume-icon" style={{
+                                    width:"25px",
+                                    filter:"brightness(0) invert()"
+                                    }} src={"./assets/img/icons/resume.svg"}/>
+                                </Nav.Link>
+                                <HoverDialog
+                                    visible={resumeIsHovering}
+                                    dialogWidth={60}
+                                    name={"View Resume"}
+                                />
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

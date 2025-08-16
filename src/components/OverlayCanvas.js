@@ -150,7 +150,7 @@ export default class OverlayCanvas extends React.Component {
             height={height}
             style={{
                 opacity:"0.5",
-                zIndex:0,
+                zIndex:100,
                 left:0,
                 top:0,
                 position:"fixed",

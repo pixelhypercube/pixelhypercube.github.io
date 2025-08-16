@@ -58,7 +58,7 @@ export default class BlogGrid extends React.Component {
                     <img 
                     style={{
                         width:"100%",
-                        maxHeight:"175px",
+                        maxHeight:"225px",
                         objectFit:"cover",
                         borderRadius:"20px 20px 0px 0px"
                     }}

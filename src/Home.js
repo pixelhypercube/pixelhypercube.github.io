@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import OverlayCanvas from "./components/OverlayCanvas";
 import Navigation from "./components/Navigation";
+import GridDialog from "./components/GridDialog";
 const {tags,tagKeys} = tagObj;
 
 export default class Home extends React.Component {
@@ -25,12 +26,18 @@ export default class Home extends React.Component {
       nameIndex: 0,
       name:"Kai Jie",
 
+      // proj gridbox
+      gridBoxDialogIndex:0,
+      gridBoxDialogVisible:false,
+      isMouseOverMainContainer:false,
+
       // overlay canvas props
       mouseX:0,
       mouseY:0,
       mouseIsDown:false,
     };
     this.navbarElem = React.createRef();
+    this.gridDialogRef = React.createRef();
   }
 
   // helper function to cycle names
@@ -64,8 +71,64 @@ export default class Home extends React.Component {
     return age;
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.gridBoxDialogIndex !== this.state.gridBoxDialogIndex) {
+      // for proj dialog
+      const gridDialogElem = this.gridDialogRef.current;
+      if (gridDialogElem) {
+        const closeBtnElem = gridDialogElem.closeBtnRef.current;
+        if (closeBtnElem) {
+          closeBtnElem.addEventListener("click",()=>{
+            this.setState({
+              // gridBoxDialogIndex:-1,
+              gridBoxDialogVisible:false,
+            }); // close
+          });
+        }
+
+        const mainContainerElem = gridDialogElem.mainContainerRef.current;
+        // detect if mouse is over main container
+        mainContainerElem.addEventListener("mouseenter",()=>{
+          this.setState({isMouseOverMainContainer:true});
+        });
+        mainContainerElem.addEventListener("mouseleave",()=>{
+          this.setState({isMouseOverMainContainer:false});
+        });
+
+        const outsideContainerElem = gridDialogElem.outsideContainerRef.current;
+        if (outsideContainerElem) {
+          outsideContainerElem.addEventListener("click",()=>{
+            if (mainContainerElem) {
+              let {isMouseOverMainContainer} = this.state;
+              if (!isMouseOverMainContainer) {
+                this.setState({
+                  // gridBoxDialogIndex:-1,
+                  gridBoxDialogVisible:false,
+                }); // close
+              }
+            }
+          });
+        }
+      }
+    }
+  }
+
   componentDidMount() {
     this.cycleNames(4000);
+    
+    // dialog close (esc)
+    
+    window.addEventListener("keydown",(e)=>{
+      // e.preventDefault();
+      const {gridBoxDialogIndex} = this.state;
+
+      const key = e.key;
+      if (gridBoxDialogIndex>-1)
+        if (key=="Escape") this.setState({
+          // gridBoxDialogIndex:-1
+          gridBoxDialogVisible:false,
+        }); // close
+    });
 
     // to pass to overlay canvas
 
@@ -85,7 +148,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const {age, mouseX, mouseY, mouseIsDown} = this.state;
+    const {age, mouseX, mouseY, mouseIsDown, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
     return (
       <div>
         <OverlayCanvas
@@ -349,11 +412,15 @@ export default class Home extends React.Component {
           </Container>
           <Container id="side-projects-container" style={{marginBottom:"150px"}}>
             <h1 style={{textAlign:"center",fontSize:"55px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Side Projects</h1>
-            {/* <h5 style={{textAlign:"center",marginBottom:"50px"}}>Click on a project to expand!</h5> */}
+            <h5 style={{textAlign:"center",marginBottom:"40px"}}>Click on a project to expand!</h5>
             <div className="container-side-projects d-flex flex-wrap justify-content-center">
               {
                 projInfo.map((proj,index)=>(
                   <GridBox
+                    onClick={()=>this.setState({
+                      gridBoxDialogIndex:index,
+                      gridBoxDialogVisible:true,
+                    })}
                     colWidthL={6}
                     colWidthS={12}
                     key={index}
@@ -361,10 +428,10 @@ export default class Home extends React.Component {
                     title={proj["title"]}
                     desc={proj["brief_description"]}
                     techStack={proj["tech_stack"]}
-                    bottomLeftBtn={true}
-                    bottomLeftBtnCaption={"Project Link"}
-                    bottomLeftBtnLink={proj["link"]}
-                    bottomLeftBtnIconUrl={"./assets/img/icons/link.svg"}
+                    // bottomLeftBtn={true}
+                    // bottomLeftBtnCaption={"Project Link"}
+                    // bottomLeftBtnLink={proj["link"]}
+                    // bottomLeftBtnIconUrl={"./assets/img/icons/link.svg"}
                   />
                 ))
               }
@@ -377,6 +444,17 @@ export default class Home extends React.Component {
                 Click to view more!
               </Button> */}
             </div>
+            <GridDialog
+              ref={this.gridDialogRef}
+              visible={gridBoxDialogVisible}
+              imageUrl={projInfo[gridBoxDialogIndex]?.image_location}
+              videoUrl={projInfo[gridBoxDialogIndex]?.video_location}
+              title={projInfo[gridBoxDialogIndex]?.title}
+              desc={projInfo[gridBoxDialogIndex]?.description}
+              techStack={projInfo[gridBoxDialogIndex]?.tech_stack}
+              ghLink={projInfo[gridBoxDialogIndex]?.gh_link}
+              webLink={projInfo[gridBoxDialogIndex]?.web_link}
+            />
           </Container>
         </main>
         <Footer/>

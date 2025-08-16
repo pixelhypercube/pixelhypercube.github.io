@@ -40,7 +40,7 @@ export default class GridBox extends React.Component {
     }
     
     render() {
-        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl} = this.props;
+        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl, onClick} = this.props;
         let {flex, maxWidth, isHovering} = this.state;
         return (
             <Container
@@ -52,6 +52,7 @@ export default class GridBox extends React.Component {
                 maxWidth,
                 margin:"30px"
             }}
+            onClick={onClick}
             onMouseOver={()=>this.setState({isHovering:true})}
             onMouseLeave={()=>this.setState({isHovering:false})}
             className={`gridbox col-md-${colWidthL} col-${colWidthS}`}>
