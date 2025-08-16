@@ -39,7 +39,8 @@ export default class GridDialog extends React.Component {
     }
 
     render() {
-        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, videoUrl, ghLink, webLink, colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl} = this.props;
+        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, videoUrl, ghLink, webLink} = this.props;
+        // const {colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl} = this.props;
         
         // define video extension (if it exists)
         let videoExtension = null;

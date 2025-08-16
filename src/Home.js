@@ -26,6 +26,9 @@ export default class Home extends React.Component {
       nameIndex: 0,
       name:"Kai Jie",
 
+      // avatar hovering
+      isHoveringAvatar:false,
+
       // proj gridbox
       gridBoxDialogIndex:0,
       gridBoxDialogVisible:false,
@@ -124,7 +127,7 @@ export default class Home extends React.Component {
 
       const key = e.key;
       if (gridBoxDialogIndex>-1)
-        if (key=="Escape") this.setState({
+        if (key==="Escape") this.setState({
           // gridBoxDialogIndex:-1
           gridBoxDialogVisible:false,
         }); // close
@@ -148,7 +151,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const {age, mouseX, mouseY, mouseIsDown, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
+    const {age, mouseX, mouseY, mouseIsDown, isHoveringAvatar, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
     return (
       <div>
         <OverlayCanvas
@@ -187,7 +190,9 @@ export default class Home extends React.Component {
             marginBottom:"200px"
           }} className="d-flex flex-wrap">
             <Container className="col-md-5 col-12 d-flex justify-content-center">
-              <img src={"./assets/img/avatar/avatar_default.png"} 
+              <img src={`./assets/img/avatar/avatar_${isHoveringAvatar ? "glasses" : "default"}.png`} 
+              onMouseEnter={()=>this.setState({isHoveringAvatar:true})}
+              onMouseLeave={()=>this.setState({isHoveringAvatar:false})}
               style={{
                 display:"block",
                 maxWidth:"300px",
