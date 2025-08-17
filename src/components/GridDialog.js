@@ -67,7 +67,7 @@ export default class GridDialog extends React.Component {
                 width:`${width}px`,
                 height:`${height}px`,
                 animationDelay:"1s",
-                transition: "opacity 0.5s ease 0s",
+                // transition: "opacity 0.5s ease 0s",
                 opacity:visible ? 1 : 0,
                 pointerEvents: visible ? "all" : "none",
                 zIndex:10
@@ -127,37 +127,54 @@ export default class GridDialog extends React.Component {
                                             key={index}
                                             />
                                         )
-                                    })
-                                    : <></>
+                                    }) : <></>
                                 }
                             </div>
                         </div>
                         <div style={{
                             width:`${width<768 ? 100 : 50}%`,
-                        }} className="col-lg-6 col-md-12 ps-2">
+                        }} className="d-flex flex-column col-lg-6 col-md-12 ps-2">
                             <hr className="d-md-none" style={{borderStyle:"dashed"}}/>
-                            {videoUrl ? <h4><u>Demo</u></h4> : <></>}
-                            {videoUrl && videoExtension!=null && videoExtensions.find(v=>v===videoExtension) ? 
-                            <video style={{
-                                width:"100%",
-                                maxWidth:"600px",
-                                maxHeight:"400px",
-                                objectFit:"contain",
-                                borderRadius:"10px",
-                                marginBottom:"10px",
-                            }} 
-                            autoPlay
-                            muted
-                            src={videoUrl}></video>
-                            // detect whether it's a gif or not
-                            : imageUrl ? <img src={videoExtension ? videoUrl : imageUrl} style={{
-                                width:"100%",
-                                maxWidth:"600px",
-                                maxHeight:"400px",
-                                objectFit:"contain",
-                                borderRadius:"10px",
-                                marginBottom:"10px"
-                            }} alt="grid-img"/> : <></>}
+                            {videoUrl ? <h4><u>Demo</u></h4> : null}
+                            <div style={{flex:1}} className="d-flex justify-content-center align-items-center">
+                                {videoUrl && videoExtension!=null && videoExtensions.includes(videoExtension) ? 
+                                <video style={{
+                                    width:"100%",
+                                    maxWidth:"600px",
+                                    maxHeight:"400px",
+                                    objectFit:"contain",
+                                    borderRadius:"10px",
+                                    marginBottom:"10px",
+                                }} 
+                                autoPlay
+                                muted
+                                src={videoUrl}></video>
+                                // detect whether it's a gif or not
+                                : imageUrl ? <img
+                                    src={videoExtension ? videoUrl : imageUrl}
+                                    style={{
+                                        width:"100%",
+                                        maxWidth:"600px",
+                                        maxHeight:"400px",
+                                        objectFit:"contain",
+                                        borderRadius:"10px",
+                                        marginBottom:"10px",
+                                    }}
+                                    alt="grid-img"
+                                /> : (
+                                <img
+                                    style={{
+                                        width: "64px",
+                                        height: "64px",
+                                        margin: "10px",
+                                        flexShrink: 0,
+                                        alignSelf: "center"
+                                    }}
+                                    src="./assets/img/icons/spinner.gif"
+                                    alt="loading-icon"
+                                />
+                            )}
+                            </div>
                             <div style={{
                                 justifyContent:"space-between",
                             }} className="btns-list d-flex">

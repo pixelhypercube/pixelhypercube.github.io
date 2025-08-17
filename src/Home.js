@@ -30,7 +30,7 @@ export default class Home extends React.Component {
       isHoveringAvatar:false,
 
       // proj gridbox
-      gridBoxDialogIndex:0,
+      gridBoxDialogIndex:-1, // -1 -> empty
       gridBoxDialogVisible:false,
       isMouseOverMainContainer:false,
 
@@ -83,8 +83,14 @@ export default class Home extends React.Component {
         if (closeBtnElem) {
           closeBtnElem.addEventListener("click",()=>{
             this.setState({
-              // gridBoxDialogIndex:-1,
+              gridBoxDialogIndex:-1,
               gridBoxDialogVisible:false,
+            },() => {
+              gridDialogElem.closeBtnRef.current.blur(); // remove focus from close button
+              // timeout delay due to transition effect
+              // setTimeout(()=>{
+              //   this.setState({gridBoxDialogIndex:-1,});
+              // },750);
             }); // close
           });
         }
@@ -105,8 +111,14 @@ export default class Home extends React.Component {
               let {isMouseOverMainContainer} = this.state;
               if (!isMouseOverMainContainer) {
                 this.setState({
-                  // gridBoxDialogIndex:-1,
+                  gridBoxDialogIndex:-1,
                   gridBoxDialogVisible:false,
+                },() => {
+                  gridDialogElem.closeBtnRef.current.blur(); // remove focus from close button
+                  // timeout delay due to transition effect
+                  // setTimeout(()=>{
+                  //   this.setState({gridBoxDialogIndex:-1,});
+                  // },750);
                 }); // close
               }
             }
@@ -122,15 +134,24 @@ export default class Home extends React.Component {
     // dialog close (esc)
     
     window.addEventListener("keydown",(e)=>{
-      // e.preventDefault();
-      const {gridBoxDialogIndex} = this.state;
 
-      const key = e.key;
-      if (gridBoxDialogIndex>-1)
-        if (key==="Escape") this.setState({
-          // gridBoxDialogIndex:-1
-          gridBoxDialogVisible:false,
-        }); // close
+      const gridDialogElem = this.gridDialogRef.current;
+      if (gridDialogElem) {
+        const {gridBoxDialogIndex} = this.state;
+
+        const key = e.key;
+        if (gridBoxDialogIndex>-1)
+          if (key==="Escape") this.setState({
+            gridBoxDialogVisible:false,
+            gridBoxDialogIndex:-1,
+          },() => {
+            gridDialogElem.closeBtnRef.current.blur(); // remove focus from close button
+            // timeout delay due to transition effect
+            // setTimeout(()=>{
+            //   this.setState({gridBoxDialogIndex:-1,});
+            // },750);
+          }); // close
+      }
     });
 
     // to pass to overlay canvas
@@ -153,7 +174,10 @@ export default class Home extends React.Component {
   render() {
     const {age, mouseX, mouseY, mouseIsDown, isHoveringAvatar, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
     return (
-      <div>
+      <div
+      // special style to prevent overlay canvas from blocking interactions
+      style={{pointerEvents:this.state.gridBoxDialogIndex>-1 ? "none" : "auto"}}
+      >
         <OverlayCanvas
         mouseX={mouseX}
         mouseY={mouseY}

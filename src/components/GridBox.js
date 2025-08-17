@@ -46,7 +46,7 @@ export default class GridBox extends React.Component {
             <Container
             style={{
                 borderRadius:"20px",
-                background:`rgba(255,255,255,${isHovering ? "0.15" : "0.1"})`,
+                background:`rgba(255,255,255,${isHovering ? "0.2" : "0.1"})`,
                 padding:"20px",
                 flex,
                 maxWidth,
