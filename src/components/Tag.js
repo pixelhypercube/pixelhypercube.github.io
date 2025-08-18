@@ -28,6 +28,6 @@ export default class Tag extends React.Component {
                 }} src={tags[tag]["icon_path"]} />
                 <span style={{margin:"0",fontWeight:500}}>{tag}</span>
             </div>
-        ) : <></>
+        ) : null
     }
 }

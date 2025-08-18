@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Switch extends React.Component {
+export default class IconSwitch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -12,7 +12,7 @@ export default class Switch extends React.Component {
             <div 
             onClick={this.props.onClick}
             style={{
-                width:`${width*4}px`,
+                width:`${width*5}px`,
                 height:`${width*2}px`,
             }} className="d-flex">
                 <div style={{

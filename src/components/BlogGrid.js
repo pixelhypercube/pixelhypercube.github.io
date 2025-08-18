@@ -1,7 +1,7 @@
 import React from "react";
 
-// import blogsObj from "../data/blogsList";
-// const {blogTagsList} = blogsObj;
+import blogsObj from "../data/blogsList";
+const {blogTagsList} = blogsObj;
 const thumbnailUrlFolder = "./assets/img/blogs/thumbnails/";
 
 export default class BlogGrid extends React.Component {
@@ -43,7 +43,7 @@ export default class BlogGrid extends React.Component {
 
     render() {
         const {blog,colWidthL,colWidthM,colWidthS} = this.props;
-        const {id,title,publishDate,duration,thumbnailImg,thumbnailAttr} = blog;
+        const {id,title,publishDate,duration,thumbnailImg,thumbnailAttr,tags} = blog;
         let {flex, maxWidth} = this.state;
         return (
             <div 
@@ -72,9 +72,9 @@ export default class BlogGrid extends React.Component {
                 >
                     <h6 className="blog-title">{title}</h6>
                     <p className="blog-timestamp">{publishDate} | {duration} min read</p>
-                    {/* <div className="post-tags d-flex flex-wrap">
+                    <div className="post-tags d-flex flex-wrap">
                         {tags.map((item,index)=><p key={index} className="tag-cell">{blogTagsList[item]}</p>)}
-                    </div> */}
+                    </div>
                 </div>
             </div>
         )

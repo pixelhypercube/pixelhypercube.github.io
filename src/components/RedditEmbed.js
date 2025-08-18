@@ -15,20 +15,19 @@ export default function RedditEmbed(props) {
     }
   }, []);
 
-  const {link,user,subreddit} = props;
+  const {link,user,subreddit,title,height} = props;
 
   return (
     <blockquote
       className="reddit-embed-bq"
-      style={{ height: "500px" }}
-      data-embed-height="740"
+      data-embed-height={height || 500}
     >
       <a href={link}>
-        If you're given the formula, proving it is usually easier than deriving it
+        {title}
       </a>
-      <br /> by
-      <a href={`https://www.reddit.com/user/${user}/`}>u/94rud4</a> in
-      <a href={`https://www.reddit.com/r/${subreddit}/`}>mathmemes</a>
+      <br/> by {" "}
+      <a href={`https://www.reddit.com/user/${user}/`}>{user}</a> in
+      <a href={`https://www.reddit.com/r/${subreddit}/`}>{subreddit}</a>
     </blockquote>
   );
 }

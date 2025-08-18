@@ -59,11 +59,11 @@ export default class GridBox extends React.Component {
                 <div style={{
                     justifyContent:"space-between",
                 }} className="d-flex">
-                    {title ? <h3>{title}</h3> : <></>}
+                    {title ? <h3>{title}</h3> : null}
                     {topRightBtn ? <Button
                     href={topRightBtnLink}
                     style={{height:"fit-content",marginBottom:"10px"}}
-                    variant="light">{topRightBtnCaption}</Button> : <></>}
+                    variant="light">{topRightBtnCaption}</Button> : null}
                 </div>
                 {imageUrl ? <img src={imageUrl} style={{
                     width:"100%",
@@ -71,9 +71,9 @@ export default class GridBox extends React.Component {
                     objectFit:"cover",
                     borderRadius:"10px",
                     marginBottom:"10px"
-                }} alt="grid-img"/> : <></>}
-                {subtitle1 ? <h5 style={{fontWeight:400}}>{subtitle1}</h5> : <></>}
-                {subtitle2 ? <h6 style={{fontWeight:400}}>{subtitle2}</h6> : <></>}
+                }} alt="grid-img"/> : null}
+                {subtitle1 ? <h5 style={{fontWeight:400}}>{subtitle1}</h5> : null}
+                {subtitle2 ? <h6 style={{fontWeight:400}}>{subtitle2}</h6> : null}
                 {
                     desc ? (
                         <div style={{
@@ -83,10 +83,10 @@ export default class GridBox extends React.Component {
                             <hr></hr>
                             {desc}
                         </div>
-                    ) : <></>
+                    ) : null
                 }
-                {/* {techStack ? <hr></hr> : <></>} */}
-                {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : <></>}
+                {/* {techStack ? <hr></hr> : null} */}
+                {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : null}
                 <div className="gridbox-techstack d-flex flex-wrap">
                     {
                         techStack 
@@ -99,7 +99,7 @@ export default class GridBox extends React.Component {
                                 />
                             )
                         })
-                        : <></>
+                        : null
                     }
                 </div>
                 {bottomLeftBtn ? <div>
@@ -109,10 +109,10 @@ export default class GridBox extends React.Component {
                 className="d-flex align-items-center"
                 style={{height:"fit-content", width:"fit-content",fontSize:"24px",fontWeight:600}}
                 variant="light">
-                    {bottomLeftBtnIconUrl ? <img style={{width:"25px",marginRight:"7px"}} src={bottomLeftBtnIconUrl} alt={bottomLeftBtnCaption}/> : <></>}
+                    {bottomLeftBtnIconUrl ? <img style={{width:"25px",marginRight:"7px"}} src={bottomLeftBtnIconUrl} alt={bottomLeftBtnCaption}/> : null}
                     {bottomLeftBtnCaption}
                     </Button>
-                </div> : <></>}
+                </div> : null}
             </Container>
         )
     }

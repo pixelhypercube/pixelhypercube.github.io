@@ -5,7 +5,7 @@ let blogTagsList = [
     "Personal Development",
     "Language Learning",
     "Running",
-    "University Life"
+    "School Life"
 ];
 
 const blogsList = [
@@ -14,7 +14,7 @@ const blogsList = [
         "title":"Thriving in Polytechnic as a Shy Student: My Journey with Communication Struggles",
         "publishDate":new Date("04/12/2025").toDateString(),
         "duration":4,
-        "tags":[0],
+        "tags":[0,3],
         "previewText":`As someone who used to face numerous communication difficulties in my youth, it was a huge challenge to navigate through complex social interactions with my peers`,
         "thumbnailImg":"1.jpg",
         "htmlContent":
@@ -82,7 +82,7 @@ const blogsList = [
         "title":"An Introvert's Guide to Surviving (and Thriving) in an Ambiverted World",
         "publishDate":new Date("04/19/2025").toDateString(),
         "duration":3,
-        "tags":[1],
+        "tags":[0],
         "previewText":`Ever since I was young, I have usually kept to myself as I was mainly glued to my interests that didn't involve a lot of interaction with people - mainly computer games (especially Minecraft`,
         "thumbnailImg":"3.png",
         "htmlContent":(
@@ -105,7 +105,7 @@ const blogsList = [
         "title":"Beyond the Strokes: The Unexpected Struggles of Learning Kanji",
         "publishDate":new Date("04/28/2025").toDateString(),
         "duration":5,
-        "tags":[3],
+        "tags":[1],
         "previewText":`Kanji (漢字) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like hiragana and katakana`,
         "thumbnailImg":"4.png",
         "htmlContent":(
@@ -346,7 +346,7 @@ const blogsList = [
         "title":"From Rusty to Refined: Rebuilding My Math Skills Post-NS",
         "publishDate":new Date("06/07/2025").toDateString(),
         "duration":3,
-        "tags":[1],
+        "tags":[3],
         "previewText":`As someone who has never touched a math question for 2 years because of my National Service (NS) obligations, I initially found it relatively challenging to get back into solving mathematical problems`,
         "thumbnailImg":"5.jpg",
         "htmlContent":(
@@ -386,6 +386,8 @@ const blogsList = [
                         link={"https://www.reddit.com/r/mathmemes/comments/1l1u5rz/if_youre_given_the_formula_proving_it_is_usually/"}
                         user={"94rud4"}
                         subreddit={"mathmemes"}
+                        title="If you're given the formula, proving it is usually easier than deriving it"
+                        height={500}
                     />
                 </div>
                 <h3>To Conclude...</h3>

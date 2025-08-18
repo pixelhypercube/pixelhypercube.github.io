@@ -88,9 +88,9 @@ export default class GridDialog extends React.Component {
                         justifyContent:"space-between",
                     }} className="d-flex">
                         <div>
-                            {title ? <h1>{title}</h1> : <></>}
-                            {subtitle1 ? <h2>{subtitle1}</h2> : <></>}
-                            {subtitle2 ? <h2>{subtitle2}</h2> : <></>}
+                            {title ? <h1>{title}</h1> : null}
+                            {subtitle1 ? <h2>{subtitle1}</h2> : null}
+                            {subtitle2 ? <h2>{subtitle2}</h2> : null}
                         </div>
                         <span ref={this.closeBtnRef}>
                             <FontAwesomeIcon 
@@ -114,8 +114,8 @@ export default class GridDialog extends React.Component {
                         }} className="col-lg-6 col-md-12 pe-2">
                             {desc ? <p style={{
                                 fontSize:`${width < 768 ? 16 : 18}px`,
-                            }}>{desc}</p> : <></>}
-                            {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : <></>}
+                            }}>{desc}</p> : null}
+                            {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : null}
                             <div className="gridbox-techstack d-flex flex-wrap">
                                 {
                                     techStack 
@@ -127,7 +127,7 @@ export default class GridDialog extends React.Component {
                                             key={index}
                                             />
                                         )
-                                    }) : <></>
+                                    }) : null
                                 }
                             </div>
                         </div>
@@ -195,7 +195,7 @@ export default class GridDialog extends React.Component {
                                         <span style={{
                                             fontSize:`${width<576 ? 15 : width<768 ? 18 : 22}px`,
                                         }}>Github Link</span>
-                                    </Button> : <></> 
+                                    </Button> : null 
                                 }
                                 {
                                     webLink ? 
@@ -214,7 +214,7 @@ export default class GridDialog extends React.Component {
                                         <span style={{
                                             fontSize:`${width<576 ? 15 : width<768 ? 18 : 22}px`,
                                         }}>Web Link</span>
-                                    </Button> : <></>
+                                    </Button> : null
                                 }
                             </div>
                         </div>
