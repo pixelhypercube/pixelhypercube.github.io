@@ -11,7 +11,7 @@ let blogTagsList = [
 const blogsList = [
     {
         "id":1,
-        "title":"How I mentally cope Polytechnic as a shy and reticent person with less-than-ideal conversational skills",
+        "title":"Thriving in Polytechnic as a Shy Student: My Journey with Communication Struggles",
         "publishDate":new Date("04/12/2025").toDateString(),
         "duration":4,
         "tags":[0],
@@ -47,12 +47,12 @@ const blogsList = [
     },
     {
         "id":2,
-        "title":"How joining my hall's running CCA helped me with running!",
+        "title":"How My Hall's Running CCA Transformed My Running!",
         "publishDate":new Date("04/13/2025").toDateString(),
         "duration":3,
         "tags":[2,3],
         "previewText":`I have been running as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high`,
-        "thumbnailImg":"2.jpg",
+        "thumbnailImg":"2.png",
         "htmlContent":(
             <div>
                 <p>I have been running long distances as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high. However, things have changed when I stepped outside my comfort zone to join my hall's Road Relay CCA, despite not knowing anyone in my hall before this (as I didn't join my hall's orientation due to National Service commitments 😩).</p>
@@ -79,7 +79,7 @@ const blogsList = [
     },
     {    
         "id":3,
-        "title":"Navigating the Ambiverted World as an Introvert",
+        "title":"An Introvert's Guide to Surviving (and Thriving) in an Ambiverted World",
         "publishDate":new Date("04/19/2025").toDateString(),
         "duration":3,
         "tags":[1],
@@ -102,7 +102,7 @@ const blogsList = [
     },
     {    
         "id":4,
-        "title":"The Hidden Challenges of Learning Kanji",
+        "title":"Beyond the Strokes: The Unexpected Struggles of Learning Kanji",
         "publishDate":new Date("04/28/2025").toDateString(),
         "duration":5,
         "tags":[3],
@@ -343,7 +343,7 @@ const blogsList = [
     },
     {
         "id":5,
-        "title":"Some Tips I Used to Improve My Mathematical Abilities!",
+        "title":"From Rusty to Refined: Rebuilding My Math Skills Post-NS",
         "publishDate":new Date("06/07/2025").toDateString(),
         "duration":3,
         "tags":[1],
@@ -397,7 +397,7 @@ const blogsList = [
     },
     {
         "id":6,
-        "title":"Is Duolingo Still Worth It in 2025? An Honest Review from a Self-Directed Learner",
+        "title":"Duolingo in 2025: Still Worth It? My Honest Take as a Self-Directed Learner",
         "publishDate":new Date("07/28/2025").toDateString(),
         "duration":6,
         "tags":[1],

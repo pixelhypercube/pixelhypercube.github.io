@@ -323,11 +323,11 @@ export default class Home extends React.Component {
                 <div>
                   <ul>
                     <li>Decided to extend my Polytechnic's FYP project to create more features, fix pesky bugs, and resolve customers' issues for EcoExchange Pte Ltd's intranet website.</li>
-                    <li>Created test cards using React.js for Autodesk, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for.</li>
+                    <li>Created profile cards using Next.js for Autodesk using TypeScript, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for.</li>
                   </ul>
                 </div>
               )}
-              techStack={["HTML","CSS","Javascript","Postman","React.js"]}
+              techStack={["HTML","CSS","Javascript","Postman","React.js","Typescript"]}
               />
               <GridBox
               colWidthL={6}

@@ -28,6 +28,10 @@ let tags = {
         "type":"Programming",
         "icon_path":iconsDir+"js.svg"
     },
+    "Typescript":{
+        "type":"Programming",
+        "icon_path":iconsDir+"ts.svg"
+    },
     "EJS":{
         "type":"Web Dev",
         "icon_path":iconsDir+"ejs.svg"
