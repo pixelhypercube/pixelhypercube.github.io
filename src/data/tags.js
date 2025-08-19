@@ -40,6 +40,10 @@ let tags = {
         "type":"Web Dev",
         "icon_path":iconsDir+"reactjs.svg"
     },
+    "Next.js":{
+        "type":"Web Dev",
+        "icon_path":iconsDir+"nextjs.svg"
+    },
     "Node.js":{
         "type":"Web Dev",
         "icon_path":iconsDir+"nodejs.svg"

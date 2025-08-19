@@ -296,7 +296,7 @@ export default class Home extends React.Component {
                   <ul>
                     <li>Developed a QR Code attendance tracking system that lets attendees speedrun through tedious attendance tracking methods via the usage of email-generated QR Codes 📨</li>
                     <li style={{marginLeft:"20px",listStyle:"circle"}}>One of my biggest achievements was that I allowed 200+ participants to mark their attendance efficiently at the SAF Pers Hubs' Total Defence Day event in February 2023! 🍾</li>
-                    <li style={{marginLeft:"20px",listStyle:"circle"}}>Featured in <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> 📰 for my contributions to the programming team 🎉</li>
+                    <li style={{marginLeft:"20px",listStyle:"circle"}}>Featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> 📰 for my contributions to the programming team 🎉</li>
                     <li>Sucessfully speedran through the testing phase of Telegram chatbots and killed many bugs in them (in an eco-friendly way)! 🧹</li>
                     <li>Upon my resumption in May 2025, I joined the <sup>†</sup>PAL (Personnel Admin Link) programming team to again, speedrun the development process, where rounds of operational testing of the app & came up with new features, including a mobile app variant.</li>
                   </ul>
@@ -327,7 +327,7 @@ export default class Home extends React.Component {
                   </ul>
                 </div>
               )}
-              techStack={["HTML","CSS","Javascript","Postman","React.js","Typescript"]}
+              techStack={["HTML","CSS","Javascript","Postman","React.js","Next.js","Typescript"]}
               />
               <GridBox
               colWidthL={6}
