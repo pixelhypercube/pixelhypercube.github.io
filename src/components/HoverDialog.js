@@ -6,7 +6,7 @@ export default class HoverDialog extends React.Component {
         this.state = {};
     }
     render() {
-        const {name,dialogWidth,visible,verticalPos} = this.props;
+        const {name,dialogWidth,visible} = this.props;
         return (
             <div style={{
                 position:"absolute",
