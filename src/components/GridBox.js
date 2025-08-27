@@ -40,7 +40,7 @@ export default class GridBox extends React.Component {
     }
     
     render() {
-        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl, onClick} = this.props;
+        const {title, subtitle1, subtitle2, updated, desc, imageUrl, techStack, colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl, onClick} = this.props;
         let {flex, maxWidth, isHovering} = this.state;
         return (
             <Container
@@ -59,12 +59,15 @@ export default class GridBox extends React.Component {
                 <div style={{
                     justifyContent:"space-between",
                 }} className="d-flex">
-                    {title ? <h3>{title}</h3> : null}
+                    {title ? <h3 style={{marginBottom:"3px"}}>{title}</h3> : null}
                     {topRightBtn ? <Button
                     href={topRightBtnLink}
                     style={{height:"fit-content",marginBottom:"10px"}}
                     variant="light">{topRightBtnCaption}</Button> : null}
                 </div>
+                {subtitle1 ? <h5 style={{fontWeight:400}}>{subtitle1}</h5> : null}
+                {subtitle2 ? <h6 style={{fontWeight:400}}>{subtitle2}</h6> : null}
+                {updated ? <h6 style={{fontWeight:100}}>Updated on <i>{updated}</i></h6> : null}
                 {imageUrl ? <img src={imageUrl} style={{
                     width:"100%",
                     height:"250px",
@@ -72,8 +75,6 @@ export default class GridBox extends React.Component {
                     borderRadius:"10px",
                     marginBottom:"10px"
                 }} alt="grid-img"/> : null}
-                {subtitle1 ? <h5 style={{fontWeight:400}}>{subtitle1}</h5> : null}
-                {subtitle2 ? <h6 style={{fontWeight:400}}>{subtitle2}</h6> : null}
                 {
                     desc ? (
                         <div style={{

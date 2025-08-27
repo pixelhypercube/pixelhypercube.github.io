@@ -282,7 +282,7 @@ export default class Home extends React.Component {
               <GridBox
               colWidthL={9}
               colWidthS={12}
-              title={"Admin Support Assistant (NSF)"}
+              title={"🏢 Admin Support Assistant (NSF)"}
               subtitle1={"Singapore Armed Forces"}
               subtitle2={(
                 <div>
@@ -316,7 +316,7 @@ export default class Home extends React.Component {
               <GridBox
               colWidthL={6}
               colWidthS={12}
-              title={"Web Developer"}
+              title={"🧑‍💻 Web Developer"}
               subtitle1={"Freelance"}
               subtitle2={"Feb 2022 - Oct 2022"}
               desc={(
@@ -332,7 +332,7 @@ export default class Home extends React.Component {
               <GridBox
               colWidthL={6}
               colWidthS={12}
-              title={"Software Engineer Intern"}
+              title={"🛠️ Software Engineer Intern"}
               subtitle1={"Leaptron Engineering Pte. Ltd."}
               subtitle2={"Feb 2021 - Aug 2021"}
               desc={(
@@ -450,6 +450,10 @@ export default class Home extends React.Component {
                       gridBoxDialogIndex:index,
                       gridBoxDialogVisible:true,
                     })}
+                    updated={(proj["updated"]) ? proj["updated"].toLocaleDateString("en-US", {
+                      month:"short",
+                      year:"numeric"
+                    }) : ""}
                     colWidthL={6}
                     colWidthS={12}
                     key={index}
@@ -476,6 +480,10 @@ export default class Home extends React.Component {
             <GridDialog
               ref={this.gridDialogRef}
               visible={gridBoxDialogVisible}
+              updated={projInfo[gridBoxDialogIndex]?.updated.toLocaleDateString("en-US", {
+                      month:"short",
+                      year:"numeric"
+                    })}
               imageUrl={projInfo[gridBoxDialogIndex]?.image_location}
               videoUrl={projInfo[gridBoxDialogIndex]?.video_location}
               title={projInfo[gridBoxDialogIndex]?.title}

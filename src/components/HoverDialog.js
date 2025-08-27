@@ -6,7 +6,7 @@ export default class HoverDialog extends React.Component {
         this.state = {};
     }
     render() {
-        const {name,dialogWidth,visible} = this.props;
+        const {name,dialogWidth,visible,verticalPos} = this.props;
         return (
             <div style={{
                 position:"absolute",
@@ -24,7 +24,7 @@ export default class HoverDialog extends React.Component {
                 pointerEvents:"none",
             }}>
                 <p style={{
-                    fontSize:"12px",
+                    fontSize:"16px",
                     lineHeight:"1",
                     margin:0
                 }}>{name}</p>

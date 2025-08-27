@@ -81,7 +81,7 @@ class Navigation extends React.Component {
                                 }} src={"./assets/img/icons/github.svg"}/></Nav.Link>
                                 <HoverDialog
                                     visible={githubIsHovering}
-                                    dialogWidth={50}
+                                    dialogWidth={60}
                                     name={"Github"}
                                 />
                             </div>
@@ -95,7 +95,7 @@ class Navigation extends React.Component {
                                 }} src={"./assets/img/icons/linkedin.svg"}/></Nav.Link>
                                 <HoverDialog
                                     visible={linkedinIsHovering}
-                                    dialogWidth={60}
+                                    dialogWidth={70}
                                     name={"Linkedin"}
                                 />
                             </div>
@@ -111,7 +111,7 @@ class Navigation extends React.Component {
                                 </Nav.Link>
                                 <HoverDialog
                                     visible={emailIsHovering}
-                                    dialogWidth={45}
+                                    dialogWidth={50}
                                     name={"Email"}
                                 />
                             </div>
@@ -127,7 +127,7 @@ class Navigation extends React.Component {
                                 </Nav.Link>
                                 <HoverDialog
                                     visible={resumeIsHovering}
-                                    dialogWidth={60}
+                                    dialogWidth={70}
                                     name={"View Resume"}
                                 />
                             </div>

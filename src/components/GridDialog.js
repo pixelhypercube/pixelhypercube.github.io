@@ -39,7 +39,7 @@ export default class GridDialog extends React.Component {
     }
 
     render() {
-        const {title, subtitle1, subtitle2, desc, imageUrl, techStack, videoUrl, ghLink, webLink} = this.props;
+        const {title, updated, subtitle1, subtitle2, desc, imageUrl, techStack, videoUrl, ghLink, webLink} = this.props;
         // const {colWidthL, colWidthS, topRightBtn, topRightBtnLink, topRightBtnCaption, bottomLeftBtn, bottomLeftBtnCaption, bottomLeftBtnLink, bottomLeftBtnIconUrl} = this.props;
         
         // define video extension (if it exists)
@@ -88,9 +88,10 @@ export default class GridDialog extends React.Component {
                         justifyContent:"space-between",
                     }} className="d-flex">
                         <div>
-                            {title ? <h1>{title}</h1> : null}
+                            {title ? <h1 className="m-0">{title}</h1> : null}
                             {subtitle1 ? <h2>{subtitle1}</h2> : null}
                             {subtitle2 ? <h2>{subtitle2}</h2> : null}
+                            {updated ? <p style={{fontWeight:100}} className="m-0">Updated on {updated ? <i>{updated}</i> : null}</p> : null}
                         </div>
                         <span ref={this.closeBtnRef}>
                             <FontAwesomeIcon 
