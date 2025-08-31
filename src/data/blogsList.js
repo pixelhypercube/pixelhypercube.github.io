@@ -102,7 +102,7 @@ const blogsList = [
     },
     {    
         "id":4,
-        "title":"Beyond the Strokes: The Unexpected Struggles of Learning Kanji",
+        "title":"The Unexpected Struggles of Learning Kanji",
         "publishDate":new Date("04/28/2025").toDateString(),
         "duration":5,
         "tags":[1],

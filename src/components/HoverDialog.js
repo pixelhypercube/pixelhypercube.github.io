@@ -22,6 +22,7 @@ export default class HoverDialog extends React.Component {
                 animationDuration:"1s",
                 display:visible ? "block" : "none",
                 pointerEvents:"none",
+                zIndex:5,
             }}>
                 <p style={{
                     fontSize:"16px",

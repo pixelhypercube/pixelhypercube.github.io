@@ -52,6 +52,7 @@ export default class BlogGrid extends React.Component {
                 padding:"0px",
                 flex,
                 maxWidth,
+                boxShadow:"0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)",
             }}
             onClick={()=>window.location.href="/#/blogs/"+id} className={`blog col-md-${colWidthL} col-sm-${colWidthM} col-${colWidthS}`}>
                 <div>
