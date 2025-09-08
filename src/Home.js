@@ -256,7 +256,7 @@ export default class Home extends React.Component {
         </header>
         <main>
           <Container style={{marginBottom:"150px"}}>
-            <h1 style={{textAlign:"center",fontSize:"55px",marginBottom:"50px"}}><FontAwesomeIcon icon={faGear} /> Skills</h1>
+            <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faGear} /> Skills</h1>
             {
               tagKeys.map((type,typeIndex)=>(
                 <div key={typeIndex}>
@@ -277,7 +277,7 @@ export default class Home extends React.Component {
             }
           </Container>
           <Container style={{marginBottom:"150px"}}>
-            <h1 style={{textAlign:"center",fontSize:"55px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSuitcase} /> Experience</h1>
+            <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSuitcase} /> Experience</h1>
             <div className="container-experiences d-flex flex-wrap justify-content-center">
               <GridBox
               colWidthL={9}
@@ -365,7 +365,7 @@ export default class Home extends React.Component {
             </div>
           </Container>
           <Container style={{marginBottom:"150px"}}>
-            <h1 style={{textAlign:"center",fontSize:"55px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSchool} /> Education</h1>
+            <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSchool} /> Education</h1>
             <div className="container-education d-flex flex-wrap justify-content-center">
               <GridBox
               colWidthL={6}
@@ -440,7 +440,7 @@ export default class Home extends React.Component {
             </div>
           </Container>
           <Container id="side-projects-container" style={{marginBottom:"150px"}}>
-            <h1 style={{textAlign:"center",fontSize:"55px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Side Projects</h1>
+            <h1 style={{textAlign:"center",fontSize:"50px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Projects</h1>
             <h5 style={{textAlign:"center",marginBottom:"40px"}}>Click on a project to expand!</h5>
             <div className="container-side-projects d-flex flex-wrap justify-content-center">
               {

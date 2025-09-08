@@ -81,9 +81,13 @@ export default class OverlayCanvas extends React.Component {
     }
 
     flood(posX,posY,traversedTimes=0,delay=5) {
-        if (this.canvasRef.current) {
+        if (this.canvasRef?.current) {
             let {grid} = this.state;
-            const n = grid.length, m = grid[0].length;
+            const n = grid?.length, m = grid?.[0]?.length;
+            
+            // guard ting
+            if (!grid || n===0 || m===0 || posX<0 || posY<0 || posX>=m || posY>=n) return;
+            
             if (traversedTimes<Math.floor(Math.random()*8+1)) {
                 grid[posY][posX] = 100;
                 this.drawCanvas();

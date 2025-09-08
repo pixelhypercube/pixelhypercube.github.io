@@ -32,6 +32,14 @@ let tags = {
         "type":"Programming",
         "icon_path":iconsDir+"ts.svg"
     },
+    "Java":{
+        "type":"Programming",
+        "icon_path":iconsDir+"java.svg"
+    },
+    "VBA":{
+        "type":"Programming",
+        "icon_path":iconsDir+"vba.svg"
+    },
     "EJS":{
         "type":"Web Dev",
         "icon_path":iconsDir+"ejs.svg"
@@ -59,10 +67,6 @@ let tags = {
     "MongoDB":{
         "type":"Databases",
         "icon_path":iconsDir+"mongodb.svg"
-    },
-    "Java":{
-        "type":"Programming",
-        "icon_path":iconsDir+"java.svg"
     },
     "Git":{
         "type":"DevOps",

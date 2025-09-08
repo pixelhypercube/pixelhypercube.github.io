@@ -5,9 +5,9 @@ var projInfo = [
     {
         "proj_id":18,
         "title":"Astertris (Beta)",
-        "updated":new Date("9/1/2025"),
-        "description": "Astertris is a Java-based twist on Tetris where blocks fall toward the center of an asteroid under radial gravity. Built with Swing, it features a scalable grid, colorful tetrominoes, and smooth rendering via a custom BoardPanel. Currently in Beta, it preserves the addictive core of Tetris while introducing fresh mechanics, with future updates planned for scoring, game over conditions, and improved UI.",
-        "brief_description": "A simple Tetris game, but you're on an asteroid with radial gravity mechanics!",
+        "updated":new Date("9/5/2025"),
+        "description": "A creative twist on the classic Tetris game, where instead of playing on a static grid, you're building lines on a flying asteroid in deep space. Thanks to the asteroid's gravity, moving blocks left or right becomes rotating them clockwise or counterclockwise, adding a fresh challenge to the gameplay.",
+        "brief_description": "Tetris, but you're playing it on a moving asteroid in space!",
         "image_location": codingImgsFolder + "coding_proj18.png",
         "video_location": codingVideosFolder + "coding_proj18.gif",
         "link": "https://github.com/pixelhypercube/Astertris",
