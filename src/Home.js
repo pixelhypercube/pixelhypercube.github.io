@@ -201,7 +201,7 @@ export default class Home extends React.Component {
             height:"80vh"
           }}>
             <div>
-              <h4>Hi there! My name is
+              <h4>Hi there! I'm
               </h4>
               <h1 style={{fontSize:"80px"}}>{this.state.name} <span id="typer"></span></h1>
             </div>
@@ -323,7 +323,7 @@ export default class Home extends React.Component {
                 <div>
                   <ul>
                     <li>Decided to extend my Polytechnic's FYP project to create more features, fix pesky bugs, and resolve customers' issues for EcoExchange Pte Ltd's intranet website.</li>
-                    <li>Created profile cards using Next.js for Autodesk using TypeScript, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for.</li>
+                    <li>Created profile cards using Next.js for Autodesk using TypeScript, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for. ⚔️💀</li>
                   </ul>
                 </div>
               )}
@@ -338,7 +338,7 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Created Android apps (Java), C# programs, and Node.js servers integrated with MySQL databases designed for scalability and reliability — basically, a one-person full-stack buffet.</li>
+                    <li>Created Android apps (Java), C# programs, and Node.js servers integrated with MySQL databases designed for scalability and reliability — basically, a one-person full-stack buffet. 🍴</li>
                     <li>Used Appgyver (now SAP Build Apps) and Modbus to connect IoT devices, impressing everyone who thought IoT was just "Wi-Fi for fridges."</li>
                   </ul>
                 </div>

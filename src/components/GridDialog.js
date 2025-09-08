@@ -70,11 +70,15 @@ export default class GridDialog extends React.Component {
                 // transition: "opacity 0.5s ease 0s",
                 opacity:visible ? 1 : 0,
                 pointerEvents: visible ? "all" : "none",
-                zIndex:10
-            }} ref={this.outsideContainerRef} className="grid-dialog d-flex justify-content-center align-items-center">
+                zIndex:10,
+                // maxHeight:width<768 ? "95vh" : "auto"
+            }} ref={this.outsideContainerRef} className="grid-dialog d-flex">
                 <Container style={{
                     width:"90%",
-                    // height:"200px",
+                    marginTop: width<768 ? "20px" : "200px",
+                    marginBottom: width<768 ? "20px" : "200px",
+                    height:"fit-content",
+                    // maxHeight:width<768 ? "95vh" : "auto",
                     border:"1px solid rgba(255,255,255,0.2)",
                     borderRadius:"30px",
                     padding:"20px",
@@ -109,7 +113,7 @@ export default class GridDialog extends React.Component {
                     </div>
                     <hr style={{margin:"0px 0px 10px 0px"}} />
                     {/* BODY */}
-                    <div className="d-flex flex-wrap">
+                    <div className="d-md-flex flex-wrap">
                         <div style={{
                             width:`${width<768 ? 100 : 50}%`,
                         }} className="col-lg-6 col-md-12 pe-2">
@@ -134,15 +138,18 @@ export default class GridDialog extends React.Component {
                         </div>
                         <div style={{
                             width:`${width<768 ? 100 : 50}%`,
-                        }} className="d-flex flex-column col-lg-6 col-md-12 ps-2">
+                        }} className="d-md-flex flex-column col-lg-6 ps-2">
                             <hr className="d-md-none" style={{borderStyle:"dashed"}}/>
-                            {videoUrl ? <h4><u>Demo</u></h4> : null}
-                            <div style={{flex:1}} className="d-flex justify-content-center align-items-center">
+                            {videoUrl ? <h4 className="mb-3"><u>Demo</u></h4> : null}
+                            <div style={{
+                                flex:1,
+                                maxHeight:width<768 ? "67%" : "400px"
+                            }} className="d-flex justify-content-center align-items-center mb-2">
                                 {videoUrl && videoExtension!=null && videoExtensions.includes(videoExtension) ? 
                                 <video style={{
                                     width:"100%",
                                     maxWidth:"600px",
-                                    maxHeight:"400px",
+                                    maxHeight:"100%",
                                     objectFit:"contain",
                                     borderRadius:"10px",
                                     marginBottom:"10px",
@@ -156,7 +163,7 @@ export default class GridDialog extends React.Component {
                                     style={{
                                         width:"100%",
                                         maxWidth:"600px",
-                                        maxHeight:"400px",
+                                        maxHeight:"100%",
                                         objectFit:"contain",
                                         borderRadius:"10px",
                                         marginBottom:"10px",
