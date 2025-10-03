@@ -360,7 +360,7 @@ const blogsList = [
 
                 <h3>Tip 1: Practice, practice... and more practice!</h3>
                 <p>
-                    This is undoubtedly one of the best ways to not only understand how to just solve mathematical equations, but also making sure that you are familiar with understanding the theoretical concepts behind those problems. The focus shouldn't be just on the final answer, but on the methods and thought processes that lead you there. If you are initially unsure about a problem, you can refer to the steps and methodologies used to solve the problem (you can use Generative AI tools like ChatGPT, but at your own risk! 😶). If you are only hooked onto the final answer, you likely won’t know how to arrive at the answer, because your best tools for solving problems are the steps and methods, not just the final answer. Even though I was not the fastest to keep up with the rigor, the hard work paid off eventually!
+                    This is undoubtedly one of the best ways to not only understand how to just solve mathematical equations, but also making sure that you are familiar with understanding the theoretical concepts behind those problems. The focus shouldn't be just on the final answer, but on the methods and thought processes that lead you there. If you are initially unsure about a problem, you can refer to the steps and methodologies used to solve the problem (you can use Generative AI tools like ChatGPT, but at your own risk! 😶). If you are only hooked onto the final answer, you likely won't know how to arrive at the answer, because your best tools for solving problems are the steps and methods, not just the final answer. Even though I was not the fastest to keep up with the rigor, the hard work paid off eventually!
                 </p>
 
                 <h3>Tip 2: Come up with flashcards, especially for tests and exams!</h3>
@@ -392,7 +392,7 @@ const blogsList = [
                 </div>
                 <h3>To Conclude...</h3>
                 <p>
-                    I hope these tips are useful in helping you improve your mathematical abilities! Everyone learns differently, so try different approaches until you find what works best for you. That way, you’ll not only survive math — you’ll thrive in it. Good luck! 🍀
+                    I hope these tips are useful in helping you improve your mathematical abilities! Everyone learns differently, so try different approaches until you find what works best for you. That way, you'll not only survive math — you'll thrive in it. Good luck! 🍀
                 </p>
             </div>
         ),
@@ -445,7 +445,7 @@ const blogsList = [
                 <p>When I first started using Duolingo, it felt quite enjoyable because I got my first taste of what learning a new language is like. The addition of gamification to the app made it more enjoyable, especially for first-time users. It was a great first introduction to new languages, and I felt proud to form simple sentences early on.</p>
 
                 <h4>But Not Enough for Intermediate Learners</h4>
-                <p>However, as I ventured deeper into the language, I felt that there were many better opportunities to learn it in a unique and fun way, as Duolingo’s repetitive and competitive gamified system can start to feel limiting. In my opinion, if you already understand the basic structure of the language(s) you're currently learning, there are more fun ways to boost your language skills, by actively watching videos & movies, listening to music, and reading simple articles & books in your target language. If you feel that your level of understanding is not optimal, you can enable subtitles in your native language or use a translator to comprehend the content thoroughly. Additionally, browser extensions that help further boost language learning skills can be beneficial too — try extensions like <a href="https://www.languagereactor.com/">Language Reactor</a>!</p>
+                <p>However, as I ventured deeper into the language, I felt that there were many better opportunities to learn it in a unique and fun way, as Duolingo's repetitive and competitive gamified system can start to feel limiting. In my opinion, if you already understand the basic structure of the language(s) you're currently learning, there are more fun ways to boost your language skills, by actively watching videos & movies, listening to music, and reading simple articles & books in your target language. If you feel that your level of understanding is not optimal, you can enable subtitles in your native language or use a translator to comprehend the content thoroughly. Additionally, browser extensions that help further boost language learning skills can be beneficial too — try extensions like <a href="https://www.languagereactor.com/">Language Reactor</a>!</p>
 
                 <figure className="col-12">
                     <img alt="language-reactor" style={{
@@ -467,6 +467,61 @@ const blogsList = [
 
                 <p>In the end, real language learning takes more than daily streaks — it takes curiosity, commitment, and the courage to step outside the app. Though I've moved beyond Duolingo, it was the first step toward fulfilling my dream of becoming multilingual — and for that, I'll always be grateful to <i>Duo</i>.</p>
 
+            </div>
+        )
+    },
+    {
+        "id":7,
+        "title":"Navigating My Neurological Compass",
+        "publishDate":new Date("10/4/2025").toDateString(),
+        "duration":5,
+        "tags":[0,3],
+        "previewText":`Growing up, I have constantly felt different from others, which sometimes made me feel that I was an alien trapped in a human body. In my youth, I felt quite atypical as I had very different interests compared`,
+        "thumbnailImg":"7.gif",
+        "htmlContent":(
+            <div>
+                <p>Growing up, I have constantly felt different from others, which sometimes made me feel that I was an alien trapped in a human body. In my youth, I felt quite atypical as I had very different interests compared to most people my age, as well as feeling quite socially awkward at times. But now, at the age of 23 (by the time I was writing this blog), I have almost successfully managed to integrate well into society but with a few refinements still in progress. Now, let me introduce my own profile about how my neurological compass looks like.</p>
+                <h5>My Compass Profile 🧭</h5>
+                <p>Firstly, I am neurodivergent, which simply means that my brain is wired in a way different from the norm. Just before I turned 15 (Secondary 3), I was diagnosed with ASD (Autism Spectrum Disorder), mainly because my brain struggled with proper social interaction. Additionally, having unique and restricted interests that are very different from the majority made life feel like playing on hard mode, because I could not find anyone to vibe with. </p>
+                
+                <div className="d-flex flex-wrap">
+                    <figure className="col-lg-6 col-md-12">
+                        <img style={{maxWidth:"400px"}} alt="minecraft-command-blocks" src="/assets/img/blogs/minecraftCommandBlocks.gif"/>
+                        <figcaption style={{fontSize:"14px"}}>One of my Minecraft Command Block contraptions</figcaption>
+                    </figure>
+                    <figure className="col-lg-6 col-md-12">
+                        <img style={{maxWidth:"300px"}} alt="speedcubing" src="/assets/img/blogs/speedcubing.gif"/>
+                        <figcaption style={{fontSize:"14px"}}>Sub-10 seconds 3x3 Rubik's Cube Solve</figcaption>
+                    </figure>
+                </div>
+                <p>One of those special interests included experimenting with Minecraft with advanced functionalities, such as the use of command blocks and speed-solving Rubik's Cubes. I had even made numerous YouTube videos about these at the time, which showed that I was deeply passionate about my hobbies. </p>
+                
+                <p>It is also interesting to note that I had recently learned that I was intellectually gifted during my ASD screening at the time, as one section required me to take an IQ test, which placed me in the top 2% of the general population. As a result, this made me a case of being Twice Exceptional (2e), where I possessed great abstract reasoning and analytical skills, while simultaneously dealing with the challenging traits of my neurodivergence. </p>
+                
+                <p>This explains why I was genuinely interested in hobbies that involved tinkering with Minecraft and using my spatial recognition abilities by speed solving Rubik&#039;s Cubes, interests that only a small minority of people my age shared.</p>
+                
+                <p>Even though I constantly strived to gain genuine friendships back in secondary school, I still failed miserably because of my social communication difficulties that were tied in with my ASD. Additionally, being intellectually gifted introduced me to another set of challenges, mainly because my interests do not vibe well with what most people are interested in. Because of this, I did not have the best school experience as I constantly felt isolated from my peers even though my peers did not mean to do any harm to me. Right after completing my IGCSEs (equivalent to GCE O-Levels in Singapore), I had decided to make the switch to studying in Singapore Polytechnic to pursue the things I've been passionate about since I was a kid — computers. 🖥️</p>
+                <h5>My Polytechnic Days 🎒</h5>
+                <p>Working on group projects in Polytechnic required strong communication skills, which I initially struggled with heavily. This led to some misunderstandings between my groupmates and I, mainly because I did not know the best way to communicate with them. Thankfully, they were quite understanding, and they have let me contribute meaningfully to all the group projects! As a result, I managed to level up my social communication skills, which greatly helped me to function in life much better. But one of my big turning points was when I got enlisted into National Service (NS).</p>
+                
+                <h5>New Discoveries in NS 🪖</h5>
+                <p>After a couple of months into service, I was diagnosed with Inattentive ADHD (ADHD-PI), as I had a hard time managing tasks and staying focused. I would face numerous difficulties in doing job tasks as my mind would unconsciously drift and jump around often. However, it is important to note that this form of ADHD is not hyperactive, as I never had major issues in situations that required me to sit still.</p>
+                
+                <p>Growing up in a sheltered environment, I found it tough to break out of my shell. Adjusting to office life was slow — after all, this was my first real job, working as an Admin Support Assistant (a.k.a. clerk). This took a toll on my mental health, and I went through depressive episodes from feeling undervalued &amp; underappreciated, as well as going through many of my insecurities. Even though I was considered fortunate to be placed in a relatively comfortable position to serve NS, it was not all easy as there were numerous challenges I had to deal with in the office. I felt like my mental state and motivation to learn had been knocked into a deep hole. Climbing back out was exceptionally hard. But that all changed when I started to disrupt from NS to kickstart my full-time university studies.</p>
+                
+                <h5>Kickstarting my University Life 🏫</h5>
+                <p>Right after matriculating into university, I was concerned that my passion for Computer Science had dwindled due to my less-than-ideal mental state at the time when I was serving NS. Surprisingly, my mental health has slowly managed to get better over time, while simultaneously becoming increasingly passionate about learning Computer Science. As a result, I successfully regained my interest in the field, and I started practicing and learning how to solve LeetCode problems and successfully deploying several of my own programming projects 🔧! Upon learning about my diagnosis, I developed numerous coping mechanisms to manage my symptoms, as knowing my weaknesses related to my diagnosis has helped me tremendously in dealing with my day-to-day functions.</p>
+                
+                <h5>Back to NS (Again) 🪖</h5>
+                <p>However, since I had not yet finished serving NS at the time, I constantly had the fear of returning to camp, due to what I experienced before I disrupted. After finishing my last exam in NTU, I immediately resumed my NS the next day, where I was posted back to the same unit, but in a different camp. Luckily, my post-resumption NS life has been smooth, as my new superiors would not only recognize my abilities and the work I&#039;ve done in NS, but could also engage in my banter! In the end, I was quite lucky as I felt that my differences were understood and that my mental health was quite stable and healthy during that period. 😊</p>
+                
+                <h5>Still Navigating the Compass 🗺️🧭</h5>
+                <p>Looking back, I've made progress I never imagined possible with my neurological compass. Despite the ups and downs of serving NS in an office environment, I was quite fortunate to take the opportunity to learn and hone new useful and important life skills that are easily transferable in the future. I was grateful and lucky to do programming during NS — something I never imagined possible in a military environment!</p>
+                
+                <p>I've achieved more than I ever imagined, especially while navigating the challenges of being neurodivergent. Additionally, I may have even accomplished more than many neurotypical people my age! Even though the world isn't always friendly to people like me, I constantly strive to do my best. It is already 2025, and with greater understanding and access to learning about neurodivergent individuals, it&#039;s time that we should all learn about leveraging their strengths and how beneficial we can allow them to thrive well not only in the corporate world, but life in general.</p>
+                
+                <p>In the end, it is really ok if you feel you don't fit within neurological norms (and I mean that in a non-evil way!). Everyone has their own quirks — some people are tall, some people are short, some have big feet, some small. So, don&#039;t beat yourself up about the fact that you feel different, but instead learn how to embrace our differences, which is what I am still learning to this day! Being different isn&#039;t a weakness — it&#039;s a unique strength. I&#039;m still learning to embrace my own differences, and I hope this inspires others to do the same. 💪</p>
+                
             </div>
         )
     }
