@@ -1,5 +1,6 @@
-import { Table } from "react-bootstrap";
+import { Alert, Card, Table } from "react-bootstrap";
 import RedditEmbed from "../components/RedditEmbed";
+import styles from "../BlogContent.module.css";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,25 +22,21 @@ const blogsList = [
         "thumbnailImg":"1.jpg",
         "htmlContent":
             (
-                <div>
+                <div className={styles.blogContainer}>
                     <p>As someone who used to face numerous communication difficulties in my youth, it was a huge challenge to navigate through complex social interactions with my peers. Growing up in primary and secondary school, my conversational skills were relatively impaired, which was likely caused by being a late talker at age 4, and the fact that my brain is a little bit different from others <i>(neurodivergent gang lesgoo!)</i>.</p>
                     <p>As a result, I severely lacked the skills required for me to have a smooth conversation with my peers without prompting, coupled with noticeable language delays. Because of these hardships, I have indeed went through numerous painful journeys of misunderstandings, which have ultimately shaped the way I am today. With that, here are some tips I used to improve my conversational journey since the start of my Polytechnic education.</p>
-                    <br/>
                     <h4>1. Join Orientations! 🎊</h4>
                     <p>Orientation is one of the best opportunities to not only introduce yourself and meet new people, but also to enjoy fun activities and bond with your peers (if all goes to plan!). However, this did not come easy for me as firstly, I was a very reticent person who typically shy away from most things. On top of that, I faced numerous anxiety attacks because I was not used to meeting so many new people all at once.</p>
                     <p>Despite my internal mental battles, it has eventually helped me to build strong interpersonal connections with my peers in my orientation groups, as we were mostly grouped together in the same class. I am extremely thankful to the camaraderie and understanding of my classmates, who were patient and supportive of my needs.</p>
                     <p>Additionally, I get to meet a wide spectrum of students all across many different backgrounds all across Singapore. If you are going through a tough time during orientation, always remind yourself: you&rsquo;ve already done something brave by stepping out of your comfort zone &mdash; and that&rsquo;s a big win!</p>
-                    <br/>
                     <h4>2. Ask someone you really trust for suggestions on communicating in difficult situations 😊</h4>
                     <p>I know this might sound a little bit kiddish, but having someone who can guide you with your conversational skills is essentially crucial, especially because Polytechnic is known for its rigorous group-work assignments.</p>
                     <p>When I was faced with difficulties with working in group projects, I asked my parents for advice on how to communicate better with my groupmates, and it did help out to a certain extent. At first, it felt like trial and error, but with practice and persistence, I gradually learned how to communicate more effectively in team settings.</p>
                     <p>Over time, I managed to communicate effectively with my peers, and I was able to fulfil most of the assignments' requirements, and in a many cases, exceeding them. This led me to getting in maintaining my cumulative GPA of at least 3.9/4 for the first 4 semesters and I am extremely grateful to the teamwork and support of my group members who understood my limitations and accepted me as a functioning groupmate.</p>
-                    <br/>
                     <h4>3. If possible, share your unique story about your own challenges with your classmates in a module! 🗣️</h4>
                     <p>This might sound like a challenge as this is quite a step out of your comfort zone, but I'll tell you, it's worth it to a certain extent. I was very blessed and fortunate to have an interdisciplinary communication module (modules that every student across all disciplines in Polytechnic has to fulfil) that allows us to share our unique struggles and challenges we face on our day-to-day lives.</p>
                     <p>For one of the assignments, we had to give a presentation that allowed us to share our life experiences. Naturally, I chose to talk about my daily struggles with communication and social interaction. At first, I was nervous, unsure of how my classmates would respond. But when I finished, I was met with a thunderous round of applause. To top it off, I received a 'Distinction' grade for the module!</p>
                     <p>What made it even more meaningful was that I had been with this same group of classmates for nearly two years. After I shared my story, they became more understanding and empathetic toward the challenges I faced. It helped build stronger bonds and created a more supportive environment, not just for me but for others who might have their own invisible struggles too.</p>
-                    <br/>
                     <h4>Final Thoughts 💭</h4>
                     <p>My journey in Polytechnic has been far from easy, especially as someone who started with less-than-ideal conversational skills. But by stepping out of my comfort zone, seeking advice from trusted people, and sharing my story with honesty, I managed to turn these challenges into growth opportunities.</p>
                     <p>If you're like me - shy, anxious, or feeling a bit lost in complex social situations - remember: every small step counts. Progress may feel slow at times, but with persistence and the right support, you'll find your voice in your own time.</p>
@@ -56,9 +53,9 @@ const blogsList = [
         "previewText":`I have been running as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high`,
         "thumbnailImg":"2.png",
         "htmlContent":(
-            <div>
+            <div className={styles.blogContainer}>
                 <p>I have been running long distances as a hobby for about 6 years, but my progress plateaued - my pace stayed roughly the same over the years, and my heart rate remained relatively high. However, things have changed when I stepped outside my comfort zone to join my hall's Road Relay CCA, despite not knowing anyone in my hall before this (as I didn't join my hall's orientation due to National Service commitments 😩).</p>
-                <p>I was hoping there would be a running CCA. And there was no surprise that they did, when one of the members approached me and asked if I was interested in running. As a person who typically does long-distance runs (≥5 km per run), I was open to their training regimen, which focused on speed workouts and interval training, usually covering middle-distance ranges (~3–5 km). I didn't hesitate - I gladly decided to sign up.</p>
+                <p>I was hoping there would be a running CCA. And there was no surprise that they did, when one of the members approached me and asked if I was interested in running. As a person who typically does long-distance runs (≥5 km per run), I was open to their training regimen, which focused on speed workouts and interval training, usually covering middle-distance ranges (~3—5 km). I didn't hesitate - I gladly decided to sign up.</p>
                 <p>Despite not having a lot of prior experience with training for running, I was surprisingly competent enough to keep up with their training regimen. As their training mainly consisted of time trials, fartleks (alternating between fast and slow intervals) and interval training, it was undoubtedly not easy for me to feel at ease during my runs. It was nothing like how I felt during my typical long runs - usually calm with strong hints of exhaustion 😪. Every time I suffered during the process, the stronger I became, and surprisingly, I felt a rush of dopamine right after finishing my last set of fast runs. Even though I was busy adjusting to university life, making time for training kept me grounded and motivated. Additionally, I totally didn't expect to break several personal bests during their training - 9:06 for 2.4 km and 21:12 for 5 km! 🎉</p>
                 <p>To my surprise, I was one of the few people selected to take part in this year's Inter-Hall Olympiad Games for Road Relay, which felt like a huge milestone in my running journey. Being part of the team not only pushed me to improve physically but also gave me a sense of belonging in my hall community. I'm excited to continue this journey and see where it takes me next!</p>
                 <p>As the competition was held late in the morning, the weather was much worse than ideal - the sun was glaring down on the track, and the temperature felt blazing. Despite this, I was determined to try my best to represent my hall proudly. However, I felt a wave of anxiousness sweep inside of me as it was my very first time in my life that I was representing my school in some way. As a result, I felt like my performance felt short of my expectations - I clocked 10:30 for 2.5 km (I was hoping to run under 10 minutes), because the sun was strong enough to penetrate through my shoes!</p>
@@ -88,7 +85,7 @@ const blogsList = [
         "previewText":`Ever since I was young, I have usually kept to myself as I was mainly glued to my interests that didn't involve a lot of interaction with people - mainly computer games (especially Minecraft`,
         "thumbnailImg":"3.png",
         "htmlContent":(
-        <div>
+        <div className={styles.blogContainer}>
             <h4>Early Days:</h4>
             <p>Ever since I was young, I have usually kept to myself as I was mainly glued to my interests that didn't involve a lot of interaction with people - mainly computer games (especially Minecraft) and other tech-related stuff. Because of that, I often felt that something was inherently wrong with me for not being willing to communicate with others, resulting in me feeling rather alienated. At the same time, I was labelled as a person who was extremely quiet, rarely talking to others without prompting.</p>
             <h4>Finding My Fellow Introverts:</h4>
@@ -111,7 +108,7 @@ const blogsList = [
         "previewText":`Kanji (漢字) are logographic characters used in the Japanese writing system, originally borrowed from Chinese. Unlike the Latin alphabet or even Japanese syllabic scripts like hiragana and katakana`,
         "thumbnailImg":"4.png",
         "htmlContent":(
-            <div>
+            <div className={styles.blogContainer}>
                 <style>
                     {`.kanji-cell {
                         font-size:30px;
@@ -352,7 +349,7 @@ const blogsList = [
         "previewText":`As someone who has never touched a math question for 2 years because of my National Service (NS) obligations, I initially found it relatively challenging to get back into solving mathematical problems`,
         "thumbnailImg":"5.jpg",
         "htmlContent":(
-            <div>
+            <div className={styles.blogContainer}>
                 <p>
                     As someone who has never touched a math question for 2 years because of my National Service (NS) obligations, I initially found it challenging to get back into solving mathematical problems during my first semester in university. On top of that, math at university is on a whole different level — it involves more than just learning how to solve equations and finding the right answer.
                 </p>
@@ -408,7 +405,7 @@ const blogsList = [
         "previewText":`During my secondary school days, I discovered Duolingo, a widely popular language learning app, because I had a dream of becoming multilingual one day. I remember being incredibly proud when I could say`,
         "thumbnailImg":"6.png",
         "htmlContent":(
-            <div>
+            <div className={styles.blogContainer}>
                 <p>During my secondary school days, I discovered Duolingo, a widely popular language learning app, because I had a dream of becoming multilingual one day. I remember being incredibly proud when I could say and write simple phrases in Japanese, such as "こんにちは、お元気ですか？" after just a few lessons. However, as time passed, my enthusiasm evolved into a love-hate relationship with <i>Duo</i>, the green owl. Despite periods of intense use, I started taking long breaks, unsure whether it was truly helping me improve my language skills as a casual language learner.</p>
 
                 <h4>Gamification Aspects</h4>
@@ -481,7 +478,7 @@ const blogsList = [
         "previewText":`Growing up, I have constantly felt different from others, which sometimes made me feel that I was an alien trapped in a human body. In my youth, I felt quite atypical as I had very different interests compared`,
         "thumbnailImg":"7.gif",
         "htmlContent":(
-            <div>
+            <div className={styles.blogContainer}>
                 <p>Growing up, I have constantly felt different from others, which sometimes made me feel that I was an alien trapped in a human body. In my youth, I felt quite atypical as I had very different interests compared to most people my age, as well as feeling quite socially awkward at times. But now, at the age of 23 (by the time I was writing this blog), I have almost fully integrated into society but with a few refinements still in progress. Now, let me introduce my own profile about how my neurological compass looks like.</p>
                 <h5>🧭 My Compass Profile</h5>
                 <p>Firstly, I am <i>neurodivergent</i> — meaning my brain works a little differently from what's considered typical. Just before I turned 15 (Secondary 3), I was diagnosed with <i>ASD (Autism Spectrum Disorder)</i>, mainly because my brain struggled with proper social interaction. Additionally, having unique and restricted interests that are very different from the majority made life feel like playing on hard mode, because I could not find anyone to vibe with.</p>
@@ -566,6 +563,78 @@ const blogsList = [
                         </tr>
                     </tbody>
                 </Table>
+            </div>
+        )
+    },
+    {
+        "id":8,
+        "title":"Why I Chose to Study in a Polytechnic",
+        "publishDate":new Date("10/11/2025").toDateString(),
+        "duration":6,
+        "tags":[0,3],
+        "previewText":`Choosing between IB and Polytechnic wasn't easy. But for me, it came down to one thing - focusing my time and effort where it mattered most for my future...`,
+        "thumbnailImg":"8.png",
+        "htmlContent":(
+            <div className={styles.blogContainer}>
+                {/* <img alt="descision" src="/assets/img/blogs/thumbnails/8.png"/> */}
+                <Alert className="d-flex align-items-start bg-dark text-light border-light">
+                    <i className="bi bi-info-circle fs-4 mt-1"></i>
+                    <div>
+                        <strong>DISCLAIMER: </strong>This is written entirely through my <strong>own personal experience</strong> about studying in a Polytechnic. It is <strong>very important</strong> to note that everyone has their own unique journey, and these reflections might not apply to your own education path.
+                    </div>
+                </Alert>
+                <hr></hr>
+                <Card className="p-4 p-md-5 mb-4 shadow-sm bg-dark border-0 text-light">
+                    <Card.Title as="h1" className="h3 mb-3">
+                        Choosing between IB and Polytechnic wasn't easy.
+                    </Card.Title>
+                    <Card.Text className="lead mb-0">
+                        But for me, it came down to one thing — <strong>focusing my time and effort where it mattered most for my future.</strong>
+                    </Card.Text>
+                </Card>
+                <p>After completing my IGCSEs (equivalent to GCE O-Level exams in SG) in ACS (international), I was given the direct option to start the International Baccalaureate Diploma Programme (IBDP). However, I wasn't particularly interested in the broader, general curriculum — especially the mandatory languages and humanities subjects that were my weaknesses. At the same time, I felt quite lonely back in ACS (International), as I was socially awkward and didn't have the social skills to make genuine friends to hang out with. </p>
+                
+                <p>My priority was to focus intensively on computer-related studies — my passion since childhood. I realized the all-encompassing nature of the IBDP would require me to dedicate a significant amount of time and effort outside my main field of interest, where concerns of me specializing and growing in my technical domain arose. </p>
+                
+                <h5>📚 The Grueling Language Requirements of the IBDP</h5>
+                
+                <p>The IBDP's two written Core Components, Theory of Knowledge (TOK) and the Extended Essay (EE), solidified my decision to study in a Polytechnic. TOK is a philosophical component that requires an externally graded 1,600-word essay, and the EE is an independent research paper of up to 4,000 words. Given my struggles with language skills at the time, I would have suffered immensely completing these major written tasks. The sheer dedication required for these two components would have been so time-consuming that it would have pulled my focus away from my core interests. Considering the compulsory language and humanities subjects as well, it was highly unlikely that I would achieve the high score required to successfully pivot into Computer Science at a local university. 🎓</p>
+                
+                <h5>🫧 Feeling Trapped in a Bubble</h5>
+                
+                <p>ACS (international) is a private school, where school fees are not subsidized by the government. As a result, the student body tends to come from similar socioeconomic backgrounds. This created an insulating bubble, hindering my awareness of real-world struggles and diverse perspectives. I felt sheltered and previously lacked opportunities to interact with people from different walks of life. </p>
+                
+                <p>Sticking within my own comfort zone meant I would miss out on the opportunity to grow myself as a person and develop essential social &amp; interpersonal skills. In contrast, being in a Polytechnic allows me to connect and mingle with a diverse student population, representing a clear path out of that bubble.</p>
+                
+                <h5>🎒 Transitioning to Life in Polytechnic</h5>
+                
+                <p>During my time in Singapore Polytechnic, I came across course mates who come from varying backgrounds, which range from those who came straight from ITE/JC and even mature adults who were in their mid-20s. Though I was initially surprised to see older students as a 16-year-old freshman, I eventually managed to vibe along with them well, as I greatly valued their experiences and outlook on life. Because of this mix, Polytechnic was one of the only places that made me feel that there are so many people who are very ‘different' from me, each with distinct strengths and weaknesses. </p>
+                
+                <h5>The Hidden Benefits of Polytechnic</h5>
+                
+                <p>Even though the main reason I chose Polytechnic was to pursue my studies strongly related to my interests, there are so many other benefits of studying there. As Polytechnic is generally a place where <strong>group projects</strong> dominate the entire course, there is a high chance that I'll work with people who come from varying backgrounds and personalities. This makes it highly essential for me to learn how to manage and overcome the challenges of working on a group project as well as picking up essential social and communication skills. </p>
+                
+                <p>Throughout my first 2 years of Polytechnic, numerous things felt far more manageable compared to theory-heavy environment in secondary school. There weren't many theory-heavy modules that required intense studying because of the sheer amount of group projects I was exposed to. Even though I initially struggled a lot with communication and social skills at the time, I eventually managed to score well on these modules as the lecturers recognized the effort I put in. </p>
+                
+                <p>Another huge benefit of Polytechnic is that I can get real-life hands-on experience with working in actual companies in my final year (Year 3). As an 18-year-old who has never worked before at the time, my first internship was a game-changer. For instance, I had to sometimes sacrifice my weekends and/or public holidays to working on new improvements and features — a genuine, challenging taste of working life.</p>
+                
+                <p>Additionally, during my Final Year Project (FYP), my group was assigned to a client (an actual company) to help them make a web application for them to speed up their work processes. Despite going through one of the most draining experiences I've experience throughout my whole Polytechnic life, I felt like I gained numerous skills in a real-world context that are easily transferrable when I begin my future career as a software developer. This unique experience, which is largely absent from the JC and IB curriculums, has given me a significant head start in my software development career, equipping my mind with how the working world truly functions.</p>
+                
+                <h5>❓ Conclusion: Is Polytechnic right for you?</h5>
+                
+                <p>So, would I recommend studying in a Polytechnic? The most accurate answer is: <strong>it depends</strong> — especially on your aspirations and your personal learning style. </p>
+                
+                <p>If you thrive on general academics, or if you are still unsure about your future career path, stick to JC/IB. It's usually not worth it to study in a Polytechnic where you are not very interested in the course you want to pursue (unless your results are not eligible for JC/IB). </p>
+                
+                <p>On the other hand, if you are a person who thrives on group projects, learns better through hands-on learning or if you are insanely passionate about their interests related to their future career, Polytechnic is likely better suited for you. </p>
+                
+                <p>However, if you aspire to get a spot into a local university from Polytechnic, it is statistically more difficult for Polytechnic students to get in, especially in <strong>competitive courses</strong> like Computer Science and Medicine. GPA is king in university admissions and having a score of at least ~3.5 would comfortably put you into a university course, and minimally about ~3.8x if you are applying for more competitive courses, especially in the Big 3. That said, other factors, such as extracurriculars, hackathons, and even prior work experience, are also considered in the application process. Still, GPA remains the most important factor as of now.</p>
+                
+                <p>I consider myself quite fortunate because I had the privilege of working with very helpful groupmates that have made the conscious effort to score well on group projects, which has boosted my GPA significantly. As a result, I managed to land a place to study Computer Science in NTU, one of Singapore's Big 3 Universities, and I know a lot of my former classmates who ended up in these places too! My best advice is if you are already studying in a Polytechnic, having competent and reliable groupmates is crucial, because they could help you do well on your project!</p>
+                
+                <p>Despite Polytechnic being harder for university admission, it is not the end of the world, as there is still a good chance that you can get in there if you put in consistent effort throughout your 3 years. Additionally, Polytechnic diplomas often allow exemptions from certain university modules, reducing your overall candidature by 0.5 to 1.5 years, depending on your eligibility. While I was immediately thrown into the highly theoretical nature of university life, having team and project management skills is a good plus as group projects also exist in university. Furthermore, my programming background means I find some of the programming modules are relatively easier for me to handle, as I already know the fundamental syntax and logic to tackle programming assignments and tests.</p>
+                
+                <p>To conclude, Polytechnic is one of the many crucial stepping stones to head off to your next phase in life, whether that is university, NS (for guys), or even your working career. Regardless of where you study, use every single opportunity given to you to not only help you develop your soft skills but also grow as a person. Discover your strengths &amp; weaknesses, as well as your likes &amp; dislikes, to determine which pathway after secondary school is truly the best for you to carry on with your journey. Life is not a sprint; it is a marathon with numerous hurdles and obstacles to overcome. All the best to your journey and stay safe 😊💪</p>
             </div>
         )
     }
