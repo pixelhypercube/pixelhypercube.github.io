@@ -230,7 +230,7 @@ export default class Home extends React.Component {
             </Container>
             <Container
             style={{
-              borderRadius:"20px",
+              borderRadius:"30px",
               background:`rgba(255,255,255,0.1)`,
               padding:"20px",
               display:"flex",
@@ -240,17 +240,17 @@ export default class Home extends React.Component {
             }}
             className="col-md-7 col-12"
             id="header-2">
-              <p>Hi!👋 I'm currently a second year undergraduate studying Computer Science at Nanyang Technological University (NTU)!</p>
-              <p>I'm a mix of tech enthusiast, geek and fitness lover—someone who enjoys exploring technology as much as staying active!</p>
+              <p>Hi!👋 I'm currently a second-year undergraduate student studying Computer Science at Nanyang Technological University (NTU)!</p>
+              <p>I'm a mix of a tech enthusiast, geek, and fitness lover — someone who enjoys exploring technology as much as staying active!</p>
               <p>
                 I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
                   document.getElementById("side-projects-container")
                   .scrollIntoView({behavior:"smooth",block:"start"});
-                }}>projects</span> 🛠️, sharing knowledge through my <Link to="/blogs">blogs</Link> 📃, 
+                }}>projects</span> 🛠️, sharing knowledge & experiences through my <Link to="/blogs">blogs</Link> 📃, 
                   and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Portfolio Website</a> 📚.
               </p>
               <p>Outside of tech, I enjoy playing Minecraft, speedsolving Rubik's Cubes, learning new languages, reading and hitting the gym!</p>
-              <p>Enjoy your stay here ;)</p>
+              <p style={{fontWeight:400}}>Enjoy your stay here ;)</p>
             </Container>
           </Container>
         </header>
