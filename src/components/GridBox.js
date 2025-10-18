@@ -65,9 +65,9 @@ export default class GridBox extends React.Component {
                     style={{height:"fit-content",marginBottom:"10px"}}
                     variant="light">{topRightBtnCaption}</Button> : null}
                 </div>
-                {subtitle1 ? <h5 style={{fontWeight:400}}>{subtitle1}</h5> : null}
-                {subtitle2 ? <h6 style={{fontWeight:400}}>{subtitle2}</h6> : null}
-                {updated ? <h6 style={{fontWeight:100}}>Updated on <i>{updated}</i></h6> : null}
+                {subtitle1 ? <h5 style={{fontWeight:400,fontSize:"20px"}}>{subtitle1}</h5> : null}
+                {subtitle2 ? <h6 style={{fontWeight:400,fontSize:"18px"}}>{subtitle2}</h6> : null}
+                {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <i>{updated}</i></h6> : null}
                 {imageUrl ? <img src={imageUrl} style={{
                     width:"100%",
                     height:"250px",
@@ -79,7 +79,8 @@ export default class GridBox extends React.Component {
                     desc ? (
                         <div style={{
                             fontWeight:100,
-                            marginBottom:"10px"
+                            marginBottom:"10px",
+                            fontSize:"18px"
                         }} className="gridbox-desc">
                             <hr></hr>
                             {desc}

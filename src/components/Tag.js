@@ -15,18 +15,18 @@ export default class Tag extends React.Component {
             style={{
                 margin:"5px",
                 color:"black",
-                borderRadius:"8px",
+                borderRadius:"10px",
                 justifyContent:"center",
                 alignItems:"center",
                 background:"white",
-                paddingRight:"6px"
+                paddingRight:"6px",
             }}>
                 <img alt={tag} style={{
                     width:"20px",
-                    margin:"5px",
+                    margin:"7px",
                     filter:"brightness(0)"
                 }} src={tags[tag]["icon_path"]} />
-                <span style={{margin:"0",fontWeight:500}}>{tag}</span>
+                <span style={{margin:"0",fontWeight:500,fontSize:"18px"}}>{tag}</span>
             </div>
         ) : null
     }
