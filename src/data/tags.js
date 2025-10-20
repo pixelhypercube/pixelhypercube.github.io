@@ -81,11 +81,11 @@ let tags = {
         "icon_path":iconsDir+"heroku.svg"
     },
     "Figma":{
-        "type":"Tools",
+        "type":"Design",
         "icon_path":iconsDir+"figma.svg"
     },
     "Canva":{
-        "type":"Tools",
+        "type":"Design",
         "icon_path":iconsDir+"canva.svg"
     },
     "MS Office Suite":{

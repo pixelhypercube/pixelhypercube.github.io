@@ -73,7 +73,7 @@ export default class Blogs extends React.Component {
                 />
                 <Navigation/>
                 <Container>
-                    <h1>My Blogs</h1>
+                    <h1>Personal Blogs</h1>
                     <p style={{fontSize:"20px"}}>Feel free to have a read on one of my blogs!</p>
                     <div style={{
                         justifyContent:"space-between",

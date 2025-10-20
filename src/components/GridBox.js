@@ -46,7 +46,7 @@ export default class GridBox extends React.Component {
             <Container
             style={{
                 borderRadius:"20px",
-                background:`rgba(255,255,255,${isHovering ? "0.2" : "0.1"})`,
+                background:`rgba(255,255,255,${isHovering ? "0.12" : "0.075"})`,
                 padding:"20px",
                 flex,
                 maxWidth,
@@ -67,7 +67,7 @@ export default class GridBox extends React.Component {
                 </div>
                 {subtitle1 ? <h5 style={{fontWeight:400,fontSize:"20px"}}>{subtitle1}</h5> : null}
                 {subtitle2 ? <h6 style={{fontWeight:400,fontSize:"18px"}}>{subtitle2}</h6> : null}
-                {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <i>{updated}</i></h6> : null}
+                {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <strong>{updated}</strong></h6> : null}
                 {imageUrl ? <img src={imageUrl} style={{
                     width:"100%",
                     height:"250px",

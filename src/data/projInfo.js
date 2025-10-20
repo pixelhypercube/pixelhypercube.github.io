@@ -5,7 +5,7 @@ var projInfo = [
     {
         "proj_id":18,
         "title":"Astertris (Beta)",
-        "updated":new Date("9/5/2025"),
+        "updated":new Date("10/5/2025"),
         "description": "A creative twist on the classic Tetris game, where instead of playing on a static grid, you're building lines on a flying asteroid in deep space. Thanks to the asteroid's gravity, moving blocks left or right becomes rotating them clockwise or counterclockwise, adding a fresh challenge to the gameplay.",
         "brief_description": "Tetris, but you're playing it on a moving asteroid in space!",
         "image_location": codingImgsFolder + "coding_proj18.png",

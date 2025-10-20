@@ -2,6 +2,8 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Blogs from "./Blogs";
 import Blog from "./Blog";
+
+import "./Global.css";
 // import OverlayCanvas from "./components/OverlayCanvas";
 
 export default function App() {

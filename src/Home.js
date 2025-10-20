@@ -231,7 +231,7 @@ export default class Home extends React.Component {
             <Container
             style={{
               borderRadius:"30px",
-              background:`rgba(255,255,255,0.1)`,
+              background:`rgba(255,255,255,0.075)`,
               padding:"20px",
               display:"flex",
               flexDirection:"column",
@@ -241,13 +241,13 @@ export default class Home extends React.Component {
             className="col-md-7 col-12"
             id="header-2">
               <p>Hi!👋 I'm currently a second-year undergraduate student studying Computer Science at Nanyang Technological University (NTU)!</p>
-              <p>I'm a mix of a tech enthusiast, geek, and fitness lover — someone who enjoys exploring technology as much as staying active!</p>
+              <p>I'm a tech enthusiast, geek/nerd, and fitness lover — someone who enjoys using & exploring technology as much as staying active!</p>
               <p>
                 I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
                   document.getElementById("side-projects-container")
                   .scrollIntoView({behavior:"smooth",block:"start"});
                 }}>projects</span> 🛠️, sharing knowledge & experiences through my <Link to="/blogs">blogs</Link> 📃, 
-                  and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Portfolio Website</a> 📚.
+                  and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Repository Website</a> 📚.
               </p>
               <p>Outside of tech, I enjoy playing Minecraft, speedsolving Rubik's Cubes, learning new languages, reading and hitting the gym!</p>
               <p style={{fontWeight:400}}>Enjoy your stay here ;)</p>
@@ -294,21 +294,32 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Developed a QR Code attendance tracking system that lets attendees speedrun through tedious attendance tracking methods via the usage of email-generated QR Codes 📨</li>
+                    {/* 
+                    
+                    Develoepd an email-generated QR Code attendance tracking system that let hundreds of attendees speedrun through tedious attendance tracking methods, where I was even featured on Army News!
+                    Went through numerous testing phases of certain apps in HQ.
+                    Upon resumption, I joined the Personnel Admin Link (PAL) programming team to again, speedrun the testing & development process, as well as multitask between showcasing the app.
+
+                    */}
+                    <li>Developed an email-generated QR Code attendance tracking system that let hundreds of attendees speedrun through tedious attendance tracking methods during non-training events, where I was even featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a>! 📰</li>
+                    <li>Also sucessfully speedran through the testing phase of Telegram chatbots and exterminated many bugs in them (in an eco-friendly way)! 🧹</li>
+                    <li>Upon resuming my service in 2025, I joined the <sup>†</sup>Personnel Admin Link (PAL) programming team to again, speedrun the development process; where I conducted rounds of operational testing of the app & came up with new features, including a mobile app variant.</li>
+                    <li>Felt lucky to do programming while wearing green 🪖, and also learned how to grow as a coder <i>and</i> as a human being.</li>
+                    {/* <li>Developed a QR Code attendance tracking system that lets attendees speedrun through tedious attendance tracking methods via the usage of email-generated QR Codes 📨</li>
                     <li style={{marginLeft:"20px",listStyle:"circle"}}>One of my biggest achievements was that I allowed 200+ participants to mark their attendance efficiently at the SAF Pers Hubs' Total Defence Day event in February 2023! 🍾</li>
                     <li style={{marginLeft:"20px",listStyle:"circle"}}>Featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> 📰 for my contributions to the programming team 🎉</li>
                     <li>Sucessfully speedran through the testing phase of Telegram chatbots and killed many bugs in them (in an eco-friendly way)! 🧹</li>
-                    <li>Upon my resumption in May 2025, I joined the <sup>†</sup>PAL (Personnel Admin Link) programming team to again, speedrun the development process, where rounds of operational testing of the app & came up with new features, including a mobile app variant.</li>
+                    <li>Upon my resumption in May 2025, I joined the <sup>†</sup>PAL (Personnel Admin Link) programming team to again, speedrun the development process, where rounds of operational testing of the app & came up with new features, including a mobile app variant.</li> */}
                   </ul>
 
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
                   <ul>
-                    <li>Outstanding Soldier of the Month (June 2025)</li>
+                    <li>Outstanding Soldier of the Month for June 2025</li>
                   </ul>
 
-                  <small><sup>*</sup>Disrupted my service in Aug 2024 to pursue my 1st year in NTU.</small>
+                  <small><sup>*</sup>Disrupted my service in Aug 2024 to pursue my 1st year in NTU (Aug 2024 - May 2025).</small>
                   <br/>
-                  <small><sup>†</sup>A Microsoft PowerApps-based tasking platform for managing manpower assignments across Personnel Nodes (Persnodes) in Singapore.</small>
+                  <small><sup>†</sup>A Microsoft PowerApps-based tasking platform for managing manpower assignments across Personnel Nodes.</small>
                 </div>
               )}
               techStack={["HTML","CSS","Javascript","EJS","MS Office Suite","MongoDB","Postman","Node.js"]}
@@ -322,8 +333,8 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Decided to extend my Polytechnic's FYP project to create more features, fix pesky bugs, and resolve customers' issues for EcoExchange Pte Ltd's intranet website.</li>
-                    <li>Created profile cards using Next.js for Autodesk using TypeScript, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for. ⚔️💀</li>
+                    <li>Extended my Polytechnic's Final Year Project into a pro bono dev gig — added features, fixed pesky bugs, and helped support real customer issues for <strong>EcoExchange Pte Ltd</strong>'s intranet website.</li>
+                    <li>Created profile cards using <strong>Next.js</strong> for <strong>Autodesk</strong> using <strong>TypeScript</strong>, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for. ⚔️💀</li>
                   </ul>
                 </div>
               )}
@@ -372,15 +383,14 @@ export default class Home extends React.Component {
               colWidthS={12}
               title={"Nanyang Technological University"}
               subtitle1={"Bachelor of Computing (Honours) in Computer Science"}
-              subtitle2={"2024 - Present"}
+              subtitle2={"Aug 2024 - Present"}
               desc={(
                 <div>
                   <ul>
-                    <li>Clinched my childhood dream of studying computer science, kudos to <a href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</li>
+                    <li>Clinched my childhood dream of studying computer science, huge kudos to <a href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</li>
                     <li>Currently a Hall 10 Resident 🏘️ & Hall 10 Road Relay Member 🏃 (since 2024)!</li>
-                    <li>Snagged my first runner-up medal with my Hall 10 Road Relay team at the <sup>*</sup>IHG 2025! 🥈</li>
+                    <li>Snagged my first runner-up medal with my Hall 10 Road Relay team at the Inter-Hall Games 2025! 🥈</li>
                   </ul>
-                  <small><sup>*</sup>Inter Hall Games</small>
                 </div>
               )}
               />
@@ -389,12 +399,12 @@ export default class Home extends React.Component {
               colWidthS={12}
               title={"Singapore Polytechnic"}
               subtitle1={"Diploma in Information Technology"}
-              subtitle2={"2019 - 2022"}
+              subtitle2={"Apr 2019 - Mar 2022"}
               desc={(
                 <div>
                   <ul>
                     <li>Specialized in Software & Applications</li>
-                    <li>Decided with Polytechnic instead of IB as I wanted to continue being a tech nerd 🧑‍💻</li>
+                    <li>Decided with Polytechnic instead of IB as I wanted to continue being a tech nerd 🧑‍💻 (<a href="/#/blogs/8">see my blog here!</a>)</li>
                   </ul>
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
                   <ul>
@@ -409,7 +419,7 @@ export default class Home extends React.Component {
               colWidthS={12}
               title={"Anglo-Chinese School (International)"}
               subtitle1={"Cambridge IGCSE"}
-              subtitle2={"2016 - 2018"}
+              subtitle2={"Jan 2016 - Dec 2018"}
               desc={(
                 <div>
                   <ul>
@@ -423,7 +433,7 @@ export default class Home extends React.Component {
               colWidthL={6}
               colWidthS={12}
               title={"Anglo-Chinese School (Barker Road)"}
-              subtitle2={"2015"}
+              subtitle2={"Jan 2015 - Dec 2015"}
               desc={
                 <div>
                   <ul>
