@@ -206,7 +206,7 @@ export default class Home extends React.Component {
               <h1 style={{fontSize:"80px"}}>{this.state.name} <span id="typer"></span></h1>
             </div>
             <div className="col-md-8">
-              <h4><span>{age}</span> y.o. Computer Science Undergraduate @ NTU</h4>
+              <h4><span>{age}</span> y.o. CS Undergrad @ NTU | Tinkerer, Runner & Cuber</h4>
             </div>
           </Container>
           <Container style={{
@@ -236,21 +236,20 @@ export default class Home extends React.Component {
               display:"flex",
               flexDirection:"column",
               justifyContent:"center",
-              fontSize:"20px",
             }}
             className="col-md-7 col-12"
             id="header-2">
-              <p>Hi!👋 I'm currently a second-year undergraduate student studying Computer Science at Nanyang Technological University (NTU)!</p>
-              <p>I'm a tech enthusiast, geek/nerd, and fitness lover — someone who enjoys using & exploring technology as much as staying active!</p>
-              <p>
+              <p style={{fontSize:"20px"}}>Hi!👋 I'm currently a second-year undergraduate student studying Computer Science at Nanyang Technological University (NTU)!</p>
+              <p style={{fontSize:"20px"}}>I'm a tech enthusiast, geek/nerd, and fitness lover — someone who enjoys using & exploring technology as much as staying active!</p>
+              <p style={{fontSize:"20px"}}>
                 I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
                   document.getElementById("side-projects-container")
                   .scrollIntoView({behavior:"smooth",block:"start"});
                 }}>projects</span> 🛠️, sharing knowledge & experiences through my <Link to="/blogs">blogs</Link> 📃, 
                   and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Repository Website</a> 📚.
               </p>
-              <p>Outside of tech, I enjoy playing Minecraft, speedsolving Rubik's Cubes, learning new languages, reading and hitting the gym!</p>
-              <p style={{fontWeight:400}}>Enjoy your stay here ;)</p>
+              <p style={{fontSize:"20px"}}>Outside of tech, I enjoy playing Minecraft, speedsolving Rubik's Cubes, learning new languages, reading and hitting the gym!</p>
+              <p style={{fontWeight:400,fontSize:"20px"}}>Enjoy your stay here ;)</p>
             </Container>
           </Container>
         </header>

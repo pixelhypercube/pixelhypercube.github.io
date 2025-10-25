@@ -55,18 +55,18 @@ var projInfo = [
     },
     {
         "proj_id": 10,
-        "title": "PHC Minigolf",
-        "title_jp": "PHCミニゴルフ",
-        "title_zh": "PHC 迷你高尔夫",
+        "title": "Mini Speed Golf",
+        "title_jp": "ミニスピードゴルフ",
+        "title_zh": "迷你速度高尔夫",
         "updated":new Date("4/27/2022"),
-        "description":"A minigolf game made using Python (pygame)! Contains 10 unique stages, with each stage having its own distinct and fun characteristics!",
+        "description":"A minigolf game made using Python (pygame) that allows you to hit the ball while it's moving, allowing you to speedrun through golf stages as fast as possible! Contains 10 unique stages, with each stage having its own distinct and fun characteristics!",
         "brief_description_jp": "Python（pygame）で作ったミニゴルフゲーム！",
         "brief_description_zh": "用 Python（pygame）制作的迷你高尔夫游戏！",
-        "brief_description": "A minigolf game made using Python (pygame)!",
+        "brief_description": "A minigolf game made using Python (pygame) that allows you to hit the ball while it's moving!",
         "image_location": codingImgsFolder + "coding_proj8.png",
         "video_location":codingVideosFolder + "coding_proj8.gif",
-        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
-        "gh_link":"https://github.com/pixelhypercube/Side-Projects/tree/main/PHC-Minigolf",
+        "link": "https://github.com/pixelhypercube/Mini-Speed-Golf",
+        "gh_link":"https://github.com/pixelhypercube/Mini-Speed-Golf",
         "tech_stack":[
             "Python","Pygame"
         ]
@@ -124,24 +124,6 @@ var projInfo = [
         "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/CPP-Physics",
         "tech_stack":[
             "C++"
-        ]
-    },
-    {
-        "proj_id": 5,
-        "title": "RActive",
-        "title_jp": "RActive：RA支援アプリ",
-        "title_zh": "RActive：类风湿性关节炎管理应用",
-        "updated": new Date("1/12/2024"),
-        "description":"A Figma prototype to assist individuals with rheumatoid arthritis (RA) in managing daily activities. Implements the use of an AI coach to guide people with RA with the most effective ways to cope with their needs. Contains features like stretching exercises, dietary tracker and forums to seek help from other users! Created for CC0005 – Healthy Living and Wellbeing at NTU.",
-        "brief_description": "A Figma prototype to assist individuals with rheumatoid arthritis (RA) in managing daily activities. Created for CC0005 – Healthy Living and Wellbeing at NTU.",
-        "brief_description_jp": "関節リウマチ（RA）患者の日常管理を支援するFigmaプロトタイプ。NTUの「CC0005：健康的な生活とウェルビーイング」科目のために作成。",
-        "brief_description_zh": "一个帮助类风湿性关节炎（RA）患者管理日常生活的 Figma 原型。为 NTU 的 CC0005 健康生活与福祉课程设计。",
-        "image_location": codingImgsFolder + "coding_proj14.png",
-        "video_location": codingVideosFolder + "coding_proj14.gif",
-        "link": "https://www.figma.com/design/hiWbnOFAR7KPcpiU9cQMwe/CC0005-App?node-id=210-240&t=F7NivajSw7bWbxKb-0",
-        "web_link": "https://www.figma.com/design/hiWbnOFAR7KPcpiU9cQMwe/CC0005-App?node-id=210-240&t=F7NivajSw7bWbxKb-0",
-        "tech_stack":[
-            "Figma"
         ]
     },
     {
@@ -237,43 +219,43 @@ var projInfo = [
             "Python"
         ]
     },
-    {
-        "proj_id": 12,
-        "title": "Visual Matrix Operators!",
-        "title_jp": "ビジュアル行列演算！",
-        "title_zh": "可视化矩阵运算器！",
-        "updated": new Date("9/19/2020"),
-        "description":"A visualization tool that simulates the effects of matrix operations, which are addition, subtraction and multiplication! Contains a heatmap of the resultant array's values to easily visualize the effects of those matrix operations!",
-        "brief_description_jp": "加算・減算・乗算などの行列演算を視覚化！",
-        "brief_description_zh": "帮助可视化加法、减法和乘法等矩阵运算！",
-        "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
-        "image_location": codingImgsFolder + "coding_proj6.png",
-        "link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
-        "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Visual-Matrix-Operators",
-        "web_link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
-        "tech_stack":[
-            "HTML","CSS","Javascript"
-        ]
-    },
-    {
-        "proj_id": 14,
-        "title": "Video To Text!",
-        "title_jp": "ビデオからテキスト！",
-        "title_zh": "视频转文字！",
-        "updated": new Date("8/30/2020"),
-        "description":"A simple video to unicode text generator! Play a video and see the magic from the text below!",
-        "brief_description_jp": "ビデオを再生して、下のテキストの魔法を見よう！",
-        "brief_description_zh": "播放视频并查看下面的文字魔法！",
-        "brief_description": "A simple video to unicode text generator!",
-        "image_location": codingImgsFolder + "coding_proj3.png",
-        "video_location": codingVideosFolder + "coding_proj3.gif",
-        "link": "https://pixelhypercube.github.io/Side-Projects/Video-To-Text/public/",
-        "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Video-To-Text",
-        "web_link": "https://pixelhypercube.github.io/Side-Projects/Video-To-Text/public/",
-        "tech_stack":[
-            "HTML","CSS","Javascript"
-        ]
-    }
+    // {
+    //     "proj_id": 12,
+    //     "title": "Visual Matrix Operators!",
+    //     "title_jp": "ビジュアル行列演算！",
+    //     "title_zh": "可视化矩阵运算器！",
+    //     "updated": new Date("9/19/2020"),
+    //     "description":"A visualization tool that simulates the effects of matrix operations, which are addition, subtraction and multiplication! Contains a heatmap of the resultant array's values to easily visualize the effects of those matrix operations!",
+    //     "brief_description_jp": "加算・減算・乗算などの行列演算を視覚化！",
+    //     "brief_description_zh": "帮助可视化加法、减法和乘法等矩阵运算！",
+    //     "brief_description": "Helps to visualize matrix operations like addition, subtraction and multiplication!",
+    //     "image_location": codingImgsFolder + "coding_proj6.png",
+    //     "link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
+    //     "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Visual-Matrix-Operators",
+    //     "web_link": "https://pixelhypercube.github.io/Side-Projects/Visual-Matrix-Operators/",
+    //     "tech_stack":[
+    //         "HTML","CSS","Javascript"
+    //     ]
+    // },
+    // {
+    //     "proj_id": 14,
+    //     "title": "Video To Text!",
+    //     "title_jp": "ビデオからテキスト！",
+    //     "title_zh": "视频转文字！",
+    //     "updated": new Date("8/30/2020"),
+    //     "description":"A simple video to unicode text generator! Play a video and see the magic from the text below!",
+    //     "brief_description_jp": "ビデオを再生して、下のテキストの魔法を見よう！",
+    //     "brief_description_zh": "播放视频并查看下面的文字魔法！",
+    //     "brief_description": "A simple video to unicode text generator!",
+    //     "image_location": codingImgsFolder + "coding_proj3.png",
+    //     "video_location": codingVideosFolder + "coding_proj3.gif",
+    //     "link": "https://pixelhypercube.github.io/Side-Projects/Video-To-Text/public/",
+    //     "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/Video-To-Text",
+    //     "web_link": "https://pixelhypercube.github.io/Side-Projects/Video-To-Text/public/",
+    //     "tech_stack":[
+    //         "HTML","CSS","Javascript"
+    //     ]
+    // }
 ];
 
 export default projInfo;

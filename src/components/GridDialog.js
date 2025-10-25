@@ -61,7 +61,7 @@ export default class GridDialog extends React.Component {
             <div style={{
                 background:"rgba(0,0,0,0.5)",
                 position:"fixed",
-                overflowY:width<768 ? "scroll" : "fixed",
+                overflowY:width<768 ? "scroll" : "auto",
                 top:0,
                 left:0,
                 width:`${width}px`,
@@ -71,6 +71,8 @@ export default class GridDialog extends React.Component {
                 opacity:visible ? 1 : 0,
                 pointerEvents: visible ? "all" : "none",
                 zIndex:10,
+                jusitfyContent:width<768 ? "normal" : "center",
+                alignItems:width<768 ? "normal" : "center"
                 // maxHeight:width<768 ? "95vh" : "auto"
             }} ref={this.outsideContainerRef} className="grid-dialog d-flex">
                 <Container style={{
