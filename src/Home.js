@@ -364,7 +364,7 @@ export default class Home extends React.Component {
                 fontSize:"24px",
                 fontWeight:500,
               }}
-              variant="light" className="d-flex" href="./Resume_Kendrick.pdf">
+              variant="light" className="d-flex" href="./Resume_TeoKaiJie.pdf">
               <img alt="resume-icon" style={{
                 width:"25px",
                 filter:"brightness(0)",

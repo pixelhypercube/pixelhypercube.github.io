@@ -119,7 +119,7 @@ class Navigation extends React.Component {
                             onMouseEnter={()=>this.setState({resumeIsHovering:true})} 
                             onMouseLeave={()=>this.setState({resumeIsHovering:false})} 
                             style={{position:"relative"}}>
-                                <Nav.Link href="./Resume_Kendrick.pdf">
+                                <Nav.Link href="./Resume_TeoKaiJie.pdf">
                                     <img alt="resume-icon" style={{
                                     width:"25px",
                                     filter:"brightness(0) invert()"
