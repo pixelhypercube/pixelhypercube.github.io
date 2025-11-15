@@ -24,6 +24,11 @@ class Blog extends React.Component {
     }
     
     componentDidMount() {
+        // set web title name
+        const {id} = this.props.params;
+        const {blogsList} = blogsObj;
+        document.title = `${blogsList?.[id-1] ? blogsList?.[id-1].title : "Blog Not Found"} | KJ's Blogs`;
+
         // to pass to overlay canvas
 
         window.addEventListener("mousedown",(e)=>{

@@ -36,6 +36,9 @@ export default class Blogs extends React.Component {
     }
 
     componentDidMount() {
+        // set web title name
+        document.title = "KJ's Blogs";
+
         // to pass to overlay canvas
 
         window.addEventListener("mousedown",(e)=>{
