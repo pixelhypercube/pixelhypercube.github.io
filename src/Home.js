@@ -239,8 +239,8 @@ export default class Home extends React.Component {
             }}
             className="col-md-7 col-12"
             id="header-2">
-              <p style={{fontSize:"20px"}}>Hi!👋 I'm currently a second-year undergraduate student studying Computer Science at Nanyang Technological University (NTU)!</p>
-              <p style={{fontSize:"20px"}}>I'm a tech enthusiast, geek/nerd, and fitness lover — someone who enjoys using & exploring technology as much as staying active!</p>
+              <p style={{fontSize:"20px"}}>Hi!👋 I'm currently a second-year Computer Science undergrad at Nanyang Technological University (NTU)!</p>
+              <p style={{fontSize:"20px"}}>Ever since I was young, I've been fascinated by computers and curious about how they work!</p>
               <p style={{fontSize:"20px"}}>
                 I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
                   document.getElementById("side-projects-container")
@@ -248,7 +248,7 @@ export default class Home extends React.Component {
                 }}>projects</span> 🛠️, sharing knowledge & experiences through my <Link to="/blogs">blogs</Link> 📃, 
                   and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Repository Website</a> 📚.
               </p>
-              <p style={{fontSize:"20px"}}>Outside of tech, I enjoy playing Minecraft, speedsolving Rubik's Cubes, learning new languages, reading and hitting the gym!</p>
+              <p style={{fontSize:"20px"}}>In my free time, you can find me playing Minecraft, speedsolving Rubik's Cubes, reading, running (at night 🌚) and hitting the gym!</p>
               <p style={{fontWeight:400,fontSize:"20px"}}>Enjoy your stay here ;)</p>
             </Container>
           </Container>
