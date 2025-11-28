@@ -61,7 +61,7 @@ export default class GridBox extends React.Component {
                     width:"100%",
                     height:"250px",
                     objectFit:"cover",
-                    borderRadius:"10px 10px 0px 0px",
+                    borderRadius:"20px 20px 0px 0px",
                 }} alt="grid-img"/> : null}
                 {/* BODY */}
                 <div style={{
@@ -78,7 +78,7 @@ export default class GridBox extends React.Component {
                     </div>
                     {subtitle1 ? <h5 style={{fontWeight:400,fontSize:"20px"}}>{subtitle1}</h5> : null}
                     {subtitle2 ? <h6 style={{fontWeight:400,fontSize:"18px"}}>{subtitle2}</h6> : null}
-                    {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <strong>{updated}</strong></h6> : null}
+                    {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <i>{updated}</i></h6> : null}
                     <hr></hr>
                     {
                         desc ? (

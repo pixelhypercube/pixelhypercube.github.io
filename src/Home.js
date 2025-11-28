@@ -288,13 +288,8 @@ export default class Home extends React.Component {
 
                     */}
                     <li>Didn't expect myself to be programming a QR Code attendance scanning system while wearing green 🪖, where my team was eventually featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a>! 📰</li>
-                    <li>Also did a lot of speedrunning on testing & debugging my unit's in-house systems (Telegram bots, Excel files, etc.), while simultaneously doing my own clerical stuff! 🧑‍💻</li>
-                    <li>It was mentally tough, especially having to disrupt my service to study my 1st year at NTU, but was quite an interesting way to serve my NS! 🫡</li>
-                    {/* <li>Developed a QR Code attendance tracking system that lets attendees speedrun through tedious attendance tracking methods via the usage of email-generated QR Codes 📨</li>
-                    <li style={{marginLeft:"20px",listStyle:"circle"}}>One of my biggest achievements was that I allowed 200+ participants to mark their attendance efficiently at the SAF Pers Hubs' Total Defence Day event in February 2023! 🍾</li>
-                    <li style={{marginLeft:"20px",listStyle:"circle"}}>Featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> 📰 for my contributions to the programming team 🎉</li>
-                    <li>Sucessfully speedran through the testing phase of Telegram chatbots and killed many bugs in them (in an eco-friendly way)! 🧹</li>
-                    <li>Upon my resumption in May 2025, I joined the <sup>†</sup>PAL (Personnel Admin Link) programming team to again, speedrun the development process, where rounds of operational testing of the app & came up with new features, including a mobile app variant.</li> */}
+                    <li>On top of my regular 'admin warrior' duties, I also speedran the testing & debugging of my unit's in-house systems (Telegram bots, Excel files, etc.)!</li>
+                    <li>Despite the challenges of disrupting for my freshman year at NTU, I'm grateful to have had such a unique and interesting way to serve NS! 🫡</li>
                   </ul>
 
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
@@ -336,7 +331,7 @@ export default class Home extends React.Component {
                   <ul>
                     <li>For my first internship, I created a full-stack buffet of C# applications and Node.js servers integrated with MySQL. 🍴</li>
                     <li>I leveraged Modbus to connect with IoT devices, impressing those who thought the Internet of Things was just "Wi-Fi for fridges."</li>
-                    <li>My full-stack solutions were deployed and actively used by 20+ staff members for their core daily processes!</li>
+                    <li>My full-stack solutions were deployed and actively used by the warehouse operations team for their core daily processes!</li>
                   </ul>
                 </div>
               )}
@@ -375,7 +370,7 @@ export default class Home extends React.Component {
                   <ul>
                     <li>Clinched my childhood dream of studying computer science, huge kudos to <a href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</li>
                     <li>Currently a Hall 10 Resident 🏘️ & Hall 10 Road Relay Member 🏃 (since 2024)!</li>
-                    <li>Snagged my first runner-up medal with my Hall 10 Road Relay team at the Inter-Hall Games 2025! 🥈</li>
+                    <li>Snagged my first runner-up medal with my Hall 10 Road Relay team at the Inter-Hall Games (IHG) 2025! 🥈</li>
                   </ul>
                 </div>
               )}
@@ -389,7 +384,7 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Decided with Polytechnic instead of IB as I wanted to continue being a tech nerd 🧑‍💻 (<a href="/#/blogs/8">see my blog here!</a>)</li>
+                    <li>I chose Polytechnic over IB simply because I wanted to continue being a tech nerd 🧑‍💻 (<a href="/#/blogs/8">see my blog here!</a>)</li>
                   </ul>
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
                   <ul>
