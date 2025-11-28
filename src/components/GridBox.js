@@ -47,7 +47,7 @@ export default class GridBox extends React.Component {
             style={{
                 borderRadius:"20px",
                 background:`rgba(255,255,255,${isHovering ? "0.12" : "0.075"})`,
-                padding:"20px",
+                padding:"0px",
                 flex,
                 maxWidth,
                 margin:"30px"
@@ -56,65 +56,69 @@ export default class GridBox extends React.Component {
             onMouseOver={()=>this.setState({isHovering:true})}
             onMouseLeave={()=>this.setState({isHovering:false})}
             className={`gridbox col-md-${colWidthL} col-${colWidthS}`}>
-                <div style={{
-                    justifyContent:"space-between",
-                }} className="d-flex">
-                    {title ? <h3 style={{marginBottom:"3px"}}>{title}</h3> : null}
-                    {topRightBtn ? <Button
-                    href={topRightBtnLink}
-                    style={{height:"fit-content",marginBottom:"10px"}}
-                    variant="light">{topRightBtnCaption}</Button> : null}
-                </div>
-                {subtitle1 ? <h5 style={{fontWeight:400,fontSize:"20px"}}>{subtitle1}</h5> : null}
-                {subtitle2 ? <h6 style={{fontWeight:400,fontSize:"18px"}}>{subtitle2}</h6> : null}
-                {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <strong>{updated}</strong></h6> : null}
+                {/* IMAGE PORTION (if any) */}
                 {imageUrl ? <img src={imageUrl} style={{
                     width:"100%",
                     height:"250px",
                     objectFit:"cover",
-                    borderRadius:"10px",
-                    marginBottom:"10px"
+                    borderRadius:"10px 10px 0px 0px",
                 }} alt="grid-img"/> : null}
-                {
-                    desc ? (
-                        <div style={{
-                            fontWeight:100,
-                            marginBottom:"10px",
-                            fontSize:"18px"
-                        }} className="gridbox-desc">
-                            <hr></hr>
-                            {desc}
-                        </div>
-                    ) : null
-                }
-                {/* {techStack ? <hr></hr> : null} */}
-                {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : null}
-                <div className="gridbox-techstack d-flex flex-wrap">
-                    {
-                        techStack 
-                        ? 
-                        techStack.map((tag,index) => {
-                            return (
-                                <Tag 
-                                tag={tag}
-                                key={index}
-                                />
-                            )
-                        })
-                        : null
-                    }
-                </div>
-                {bottomLeftBtn ? <div>
+                {/* BODY */}
+                <div style={{
+                    padding:"20px"
+                }}>
+                    <div style={{
+                        justifyContent:"space-between",
+                    }} className="d-flex">
+                        {title ? <h3 style={{marginBottom:"3px"}}>{title}</h3> : null}
+                        {topRightBtn ? <Button
+                        href={topRightBtnLink}
+                        style={{height:"fit-content",marginBottom:"10px"}}
+                        variant="light">{topRightBtnCaption}</Button> : null}
+                    </div>
+                    {subtitle1 ? <h5 style={{fontWeight:400,fontSize:"20px"}}>{subtitle1}</h5> : null}
+                    {subtitle2 ? <h6 style={{fontWeight:400,fontSize:"18px"}}>{subtitle2}</h6> : null}
+                    {updated ? <h6 style={{fontWeight:100,fontSize:"18px"}}>Updated on <strong>{updated}</strong></h6> : null}
                     <hr></hr>
-                    <Button
-                href={bottomLeftBtnLink}
-                className="d-flex align-items-center"
-                style={{height:"fit-content", width:"fit-content",fontSize:"24px",fontWeight:600}}
-                variant="light">
-                    {bottomLeftBtnIconUrl ? <img style={{width:"25px",marginRight:"7px"}} src={bottomLeftBtnIconUrl} alt={bottomLeftBtnCaption}/> : null}
-                    {bottomLeftBtnCaption}
-                    </Button>
-                </div> : null}
+                    {
+                        desc ? (
+                            <div style={{
+                                fontWeight:100,
+                                marginBottom:"10px",
+                                fontSize:"18px"
+                            }} className="gridbox-desc">
+                                {desc}
+                            </div>
+                        ) : null
+                    }
+                    {techStack ? <h5 style={{fontSize:"22px"}}><u>Tech Stack:</u></h5> : null}
+                    <div className="gridbox-techstack d-flex flex-wrap">
+                        {
+                            techStack 
+                            ? 
+                            techStack.map((tag,index) => {
+                                return (
+                                    <Tag 
+                                    tag={tag}
+                                    key={index}
+                                    />
+                                )
+                            })
+                            : null
+                        }
+                    </div>
+                    {bottomLeftBtn ? <div>
+                        <hr></hr>
+                        <Button
+                    href={bottomLeftBtnLink}
+                    className="d-flex align-items-center"
+                    style={{height:"fit-content", width:"fit-content",fontSize:"24px",fontWeight:600}}
+                    variant="light">
+                        {bottomLeftBtnIconUrl ? <img style={{width:"25px",marginRight:"7px"}} src={bottomLeftBtnIconUrl} alt={bottomLeftBtnCaption}/> : null}
+                        {bottomLeftBtnCaption}
+                        </Button>
+                    </div> : null}
+                </div>
             </Container>
         )
     }

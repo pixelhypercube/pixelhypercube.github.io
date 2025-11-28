@@ -21,7 +21,6 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      age:this.calculateAge(),
       nameCycle: ["Kai Jie","KJ","Kendrick"],
       nameIndex: 0,
       name:"Kai Jie",
@@ -60,18 +59,6 @@ export default class Home extends React.Component {
     setInterval(()=>{
       this.setState({nameIndex:(this.state.nameIndex + 1) % this.state.nameCycle.length},()=>this.typeName(this.state.nameIndex,this.state.name,"delete"));
     },delay);
-  }
-
-  // helper function to calculate age :)
-  calculateAge() {
-    const today = new Date();
-    const birthDate = new Date("09/30/2002");
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-
-    if (monthDifference<0 || (monthDifference===0 && today.getDate()<birthDate.getDate())) age--;
-    return age;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -172,7 +159,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const {age, mouseX, mouseY, mouseIsDown, isHoveringAvatar, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
+    const {mouseX, mouseY, mouseIsDown, isHoveringAvatar, gridBoxDialogIndex, gridBoxDialogVisible} = this.state;
     return (
       <div
       // special style to prevent overlay canvas from blocking interactions
@@ -206,7 +193,7 @@ export default class Home extends React.Component {
               <h1 style={{fontSize:"80px"}}>{this.state.name} <span id="typer"></span></h1>
             </div>
             <div className="col-md-8">
-              <h4><span>{age}</span> y.o. CS Undergrad @ NTU | Tinkerer, Runner & Cuber</h4>
+              <h4>CS Undergrad @ NTU | Tinkerer & Software Creator</h4>
             </div>
           </Container>
           <Container style={{
@@ -246,7 +233,7 @@ export default class Home extends React.Component {
                   document.getElementById("side-projects-container")
                   .scrollIntoView({behavior:"smooth",block:"start"});
                 }}>projects</span> 🛠️, sharing knowledge & experiences through my <Link to="/blogs">blogs</Link> 📃, 
-                  and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Repository Website</a> 📚.
+                  and maintaining my <a href="https://pixelhypercube.github.io/ntu">NTU Coursework Repository</a> 📚.
               </p>
               <p style={{fontSize:"20px"}}>In my free time, you can find me playing Minecraft, speedsolving Rubik's Cubes, reading, running (at night 🌚) and hitting the gym!</p>
               <p style={{fontWeight:400,fontSize:"20px"}}>Enjoy your stay here ;)</p>
@@ -286,7 +273,7 @@ export default class Home extends React.Component {
               subtitle2={(
                 <div>
                   <span>Dec 2022 - Aug 2024, </span>
-                  <span><sup>*</sup>May 2025 - Jul 2025</span>
+                  <span>May 2025 - Jul 2025</span>
                 </div>
               )}
               // subtitle2={"Dec 2022 - Aug 2024 & May 2025 - Jul 2025"}
@@ -300,10 +287,9 @@ export default class Home extends React.Component {
                     Upon resumption, I joined the Personnel Admin Link (PAL) programming team to again, speedrun the testing & development process, as well as multitask between showcasing the app.
 
                     */}
-                    <li>Developed an email-generated QR Code attendance tracking system that let hundreds of attendees speedrun through tedious attendance tracking methods during non-training events, where I was even featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a>! 📰</li>
-                    <li>Also sucessfully speedran through the testing phase of Telegram chatbots and exterminated many bugs in them (in an eco-friendly way)! 🧹</li>
-                    <li>Upon resuming my service in 2025, I joined the <sup>†</sup>Personnel Admin Link (PAL) programming team to again, speedrun the development process; where I conducted rounds of operational testing of the app & came up with new features, including a mobile app variant.</li>
-                    <li>Felt lucky to do programming while wearing green 🪖, and also learned how to grow as a coder <i>and</i> as a human being.</li>
+                    <li>Didn't expect myself to be programming a QR Code attendance scanning system while wearing green 🪖, where my team was eventually featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a>! 📰</li>
+                    <li>Also did a lot of speedrunning on testing & debugging my unit's in-house systems (Telegram bots, Excel files, etc.), while simultaneously doing my own clerical stuff! 🧑‍💻</li>
+                    <li>It was mentally tough, especially having to disrupt my service to study my 1st year at NTU, but was quite an interesting way to serve my NS! 🫡</li>
                     {/* <li>Developed a QR Code attendance tracking system that lets attendees speedrun through tedious attendance tracking methods via the usage of email-generated QR Codes 📨</li>
                     <li style={{marginLeft:"20px",listStyle:"circle"}}>One of my biggest achievements was that I allowed 200+ participants to mark their attendance efficiently at the SAF Pers Hubs' Total Defence Day event in February 2023! 🍾</li>
                     <li style={{marginLeft:"20px",listStyle:"circle"}}>Featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> 📰 for my contributions to the programming team 🎉</li>
@@ -316,31 +302,31 @@ export default class Home extends React.Component {
                     <li>Outstanding Soldier of the Month for June 2025</li>
                   </ul>
 
-                  <small><sup>*</sup>Disrupted my service in Aug 2024 to pursue my 1st year in NTU (Aug 2024 - May 2025).</small>
+                  {/* <small><sup>*</sup>Disrupted my service in Aug 2024 to pursue my 1st year in NTU (Aug 2024 - May 2025).</small>
                   <br/>
-                  <small><sup>†</sup>A Microsoft PowerApps-based tasking platform for managing manpower assignments across Personnel Nodes.</small>
+                  <small><sup>†</sup>A Microsoft PowerApps-based tasking platform for managing manpower assignments across Personnel Nodes.</small> */}
                 </div>
               )}
               techStack={["HTML","CSS","Javascript","EJS","MS Office Suite","MongoDB","Postman","Node.js"]}
               />
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
-              title={"🧑‍💻 Web Developer"}
-              subtitle1={"Freelance (Pro Bono)"}
-              subtitle2={"Feb 2022 - Oct 2022"}
+              title={"🧑‍💻 Pro Bono Web Developer"}
+              subtitle1={"Eco Exchange Pte. Ltd."}
+              subtitle2={"Oct 2021 - May 2022"}
               desc={(
                 <div>
                   <ul>
-                    <li>Extended my Polytechnic's Final Year Project into a pro bono dev gig — added features, fixed pesky bugs, and helped support real customer issues for <strong>EcoExchange Pte Ltd</strong>'s intranet website.</li>
-                    <li>Created profile cards using <strong>Next.js</strong> for <strong>Autodesk</strong> using <strong>TypeScript</strong>, improving testing workflows and UI stability—because flaky UIs are the final boss no one asked for. ⚔️💀</li>
+                    <li>Supported a team of 2 developers (as Deputy Lead) to build an intranet system digitizing their processes to save Mother Earth. 🌍</li>
+                    <li>Digitized over 700 recycling tickets to successfully eliminate inefficient paper input!</li>
                   </ul>
                 </div>
               )}
-              techStack={["HTML","CSS","Javascript","Postman","React.js","Next.js","Typescript"]}
+              techStack={["HTML","CSS","Javascript","Postman"]}
               />
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
               title={"🛠️ Software Engineer Intern"}
               subtitle1={"Leaptron Engineering Pte. Ltd."}
@@ -348,8 +334,9 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Created Android apps (Java), C# programs, and Node.js servers integrated with MySQL databases designed for scalability and reliability — basically, a one-person full-stack buffet. 🍴</li>
-                    <li>Used Appgyver (now SAP Build Apps) and Modbus to connect IoT devices, impressing everyone who thought IoT was just "Wi-Fi for fridges."</li>
+                    <li>For my first internship, I created a full-stack buffet of C# applications and Node.js servers integrated with MySQL. 🍴</li>
+                    <li>I leveraged Modbus to connect with IoT devices, impressing those who thought the Internet of Things was just "Wi-Fi for fridges."</li>
+                    <li>My full-stack solutions were deployed and actively used by 20+ staff members for their core daily processes!</li>
                   </ul>
                 </div>
               )}
@@ -378,7 +365,7 @@ export default class Home extends React.Component {
             <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSchool} /> Education</h1>
             <div className="container-education d-flex flex-wrap justify-content-center">
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
               title={"Nanyang Technological University"}
               subtitle1={"Bachelor of Computing (Honours) in Computer Science"}
@@ -394,15 +381,14 @@ export default class Home extends React.Component {
               )}
               />
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
               title={"Singapore Polytechnic"}
-              subtitle1={"Diploma in Information Technology"}
+              subtitle1={"Diploma in Information Technology (Software & Apps Specialization)"}
               subtitle2={"Apr 2019 - Mar 2022"}
               desc={(
                 <div>
                   <ul>
-                    <li>Specialized in Software & Applications</li>
                     <li>Decided with Polytechnic instead of IB as I wanted to continue being a tech nerd 🧑‍💻 (<a href="/#/blogs/8">see my blog here!</a>)</li>
                   </ul>
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
@@ -414,7 +400,7 @@ export default class Home extends React.Component {
               )}
               />
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
               title={"Anglo-Chinese School (International)"}
               subtitle1={"Cambridge IGCSE"}
@@ -422,14 +408,14 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
-                    <li>Was previously an Archery CCA member in 2016, but decided to change to philharmonic orchestra to join my sister in the CCA.</li>
+                    <li>Was previously an Archery CCA member in 2016, but decided to change to Philharmonic Orchestra to join my sister in the CCA.</li>
                     <li>Despite having little to no musical background, I played the double bass 🎻 and was surprisingly promoted to section lead!</li>
                   </ul>
                 </div>
               )}
               />
               <GridBox
-              colWidthL={6}
+              colWidthL={9}
               colWidthS={12}
               title={"Anglo-Chinese School (Barker Road)"}
               subtitle2={"Jan 2015 - Dec 2015"}
@@ -437,7 +423,7 @@ export default class Home extends React.Component {
                 <div>
                   <ul>
                     <li>Member of Robotics CCA, where I get to have hands-on interaction with LEGO Mindstorms robots! 🤖</li>
-                    <li>Transferred to ACS (International) after Sec 1, to pursue the Cambridge IGCSE curriculum</li>
+                    <li>Transferred to ACS (International) after Sec 1, to pursue the Cambridge IGCSE curriculum.</li>
                   </ul>
                   <h6 style={{fontSize:"22px"}}>Awards 🎖️</h6>
                   <ul>
@@ -463,7 +449,7 @@ export default class Home extends React.Component {
                       month:"short",
                       year:"numeric"
                     }) : ""}
-                    colWidthL={6}
+                    colWidthL={6} 
                     colWidthS={12}
                     key={index}
                     imageUrl={proj["image_location"]}

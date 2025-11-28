@@ -3,6 +3,19 @@ const codingVideosFolder = "./assets/video/coding_proj/";
 
 var projInfo = [
     {
+        "proj_id":19,
+        "title":"Internship Placement Management System",
+        "updated":new Date("11/19/2025"),
+        "description": "A Java CLI application that helps simulate an internship management hub for students, company representatives & managers at NTU! Made for SC2002 - Object Oriented Design & Programming.",
+        "brief_description": "Emulated an internship management hub in a Java CLI application, made for SC2002 - Object Oriented Design & Programming!",
+        "image_location": codingImgsFolder + "coding_proj19.png",
+        "video_location": codingVideosFolder + "coding_proj19.gif",
+        "gh_link": "https://github.com/pixelhypercube/sc2002-oop",
+        "tech_stack":[
+            "Java"
+        ]
+    },
+    {
         "proj_id":18,
         "title":"Astertris (Beta)",
         "updated":new Date("10/5/2025"),
@@ -39,7 +52,7 @@ var projInfo = [
         "title": "CellCollab",
         "updated":new Date("6/12/2025"),
         "description":"A multiplayer sandbox implementation of Conway's Game of Life with real-time interactions. Made using React.js and Socket.IO.",
-        "brief_description": "A multiplayer sandbox implementation of Conway's Game of Life with real-time interactions. Made using React.js and Socket.IO.",
+        "brief_description": "A multiplayer sandbox implementation of Conway's Game of Life with real-time interactions.",
         "title_jp": "セルコラボ",
         "title_zh": "细胞协作",
         "brief_description_jp": "React.jsとSocket.IOを使用して作られた、コンウェイのライフゲームをマルチプレイヤーで楽しめるリアルタイムのサンドボックスです。",
