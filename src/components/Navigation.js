@@ -128,7 +128,7 @@ class Navigation extends React.Component {
                                 <HoverDialog
                                     visible={resumeIsHovering}
                                     dialogWidth={70}
-                                    name={"View Résumé"}
+                                    name={"Resume"}
                                 />
                             </div>
                         </Nav>

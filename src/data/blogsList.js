@@ -498,7 +498,7 @@ const blogsList = [
                 </div>
                 <p>One of those special interests during my teens included experimenting with Minecraft with advanced functionalities, such as the use of command blocks and speed-solving Rubik's Cubes. I had even made numerous YouTube videos about these, showing that I was deeply passionate about my hobbies. </p>
                 
-                <p>Additionally, it's interesting to note that during my ASD screening, I discovered I was intellectually gifted, as one section required me to take an IQ test. My official results revealed that my core abstract reasoning and analytical abilities were very high. However, this potential was hidden in the shadows of the significant challenges of my neurodivergence, defining me as <i>Twice Exceptional (2e)</i>.</p>
+                <p>During my ASD screening, the evaluation included a cognitive assessment that presented a paradox: while my abstract reasoning and analytical abilities tested very high, this potential was often obscured by the significant challenges of my neurodivergence. This unique combination is what defines me as <i>Twice Exceptional (2e)</i>.</p>
                 
                 <p>This explains why I was genuinely interested in hobbies that involved tinkering with Minecraft and using my spatial recognition abilities by speed solving Rubik&#039;s Cubes, interests shared by only a small minority of my peers.</p>
                 
@@ -562,7 +562,7 @@ const blogsList = [
                         <tr>
                             <td>Intellectually Gifted</td>
                             <td>(Core Ability)</td>
-                            <td>Having a high cognitive score that places one in the top 2% of the general population for abstract reasoning and analytical thinking.</td>
+                            <td>A neurological framework characterized by an ability to process information rapidly and understand complex abstract concepts, often accompanied by asynchronous development.</td>
                         </tr>
                     </tbody>
                 </Table>

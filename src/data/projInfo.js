@@ -122,24 +122,6 @@ var projInfo = [
         ]
     },
     {
-        "proj_id": 4,
-        "title": "CPP Physics",
-        "updated": new Date("5/1/2025"),
-        "description": "A mini C++ console program that simulates physics between objects, which includes collision and gravitational effects of physical objects.",
-        "brief_description": "A mini C++ console program that simulates physics between objects!",
-        "title_jp": "CPP物理シミュレーション",
-        "title_zh": "CPP 物理模拟器",
-        "brief_description_jp": "物体間の物理をシミュレーションする小さなC++プログラム！",
-        "brief_description_zh": "一个模拟物体间物理互动的小型 C++ 程序！",
-        "image_location": codingImgsFolder + "coding_proj15.png",
-        "video_location": codingVideosFolder + "coding_proj15.gif",
-        "link": "https://github.com/pixelhypercube/Side-Projects/tree/main/CPP-Physics",
-        "gh_link": "https://github.com/pixelhypercube/Side-Projects/tree/main/CPP-Physics",
-        "tech_stack":[
-            "C++"
-        ]
-    },
-    {
         "proj_id": 6,
         "title": "Loves Me... ?",
         "title_jp": "ラブ・ミー...?",

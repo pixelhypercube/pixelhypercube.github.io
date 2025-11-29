@@ -19,10 +19,15 @@ export default class HoverDialog extends React.Component {
                 border:"2px solid white",
                 textAlign:"center",
                 boxShadow:"4px 4px 20px rgba(0,0,0,0.5)",
-                animationDuration:"1s",
-                display:visible ? "block" : "none",
                 pointerEvents:"none",
                 zIndex:5,
+
+                // TRANSITIONS
+                opacity:visible ? 1 : 0,
+                transform: visible ? "translateY(0px)" : "translateY(-10px)",
+                transition:"all 0.2s ease-out",
+                visibility: visible ? "visible" : "hidden",
+                transitionProperty: "opacity, transform, visibility"
             }}>
                 <p style={{
                     fontSize:"16px",

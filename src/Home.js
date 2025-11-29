@@ -307,18 +307,18 @@ export default class Home extends React.Component {
               <GridBox
               colWidthL={9}
               colWidthS={12}
-              title={"🧑‍💻 Pro Bono Web Developer"}
+              title={"🧑‍💻 Lead Frontend Developer (Final Year Project, Singapore Polytechnic)"}
               subtitle1={"Eco Exchange Pte. Ltd."}
               subtitle2={"Oct 2021 - May 2022"}
               desc={(
                 <div>
                   <ul>
-                    <li>Supported a team of 2 developers (as Deputy Lead) to build an intranet system digitizing their processes to save Mother Earth. 🌍</li>
-                    <li>Digitized over 700 recycling tickets to successfully eliminate inefficient paper input!</li>
+                    <li>Led the frontend architecture and coordinated a team of 2 developers to build a responsive intranet system, replacing manual workflows with digital solutions.</li>
+                    <li>Successfully processed over 700+ recycling tickets during the pilot phase, eliminating paper inefficiencies and streamlining data entry.</li>
                   </ul>
                 </div>
               )}
-              techStack={["HTML","CSS","Javascript","Postman"]}
+              techStack={["HTML","CSS","Javascript","Git","Postman"]}
               />
               <GridBox
               colWidthL={9}
