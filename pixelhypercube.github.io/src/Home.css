@@ -1,0 +1,39 @@
+@keyframes blinking {
+  0%, 100% { border-left: 4px solid white; }
+  50%      { border-left: 4px solid rgba(255,255,255,0); }
+}
+
+span#typer {
+  border-left:4px solid white;
+  margin-left:5px;
+  animation: blinking 1s ease-in-out infinite;
+}
+
+a.btn {
+  border-radius:15px;
+}
+
+footer {
+  background-color: rgba(225,255,255,0.1);
+}
+
+p {
+  font-weight: 100;
+}
+
+.me-auto {
+  font-size:20px;
+  color:white;
+}
+
+span#side-proj-link {
+  text-decoration: underline;
+}
+
+a, span#side-proj-link {
+  color:#ffffff;
+}
+
+a:hover, span#side-proj-link:hover {
+  color:#cacaca;
+}

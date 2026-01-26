@@ -241,7 +241,6 @@ export default class Home extends React.Component {
           </Container>
         </header>
         <main>
-          {/* SKILLS */}
           <Container style={{marginBottom:"150px"}}>
             <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faGear} /> Skills</h1>
             {
@@ -263,7 +262,6 @@ export default class Home extends React.Component {
               ))
             }
           </Container>
-          {/* EXPERIENCE */}
           <Container style={{marginBottom:"150px"}}>
             <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSuitcase} /> Experience</h1>
             <div className="container-experiences d-flex flex-wrap justify-content-center">
@@ -282,6 +280,13 @@ export default class Home extends React.Component {
               desc={(
                 <div>
                   <ul>
+                    {/* 
+                    
+                    Develoepd an email-generated QR Code attendance tracking system that let hundreds of attendees speedrun through tedious attendance tracking methods, where I was even featured on Army News!
+                    Went through numerous testing phases of certain apps in HQ.
+                    Upon resumption, I joined the Personnel Admin Link (PAL) programming team to again, speedrun the testing & development process, as well as multitask between showcasing the app.
+
+                    */}
                     <li>Didn't expect myself to be programming a QR Code attendance scanning system while wearing green 🪖, where my team was eventually featured on <a href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a>! 📰</li>
                     <li>On top of my regular 'admin warrior' duties, I also speedran the testing & debugging of my unit's in-house systems (Telegram bots, Excel files, etc.)!</li>
                     <li>Despite the challenges of disrupting for my freshman year at NTU, I'm grateful to have had such a unique and interesting way to serve NS! 🫡</li>
@@ -341,7 +346,7 @@ export default class Home extends React.Component {
                 fontSize:"24px",
                 fontWeight:500,
               }}
-              variant="light" className="d-flex" href="./Teo_Kai_Jie_Kendrick_Resume.pdf">
+              variant="light" className="d-flex" href="./Resume_TeoKaiJie.pdf">
               <img alt="resume-icon" style={{
                 width:"25px",
                 filter:"brightness(0)",
@@ -351,62 +356,6 @@ export default class Home extends React.Component {
               </Button>
             </div>
           </Container>
-          {/* PROJECTS */}
-          <Container id="side-projects-container" style={{marginBottom:"150px"}}>
-            <h1 style={{textAlign:"center",fontSize:"50px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Projects</h1>
-            <h5 style={{textAlign:"center",marginBottom:"40px"}}>Click on a project to expand!</h5>
-            <div className="container-side-projects d-flex flex-wrap justify-content-center">
-              {
-                projInfo.map((proj,index)=>(
-                  <GridBox
-                    onClick={()=>this.setState({
-                      gridBoxDialogIndex:index,
-                      gridBoxDialogVisible:true,
-                    })}
-                    updated={(proj["updated"]) ? proj["updated"].toLocaleDateString("en-US", {
-                      month:"short",
-                      year:"numeric"
-                    }) : ""}
-                    colWidthL={6} 
-                    colWidthS={12}
-                    key={index}
-                    imageUrl={proj["image_location"]}
-                    title={proj["title"]}
-                    desc={proj["brief_description"]}
-                    techStack={proj["tech_stack"]}
-                    // bottomLeftBtn={true}
-                    // bottomLeftBtnCaption={"Project Link"}
-                    // bottomLeftBtnLink={proj["link"]}
-                    // bottomLeftBtnIconUrl={"./assets/img/icons/link.svg"}
-                  />
-                ))
-              }
-            </div>
-            <div className="d-flex justify-content-center">
-              {/* <Button variant="light" style={{
-                fontWeight:500,
-                fontSize:"24px"
-              }} href="./proj">
-                Click to view more!
-              </Button> */}
-            </div>
-            <GridDialog
-              ref={this.gridDialogRef}
-              visible={gridBoxDialogVisible}
-              updated={projInfo[gridBoxDialogIndex]?.updated.toLocaleDateString("en-US", {
-                      month:"short",
-                      year:"numeric"
-                    })}
-              imageUrl={projInfo[gridBoxDialogIndex]?.image_location}
-              videoUrl={projInfo[gridBoxDialogIndex]?.video_location}
-              title={projInfo[gridBoxDialogIndex]?.title}
-              desc={projInfo[gridBoxDialogIndex]?.description}
-              techStack={projInfo[gridBoxDialogIndex]?.tech_stack}
-              ghLink={projInfo[gridBoxDialogIndex]?.gh_link}
-              webLink={projInfo[gridBoxDialogIndex]?.web_link}
-            />
-          </Container>
-          {/* EDUCATIOn */}
           <Container style={{marginBottom:"150px"}}>
             <h1 style={{textAlign:"center",fontSize:"50px",marginBottom:"50px"}}><FontAwesomeIcon icon={faSchool} /> Education</h1>
             <div className="container-education d-flex flex-wrap justify-content-center">
@@ -479,6 +428,60 @@ export default class Home extends React.Component {
               }
               />
             </div>
+          </Container>
+          <Container id="side-projects-container" style={{marginBottom:"150px"}}>
+            <h1 style={{textAlign:"center",fontSize:"50px"}}><FontAwesomeIcon icon={faProjectDiagram} /> Projects</h1>
+            <h5 style={{textAlign:"center",marginBottom:"40px"}}>Click on a project to expand!</h5>
+            <div className="container-side-projects d-flex flex-wrap justify-content-center">
+              {
+                projInfo.map((proj,index)=>(
+                  <GridBox
+                    onClick={()=>this.setState({
+                      gridBoxDialogIndex:index,
+                      gridBoxDialogVisible:true,
+                    })}
+                    updated={(proj["updated"]) ? proj["updated"].toLocaleDateString("en-US", {
+                      month:"short",
+                      year:"numeric"
+                    }) : ""}
+                    colWidthL={6} 
+                    colWidthS={12}
+                    key={index}
+                    imageUrl={proj["image_location"]}
+                    title={proj["title"]}
+                    desc={proj["brief_description"]}
+                    techStack={proj["tech_stack"]}
+                    // bottomLeftBtn={true}
+                    // bottomLeftBtnCaption={"Project Link"}
+                    // bottomLeftBtnLink={proj["link"]}
+                    // bottomLeftBtnIconUrl={"./assets/img/icons/link.svg"}
+                  />
+                ))
+              }
+            </div>
+            <div className="d-flex justify-content-center">
+              {/* <Button variant="light" style={{
+                fontWeight:500,
+                fontSize:"24px"
+              }} href="./proj">
+                Click to view more!
+              </Button> */}
+            </div>
+            <GridDialog
+              ref={this.gridDialogRef}
+              visible={gridBoxDialogVisible}
+              updated={projInfo[gridBoxDialogIndex]?.updated.toLocaleDateString("en-US", {
+                      month:"short",
+                      year:"numeric"
+                    })}
+              imageUrl={projInfo[gridBoxDialogIndex]?.image_location}
+              videoUrl={projInfo[gridBoxDialogIndex]?.video_location}
+              title={projInfo[gridBoxDialogIndex]?.title}
+              desc={projInfo[gridBoxDialogIndex]?.description}
+              techStack={projInfo[gridBoxDialogIndex]?.tech_stack}
+              ghLink={projInfo[gridBoxDialogIndex]?.gh_link}
+              webLink={projInfo[gridBoxDialogIndex]?.web_link}
+            />
           </Container>
         </main>
         <Footer/>

@@ -1,0 +1,89 @@
+.blog {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding:10px 15px 1px 15px;
+    margin:15px 0px 15px 0px;
+    border-radius:20px;
+}
+
+.blog:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.blog:active {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin:4px 0px;
+}
+.blog-timestamp {
+    font-size: 1rem;
+    margin:4px 0px;
+}
+.blog-meta {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin:4px 0px;
+}
+
+#tag-list .btn-tag {
+    border:2px solid white;
+    margin:5px 10px 5px 0px;
+    padding:5px 10px 5px 10px;
+    border-radius:10px;
+}
+#tag-list .btn-tag-selected {
+    border:2px solid white;
+    background-color: white;
+    color:#212529;
+}
+
+.post-tags {
+    margin: 5px 0px;
+}
+
+.post-tags .tag-cell {
+    border:2px solid white;
+    padding:5px 10px 5px 10px;
+    border-radius:10px;
+    font-size:0.9rem;
+    margin:5px 10px 5px 0px;
+}
+
+#tag-list .btn-tag .tag-checked {
+    display:none;
+}
+#tag-list .btn-tag-selected .tag-checked {
+    display:inline;
+}
+
+/* FORM */
+
+.form-control {
+    background-color: #ffffff00;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 20px;
+    height:100%;
+    font-size:18px;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.form-control:focus {
+    outline:none;
+    box-shadow:none; 
+    background-color: #555;
+    border: 1px solid #888;
+    color: #fff;
+}
+
+/* REDDIT */
+
+iframe[src*="embed.reddit.com"] {
+  margin: 0 !important;
+}

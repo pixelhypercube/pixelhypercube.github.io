@@ -642,7 +642,7 @@ const blogsList = [
                 <small>* International General Certificate of Secondary Education</small>
             </div>
         )
-    },
+    }
 ];
 
 const blogsObj = {blogsList,blogTagsList}

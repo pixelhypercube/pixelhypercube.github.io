@@ -1,0 +1,9 @@
+#blogBody img {
+    border:2px solid white;
+    border-radius:10px;
+    max-width: 90vw;
+}
+
+p {
+    font-size:18px;
+}
