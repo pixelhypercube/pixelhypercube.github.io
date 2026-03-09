@@ -8,11 +8,22 @@ export default class SkillBox extends React.Component {
         this.state = {};
     }
 
+    getProficiencyColor(proficiency) {
+        switch (proficiency) {
+            case "Proficient":
+                return "#e06c75";
+            case "Familiar":
+                return "#e5c07b";
+            default:
+                return "#ffffff";
+        }
+    }
+
     render() {
-        const {skill} = this.props;
+        const {skill,proficiency} = this.props;
         return (
             <div style={{
-                background:"white",
+                background:this.getProficiencyColor(proficiency),
                 borderRadius:"10px",
                 width:"fit-content",
                 color:"black",

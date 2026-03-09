@@ -193,7 +193,7 @@ export default class Home extends React.Component {
               <h1 style={{fontSize:"80px"}}>{this.state.name} <span id="typer"></span></h1>
             </div>
             <div className="col-md-8">
-              <h4>CS Undergrad @ NTU | Tinkerer & Software Creator</h4>
+              <h4>CS Tinkerer & Builder @ NTU</h4>
             </div>
           </Container>
           <Container style={{
@@ -227,7 +227,7 @@ export default class Home extends React.Component {
             className="col-md-7 col-12"
             id="header-2">
               <p style={{fontSize:"20px"}}>Hi!👋 I'm currently a second-year Computer Science undergrad at Nanyang Technological University (NTU)!</p>
-              <p style={{fontSize:"20px"}}>Ever since I was young, I've been fascinated by computers and curious about how they work!</p>
+              <p style={{fontSize:"20px"}}>I'm a builder at heart - whether I'm coding web apps, developing games, or drawing pixel art!</p>
               <p style={{fontSize:"20px"}}>
                 I enjoy tinkering with <span id="side-proj-link" onClick={()=>{
                   document.getElementById("side-projects-container")
@@ -252,9 +252,14 @@ export default class Home extends React.Component {
                     {
                       Object.keys(tags)
                       .filter(item=>tags[item]["type"]===type)
+                      .sort((a,b) => {
+                        const priority = { "Proficient": 0, "Familiar": 1 };
+                        return priority[tags[a].proficiency] - priority[tags[b].proficiency];
+                      })
                       .map((item,skillIndex)=>(
                         <SkillBox
                         key={skillIndex}
+                        proficiency={tags[item]["proficiency"]}
                         skill={item}/>
                       ))
                     }
@@ -262,6 +267,26 @@ export default class Home extends React.Component {
                 </div>
               ))
             }
+            <div style={{ 
+              marginTop:"40px", 
+              display:"flex", 
+              justifyContent:"center", 
+              alignItems:"center",
+              gap:"30px",
+              flexWrap:"wrap",
+              color:"#b9b9b9"
+            }}>
+              <h6 style={{margin:0}}>Legend:</h6>
+              <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+                <div style={{width:"12px",height:"12px",borderRadius:"50%",background:"#e06c75"}}></div>
+                <span style={{fontSize:"14px"}}><strong>Proficient</strong></span>
+              </div>
+              <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+                <div style={{width:"12px",height:"12px",borderRadius:"50%",background:"#e5c07b"}}></div>
+                <span style={{fontSize:"14px"}}><strong>Familiar</strong></span>
+              </div>
+            </div>
+            
           </Container>
           {/* EXPERIENCE */}
           <Container style={{marginBottom:"150px"}}>
