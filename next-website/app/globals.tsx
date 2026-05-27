@@ -1,0 +1,1403 @@
+// export const skills : Record<any,any> = {
+//     "frontend" 
+// }
+
+
+// DARK MODE
+import skill_dark_react from "./voxelModels/skills/dark/react.json"
+import skill_dark_next1 from "./voxelModels/skills/dark/next1.json"
+import skill_dark_next2 from "./voxelModels/skills/dark/next2.json"
+import skill_dark_tailwind from "./voxelModels/skills/dark/tailwind.json"
+import skill_dark_nodejs from "./voxelModels/skills/dark/nodejs.json"
+import skill_dark_express from "./voxelModels/skills/dark/express.json"
+import skill_dark_postgresql from "./voxelModels/skills/dark/postgresql.json"
+import skill_dark_mysql from "./voxelModels/skills/dark/mysql.json"
+import skill_dark_websockets from "./voxelModels/skills/dark/websockets.json"
+import skill_dark_git from "./voxelModels/skills/dark/git.json"
+import skill_dark_github from "./voxelModels/skills/dark/github.json"
+
+import skill_dark_javascript from "./voxelModels/skills/dark/javascript.json"
+import skill_dark_python from "./voxelModels/skills/dark/python.json"
+import skill_dark_java from "./voxelModels/skills/dark/java.json"
+import skill_dark_cs from "./voxelModels/skills/dark/cs.json"
+import skill_dark_c from "./voxelModels/skills/dark/c.json"
+import skill_dark_cpp from "./voxelModels/skills/dark/cpp.json"
+import skill_dark_html from "./voxelModels/skills/dark/html.json"
+import skill_dark_css from "./voxelModels/skills/dark/css.json"
+
+import skill_dark_figma from "./voxelModels/skills/dark/figma.json"
+import skill_dark_canva from "./voxelModels/skills/dark/canva.json"
+
+// light MODE
+import skill_light_react from "./voxelModels/skills/light/react.json"
+import skill_light_next1 from "./voxelModels/skills/light/next1.json"
+import skill_light_next2 from "./voxelModels/skills/light/next2.json"
+import skill_light_tailwind from "./voxelModels/skills/light/tailwind.json"
+import skill_light_nodejs from "./voxelModels/skills/light/nodejs.json"
+import skill_light_express from "./voxelModels/skills/light/express.json"
+import skill_light_postgresql from "./voxelModels/skills/light/postgresql.json"
+import skill_light_mysql from "./voxelModels/skills/light/mysql.json"
+import skill_light_websockets from "./voxelModels/skills/light/websockets.json"
+import skill_light_git from "./voxelModels/skills/light/git.json"
+import skill_light_github from "./voxelModels/skills/light/github.json"
+
+import skill_light_figma from "./voxelModels/skills/light/figma.json"
+import skill_light_canva from "./voxelModels/skills/light/canva.json"
+
+import skill_light_javascript from "./voxelModels/skills/light/javascript.json"
+import skill_light_python from "./voxelModels/skills/light/python.json"
+import skill_light_java from "./voxelModels/skills/light/java.json"
+import skill_light_cs from "./voxelModels/skills/light/cs.json"
+import skill_light_c from "./voxelModels/skills/light/c.json"
+import skill_light_cpp from "./voxelModels/skills/light/cpp.json"
+import skill_light_html from "./voxelModels/skills/light/html.json"
+import skill_light_css from "./voxelModels/skills/light/css.json"
+
+import experience_ns_qrcode from "./voxelModels/experience/ns/qrcode.json"
+import experience_ns_army_news from "./voxelModels/experience/ns/army_news.json"
+import experience_ns_telegram from "./voxelModels/experience/ns/telegram.json"
+import experience_ns_powerapps from "./voxelModels/experience/ns/powerapps.json"
+import experience_ns_osom from "./voxelModels/experience/ns/osom.json"
+
+import experience_ecoexchange_frontend from "./voxelModels/experience/ecoexchange/frontend.json"
+import experience_ecoexchange_tickets from "./voxelModels/experience/ecoexchange/tickets.json"
+
+
+import experience_leaptron_winforms from "./voxelModels/experience/leaptron/winforms.json"
+import experience_leaptron_db_nodejs from "./voxelModels/experience/leaptron/db_nodejs.json"
+import experience_leaptron_appgyver from "./voxelModels/experience/leaptron/appgyver.json"
+
+import sc1007 from "./voxelModels/edu/ntu/rel_coursework/sc1007.json"
+import sc1008 from "./voxelModels/edu/ntu/rel_coursework/sc1008.json"
+import sc2001 from "./voxelModels/edu/ntu/rel_coursework/sc2001.json"
+import sc2002 from "./voxelModels/edu/ntu/rel_coursework/sc2002.json"
+import sc2006 from "./voxelModels/edu/ntu/rel_coursework/sc2006.json"
+import roadRelay from "./voxelModels/edu/ntu/activities/road_relay.json"
+import hallX from "./voxelModels/edu/ntu/activities/hallx.json"
+import strings from "./voxelModels/edu/acsint/activities/strings.json"
+import archery from "./voxelModels/edu/acsint/activities/archery.json"
+import lego_mindstorms from "./voxelModels/edu/acsint/activities/lego_mindstorms.json"
+
+import { 
+  DiJavascript1, DiPython, DiHtml5, DiCss3, DiReact, DiNodejsSmall, DiPostgresql, DiMysql, 
+  DiJava,
+  DiExtjs,
+  DiAndroid,
+  DiGit,
+  DiGithub
+} from 'react-icons/di';
+import { 
+  SiC, SiCplusplus, SiNextdotjs, SiTailwindcss, SiExpress
+} from 'react-icons/si';
+
+import { TbBrandCSharp } from 'react-icons/tb';
+import { FaNetworkWired } from 'react-icons/fa';
+
+// export const ntu_coursework : Record<string, string> = {
+//     "SC1008": "C & C++ Programming",
+//     "SC2002": "Object Oriented Design & Programming",
+//     "SC2006": "Software Engineering",
+// }
+
+export const skills : Record<any, any> = {
+    "languages": [
+        {
+            "name":"Javascript (ES6)",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_javascript,
+            "jsonModelLight":skill_light_javascript
+        },
+        {
+            "name":"Python",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_python,
+            "jsonModelLight":skill_light_python
+        },
+        {
+            "name":"Java",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_java,
+            "jsonModelLight":skill_light_java
+        },
+        {
+            "name":"C#",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_cs,
+            "jsonModelLight":skill_light_cs
+        },
+        {
+            "name":"C",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_c,
+            "jsonModelLight":skill_light_c
+        },
+        {
+            "name":"C++",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_cpp,
+            "jsonModelLight":skill_light_cpp
+        },
+        {
+            "name":"HTML5",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_html,
+            "jsonModelLight":skill_light_html
+        },
+        {
+            "name":"CSS",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_css,
+            "jsonModelLight":skill_light_css
+        }
+    ],
+    "frontend": [
+        {
+            "name":"React.js",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_react,
+            "jsonModelLight":skill_light_react
+        },
+        {
+            "name":"Next.js",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_next2,
+            "jsonModelLight":skill_light_next2
+        },
+        {
+            "name":"Tailwind CSS",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_tailwind,
+            "jsonModelLight":skill_light_tailwind
+        }
+    ],
+    "backend": [
+        {
+            "name":"Node.js",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_nodejs,
+            "jsonModelLight":skill_light_nodejs
+        },
+        {
+            "name":"Express.js",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_express,
+            "jsonModelLight":skill_light_express
+        },
+        {
+            "name":"WebSockets",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_websockets,
+            "jsonModelLight":skill_light_websockets
+        }
+    ],
+    "databases": [
+        {
+            "name":"PostgreSQL",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_postgresql,
+            "jsonModelLight":skill_light_postgresql
+        },
+        {
+            "name":"MySQL",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_mysql,
+            "jsonModelLight":skill_light_mysql
+        }
+    ],
+    "deployment": [
+        {
+            "name":"Git",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_git,
+            "jsonModelLight":skill_light_git
+        },
+        {
+            "name":"Github",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_github,
+            "jsonModelLight":skill_light_github
+        }
+    ],
+    "design": [
+        {
+            "name":"Figma",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_figma,
+            "jsonModelLight":skill_light_figma
+        },
+        {
+            "name":"Canva",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_canva,
+            "jsonModelLight":skill_light_canva
+        }
+    ]
+};
+
+export const projectSkillsTabsDark : Record<string, any> = {
+    // Languages
+    "Javascript (ES6)": <DiJavascript1 className="text-yellow-500 w-6 h-6" />,
+    "Python": <DiPython className="text-blue-500 w-6 h-6" />,
+    "C#": <TbBrandCSharp className="text-purple-600 w-6 h-6" />,
+    "C": <SiC className="text-blue-600 w-6 h-6" />,
+    "C++": <SiCplusplus className="text-blue-700 w-6 h-6" />,
+    "HTML5": <DiHtml5 className="text-orange-500 w-6 h-6" />,
+    "CSS": <DiCss3 className="text-blue-400 w-6 h-6" />,
+    "Java": <DiJava className="text-red-400 w-6 h-6" />,
+    "EJS": <DiExtjs className="text-green-400 w-6 h-6" />,
+
+    // Frontend
+    "React.js": <DiReact className="text-cyan-400 w-6 h-6" />,
+    "Next.js": <SiNextdotjs className="text-black dark:text-white w-6 h-6" />,
+    "Tailwind CSS": <SiTailwindcss className="text-sky-400 w-6 h-6" />,
+
+    // Backend
+    "Node.js": <DiNodejsSmall className="text-green-500 w-6 h-6" />,
+    "Express.js": <SiExpress className="text-gray-500 w-6 h-6" />,
+    "WebSockets": <FaNetworkWired className="text-red-500 w-6 h-6" />,
+
+    // Databases
+    "PostgreSQL": <DiPostgresql className="text-blue-300 w-6 h-6" />,
+    "MySQL": <DiMysql className="text-blue-100 w-6 h-6" />,
+
+    // Android
+    "Android Studio": <DiAndroid className="text-lime-400 w-6 h-6"/>,
+
+    // Deployment
+    "Git": <DiGit className="text-orange-400 w-6 h-6"/>,
+    "Github": <DiGithub className="text-white w-6 h-6"/>
+};
+
+export const projectSkillsTabsLight : Record<string, any> = {
+    // Languages
+    "Javascript (ES6)": <DiJavascript1 className="text-yellow-600 w-6 h-6" />,
+    "Python": <DiPython className="text-blue-600 w-6 h-6" />,
+    "C#": <TbBrandCSharp className="text-purple-700 w-6 h-6" />,
+    "C": <SiC className="text-blue-700 w-6 h-6" />,
+    "C++": <SiCplusplus className="text-blue-800 w-6 h-6" />,
+    "HTML5": <DiHtml5 className="text-orange-600 w-6 h-6" />,
+    "CSS": <DiCss3 className="text-blue-600 w-6 h-6" />,
+    "Java": <DiJava className="text-red-600 w-6 h-6" />,
+    "EJS": <DiExtjs className="text-green-700 w-6 h-6" />,
+
+    // Frontend
+    "React.js": <DiReact className="text-cyan-600 w-6 h-6" />,
+    "Next.js": <SiNextdotjs className="text-black w-6 h-6" />,
+    "Tailwind CSS": <SiTailwindcss className="text-sky-600 w-6 h-6" />,
+
+    // Backend
+    "Node.js": <DiNodejsSmall className="text-green-600 w-6 h-6" />,
+    "Express.js": <SiExpress className="text-gray-800 w-6 h-6" />,
+    "WebSockets": <FaNetworkWired className="text-red-600 w-6 h-6" />,
+
+    // Databases
+    "PostgreSQL": <DiPostgresql className="text-blue-800 w-6 h-6" />,
+    "MySQL": <DiMysql className="text-blue-600 w-6 h-6" />,
+
+    // Android
+    "Android Studio": <DiAndroid className="text-lime-600 w-6 h-6"/>,
+
+    // Deployment
+    "Git": <DiGit className="text-orange-600 w-6 h-6"/>,
+    "Github": <DiGithub className="text-black w-6 h-6"/>
+};
+
+export const content : Record<any,any> = {
+    "en": {
+        // NAVBAR
+        "navbar": {
+            "home":"K",
+            "about_me":"About Me",
+            "skills":"Skills",
+            "projects":"Projects",
+            "experience":"Experience",
+            "education":"Education",
+            "blogs":"Blogs"
+        },
+        "home" : {
+            // COMPONENT SPECIFIC
+
+            // page.tsx
+            "header": {
+                "top":"Hi! I'm",
+                "name":"KJ Teo",
+                "bottom":"CS Builder & Tinkerer @ NTU"
+            },
+            "about_me":{
+                "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
+                "bio2": "Feel free to click and drag the 3D models across the website to interact with them!",
+                "hobbies_header": "My Hobbies",
+                "hobbies_header1": "These are some things I like to do during my free time!",
+                "hobbies_header2": "Click on one of them to find out more!",
+                "hobbies": {
+                    "running": {
+                        "name": "Running",
+                        "bio": "Started running a few months before polytechnic.",
+                        "statsTitle": "2026 Yearly Progress",
+                        "labels": { "distance": "Total Distance", "runs": "Total Runs", "elevation": "Elevation Gain", "shoes": "Current Shoe Rotation" },
+                        "shoes": "Daily: Asics Superblast 3 | Race: Nike Vaporfly 3",
+                        "pbs": [
+                            { "name": "5K", "duration": 1280 },
+                            { "name": "10K", "duration": 2745 },
+                            { "name": "Half Marathon (21.1km)", "duration": 6280 },
+                            { "name": "Marathon (42.195km)", "duration": 12859 }
+                        ]
+                    },
+                    // "gaming": {
+                    //     "name": "Gaming",
+                    //     "bio": "Immersive world explorer and tactical player.",
+                    //     "labels": { "rotation": "Current Rotation", "genres": "Preferred Genres", "hardware": "Hardware Setup" },
+                    //     "genres": "Action RPG, Roguelikes",
+                    //     "hardware": "PC (RTX 4070) / Steam Deck",
+                    //     "rotation": ["Minecraft", "Cyberpunk 2077", "Hades II"]
+                    // },
+                    "bouldering": {
+                        "name": "Bouldering",
+                        "bio": "Analytical problem solving on a wall.",
+                        "labels": { "maxGrade": "Max Indoor Grade", "comfort": "Comfort Zone", "style": "Style Profile" },
+                        "styles": { "slab": "Slab / Balance: Proficient", "overhang": "Overhang / Power: Projecting", "dynos": "Dynos / Coordination: Developing", "crimps": "Crimps / Pockets: Proficient" }
+                    },
+                    "gymming": {
+                        "name": "Gymming",
+                        "bio": "Strength development and physical longevity.",
+                        "labels": { "split": "Current Routine Split", "goal": "Primary Goal", "targets": "Current Target Working Weights" },
+                        "split": "Push / Pull / Legs (4x/week)",
+                        "goal": "Hypertrophy & GPP",
+                        "exercises": [
+                            { "name": "Barbell Back Squat", "weight": "100 kg × 8 reps" },
+                            { "name": "Barbell Bench Press", "weight": "85 kg × 6 reps" },
+                            { "name": "Conventional Deadlift", "weight": "140 kg × 5 reps" }
+                        ]
+                    },
+                    "speedcubing": {
+                        "name": "Speedcubing",
+                        "bio": "Algorithmic speed execution and muscle memory.",
+                        "labels": { "method": "Primary Method", "cube": "Main 3x3 Cube", "averages": "Current Verification Averages" },
+                        "method": "CFOP (Full OLL/PLL)",
+                        "cube": "GAN 12 MagLev",
+                        "ao5": "11.42s",
+                        "ao100": "13.15s"
+                    }
+                }
+            },
+            "skills": {
+                "header":"Skills",
+                "skill_proficiencies" : {
+                    0:"Novice",
+                    1:"Familiar",
+                    2:"Proficient"   
+                },
+                "languages_header": "Languages",
+                "frontend_header": "Frontend",
+                "backend_header": "Backend",
+                "databases_header": "Databases",
+                "deployment_header": "Deployment",
+                "design_header": "Design",
+                // ...skills
+            },
+            "experience":{
+                "header":"Experience",
+                "experiences": [
+                    {
+                        "company": "Singapore Armed Forces",
+                        "role": "Software Engineer (NSF)",
+                        // "description": [
+                        //     "Developed a QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
+                        //     "QA tested numerous unit-based Telegram chatbots and contributed to features for the Personnel Admin Link.",
+                        //     "Awarded Outstanding Soldier of the Month (June 2025) for developing and implementing the mobile attendance application."
+                        // ],
+                        "description": [
+                            [
+                                "Developed a QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
+                                experience_ns_qrcode
+                            ],
+                            [
+                                <p>Featured on <a className="text-slate-300 hover:text-slate-400 underline" href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> for contributions to the QR Code attendance scanning system!</p>,
+                                experience_ns_army_news
+                            ],
+                            [
+                                "QA-tested numerous unit-based Telegram chatbots (Parade State, Events Bot, etc.) and vastly improved overall reliability.",
+                                experience_ns_telegram
+                            ],
+                            [
+                                "Leveraged Microsoft Powerapps to improve and make new features for Personnel Admin Link (PAL), a program to efficiently carry out administrative tasks across Personnel Nodes (Persnodes) across army camps in Singapore!",
+                                experience_ns_powerapps
+                            ],
+                            [
+                                "Awarded the Outstanding Soldier of the Month for June 2025 for contributions to the Personnel Admin Link (PAL) team after my resumption!",
+                                experience_ns_osom
+                            ]
+                        ],
+                        "skills": ["Node.js", "EJS","Express.js", "Git"],
+                        "dates": [
+                            [new Date("12/05/2022"), new Date("08/05/2024")] ,
+                            [new Date("05/09/2025"), new Date("07/06/2025")]
+                        ]
+                    },
+                    {
+                        "company": "Eco Exchange Pte. Ltd.",
+                        "role": "Lead Frontend Developer (Final Year Project, Singapore Polytechnic)",
+                        "description": [
+                            [
+                                "Led the frontend architecture and coordinated a team of 2 developers to build a responsive intranet system, replacing manual workflows with digital solutions.",
+                                experience_ecoexchange_frontend
+                            ],
+                            [
+                                "Successfully processed 700+ recycling tickets during the pilot phase, eliminating paper inefficiencies and streamlining data entry.",
+                                experience_ecoexchange_tickets
+                            ]
+                        ],
+                        // "description": [
+                        //     "Architected C# programs to help with shipping management!",
+                        //     "Developed Node.js and created databases for efficient inventory management!",
+                        //     "Made an app using Appgyver to help 10+ staff with tracking warehouse management systems!"
+                        // ],
+                        "skills": ["HTML5", "CSS", "Javascript (ES6)"],
+                        "dates": [
+                            [new Date("02/01/2023"), new Date("08/30/2023")] 
+                        ]
+                    },
+                    {
+                        "company": "Leaptron Engineering Pte Ltd.",
+                        "role": "Software Engineer (Intern)",
+                        "description": [
+                            [
+                                "Architected C# programs to help with shipping management!",
+                                experience_leaptron_winforms
+                            ],
+                            [
+                                "Developed Node.js and created databases for efficient inventory management!",
+                                experience_leaptron_db_nodejs
+                            ],
+                            [
+                                "Made an app using Appgyver to help 10+ staff with tracking warehouse management systems!",
+                                experience_leaptron_appgyver
+                            ]
+                        ],
+                        // "description": [
+                        //     "Architected C# programs to help with shipping management!",
+                        //     "Developed Node.js and created databases for efficient inventory management!",
+                        //     "Made an app using Appgyver to help 10+ staff with tracking warehouse management systems!"
+                        // ],
+                        "skills": ["C#", "Node.js", "PostgreSQL", "Java", "Android Studio", "Git"],
+                        "dates": [
+                            [new Date("02/01/2023"), new Date("08/30/2023")] 
+                        ]
+                    }
+                ]
+            },
+            "projects": {
+                "header":"Projects",
+                "projects":[
+                    // {
+                    //     "name":"PromptWars",
+                    //     "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
+                    //     "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time!",
+                    //     "reflection":"",
+                    //     "skillsList":["React.js","Node.js","Express.js","WebSockets"],
+                    //     "date": new Date(),
+                    //     "media_url":["./projects/cellCollab.gif"],
+                    //     "source_code":"https://github.com/pixelhypercube/CellCollab",
+                    //     "web_link":"https://pixelhypercube.github.io/CellCollab"
+                    // },
+                    {
+                        "name":"My Website!",
+                        "short_description":"",
+                        "description":"My updated personal website as of 2026!",
+                        "reflection":"",
+                        "skillsList":["Next.js"],
+                        "date": new Date(),
+                        "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
+                        "source_code":"https://github.com/pixelhypercube/CellCollab",
+                        "web_link":"https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name":"CellCollab",
+                        "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
+                        "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time!",
+                        "reflection":"",
+                        "skillsList":["React.js","Node.js","Express.js","WebSockets"],
+                        "date": new Date(),
+                        "media_url":["./projects/cellCollab.gif"],
+                        "source_code":"https://github.com/pixelhypercube/CellCollab",
+                        "web_link":"https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name":"Astertris",
+                        "short_description":"Experience Tetris, but on a planet!",
+                        "description":"Tetris with a planetary twist! Made using Java Swing! Leverages Object Oriented Programming (OOP) principles and Data Structures!",
+                        "reflection":"",
+                        "skillsList":["Java"],
+                        "date": new Date(),
+                        "media_url":["./projects/astertris.gif"],
+                        "source_code":"https://github.com/pixelhypercube/Astertris",
+                    }
+                ]
+            },
+            "education": {
+                "header":"Education",
+                "activities_header": "Activities & Societies",
+                "relevant_coursework_header":"Relevant Coursework",
+                "awards_header": "Awards",
+                "list": [
+                    {
+                        "institution": "Nanyang Technological University",
+                        "certificate": "Bachelor of Computing (Honours) in Computer Science",
+                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        "relevant_coursework":
+                        {
+                            "SC1007": {
+                                "name": "Data Structures & Algorithms",
+                                "jsonModel":sc1007,
+                            },
+                            "SC1008": {
+                                "name": "C & C++ Programming",
+                                "jsonModel":sc1008,
+                            },
+                            "SC2001": {
+                                "name": "Algorithm Design & Analysis",
+                                "jsonModel":sc2001,
+                            },
+                            "SC2002": {
+                                "name": "Object Oriented Design & Programming",
+                                "jsonModel":sc2002,
+                            },
+                            "SC2006": {
+                                "name": "Software Engineering",
+                                "jsonModel":sc2006,
+                            },
+                        },
+                        // [start, end]
+                        "activities":[,
+                            {
+                                "name":"Hall X Member",
+                                "dates": [
+                                    [new Date("08/05/2024"), "Present"]
+                                ],
+                                // "bio":[
+                                //     "Participated in the 2025 & 2026 Inter-Hall Games and came in 1st and 2nd runner-up respectively!"
+                                // ],
+                                "jsonModel": hallX
+                            },
+                            {
+                                "name":"Hall X Road Relay",
+                                "dates": [
+                                    [new Date("08/05/2024"), "Present"]
+                                ],
+                                "bio":[
+                                    "Participated in the 2025 & 2026 Inter-Hall Games and came in 1st and 2nd runner-up respectively!"
+                                ],
+                                "jsonModel": roadRelay
+                            }
+                        ],
+                        "bio":[
+                            <p>Clinched my childhood dream of studying computer science, huge kudos to <a className="text-slate-300 hover:text-slate-400 underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>,
+                        ],
+                        "dates" :[
+                            [
+                                new Date("08/05/2024"), "Present"
+                            ],
+                        ],
+                        "media_url":"./"
+                    },
+                    {
+                        "institution": "Singapore Polytechnic",
+                        "certificate": "Diploma in Information Technology",
+                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        // "relevant_coursework":
+                        // {
+                        //     "SC1007": {
+                        //         "name": "Data Structures & Algorithms",
+                        //     },
+                        //     "SC1008": {
+                        //         "name": "C & C++ Programming",
+                        //     },
+                        //     "SC2002": {
+                        //         "name": "Object Oriented Design & Programming",
+                        //     },
+                        //     "SC2006": {
+                        //         "name": "Software Engineering",
+                        //     },
+                        // },
+                        // [start, end]
+                        // "activities":[
+                        //     {
+                        //         "name":"Hall X Road Relay",
+                        //         "dates": [
+                        //             [new Date("08/05/2024"), "Present"]
+                        //         ],
+                        //         "bio":[
+                        //             "Participated in the 2025 & 2026 Inter-Hall Games and came in 1st and 2nd runner-up respectively!"
+                        //         ]
+                        //     }
+                        // ],
+                        "awards": [
+                            {
+                                "name":"Edusave Certificate of Academic Achievement (2021)",
+                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
+                                "date":new Date("01/01/2020")
+                            },
+                            {
+                                "name":"Edusave Certificate of Academic Achievement (2020)",
+                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
+                                "date":new Date("01/01/2021")
+                            },
+                            {
+                                "name":"Director's Honour Roll (AY2019/2020)",
+                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
+                                "date":new Date("01/01/2020")
+                            },
+                        ],
+                        "bio":[
+                            "I chose Polytechnic over IB simply because I wanted to continue being a tech nerd 🧑‍💻"
+                        ],
+                        "dates" :[
+                            [
+                                new Date("04/05/2019"), new Date("03/05/2022")
+                            ],
+                        ],
+                        "media_url":"./"
+                    },
+                    {
+                        "institution": "Anglo-Chinese School (International)",
+                        "certificate": "Cambridge International General Certificate of General Education (IGCSE)",
+                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        // "relevant_coursework":
+                        // {
+                        //     "SC1007": {
+                        //         "name": "Data Structures & Algorithms",
+                        //     },
+                        //     "SC1008": {
+                        //         "name": "C & C++ Programming",
+                        //     },
+                        //     "SC2002": {
+                        //         "name": "Object Oriented Design & Programming",
+                        //     },
+                        //     "SC2006": {
+                        //         "name": "Software Engineering",
+                        //     },
+                        // },
+                        // [start, end]
+                        "activities":[
+                            {
+                                "name":"Philharmonic Orchestra",
+                                "dates": [
+                                    [new Date("08/05/2017"), new Date("12/03/2018")]
+                                ],
+                                "bio":[
+                                    "Double Bass Section Lead"
+                                ],
+                                "jsonModel":strings
+                            },
+                            {
+                                "name":"Archery",
+                                "dates": [
+                                    [new Date("08/05/2016"), new Date("12/03/2016")]
+                                ],
+                                "bio":[
+                                    "Member"
+                                ],
+                                "jsonModel":archery
+                            }
+                        ],
+                        "bio":[
+                            // "Double Bass Section Lead"
+                        ],
+                        "dates" :[
+                            [
+                                new Date("01/05/2016"), new Date("12/03/2018")
+                            ],
+                        ],
+                        "media_url":"./"
+                    },
+                    {
+                        "institution": "Anglo-Chinese School (Barker Road)",
+                        "certificate": "",
+                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        // "relevant_coursework":
+                        // {
+                        //     "SC1007": {
+                        //         "name": "Data Structures & Algorithms",
+                        //     },
+                        //     "SC1008": {
+                        //         "name": "C & C++ Programming",
+                        //     },
+                        //     "SC2002": {
+                        //         "name": "Object Oriented Design & Programming",
+                        //     },
+                        //     "SC2006": {
+                        //         "name": "Software Engineering",
+                        //     },
+                        // },
+                        // [start, end]
+                        "activities":[
+                            {
+                                "name":"Robotics",
+                                "dates": [
+                                    [new Date("01/05/2015"), new Date("12/03/2015")]
+                                ],
+                                "bio":[
+                                    "Member"
+                                ],
+                                "jsonModel":lego_mindstorms
+                            }
+                        ],
+                        "awards": [
+                            {
+                                "name":"Edusave Good Progress Award (2015)",
+                                "date":new Date("01/01/2016")
+                            }
+                        ],
+                        "bio":[
+                            "Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum."
+                        ],
+                        "dates" :[
+                            [
+                                new Date("01/01/2015"), new Date("12/05/2015")
+                            ],
+                        ],
+                        "media_url":"./"
+                    }
+                ]
+            },
+            "footer": {
+                "header": "Let's keep in contact!",
+                "subheader": "I promise I won't bite :)",
+                "form": {
+                    "name": "Name",
+                    "email": "Email",
+                    "message": "Message",
+                    "send_button": "Send"
+                },
+                "bottom": "Made with 🤍 Next.js & Three.js!"
+            },
+
+            // // NTU SPECIFIC
+            // "ntu_coursework": {
+            //     "SC1008": {
+            //         "name": "C & C++ Programming",
+            //     },
+            //     "SC2002": {
+            //         "name": "Object Oriented Design & Programming",
+            //     },
+            //     "SC2006": {
+            //         "name": "Software Engineering",
+            //     },
+            // }
+        },
+    },
+
+    // DEMO LANGUAGES CONTENT (CHANGE LATER)
+    "zh-Hans": {
+        // NAVBAR
+        "navbar": {
+            "home":"张",
+            "about_me":"关于我",
+            "skills":"技能",
+            "projects":"项目",
+            "experience":"经验",
+            "education":"教育背景",
+            "blogs":"博客（英语）"
+        },
+        "home": {
+            "header": {
+                "top": "你好！我是",
+                "name": "张凯杰",
+                "bottom": "南洋理工大学 (NTU) 计算机科学开发者与创客"
+            },
+            "about_me": {
+                "bio": "你好！我是南洋理工大学计算机科学专业的二年级本科生。我热衷于开发，喜欢通过编程、像素艺术等多种方式创建新项目。欢迎浏览我的网站！:)",
+                "hobbies_header1": "这些是我在业余时间喜欢做的事情！",
+                "hobbies_header2": "点击其中一个了解更多！",
+                "hobbies": {
+                    "running": "我在开始理工学院学业的几个月前开始跑步。"
+                }
+            },
+            "skills": {
+                "header": "技能",
+                "skill_dark_proficiencies": {
+                    0: "入门",
+                    1: "熟悉",
+                    2: "精通"
+                },
+                "languages_header": "语言",
+                "frontend_header": "前端",
+                "backend_header": "后端",
+                "databases_header": "数据库"
+            },
+            "experience": {
+                "header": "经验",
+                "experiences": [
+                    {
+                        "company": "新加坡武装部队",
+                        "role": "软件工程师 (全职国民服役人员)",
+                        "description": [
+                            [
+                                "开发了二维码考勤扫描系统，利用电子邮件中的二维码自动完成单位内非训练活动的签到流程，服务超过 300 名参与者。",
+                                experience_ns_qrcode
+                            ],
+                            [
+                                "对多个基于单位的 Telegram 聊天机器人（如 Parade State、Events Bot 等）进行了质量保证测试，大幅提升了整体可靠性。",
+                                experience_ns_telegram
+                            ],
+                            [
+                                "利用 Microsoft PowerApps 改进并为 Personnel Admin Link (PAL) 开发了新功能。该程序用于高效处理新加坡各地军营人事节点 (Persnodes) 的行政任务。",
+                                experience_ns_powerapps
+                            ]
+                        ],
+                        "skills": ["Node.js", "EJS", "Express.js"],
+                        "dates": [
+                            [new Date("12/05/2022"), new Date("08/05/2024")],
+                            [new Date("05/09/2025"), new Date("07/06/2025")]
+                        ]
+                    },
+                    {
+                        "company": "Leaptron Engineering Pte Ltd.",
+                        "role": "软件工程师 (实习生)",
+                        "description": [
+                            [
+                                "架构了 C# 程序以协助航运管理。",
+                                experience_leaptron_winforms
+                            ],
+                            [
+                                "开发了 Node.js 应用程序并创建了数据库，以实现高效的库存管理。",
+                                experience_leaptron_db_nodejs
+                            ],
+                            [
+                                "使用 Appgyver 制作了一款应用程序，帮助 10 多名员工跟踪仓库管理系统。",
+                                experience_leaptron_appgyver
+                            ]
+                        ],
+                        "skills": ["C#", "Node.js", "SQL"],
+                        "dates": [
+                            [new Date("02/01/2023"), new Date("08/30/2023")]
+                        ]
+                    }
+                ]
+            },
+            "projects": {
+                "header": "项目",
+                "projects": [
+                    {
+                        "name": "我的网站",
+                        "short_description": "",
+                        "description": "我 2026 年更新的个人网站。",
+                        "reflection": "",
+                        "skillsList": ["Next.js"],
+                        "date": new Date(),
+                        "media_url": ["./projects/website.png"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "CellCollab",
+                        "short_description": "带有联机功能的康威生命游戏 (CGL)。",
+                        "description": "在同一个棋盘上与其他用户实时协作，体验康威生命游戏。",
+                        "reflection": "",
+                        "skillsList": ["React.js", "Node.js", "Express.js", "WebSockets"],
+                        "date": new Date(),
+                        "media_url": ["./projects/cellCollab.gif"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "Astertris",
+                        "short_description": "在星球上体验俄罗斯方块。",
+                        "description": "带有行星元素的俄罗斯方块。使用 Java Swing 制作。",
+                        "reflection": "",
+                        "skillsList": ["Java"],
+                        "date": new Date(),
+                        "media_url": ["./projects/astertris.gif"],
+                        "source_code": "https://github.com/pixelhypercube/Astertris"
+                    }
+                ]
+            },
+            "education": {
+                "header": "教育背景",
+                "activities_header": "活动与社团",
+                "relevant_coursework_header": "相关课程",
+                "list": [
+                    {
+                        "institution": "南洋理工大学",
+                        "certificate": "计算机科学（荣誉）计算学士学位",
+                        "relevant_coursework": {
+                            "SC1007": { "name": "数据结构与算法" },
+                            "SC1008": { "name": "C 与 C++ 编程" },
+                            "SC2002": { "name": "面向对象的设计与编程" },
+                            "SC2006": { "name": "软件工程" }
+                        },
+                        "activities": [
+                            {
+                                "name": "X 宿舍公路接力赛",
+                                "dates": [[new Date("08/05/2024"), "至今"]],
+                                "bio": ["参加了 2025 年和 2026 年的宿舍间比赛，分别获得亚军和季军。"]
+                            }
+                        ],
+                        "bio": ["自 2024 年起成为 X 宿舍居民。"],
+                        "dates": [[new Date("08/05/2024"), "至今"]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "新加坡理工学院",
+                        "certificate": "信息技术文凭",
+                        "bio": ["专攻软件与应用程序。"],
+                        "dates": [[new Date("04/05/2019"), new Date("03/05/2022")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "英华国际学校",
+                        "certificate": "剑桥国际普通中等教育证书 (IGCSE)",
+                        "activities": [
+                            {
+                                "name": "爱乐乐团",
+                                "dates": [[new Date("08/05/2017"), new Date("12/03/2018")]],
+                                "bio": ["低音提琴声部首席"]
+                            },
+                            {
+                                "name": "射箭",
+                                "dates": [[new Date("08/05/2016"), new Date("12/03/2016")]],
+                                "bio": ["成员"]
+                            }
+                        ],
+                        "bio": ["低音提琴声部首席。"],
+                        "dates": [[new Date("01/05/2016"), new Date("12/03/2018")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "英华学校 (巴克路)",
+                        "certificate": "",
+                        "activities": [
+                            {
+                                "name": "机器人学",
+                                "dates": [[new Date("08/05/2015"), new Date("12/03/2015")]],
+                                "bio": ["成员"]
+                            }
+                        ],
+                        "bio": ["中一后转学至英华国际学校。"],
+                        "dates": [[new Date("01/01/2015"), new Date("12/05/2015")]],
+                        "media_url": "./"
+                    }
+                ]
+            },
+            "footer": {
+                "header": "保持联系！",
+                "subheader": "欢迎随时与我联系。 :)",
+                "form": {
+                    "name": "姓名",
+                    "email": "电子邮件",
+                    "message": "留言",
+                    "send_button": "发送"
+                },
+                "bottom": "使用 🤍 Next.js 和 Three.js 制作！"
+            }
+        }
+    },
+    "zh-Hant": {
+        "navbar": {
+            "home": "張",
+            "about_me": "關於我",
+            "skills": "技能",
+            "projects": "項目",
+            "experience": "經驗",
+            "education": "教育背景",
+            "blogs": "博客（英語）"
+        },
+        "home": {
+            "header": {
+                "top": "你好！我是",
+                "name": "張凱傑",
+                "bottom": "南洋理工大學 (NTU) 計算機科學開發者與創客"
+            },
+            "about_me": {
+                "bio": "你好！我是南洋理工大學計算機科學專業的二年級本科生。我熱衷於開發，喜歡透過編程、像素藝術等多種方式創建新項目。歡迎瀏覽我的網站！:)",
+                "hobbies_header1": "這些是我在業餘時間喜歡做的事情！",
+                "hobbies_header2": "點擊其中一個了解更多！",
+                "hobbies": {
+                    "running": "我在開始理工學院學業的幾個月前開始跑步。"
+                }
+            },
+            "skills": {
+                "header": "技能",
+                "skill_dark_proficiencies": {
+                    0: "入門",
+                    1: "熟悉",
+                    2: "精通"
+                },
+                "languages_header": "語言",
+                "frontend_header": "前端",
+                "backend_header": "後端",
+                "databases_header": "資料庫"
+            },
+            "experience": {
+                "header": "經驗",
+                "experiences": [
+                    {
+                        "company": "新加坡武裝部隊",
+                        "role": "軟體工程師 (全職國民服役人員)",
+                        "description": [
+                            [
+                                "開發了二維碼考勤掃描系統，利用電子郵件中的二維碼自動完成單位內非訓練活動的簽到流程，服務超過 300 名參與者。",
+                                experience_ns_qrcode
+                            ],
+                            [
+                                "對多個基於單位的 Telegram 聊天機器人（如 Parade State、Events Bot 等）進行了品質保證測試，大幅提升了整體可靠性。",
+                                experience_ns_telegram
+                            ],
+                            [
+                                "利用 Microsoft PowerApps 改進並為 Personnel Admin Link (PAL) 開發了新功能。該程式用於高效處理新加坡各地軍營人事節點 (Persnodes) 的行政任務。",
+                                experience_ns_powerapps
+                            ]
+                        ],
+                        "skills": ["Node.js", "EJS", "Express.js"],
+                        "dates": [
+                            [new Date("12/05/2022"), new Date("08/05/2024")],
+                            [new Date("05/09/2025"), new Date("07/06/2025")]
+                        ]
+                    },
+                    {
+                        "company": "Leaptron Engineering Pte Ltd.",
+                        "role": "軟體工程師 (實習生)",
+                        "description": [
+                            [
+                                "架構了 C# 程式以協助航運管理。",
+                                experience_leaptron_winforms
+                            ],
+                            [
+                                "開發了 Node.js 應用程式並建立了資料庫，以實現高效的庫存管理。",
+                                experience_leaptron_db_nodejs
+                            ],
+                            [
+                                "使用 Appgyver 製作了一款應用程式，幫助 10 多名員工追蹤倉庫管理系統。",
+                                experience_leaptron_appgyver
+                            ]
+                        ],
+                        "skills": ["C#", "Node.js", "SQL"],
+                        "dates": [
+                            [new Date("02/01/2023"), new Date("08/30/2023")]
+                        ]
+                    }
+                ]
+            },
+            "projects": {
+                "header": "專案",
+                "projects": [
+                    {
+                        "name": "我的網站",
+                        "short_description": "",
+                        "description": "我 2026 年更新的個人網站。",
+                        "reflection": "",
+                        "skillsList": ["Next.js"],
+                        "date": new Date(),
+                        "media_url": ["./projects/website.png"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "CellCollab",
+                        "short_description": "帶有連線功能的康威生命遊戲 (CGL)。",
+                        "description": "在同一個棋盤上與其他用戶實時協作，體驗康威生命遊戲。",
+                        "reflection": "",
+                        "skillsList": ["React.js", "Node.js", "Express.js", "WebSockets"],
+                        "date": new Date(),
+                        "media_url": ["./projects/cellCollab.gif"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "Astertris",
+                        "short_description": "在星球上體驗俄羅斯方塊。",
+                        "description": "帶有行星元素的俄羅斯方塊。使用 Java Swing 製作。",
+                        "reflection": "",
+                        "skillsList": ["Java"],
+                        "date": new Date(),
+                        "media_url": ["./projects/astertris.gif"],
+                        "source_code": "https://github.com/pixelhypercube/Astertris"
+                    }
+                ]
+            },
+            "education": {
+                "header": "教育背景",
+                "activities_header": "活動與社團",
+                "relevant_coursework_header": "相關課程",
+                "list": [
+                    {
+                        "institution": "南洋理工大學",
+                        "certificate": "計算機科學（榮譽）計算學士學位",
+                        "relevant_coursework": {
+                            "SC1007": { "name": "資料結構與演算法" },
+                            "SC1008": { "name": "C 與 C++ 編程" },
+                            "SC2002": { "name": "物件導向的設計與編程" },
+                            "SC2006": { "name": "軟體工程" }
+                        },
+                        "activities": [
+                            {
+                                "name": "X 宿舍公路接力賽",
+                                "dates": [[new Date("08/05/2024"), "至今"]],
+                                "bio": ["參加了 2025 年和 2026 年的宿舍間比賽，分別獲得亞軍和季軍。"]
+                            }
+                        ],
+                        "bio": ["自 2024 年起成為 X 宿舍居民。"],
+                        "dates": [[new Date("08/05/2024"), "至今"]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "新加坡理工學院",
+                        "certificate": "資訊科技文憑",
+                        "bio": ["專攻軟體與應用程式。"],
+                        "dates": [[new Date("04/05/2019"), new Date("03/05/2022")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "英華國際學校",
+                        "certificate": "劍橋國際普通中等教育證書 (IGCSE)",
+                        "activities": [
+                            {
+                                "name": "愛樂樂團",
+                                "dates": [[new Date("08/05/2017"), new Date("12/03/2018")]],
+                                "bio": ["低音提琴聲部首席"]
+                            },
+                            {
+                                "name": "射箭",
+                                "dates": [[new Date("08/05/2016"), new Date("12/03/2016")]],
+                                "bio": ["成員"]
+                            }
+                        ],
+                        "bio": ["低音提琴聲部首席。"],
+                        "dates": [[new Date("01/05/2016"), new Date("12/03/2018")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "英華學校 (巴克路)",
+                        "certificate": "",
+                        "activities": [
+                            {
+                                "name": "機器人學",
+                                "dates": [[new Date("08/05/2015"), new Date("12/03/2015")]],
+                                "bio": ["成員"]
+                            }
+                        ],
+                        "bio": ["中一後轉學至英華國際學校。"],
+                        "dates": [[new Date("01/01/2015"), new Date("12/05/2015")]],
+                        "media_url": "./"
+                    }
+                ]
+            },
+            "footer": {
+                "header": "保持聯繫！",
+                "subheader": "歡迎隨時與我聯繫。 :)",
+                "form": {
+                    "name": "姓名",
+                    "email": "電子郵件",
+                    "message": "留言",
+                    "send_button": "發送"
+                },
+                "bottom": "使用 🤍 Next.js 和 Three.js 製作！"
+            }
+        }
+    },
+    "ja": {
+        "navbar": {
+            "home": "張",
+            "about_me": "自己紹介",
+            "skills": "スキル",
+            "projects": "プロジェクト",
+            "experience": "経験",
+            "education": "学歴",
+            "blogs": "ブログ（英語）"
+        },
+        "home": {
+            "header": {
+                "top": "こんにちは！私は",
+                "name": "張 凱傑",
+                "bottom": "南洋理工大学 (NTU) コンピュータサイエンスの開発者・クリエイター"
+            },
+            "about_me": {
+                "bio": "こんにちは！私は南洋理工大学（NTU）でコンピュータサイエンスを専攻している2年生です。開発に情熱を持っており、プログラミングやピクセルアートなどの様々な方法で新しいプロジェクトを作成することを楽しんでいます。私のウェブサイトへようこそ！:)",
+                "hobbies_header1": "これらは私が自由な時間に楽しんでいることです！",
+                "hobbies_header2": "クリックして詳細をご覧ください！",
+                "hobbies": {
+                    "running": "ポリテクニックに進学する数ヶ月前からランニングを始めました。"
+                }
+            },
+            "skills": {
+                "header": "スキル",
+                "skill_dark_proficiencies": {
+                    0: "初心者",
+                    1: "基礎知識あり",
+                    2: "熟練"
+                },
+                "languages_header": "言語",
+                "frontend_header": "フロントエンド",
+                "backend_header": "バックエンド",
+                "databases_header": "データベース"
+            },
+            "experience": {
+                "header": "経験",
+                "experiences": [
+                    {
+                        "company": "シンガポール軍",
+                        "role": "ソフトウェアエンジニア (NSF)",
+                        "description": [
+                            [
+                                "部隊の非訓練イベント用にQRコード出席スキャンシステムを開発し、電子メールのQRコードを使用した300人以上の参加者のチェックインプロセスを自動化しました。",
+                                experience_ns_qrcode
+                            ],
+                            [
+                                "部隊の複数のTelegramチャットボット（Parade State、Events Botなど）のQAテストを実施し、全体的な信頼性を大幅に向上させました。",
+                                experience_ns_telegram
+                            ],
+                            [
+                                "Microsoft PowerAppsを活用して、シンガポール全土の軍営の人事ノード（Persnodes）間で管理業務を効率的に実行するプログラムであるPersonnel Admin Link (PAL)の改善と新機能の開発を行いました。",
+                                experience_ns_powerapps
+                            ]
+                        ],
+                        "skills": ["Node.js", "EJS", "Express.js"],
+                        "dates": [
+                            [new Date("12/05/2022"), new Date("08/05/2024")],
+                            [new Date("05/09/2025"), new Date("07/06/2025")]
+                        ]
+                    },
+                    {
+                        "company": "Leaptron Engineering Pte Ltd.",
+                        "role": "ソフトウェアエンジニア（インターン）",
+                        "description": [
+                            [
+                                "出荷管理を支援するC#プログラムを設計しました。",
+                                experience_leaptron_winforms
+                            ],
+                            [
+                                "効率的な在庫管理のためにNode.jsアプリケーションを開発し、データベースを構築しました。",
+                                experience_leaptron_db_nodejs
+                            ],
+                            [
+                                "Appgyverを使用してアプリを作成し、10人以上のスタッフが倉庫管理システムを追跡できるよう支援しました。",
+                                experience_leaptron_appgyver
+                            ]
+                        ],
+                        "skills": ["C#", "Node.js", "SQL"],
+                        "dates": [
+                            [new Date("02/01/2023"), new Date("08/30/2023")]
+                        ]
+                    }
+                ]
+            },
+            "projects": {
+                "header": "プロジェクト",
+                "projects": [
+                    {
+                        "name": "私のウェブサイト",
+                        "short_description": "",
+                        "description": "2026年に更新された私の個人ウェブサイトです。",
+                        "reflection": "",
+                        "skillsList": ["Next.js"],
+                        "date": new Date(),
+                        "media_url": ["./projects/website.png"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "CellCollab",
+                        "short_description": "マルチプレイヤー対応のコンウェイの生命ゲーム（CGL）です。",
+                        "description": "同じボード上で他のユーザーとリアルタイムで協力しながら、コンウェイの生命ゲームを体験できます。",
+                        "reflection": "",
+                        "skillsList": ["React.js", "Node.js", "Express.js", "WebSockets"],
+                        "date": new Date(),
+                        "media_url": ["./projects/cellCollab.gif"],
+                        "source_code": "https://github.com/pixelhypercube/CellCollab",
+                        "web_link": "https://pixelhypercube.github.io/CellCollab"
+                    },
+                    {
+                        "name": "Astertris",
+                        "short_description": "惑星上で体験するテトリスです。",
+                        "description": "惑星の要素を取り入れたテトリスです。Java Swingを使用して作成されました。",
+                        "reflection": "",
+                        "skillsList": ["Java"],
+                        "date": new Date(),
+                        "media_url": ["./projects/astertris.gif"],
+                        "source_code": "https://github.com/pixelhypercube/Astertris"
+                    }
+                ]
+            },
+            "education": {
+                "header": "学歴",
+                "activities_header": "課外活動・サークル",
+                "relevant_coursework_header": "関連コース",
+                "list": [
+                    {
+                        "institution": "南洋理工大学",
+                        "certificate": "コンピュータサイエンス（優等）計算学士",
+                        "relevant_coursework": {
+                            "SC1007": { "name": "データ構造とアルゴリズム" },
+                            "SC1008": { "name": "C・C++プログラミング" },
+                            "SC2002": { "name": "オブジェクト指向設計とプログラミング" },
+                            "SC2006": { "name": "ソフトウェア工学" }
+                        },
+                        "activities": [
+                            {
+                                "name": "ホールX ロードリレー",
+                                "dates": [[new Date("08/05/2024"), "現在"]],
+                                "bio": ["2025年および2026年のインターホールゲームズに参加し、それぞれ準優勝と第3位を獲得しました。"]
+                            }
+                        ],
+                        "bio": ["2024年からホールXの居住者です。"],
+                        "dates": [[new Date("08/05/2024"), "現在"]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "シンガポール・ポリテクニック",
+                        "certificate": "情報技術ディプロマ",
+                        "bio": ["ソフトウェアとアプリケーションを専攻しました。"],
+                        "dates": [[new Date("04/05/2019"), new Date("03/05/2022")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "アングロ・チャイニーズ・スクール（インターナショナル）",
+                        "certificate": "ケンブリッジ国際一般中等教育修了証書 (IGCSE)",
+                        "activities": [
+                            {
+                                "name": "フィルハーモニー管弦楽団",
+                                "dates": [[new Date("08/05/2017"), new Date("12/03/2018")]],
+                                "bio": ["コントラバスセクションリーダー"]
+                            },
+                            {
+                                "name": "アーチェリー",
+                                "dates": [[new Date("08/05/2016"), new Date("12/03/2016")]],
+                                "bio": ["メンバー"]
+                            }
+                        ],
+                        "bio": ["コントラバスセクションリーダー。"],
+                        "dates": [[new Date("01/05/2016"), new Date("12/03/2018")]],
+                        "media_url": "./"
+                    },
+                    {
+                        "institution": "アングロ・チャイニーズ・スクール（バーカーロード）",
+                        "certificate": "",
+                        "activities": [
+                            {
+                                "name": "ロボティクス",
+                                "dates": [[new Date("08/05/2015"), new Date("12/03/2015")]],
+                                "bio": ["メンバー"]
+                            }
+                        ],
+                        "bio": ["中等教育1年修了後にACS（インターナショナル）に転校しました。"],
+                        "dates": [[new Date("01/01/2015"), new Date("12/05/2015")]],
+                        "media_url": "./"
+                    }
+                ]
+            },
+            "footer": {
+                "header": "ご連絡をお待ちしています！",
+                "subheader": "いつでもお気軽にご連絡ください。 :)",
+                "form": {
+                    "name": "名前",
+                    "email": "メールアドレス",
+                    "message": "メッセージ",
+                    "send_button": "送信"
+                },
+                "bottom": "🤍 Next.js と Three.js で作成されました！"
+            }
+        }
+    }
+};
+
+export const IS_DEBUG = false;

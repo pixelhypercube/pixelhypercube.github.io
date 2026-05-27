@@ -1,0 +1,324 @@
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import {content} from "../globals";
+
+interface NavItem {
+    id?: string;
+    type: "link" | "dropdown" | "toggle";
+    selectedLanguage?: string;
+}
+
+type ActionCallback = (value?: any) => void;
+
+export interface ItemLinkProps extends NavItem {
+    type: "link";
+    name: string;
+    link?: string;
+    stylized: boolean; // for special items like home
+    imageUrl?: string;
+    action?: ActionCallback;
+}
+
+export interface ItemDropdownProps extends NavItem {
+    type: "dropdown";
+    // name: string;
+    values: Array<any>;
+    selectedValue: any; // current selected value
+    action?: ActionCallback;
+    showValues: boolean;
+}
+
+export interface ItemToggleProps extends NavItem {
+    type: "toggle";
+    values: Array<any>;
+    selectedIndex: number; // current selected value
+    action?: ActionCallback;
+    showIcons: boolean;
+}
+
+// discriminated union type for array items
+export type NavItemProps = ItemLinkProps | ItemDropdownProps | ItemToggleProps;
+
+interface NavbarCallbacks {
+    setScrollPosHome?: () => void;
+    setScrollPosAboutMe?: () => void;
+    setScrollPosSkills?: () => void;
+    setScrollPosProjects?: () => void;
+    setScrollPosExperience?: () => void;
+    setScrollPosEducation?: () => void;
+    onThemeToggle?: (str: string) => void;
+    onLanguageChange?: (lang: string) => void;
+}
+
+const getItemsLeft = (callbacks: NavbarCallbacks, selectedLanguage: string) : NavItemProps[] => [
+    { id: "home", type: "link", name: content[selectedLanguage]["navbar"]["home"], link: "/", stylized: true, imageUrl:`./logo_${selectedLanguage}.svg`, action: callbacks.setScrollPosHome }
+];
+
+const getItemsCenter = (callbacks: NavbarCallbacks, selectedLanguage: string) : NavItemProps[] => [
+    { id: "about_me", type: "link", name: content[selectedLanguage]["navbar"]["about_me"], link: "/", stylized: false, action: callbacks.setScrollPosAboutMe },
+    { id: "skills", type: "link", name: content[selectedLanguage]["navbar"]["skills"], link: "/", stylized: false, action: callbacks.setScrollPosSkills },
+    { id: "projects", type: "link", name: content[selectedLanguage]["navbar"]["projects"], link: "/", stylized: false, action: callbacks.setScrollPosProjects },
+    { id: "experience", type: "link", name: content[selectedLanguage]["navbar"]["experience"], link: "/", stylized: false, action: callbacks.setScrollPosExperience },
+    { id: "education", type: "link", name: content[selectedLanguage]["navbar"]["education"], link: "/", stylized: false, action: callbacks.setScrollPosEducation },
+    { id: "blogs", type: "link", name: content[selectedLanguage]["navbar"]["blogs"], link: "/blogs", stylized: false },
+];
+
+const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : NavItemProps[] => [
+    {
+        id: "lang",
+        type: "dropdown",
+        selectedValue: ["en", "English"],
+        values: [["en", "English"], ["zh-Hans", "简体中文"], ["zh-Hant", "繁體中文"], ["ja","日本語"]],
+        action: callbacks.onLanguageChange,
+        showValues:true,
+    },
+    {
+        id: "theme",
+        type: "toggle",
+        selectedIndex: 0, // 0 for 'D', 1 for 'L'
+        values: [["D",(<Moon/>)], ["L",(<Sun/>)]],
+        action: callbacks.onThemeToggle,
+        showIcons:true,
+    }
+];
+
+function ItemLink({
+    name, link, stylized, imageUrl, action
+} : Omit<ItemLinkProps, 'type'>) {
+    const styles = (stylized) ? 
+    "bg-stone-900/80 block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold" : 
+    // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
+    "m-3 text-lg hover:font-bold transition-all ease-in-out duration-200";
+    
+    return usePathname() !== link ? 
+            <a onClick={()=>action?.()} className={`${styles}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
+            <div onClick={()=>action?.()} className={`${styles} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
+}
+
+function ItemDropdown({
+    values, showValues, action
+} : Omit<ItemDropdownProps, 'type'>) {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [selectedKey, setSelectedKey] = useState(values[0]?.[0] || "");
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const currentItem = values.find(([key]) => key === selectedKey);
+    const displayLabel = currentItem ? (showValues ? currentItem[1] : currentItem[0]) : "";
+
+    // close when clicked outside
+    useEffect(()=>{
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    },[]);
+
+    return (
+        <div className="relative flex items-center">
+            <button 
+            type="button"
+            className="pl-3 py-2 pr-8 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 appearance-none"
+            onClick={()=>setIsOpen(!isOpen)}
+            >
+                {displayLabel}
+            </button>
+
+            <div className="absolute right-3 pointer-events-none flex items-center text-white/60">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+
+            {isOpen && (
+                <ul className="absolute top-full left-0 min-w-35 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                    {values.map((item: any,index: number)=>{
+                        const [key,val] = item;
+                        const isSelected = key===selectedKey;
+
+                        return (
+                            <li key={index}>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setSelectedKey(key);
+                                        action?.(key);
+                                        setIsOpen(false);
+                                    }}
+                                    className={`w-full text-left px-3 py-2 text-xs rounded-xl transition-colors font-medium ${
+                                        isSelected 
+                                            ? "bg-white/20 text-white" 
+                                            : "text-white/80 hover:bg-white/10 hover:text-white"
+                                    }`}
+                                >
+                                    {showValues ? val : key}
+                                </button>
+                            </li>
+                        )
+                    })}
+                </ul>
+            )}
+        </div>
+    )
+}
+
+// function ItemDropdown({
+//     values, showValues, action
+// } : Omit<ItemDropdownProps, 'type'>) {
+//     return (
+//         <div className="relative flex items-center">
+//             <select className="pl-3 py-2 pr-8 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 appearance-none" 
+//             onChange={(v)=>{
+//                 action?.(v.target.value);
+//             }}> 
+//                 {
+//                     values.map((item,index)=>{
+//                         const [key, val] = item;
+//                         return (
+//                             <option key={index} value={key}>{showValues ? val : key}</option>
+//                         )
+//                     })
+//                 }
+//             </select>
+
+//             <div className="absolute right-3 pointer-events-none flex items-center text-white/60">
+//                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+//                 </svg>
+//             </div>
+//         </div>
+//     )
+// }
+
+function ItemToggle({
+    values, selectedIndex = 1, showIcons = false, action
+} : Omit<ItemToggleProps, 'type'>) {
+    const [currentIndex, setCurrentIndex] = useState<number>(selectedIndex);
+    const [name, icon] = values[selectedIndex];
+
+    const [currentName, setCurrentName] = useState<string>(name);
+    const [currentIcon, setCurrentIcon] = useState<any>(icon);
+
+    return (
+        <button className="p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1" 
+        onClick={()=>{
+            const nextIndex = (currentIndex + 1) % values.length;
+            setCurrentIndex(nextIndex);
+            
+            // change new curr name and new curr icon
+            const [newName, newIcon] = values[nextIndex];
+            setCurrentName(newName);
+            setCurrentIcon(newIcon);
+            
+            action?.(newName);
+        }}>
+            {
+                showIcons ? 
+                currentIcon : 
+                currentName
+            }
+        </button>
+    )
+}
+
+
+// STANDARDIZED RENDERER COMPONENT
+
+function NavItemRenderer({ item, selectedLanguage }: { item: NavItemProps; selectedLanguage?: string }) {
+    switch (item.type) {
+        case "link":
+            return <ItemLink selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
+        case "dropdown":
+            return <ItemDropdown selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
+        case "toggle":
+            return <ItemToggle selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
+        default:
+            return null;
+    }
+}
+
+interface NavbarProps {
+    scrollY?: number,
+    callbacks?: NavbarCallbacks,
+    selectedLanguage: string,
+    currentTheme: string,
+    transitionClasses?: string
+}
+
+export default function Navbar({
+    scrollY = 0,
+    callbacks = {},
+    selectedLanguage,
+    currentTheme,
+    transitionClasses
+} : NavbarProps) {
+    const ref = useRef<HTMLElement>(null!);
+
+    const itemsLeft = getItemsLeft(callbacks, selectedLanguage);
+    const itemsCenter = getItemsCenter(callbacks, selectedLanguage);
+    const itemsRight = getItemsRight(callbacks, selectedLanguage);
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    return (
+        <nav ref={ref} className={`
+        z-50 flex justify-around m-10 p-5 ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl justify-self-center w-4/5 fixed top-0 ${transitionClasses}`}>
+            <div className="flex justify-start items-center">
+                {
+                    itemsLeft.map((item: any,index : number)=>(
+                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
+                    ))
+                }
+            </div>
+            <div className="hidden lg:flex justify-center items-center">
+                {
+                    itemsCenter.map((item: any,index : number)=>(
+                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
+                    ))
+                }
+            </div>
+            <div className="hidden lg:flex justify-end items-center">
+                {
+                    itemsRight.map((item: any,index : number)=>(
+                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
+                    ))
+                }
+            </div>
+
+            <div className="flex lg:hidden items-center">
+                <button 
+                    className="p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl ml-2"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+            </div>
+
+            {/* MOBILE MENU DROPDOWN */}
+            {isMobileMenuOpen && (
+                <div className="absolute top-[110%] left-0 w-full flex flex-col p-5 bg-stone-800 backdrop-blur-3xl border border-white/20 shadow-xl rounded-2xl lg:hidden gap-4">
+                    {/* Center Items for Mobile */}
+                    <div className="flex flex-col items-center gap-2 w-full">
+                        {itemsCenter.map((item: any, index: number) => (
+                            <div key={item.id || `mob-center-${index}`} className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
+                                <NavItemRenderer item={item}/>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <hr className="border-white/20 w-full" />
+                    
+                    {/* Right Items (Settings) for Mobile */}
+                    <div className="flex justify-center items-center gap-4 w-full">
+                        {itemsRight.map((item: any, index: number) => (
+                            <NavItemRenderer key={item.id || `mob-right-${index}`} item={item}/>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </nav>
+    )
+}
