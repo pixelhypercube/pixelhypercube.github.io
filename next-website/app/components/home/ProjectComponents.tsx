@@ -9,17 +9,22 @@ interface ProjectProps {
     name?: string,
     short_description?: string,
     description?: string,
+    reflection?: string,
     skills?: [],
     date?: Date,
     media_url?: Array<string>, // first one is the MAIN media
     source_code?: string,
     web_link?: string,
     currentTheme: string,
-    transitionClasses?: string
+    transitionClasses?: string,
+    
+    // headers
+    about_header?: string,
+    reflection_header?: string,
 }
 
 export function ProjectListItem({
-    name,short_description,description,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses
+    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,about_header,reflection_header
 } : ProjectProps) {
     const [currImgIndex, setCurrImgIndex] = useState(0);
 
@@ -49,10 +54,17 @@ export function ProjectListItem({
             <main className="md:flex justify-stretch mt-4 gap-4">
                 {/* can consider list/grid layout toggle */}
                 <div className="w-full mb-4 md:mb-0 md:w-3/5 flex flex-col">
-                    <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto`}>
-                        {description}
+                    <div className="flex gap-4">
+                        <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
+                            <h5>{about_header}</h5>
+                            {description}
+                        </div>
+                        <div className={`flex-1 ${currentTheme==="D" ? "bg-mauve-700" : "bg-mauve-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
+                            <h5>{reflection_header}</h5>
+                            {reflection}
+                        </div>
                     </div>
-                    <div className="h-12 flex gap-4 shrink-0">
+                    <div className={`h-12 flex gap-4 shrink-0 ${transitionClasses}`}>
                         {
                             source_code && (
                                 <a className={`w-full flex justify-center items-center gap-2 ${currentTheme==="D" ? "bg-stone-600" : "bg-stone-400"} p-2 rounded-2xl text-center font-bold text-lg`} href={source_code}><Code/> Source Code</a>
@@ -75,24 +87,28 @@ export function ProjectListItem({
                                         src={media_url[currImgIndex]}
                                         alt={name}
                                     />
-                                    <div className="absolute inset-0 flex items-center justify-between">
-                                        <button onClick={()=>setCurrImgIndex((currImgIndex-1+media_url.length) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-l-2xl flex items-center justify-center transition-opacity text-xl font-bold">
-                                            <ArrowLeft/>
-                                        </button>
-                                        <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
-                                            {
-                                                media_url.map((_,idx)=>(
-                                                <button 
-                                                    key={`circle-btn-${idx}`} 
-                                                    onClick={()=>setCurrImgIndex(idx)} 
-                                                    className={`w-3 h-3 hover:scale-125 transition-all rounded-full cursor-pointer ${idx==currImgIndex ? "bg-white" : "bg-white/50 hover:bg-white/75"}`}></button>
-                                                ))
-                                            }
-                                        </div>
-                                        <button onClick={()=>setCurrImgIndex((currImgIndex+1) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-r-2xl flex items-center justify-center transition-opacity text-xl font-bold">
-                                            <ArrowRight/>
-                                        </button>
-                                    </div>
+                                    {
+                                        media_url.length > 1 && (
+                                            <div className="absolute inset-0 flex items-center justify-between">
+                                                <button onClick={()=>setCurrImgIndex((currImgIndex-1+media_url.length) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-l-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                    <ArrowLeft/>
+                                                </button>
+                                                <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
+                                                    {
+                                                        media_url.map((_,idx)=>(
+                                                        <button 
+                                                            key={`circle-btn-${idx}`} 
+                                                            onClick={()=>setCurrImgIndex(idx)} 
+                                                            className={`w-3 h-3 hover:scale-125 transition-all rounded-full cursor-pointer ${idx==currImgIndex ? "bg-white" : "bg-white/50 hover:bg-white/75"}`}></button>
+                                                        ))
+                                                    }
+                                                </div>
+                                                <button onClick={()=>setCurrImgIndex((currImgIndex+1) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-r-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                    <ArrowRight/>
+                                                </button>
+                                            </div>
+                                        )
+                                    }
                                 </>
                             )
                         }

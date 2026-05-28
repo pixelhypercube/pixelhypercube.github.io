@@ -84,7 +84,8 @@ import {
   DiExtjs,
   DiAndroid,
   DiGit,
-  DiGithub
+  DiGithub,
+  DiJavascript
 } from 'react-icons/di';
 import { 
   SiC, SiCplusplus, SiNextdotjs, SiTailwindcss, SiExpress
@@ -92,6 +93,7 @@ import {
 
 import { TbBrandCSharp } from 'react-icons/tb';
 import { FaNetworkWired } from 'react-icons/fa';
+import { BsTypescript } from "react-icons/bs"
 
 // export const ntu_coursework : Record<string, string> = {
 //     "SC1008": "C & C++ Programming",
@@ -237,6 +239,7 @@ export const skills : Record<any, any> = {
 export const projectSkillsTabsDark : Record<string, any> = {
     // Languages
     "Javascript (ES6)": <DiJavascript1 className="text-yellow-500 w-6 h-6" />,
+    "Typescript": <BsTypescript className="text-blue-500 w-6 h-6" />,
     "Python": <DiPython className="text-blue-500 w-6 h-6" />,
     "C#": <TbBrandCSharp className="text-purple-600 w-6 h-6" />,
     "C": <SiC className="text-blue-600 w-6 h-6" />,
@@ -488,6 +491,8 @@ export const content : Record<any,any> = {
             },
             "projects": {
                 "header":"Projects",
+                "about_header": "About",
+                "reflection_header": "Reflection",
                 "projects":[
                     // {
                     //     "name":"PromptWars",
@@ -502,10 +507,10 @@ export const content : Record<any,any> = {
                     // },
                     {
                         "name":"My Website!",
-                        "short_description":"",
-                        "description":"My updated personal website as of 2026!",
-                        "reflection":"",
-                        "skillsList":["Next.js"],
+                        "short_description":"New version of my personal website!",
+                        "description":"Features an array of 3D voxel models scattered throughout my website, as well as a Gemini-powered chatbot to ask about any queries regarding who I am!",
+                        "reflection":"Making this is actually pretty interesting and fun to do because not only did I get to leverage my newly acquired Next.js skills to the test, but I leveraged on hand-crafting 3D voxel models from scratch! The fact that Next.js also supports backend API endpoints is a huge win!",
+                        "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
                         "source_code":"https://github.com/pixelhypercube/CellCollab",
@@ -514,8 +519,8 @@ export const content : Record<any,any> = {
                     {
                         "name":"CellCollab",
                         "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
-                        "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time!",
-                        "reflection":"",
+                        "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time! Using room-based sycnrohnization via Socket.IO, players can join into the same board and will allow them to experience the fascinating landscape of cellular automata! Also features highly customizable settings, such as color schemes, custom brush edits, and so much more!",
+                        "reflection":"The main reason I decided to make this was that I wanted to challenge myself by leveraging Socket.IO in areas that are not typically used in conventional business operations, and making this is generally quite a fun and interesting experience because it allows me to use my fascination with cellular automata into something that can be enjoyed by multiple people at the same time!",
                         "skillsList":["React.js","Node.js","Express.js","WebSockets"],
                         "date": new Date(),
                         "media_url":["./projects/cellCollab.gif"],
@@ -524,9 +529,9 @@ export const content : Record<any,any> = {
                     },
                     {
                         "name":"Astertris",
-                        "short_description":"Experience Tetris, but on a planet!",
-                        "description":"Tetris with a planetary twist! Made using Java Swing! Leverages Object Oriented Programming (OOP) principles and Data Structures!",
-                        "reflection":"",
+                        "short_description":"Tetris, but you're on a floating asteroid in space!",
+                        "description":"Imagine you are on a floating asteroid in space, but you decide to play Tetris on it. That is how the word 'Astertris' is formed, by combining the words 'Asteroid' and 'Tetris'! With radial gravity mechanics, Tetrominoes fall down towards the center of the asteroid, and 'Lines' (i.e. the ones where the whole row is filled for it to be cleared) can be cleared on any side of the asteroid! Made using Object-Oriented Programming (OOP) concepts and Data Structures using Java and Java Swing!",
+                        "reflection":"I personally made this to prepare for one of my modules, SC2002 (Object Oriented Design and Programming) to practice my Java because I have honestly not touched in about a year! As I knew that there are probably thousands of Tetris clones out there, especially those original ones, I decided to come up with an idea that would manipulate the usage of the conventional direction of downwards gravity frequently used in 2D games. Overall, it was very surprising that I could pull off a consistent retro-vibe even though Java Swing is probably not the best tool for actual game development (other than Minecraft)!",
                         "skillsList":["Java"],
                         "date": new Date(),
                         "media_url":["./projects/astertris.gif"],

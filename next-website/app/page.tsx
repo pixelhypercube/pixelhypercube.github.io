@@ -293,12 +293,13 @@ export default function Home() {
                             <div className={projectsToggleIndex==1 ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" : ""}>
                                 {
                                     projectsContent["projects"].map((proj: any, index: number)=>{
-                                        const {name, short_description, description, skillsList, date, media_url, source_code, web_link} = proj;
+                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link} = proj;
 
                                         switch (projectsToggleIndex) {
                                             case 0:
                                                 return <ProjectListItem
                                                     key={`proj-${index}`}
+                                                    reflection={reflection}
                                                     transitionClasses={transitionClasses}
                                                     currentTheme={currentTheme}
                                                     name={name}
@@ -309,10 +310,13 @@ export default function Home() {
                                                     media_url={media_url}
                                                     source_code={source_code}
                                                     web_link={web_link}
+                                                    about_header={projectsContent["about_header"]}
+                                                    reflection_header={projectsContent["reflection_header"]}
                                                 />;
                                             case 1:
                                                 return <ProjectGridItem
                                                     key={`proj-${index}`}
+                                                    reflection={reflection}
                                                     transitionClasses={transitionClasses}
                                                     currentTheme={currentTheme}
                                                     name={name}
