@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Code } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Code } from "lucide-react";
 import { CgWebsite } from "react-icons/cg";
 import { renderDate } from "./utils";
 import { ProjectSkillTab } from "./ProjectSkillTab";
@@ -54,7 +54,7 @@ export function ProjectListItem({
             <main className="md:flex justify-stretch mt-4 gap-4">
                 {/* can consider list/grid layout toggle */}
                 <div className="w-full mb-4 md:mb-0 md:w-3/5 flex flex-col">
-                    <div className="flex gap-4">
+                    <div className="lg:flex gap-4">
                         <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
                             <h5>{about_header}</h5>
                             {description}
@@ -91,7 +91,7 @@ export function ProjectListItem({
                                         media_url.length > 1 && (
                                             <div className="absolute inset-0 flex items-center justify-between">
                                                 <button onClick={()=>setCurrImgIndex((currImgIndex-1+media_url.length) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-l-2xl flex items-center justify-center transition-opacity text-xl font-bold">
-                                                    <ArrowLeft/>
+                                                    <ChevronLeft/>
                                                 </button>
                                                 <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
                                                     {
@@ -104,7 +104,7 @@ export function ProjectListItem({
                                                     }
                                                 </div>
                                                 <button onClick={()=>setCurrImgIndex((currImgIndex+1) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-r-2xl flex items-center justify-center transition-opacity text-xl font-bold">
-                                                    <ArrowRight/>
+                                                    <ChevronRight/>
                                                 </button>
                                             </div>
                                         )

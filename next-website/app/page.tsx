@@ -234,12 +234,25 @@ export default function Home() {
                     <main className="w-4/5 justify-self-center">
                         {/* ABOUT ME */}
                         <div ref={containerAboutMeRef} className="flex flex-col mb-64">
-                            <div className="flex flex-col lg:flex-row p-5 gap-5 lg:h-96">
+                            {/* <div ref={containerAboutMeRef} className="flex flex-col mb-64">
+                                <div className="flex flex-col lg:flex-row p-5 gap-5 lg:h-96">
+                                    <div className="w-full lg:w-1/2 h-64 lg:h-auto shrink-0">
+                                        <Canvas3D voxelJson={kj}/>
+                                    </div>
+                                    <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full lg:w-1/2 rounded-4xl p-5 flex items-center ${transitionClasses}`}>
+                                        <div>
+                                            <p className="text-xl font-light mb-4">{aboutMeContent["bio"]}</p>
+                                            <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
+                            <div className="flex flex-col p-5 gap-12 lg:h-96">
                                 {/* 3d voxel about me */}
-                                <div className="w-full lg:w-1/2 h-64 lg:h-auto shrink-0">
+                                <div className="w-full h-64 shrink-0">
                                     <Canvas3D voxelJson={kj}/>
                                 </div>
-                                <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full lg:w-1/2 rounded-4xl p-5 flex items-center ${transitionClasses}`}>
+                                <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full rounded-4xl p-5 flex items-center ${transitionClasses}`}>
                                     <div>
                                         <p className="text-xl font-light mb-4">{aboutMeContent["bio"]}</p>
                                         <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
@@ -585,7 +598,7 @@ export default function Home() {
                             </div>
                         </div>
                     </main>
-                    <footer className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-400"} text-center ${transitionClasses}`}>
+                    <footer className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-400"} text-center ${transitionClasses} py-20`}>
                         <div className="lg:flex p-5">
                             <div className="lg:w-1/2 md:w-full flex flex-col justify-center items-center">
                                 <h1 className="text-6xl">{footerContent["header"]}</h1>
