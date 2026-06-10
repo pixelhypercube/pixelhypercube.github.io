@@ -327,23 +327,36 @@ export const content : Record<any,any> = {
                 "bottom":"CS Builder & Tinkerer @ NTU"
             },
             "about_me":{
-                "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
+
+                // bio subdivided by \n
+
+                "bio":`Hello! I'm currently a penultimate undergraduate studying Computer Science at Nanyang Technological University (NTU)! 
+
+I'd describe myself as a builder and tinkerer, where I not only love building scalable systems, but I also enjoy creating and refining new solutions to existing systems! 
+
+I approach software engineering the same way I approach building blocks - by breaking down convoluted systems into simple and interactive components for everyone to use easily (much like the 3D models scattered across this site!)
+
+This website mainly serves as a digital portfolio of all my technical projects and work experience.
+
+Hope you enjoy your stay here! ;)`, 
+                // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
                 "bio2": "Feel free to click and drag the 3D models across the website to interact with them!",
+                
                 "hobbies_header": "My Hobbies",
                 "hobbies_header1": "These are some things I like to do during my free time!",
                 "hobbies_header2": "Click on one of them to find out more!",
                 "hobbies": {
                     "running": {
                         "name": "Running",
-                        "bio": "Started running a few months before polytechnic.",
-                        "statsTitle": "2026 Yearly Progress",
+                        "bio": "I started running long distances since the start of my polytechnic days, and I usually like to run around ~10km 4-6 times a week! It's one of my favorite non-coding activities to do, as I enjoy the feeling of completion after finishing a long run!",
+                        "yearlyProgress": "Yearly Progress ("+new Date().getFullYear()+")",
                         "labels": { "distance": "Total Distance", "runs": "Total Runs", "elevation": "Elevation Gain", "shoes": "Current Shoe Rotation" },
                         "shoes": "Daily: Asics Superblast 3 | Race: Nike Vaporfly 3",
                         "pbs": [
                             { "name": "5K", "duration": 1280 },
                             { "name": "10K", "duration": 2745 },
-                            { "name": "Half Marathon (21.1km)", "duration": 6280 },
-                            { "name": "Marathon (42.195km)", "duration": 12859 }
+                            { "name": "Half Marathon (~21.1km)", "duration": 6280, "raceName": "2026 Taiwan International Marathon in Tainan" },
+                            { "name": "Marathon (42.195km)", "duration": 12859, "raceName": "2026 Taiwan International Marathon in Tainan" }
                         ]
                     },
                     // "gaming": {
@@ -356,25 +369,25 @@ export const content : Record<any,any> = {
                     // },
                     "bouldering": {
                         "name": "Bouldering",
-                        "bio": "Analytical problem solving on a wall.",
+                        "bio": "Well, I've just started out doing bouldering when one of my friends introduced to it, and I generally have a lot of fun climbing! Just to note that I'm extremely new to this, so it's going to take time for me to improve!",
                         "labels": { "maxGrade": "Max Indoor Grade", "comfort": "Comfort Zone", "style": "Style Profile" },
                         "styles": { "slab": "Slab / Balance: Proficient", "overhang": "Overhang / Power: Projecting", "dynos": "Dynos / Coordination: Developing", "crimps": "Crimps / Pockets: Proficient" }
                     },
                     "gymming": {
                         "name": "Gymming",
-                        "bio": "Strength development and physical longevity.",
+                        "bio": "As I naturally have a slim skeletal build, going to the gym is a great way for me to have thicker limbs!",
                         "labels": { "split": "Current Routine Split", "goal": "Primary Goal", "targets": "Current Target Working Weights" },
                         "split": "Push / Pull / Legs (4x/week)",
                         "goal": "Hypertrophy & GPP",
                         "exercises": [
-                            { "name": "Barbell Back Squat", "weight": "100 kg × 8 reps" },
-                            { "name": "Barbell Bench Press", "weight": "85 kg × 6 reps" },
-                            { "name": "Conventional Deadlift", "weight": "140 kg × 5 reps" }
+                            { "name": "Barbell Back Squat", "weight": "100 kg x 8 reps" },
+                            { "name": "Barbell Bench Press", "weight": "85 kg x 6 reps" },
+                            { "name": "Conventional Deadlift", "weight": "140 kg x 5 reps" }
                         ]
                     },
                     "speedcubing": {
                         "name": "Speedcubing",
-                        "bio": "Algorithmic speed execution and muscle memory.",
+                        "bio": "I've started speedcubing since the end of Primary 6 because I noticed that most of my classmates were playing all sorts of Rubik's cubes! So, I decided to join them and time myself to be quick at solving twisty puzzles!",
                         "labels": { "method": "Primary Method", "cube": "Main 3x3 Cube", "averages": "Current Verification Averages" },
                         "method": "CFOP (Full OLL/PLL)",
                         "cube": "GAN 12 MagLev",
@@ -514,7 +527,32 @@ export const content : Record<any,any> = {
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
                         "source_code":"https://github.com/pixelhypercube/CellCollab",
-                        "web_link":"https://pixelhypercube.github.io/CellCollab"
+                        "web_link":"https://pixelhypercube.github.io/CellCollab",
+                        "changelog": [
+                            {
+                                "header":"V4",
+                                "date":new Date(),
+                                "desc": [
+                                    "3rd major revamp with Next.js & Tailwind",
+                                    "Developed an LLM chatbot & 3D voxel models!"
+                                ]
+                            },
+                            {
+                                "header": "V3",
+                                "date":new Date(),
+                                "desc": [
+                                    "2nd major revamp with React.js"
+                                ]
+                            },
+                            {
+                                "header": "V2",
+                                "date":new Date(),
+                                "desc": [
+                                    "1st major revamp",
+                                    "Used p5.js for my '50 facts about me' section"
+                                ]
+                            }
+                        ]
                     },
                     {
                         "name":"CellCollab",
@@ -525,7 +563,30 @@ export const content : Record<any,any> = {
                         "date": new Date(),
                         "media_url":["./projects/cellCollab.gif"],
                         "source_code":"https://github.com/pixelhypercube/CellCollab",
-                        "web_link":"https://pixelhypercube.github.io/CellCollab"
+                        "web_link":"https://pixelhypercube.github.io/CellCollab",
+                        "changelog": [
+                            {
+                                "header":"V1.3",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                            {
+                                "header":"V1.2",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                            {
+                                "header":"V1.1",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                        ]
                     },
                     {
                         "name":"Astertris",

@@ -17,6 +17,7 @@ interface ProjectProps {
     web_link?: string,
     currentTheme: string,
     transitionClasses?: string,
+    changelog?: Array<Record<string, any>>
     
     // headers
     about_header?: string,
@@ -24,7 +25,7 @@ interface ProjectProps {
 }
 
 export function ProjectListItem({
-    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,about_header,reflection_header
+    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header
 } : ProjectProps) {
     const [currImgIndex, setCurrImgIndex] = useState(0);
 
@@ -54,7 +55,7 @@ export function ProjectListItem({
             <main className="md:flex justify-stretch mt-4 gap-4">
                 {/* can consider list/grid layout toggle */}
                 <div className="w-full mb-4 md:mb-0 md:w-3/5 flex flex-col">
-                    <div className="lg:flex gap-4">
+                    <div className=" gap-4">
                         <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
                             <h5>{about_header}</h5>
                             {description}
@@ -113,6 +114,36 @@ export function ProjectListItem({
                             )
                         }
                     </div>
+                    {
+                        changelog && (
+                            <div className={`rounded-2xl p-4 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"} mt-4`}>
+                                <h4>Changelog:</h4>
+                                {
+                                    changelog.map((item,index)=>{
+                                        const {header, desc} = item;
+                                        return (
+                                            <div className="flex" key={`changelog-${index}`}>
+                                                <div className="mr-2 flex flex-col items-center">
+                                                    <div className={`w-4 h-4 rounded-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
+                                                    <div className={`w-1 h-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
+                                                </div>
+                                                <div>
+                                                    <h6 className="m-0">{header}</h6>
+                                                    <ul className="list-disc ml-4 text-sm">
+                                                    {
+                                                        desc.map((descItem: string, index: number)=>{
+                                                            return <li key={`desc-${index}`}>{descItem}</li>
+                                                        })
+                                                    }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        )
+                    }
                 </div>
             </main>
         </div>

@@ -28,9 +28,10 @@ interface RunningPBDivProps {
     duration: number; // number of seconds
     bgColor: string; // bgColor
     transitionClasses?: string;
+    raceName?: string;
 }
 
-export function RunningPBDiv({name,duration,bgColor,transitionClasses} : RunningPBDivProps) {
+export function RunningPBDiv({name,duration,bgColor,transitionClasses,raceName} : RunningPBDivProps) {
     const getTime = (seconds: number) => {
         const h = Math.floor(seconds/3600);
         const m = Math.floor(seconds/60) % 60;
@@ -43,6 +44,7 @@ export function RunningPBDiv({name,duration,bgColor,transitionClasses} : Running
         <div className={`p-4 ${bgColor} text-center rounded-3xl ${transitionClasses}`}>
             <h6>{name}</h6>
             <h4>{getTime(duration)}</h4>
+            <p className="text-sm italic opacity-50">{raceName}</p>
         </div>
     )
 }

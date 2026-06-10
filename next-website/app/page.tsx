@@ -254,8 +254,23 @@ export default function Home() {
                                 </div>
                                 <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full rounded-4xl p-5 flex items-center ${transitionClasses}`}>
                                     <div>
-                                        <p className="text-xl font-light mb-4">{aboutMeContent["bio"]}</p>
-                                        <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
+                                        {
+                                            aboutMeContent["bio"] && aboutMeContent["bio"]
+                                            .split('\n\n')
+                                            .map((sentence: string,index: number)=>{
+                                                return <p className="text-xl font-light mb-4" key={`desc-${index}`}>{sentence}</p>
+                                            })
+                                        }
+                                        {/* <p className="text-xl font-light mb-4">
+                                            {
+                                                aboutMeContent["bio"] && aboutMeContent["bio"]
+                                                .split('\n\n')
+                                                .map((sentence: string,index: number)=>{
+                                                    return <p className="my-4" key={`desc-${index}`}>{sentence}</p>
+                                                })
+                                            }
+                                        </p> */}
+                                        <p className="text-sm font-light italic">{aboutMeContent["bio2"]}</p>
                                     </div>
                                 </div>
                             </div>
@@ -306,7 +321,7 @@ export default function Home() {
                             <div className={projectsToggleIndex==1 ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" : ""}>
                                 {
                                     projectsContent["projects"].map((proj: any, index: number)=>{
-                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link} = proj;
+                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
 
                                         switch (projectsToggleIndex) {
                                             case 0:
@@ -325,6 +340,7 @@ export default function Home() {
                                                     web_link={web_link}
                                                     about_header={projectsContent["about_header"]}
                                                     reflection_header={projectsContent["reflection_header"]}
+                                                    changelog={changelog}
                                                 />;
                                             case 1:
                                                 return <ProjectGridItem
@@ -442,8 +458,9 @@ export default function Home() {
                                     {selectedHobby === running && (
                                         <div className="space-y-4">
                                             <p>{hobbies["running"]["bio"]}</p>
+                                            <hr/>
                                             <div>
-                                                <h5 className="font-bold mb-2">{hobbies["running"]["statsTitle"]}</h5>
+                                                <h5 className="font-bold mb-2">{hobbies["running"]["yearlyProgress"]}</h5>
                                                 <div className="grid grid-cols-3 gap-2 text-center text-sm">
                                                     <div className={`p-2 rounded-xl ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-200"}`}>
                                                         <span className="block text-xs opacity-75">{hobbies["running"]["labels"]["distance"]}</span>
@@ -469,6 +486,7 @@ export default function Home() {
                                                             bgColor={`${currentTheme==="D" ? "bg-taupe-700" : "bg-taupe-400"}`}
                                                             duration={pb.duration}
                                                             transitionClasses={transitionClasses}
+                                                            raceName={pb.raceName}
                                                         />
                                                     ))}
                                                 </div>
