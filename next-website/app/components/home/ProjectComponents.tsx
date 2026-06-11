@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Code } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Circle, Code } from "lucide-react";
 import { CgWebsite } from "react-icons/cg";
 import { renderDate } from "./utils";
 import { ProjectSkillTab } from "./ProjectSkillTab";
@@ -78,7 +78,7 @@ export function ProjectListItem({
                         }
                     </div>
                 </div>
-                <div className="w-full md:w-2/5 flex flex-col justify-between">
+                <div className="w-full md:w-2/5 flex flex-col">
                     <div className="relative group w-full aspect-video border border-stone-500 rounded-2xl overflow-hidden">
                         {
                             media_url && Array.isArray(media_url) && media_url.length > 0 && (
@@ -120,16 +120,16 @@ export function ProjectListItem({
                                 <h4>Changelog:</h4>
                                 {
                                     changelog.map((item,index)=>{
-                                        const {header, desc} = item;
+                                        const {header, date, desc} = item;
                                         return (
                                             <div className="flex" key={`changelog-${index}`}>
-                                                <div className="mr-2 flex flex-col items-center">
-                                                    <div className={`w-4 h-4 rounded-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
+                                                <div className="flex-1 mr-2 flex flex-col items-center">
+                                                    <div className={`w-3 h-3 rounded-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
                                                     <div className={`w-1 h-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
                                                 </div>
-                                                <div>
-                                                    <h6 className="m-0">{header}</h6>
-                                                    <ul className="list-disc ml-4 text-sm">
+                                                <div className="flex-11 mb-4 -translate-y-1">
+                                                    <h6>{header} <span className="text-sm font-normal italic opacity-50">{renderDate(date)}</span></h6>
+                                                    <ul className="list-disc ml-5 text-sm">
                                                     {
                                                         desc.map((descItem: string, index: number)=>{
                                                             return <li key={`desc-${index}`}>{descItem}</li>

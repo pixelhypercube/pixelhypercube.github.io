@@ -135,8 +135,10 @@ interface Canvas3DProps {
     voxelJson: Record<string, any>;
     className?: string;
     fov?: number;
+    autoRotateSpeed?: number;
+    camPosition?: number;
 }
-export default function Canvas3D({voxelJson, className, fov} : Canvas3DProps) {
+export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, camPosition} : Canvas3DProps) {
     if (!voxelJson?.data) return null;
 
     const sizeClasses = className || "w-full h-full";
@@ -149,7 +151,7 @@ export default function Canvas3D({voxelJson, className, fov} : Canvas3DProps) {
             // camera = {{fov,zoom:0.9}}
             className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}>
 
-                <PerspectiveCamera makeDefault position={[0, 0, 40]} fov={fov} />
+                <PerspectiveCamera makeDefault position={camPosition ?? [0, 20, 40]} fov={fov} />
 
                 <ambientLight intensity={0.5}/>
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -164,7 +166,7 @@ export default function Canvas3D({voxelJson, className, fov} : Canvas3DProps) {
                 enableZoom={false}
                 enablePan={false}
                 autoRotate
-                autoRotateSpeed={0.01} />
+                autoRotateSpeed={autoRotateSpeed ?? 0.5} />
             </View>
             {/* </Canvas> */}
         </div>

@@ -28,6 +28,17 @@ import skill_dark_css from "./voxelModels/skills/dark/css.json"
 import skill_dark_figma from "./voxelModels/skills/dark/figma.json"
 import skill_dark_canva from "./voxelModels/skills/dark/canva.json"
 
+import skill_dark_lang_en from "./voxelModels/skills/dark/lang_en.json"
+import skill_dark_lang_cn from "./voxelModels/skills/dark/lang_cn.json"
+import skill_dark_lang_jp from "./voxelModels/skills/dark/lang_jp.json"
+import skill_dark_lang_kr from "./voxelModels/skills/dark/lang_kr.json"
+import skill_dark_typing from "./voxelModels/skills/dark/typing_speed.json"
+import skill_dark_video_editing from "./voxelModels/skills/dark/video_editing.json"
+import skill_dark_latex from "./voxelModels/skills/dark/latex.json"
+import skill_dark_shell_scripting from "./voxelModels/skills/dark/shell_scripting.json"
+import skill_dark_pygame from "./voxelModels/skills/dark/pygame.json"
+import skill_dark_tech_doc from "./voxelModels/skills/dark/tech_doc.json"
+
 // light MODE
 import skill_light_react from "./voxelModels/skills/light/react.json"
 import skill_light_next1 from "./voxelModels/skills/light/next1.json"
@@ -52,6 +63,17 @@ import skill_light_c from "./voxelModels/skills/light/c.json"
 import skill_light_cpp from "./voxelModels/skills/light/cpp.json"
 import skill_light_html from "./voxelModels/skills/light/html.json"
 import skill_light_css from "./voxelModels/skills/light/css.json"
+
+import skill_light_lang_en from "./voxelModels/skills/light/lang_en.json"
+import skill_light_lang_cn from "./voxelModels/skills/light/lang_cn.json"
+import skill_light_lang_jp from "./voxelModels/skills/light/lang_jp.json"
+import skill_light_lang_kr from "./voxelModels/skills/light/lang_kr.json"
+import skill_light_typing from "./voxelModels/skills/light/typing_speed.json"
+import skill_light_video_editing from "./voxelModels/skills/light/video_editing.json"
+import skill_light_latex from "./voxelModels/skills/light/latex.json"
+import skill_light_shell_scripting from "./voxelModels/skills/light/shell_scripting.json"
+import skill_light_pygame from "./voxelModels/skills/light/pygame.json"
+import skill_light_tech_doc from "./voxelModels/skills/light/tech_doc.json"
 
 import experience_ns_qrcode from "./voxelModels/experience/ns/qrcode.json"
 import experience_ns_army_news from "./voxelModels/experience/ns/army_news.json"
@@ -195,13 +217,13 @@ export const skills : Record<any, any> = {
     "databases": [
         {
             "name":"PostgreSQL",
-            "skill_proficiency":1,
+            "skill_proficiency":2,
             "jsonModelDark":skill_dark_postgresql,
             "jsonModelLight":skill_light_postgresql
         },
         {
             "name":"MySQL",
-            "skill_proficiency":1,
+            "skill_proficiency":2,
             "jsonModelDark":skill_dark_mysql,
             "jsonModelLight":skill_light_mysql
         }
@@ -233,6 +255,73 @@ export const skills : Record<any, any> = {
             "jsonModelDark":skill_dark_canva,
             "jsonModelLight":skill_light_canva
         }
+    ],
+    "others": [
+        {
+            "name":"English",
+            "dict_obj": "lang", // default is skill_proficiencies
+            "skill_proficiency":5,
+            "jsonModelDark":skill_dark_lang_en,
+            "jsonModelLight":skill_light_lang_en
+        },
+        {
+            "name":"Chinese",
+            "dict_obj": "lang",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_lang_cn,
+            "jsonModelLight":skill_light_lang_cn
+        },
+        {
+            "name":"Japanese",
+            "dict_obj": "lang",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_lang_jp,
+            "jsonModelLight":skill_light_lang_jp
+        },
+        {
+            "name":"Korean",
+            "dict_obj": "lang",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_lang_kr,
+            "jsonModelLight":skill_light_lang_kr
+        },
+        {
+            "name":"Typing Speed",
+            "dict_obj": "none", 
+            "skill_proficiency":"100-120wpm",
+            "jsonModelDark":skill_dark_typing,
+            "jsonModelLight":skill_light_typing
+        },
+        {
+            "name":"Video Editing",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_video_editing,
+            "jsonModelLight":skill_light_video_editing
+        },
+        {
+            "name":"LaTeX",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_latex,
+            "jsonModelLight":skill_light_latex
+        },
+        {
+            "name":"Shell Scripting",
+            "skill_proficiency":0,
+            "jsonModelDark":skill_dark_shell_scripting,
+            "jsonModelLight":skill_light_shell_scripting
+        },
+        {
+            "name":"Pygame",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_pygame,
+            "jsonModelLight":skill_light_pygame
+        },
+        {
+            "name":"Technical Documentation",
+            "skill_proficiency":2,
+            "jsonModelDark":skill_dark_tech_doc,
+            "jsonModelLight":skill_light_tech_doc
+        },
     ]
 };
 
@@ -330,15 +419,15 @@ export const content : Record<any,any> = {
 
                 // bio subdivided by \n
 
-                "bio":`Hello! I'm currently a penultimate undergraduate studying Computer Science at Nanyang Technological University (NTU)! 
+                "bio":`Hello! I'm in my penultimate year pursuing a Bachelor's in Computer Science at Nanyang Technological University (NTU).
 
-I'd describe myself as a builder and tinkerer, where I not only love building scalable systems, but I also enjoy creating and refining new solutions to existing systems! 
+I'd describe myself as a builder and tinkerer at heart. I not only enjoy creating new systems, but I also love ideating and refining solutions to existing problems!
 
-I approach software engineering the same way I approach building blocks - by breaking down convoluted systems into simple and interactive components for everyone to use easily (much like the 3D models scattered across this site!)
+I approach software engineering the same way I approach building blocks — by breaking down convoluted systems into simple and efficient components for everyone to use stress-free (much like the 3D models I made that are scattered across this website!)
 
 This website mainly serves as a digital portfolio of all my technical projects and work experience.
 
-Hope you enjoy your stay here! ;)`, 
+Hope you enjoy your stay here!`, 
                 // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
                 "bio2": "Feel free to click and drag the 3D models across the website to interact with them!",
                 
@@ -403,12 +492,20 @@ Hope you enjoy your stay here! ;)`,
                     1:"Familiar",
                     2:"Proficient"   
                 },
+                "language_proficiencies": {
+                    1:"Elementary",
+                    2:"Limited Working",
+                    3:"Professional",
+                    4:"Full Professional",
+                    5:"Native"
+                },
                 "languages_header": "Languages",
                 "frontend_header": "Frontend",
                 "backend_header": "Backend",
                 "databases_header": "Databases",
                 "deployment_header": "Deployment",
                 "design_header": "Design",
+                "others_header": "Others",
                 // ...skills
             },
             "experience":{
@@ -428,7 +525,7 @@ Hope you enjoy your stay here! ;)`,
                                 experience_ns_qrcode
                             ],
                             [
-                                <p>Featured on <a className="text-slate-300 hover:text-slate-400 underline" href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> for contributions to the QR Code attendance scanning system!</p>,
+                                <p>Featured on <a className="underline" href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> for contributions to the QR Code attendance scanning system!</p>,
                                 experience_ns_army_news
                             ],
                             [
@@ -440,7 +537,7 @@ Hope you enjoy your stay here! ;)`,
                                 experience_ns_powerapps
                             ],
                             [
-                                "Awarded the Outstanding Soldier of the Month for June 2025 for contributions to the Personnel Admin Link (PAL) team after my resumption!",
+                                "Awarded Outstanding Soldier of the Month for June 2025 for contributions to the Personnel Admin Link (PAL) team after my resumption!",
                                 experience_ns_osom
                             ]
                         ],
@@ -526,8 +623,8 @@ Hope you enjoy your stay here! ;)`,
                         "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
-                        "source_code":"https://github.com/pixelhypercube/CellCollab",
-                        "web_link":"https://pixelhypercube.github.io/CellCollab",
+                        "source_code":"https://github.com/pixelhypercube/pixelhypercube.github.io",
+                        "web_link":"https://github.com/pixelhypercube/pixelhypercube.github.io",
                         "changelog": [
                             {
                                 "header":"V4",
@@ -539,17 +636,26 @@ Hope you enjoy your stay here! ;)`,
                             },
                             {
                                 "header": "V3",
-                                "date":new Date(),
+                                "date":new Date("08/14/2025"),
                                 "desc": [
-                                    "2nd major revamp with React.js"
+                                    "2nd major revamp with React.js",
+                                    "Implemented particle behavior upon click"
                                 ]
                             },
                             {
                                 "header": "V2",
-                                "date":new Date(),
+                                "date":new Date("09/02/2021"),
                                 "desc": [
                                     "1st major revamp",
-                                    "Used p5.js for my '50 facts about me' section"
+                                    "Used p5.js for my '50 facts about me' section",
+                                    "Refined interest sections into shorter explainations"
+                                ]
+                            },
+                            {
+                                "header": "V1",
+                                "date":new Date("09/02/2021"),
+                                "desc": [
+                                    "Initial Release",
                                 ]
                             }
                         ]
@@ -597,6 +703,29 @@ Hope you enjoy your stay here! ;)`,
                         "date": new Date(),
                         "media_url":["./projects/astertris.gif"],
                         "source_code":"https://github.com/pixelhypercube/Astertris",
+                        "changelog": [
+                            {
+                                "header":"V1.3",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                            {
+                                "header":"V1.2",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                            {
+                                "header":"V1.1",
+                                "date":new Date(),
+                                "desc": [
+                                    "Implemented more settings",
+                                ]
+                            },
+                        ]
                     }
                 ]
             },

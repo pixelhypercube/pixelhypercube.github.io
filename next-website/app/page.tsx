@@ -231,7 +231,7 @@ export default function Home() {
                             <Canvas3D voxelJson={computer} className="h-126 w-full justify-self-center z-11"/>
                         </div>
                     </header>
-                    <main className="w-4/5 justify-self-center">
+                    <main className="md:w-4/5 xl:w-3/5 justify-self-center">
                         {/* ABOUT ME */}
                         <div ref={containerAboutMeRef} className="flex flex-col mb-64">
                             {/* <div ref={containerAboutMeRef} className="flex flex-col mb-64">
@@ -247,7 +247,7 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div> */}
-                            <div className="flex flex-col p-5 gap-12 lg:h-96">
+                            <div className="flex flex-col p-5 gap-12 h-full items-center">
                                 {/* 3d voxel about me */}
                                 <div className="w-full h-64 shrink-0">
                                     <Canvas3D voxelJson={kj}/>
@@ -270,7 +270,7 @@ export default function Home() {
                                                 })
                                             }
                                         </p> */}
-                                        <p className="text-sm font-light italic">{aboutMeContent["bio2"]}</p>
+                                        <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +287,14 @@ export default function Home() {
                                             <div className="flex flex-wrap gap-4 mb-5">
                                                 {
                                                     skills[skill].map((s: any, index: number)=>{
-                                                        const {name, skill_proficiency, jsonModelDark, jsonModelLight} = s;
+                                                        const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight} = s;
+
+                                                        const proficiency = 
+                                                        dict_obj==="lang" ? 
+                                                        skillsInfo["language_proficiencies"][skill_proficiency] : 
+                                                        dict_obj==="none" ?
+                                                        skill_proficiency :
+                                                        skillsInfo["skill_proficiencies"][skill_proficiency]
                                                         
                                                         return (
                                                             <SkillContainer
@@ -295,7 +302,7 @@ export default function Home() {
                                                                 transitionClasses={transitionClasses}
                                                                 currentTheme={currentTheme}
                                                                 name={name}
-                                                                proficiency={skillsInfo["skill_proficiencies"][skill_proficiency]}
+                                                                proficiency={proficiency}
                                                                 jsonModelDark={jsonModelDark}
                                                                 jsonModelLight={jsonModelLight}
                                                             />
@@ -610,9 +617,6 @@ export default function Home() {
                                         <Canvas3D voxelJson={selectedHobby} className="absolute inset-0 w-full h-full"/>
                                     )}
                                 </div> */}
-                                <div>
-
-                                </div>
                             </div>
                         </div>
                     </main>
@@ -625,30 +629,30 @@ export default function Home() {
                                     {currentTheme === "D" && (
                                         <>
                                             <a className="w-full h-20" href="https://linkedin.com/in/kai-jie-teo">
-                                                <Canvas3D voxelJson={linkedin_dark} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={linkedin_dark} />
                                             </a>
                                             
                                             <a className="w-full h-20" href="https://github.com/pixelhypercube">
-                                                <Canvas3D voxelJson={github_dark} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={github_dark} />
                                             </a>
                                             
                                             <a className="w-full h-20" href="mailto:kj.teo.work@gmail.com">
-                                                <Canvas3D voxelJson={email_dark} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={email_dark} />
                                             </a>
                                         </>
                                     )}
                                     {currentTheme === "L" && (
                                         <>
                                             <a className="w-full h-20" href="https://linkedin.com/in/kai-jie-teo">
-                                                <Canvas3D voxelJson={linkedin_light} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={linkedin_light} />
                                             </a>
                                             
                                             <a className="w-full h-20" href="https://github.com/pixelhypercube">
-                                                <Canvas3D voxelJson={github_light} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={github_light} />
                                             </a>
                                             
                                             <a className="w-full h-20" href="mailto:kj.teo.work@gmail.com">
-                                                <Canvas3D voxelJson={email_light} />
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={email_light} />
                                             </a>
                                         </>
                                     )}
@@ -711,7 +715,7 @@ export default function Home() {
                 eventSource={containerRef as React.RefObject<HTMLElement>}
                 className="inset-0! pointer-events-none z-10 fixed!"
                 events={undefined}
-                camera={{fov:40,zoom:1}}
+                camera={{fov:10,zoom:0.5}}
             >
                 <View.Port />
                 <Preload all/>

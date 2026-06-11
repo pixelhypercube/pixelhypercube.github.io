@@ -10,6 +10,15 @@ export const renderDate = (date : Date) => {
     return dateStr;
 };
 
+export const renderFullDate = (date: Date) => {
+    let dateStr = date.toLocaleDateString('en-US', {
+        year:"numeric",
+        month:"short",
+        day:"2-digit"
+    }).toLowerCase();
+    return dateStr;
+}
+
 // STRAVA API
 
 export const getRunningData = async () => {
