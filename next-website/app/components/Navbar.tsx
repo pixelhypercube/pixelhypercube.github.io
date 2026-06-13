@@ -1,12 +1,15 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import type { Ref } from "react";
 import {content} from "../globals";
 
 interface NavItem {
     id?: string;
     type: "link" | "dropdown" | "toggle";
     selectedLanguage?: string;
+    transitionClasses?: string;
+    currentTheme?: string;
 }
 
 type ActionCallback = (value?: any) => void;
@@ -18,6 +21,7 @@ export interface ItemLinkProps extends NavItem {
     stylized: boolean; // for special items like home
     imageUrl?: string;
     action?: ActionCallback;
+    isSelected?: boolean;
 }
 
 export interface ItemDropdownProps extends NavItem {
@@ -84,20 +88,29 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
 ];
 
 function ItemLink({
-    name, link, stylized, imageUrl, action
+    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme
 } : Omit<ItemLinkProps, 'type'>) {
     const styles = (stylized) ? 
     "bg-stone-900/80 block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold" : 
     // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
-    "m-3 text-lg hover:font-bold transition-all ease-in-out duration-200";
+    "text-lg hover:font-bold transition-all ease-in-out duration-200";
+
+    const highlightBorderColorClasses = currentTheme==="D" ? "border-amber-300" : "border-amber-700";
+    const highlightTextColorClasses = currentTheme==="D" ? "text-amber-300" : "text-amber-700";
     
-    return usePathname() !== link ? 
-            <a onClick={()=>action?.()} className={`${styles}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
-            <div onClick={()=>action?.()} className={`${styles} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
+
+    return <div className="mx-3">
+        {
+            usePathname() !== link ? 
+            <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
+            <div onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
+        }
+        <hr className={`${isSelected ? "w-full" : "w-0 opacity-0"} transition-all duration-500 ${highlightBorderColorClasses} border-[1.75px]`}/>
+    </div>
 }
 
 function ItemDropdown({
-    values, showValues, action
+    values, showValues, action, transitionClasses, currentTheme
 } : Omit<ItemDropdownProps, 'type'>) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [selectedKey, setSelectedKey] = useState(values[0]?.[0] || "");
@@ -134,7 +147,7 @@ function ItemDropdown({
             </div>
 
             {isOpen && (
-                <ul className="absolute top-full left-0 min-w-35 bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <ul className="absolute top-full left-0 min-w-35 bg-black backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                     {values.map((item: any,index: number)=>{
                         const [key,val] = item;
                         const isSelected = key===selectedKey;
@@ -194,7 +207,7 @@ function ItemDropdown({
 // }
 
 function ItemToggle({
-    values, selectedIndex = 1, showIcons = false, action
+    values, selectedIndex = 1, showIcons = false, action, transitionClasses, currentTheme
 } : Omit<ItemToggleProps, 'type'>) {
     const [currentIndex, setCurrentIndex] = useState<number>(selectedIndex);
     const [name, icon] = values[selectedIndex];
@@ -227,14 +240,14 @@ function ItemToggle({
 
 // STANDARDIZED RENDERER COMPONENT
 
-function NavItemRenderer({ item, selectedLanguage }: { item: NavItemProps; selectedLanguage?: string }) {
+function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses, currentTheme }: { item: NavItemProps; selectedLanguage?: string; isSelected?: boolean, transitionClasses?: string, currentTheme?: string }) {
     switch (item.type) {
         case "link":
-            return <ItemLink selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
+            return <ItemLink currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
         case "dropdown":
-            return <ItemDropdown selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
+            return <ItemDropdown currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
         case "toggle":
-            return <ItemToggle selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
+            return <ItemToggle currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
         default:
             return null;
     }
@@ -245,7 +258,9 @@ interface NavbarProps {
     callbacks?: NavbarCallbacks,
     selectedLanguage: string,
     currentTheme: string,
-    transitionClasses?: string
+    transitionClasses?: string,
+    currentPos?: string,
+    ref?:Ref<HTMLElement> | undefined;
 }
 
 export default function Navbar({
@@ -253,9 +268,10 @@ export default function Navbar({
     callbacks = {},
     selectedLanguage,
     currentTheme,
-    transitionClasses
+    transitionClasses,
+    currentPos,
+    ref
 } : NavbarProps) {
-    const ref = useRef<HTMLElement>(null!);
 
     const itemsLeft = getItemsLeft(callbacks, selectedLanguage);
     const itemsCenter = getItemsCenter(callbacks, selectedLanguage);
@@ -269,21 +285,21 @@ export default function Navbar({
             <div className="flex justify-start items-center">
                 {
                     itemsLeft.map((item: any,index : number)=>(
-                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
+                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-center items-center">
                 {
                     itemsCenter.map((item: any,index : number)=>(
-                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
+                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-end items-center">
                 {
                     itemsRight.map((item: any,index : number)=>(
-                        <NavItemRenderer selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
+                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
                     ))
                 }
             </div>

@@ -99,16 +99,19 @@ export default function Home() {
     const [currentTheme, setCurrentTheme] = useState("D");
 
     const [projectsToggleIndex, setProjectsToggleIndex] = useState(0);
-    const [experienceToggleIndex, setExperienceToggleIndex] = useState(0);
-    const [educationToggleIndex, setEducationToggleIndex] = useState(0);
+    // const [experienceToggleIndex, setExperienceToggleIndex] = useState(0);
+    // const [educationToggleIndex, setEducationToggleIndex] = useState(0);
 
     // REFS
     const containerRef = useRef<HTMLDivElement>(null);
+    const containerHeroRef = useRef<HTMLDivElement>(null);
     const containerAboutMeRef = useRef<HTMLDivElement>(null);
     const containerSkillsRef = useRef<HTMLDivElement>(null);
     const containerProjectsRef = useRef<HTMLDivElement>(null);
     const containerExperienceRef = useRef<HTMLDivElement>(null);
     const containerEducationRef = useRef<HTMLDivElement>(null);
+
+    const navbarRef = useRef<HTMLDivElement>(null);
 
     var currContent = content[selectedLanguage];
     const {home} = currContent;
@@ -128,7 +131,7 @@ export default function Home() {
     const {hobbies} = aboutMeContent;
 
     // for smooth transition between light and dark
-    const transitionClasses = `transition-color ease-in-out duration-1000`;
+    const transitionClasses = `transition-color ease-in-out duration-500`;
 
     // placeholder input styles
 
@@ -190,6 +193,48 @@ export default function Home() {
             setStatus("error");
         }
     };
+    
+    // determine current div pos
+
+    const [currentDiv, setCurrentDiv] = useState("");
+
+    useEffect(()=>{
+        const onScroll = () => {
+
+            // NAVBAR HEIGHT
+            const navbarHeight = navbarRef.current?.clientHeight;
+            
+            const divs: Record<string, DOMRect | undefined> = {
+                "hero":containerHeroRef.current?.getBoundingClientRect(),
+                "about_me":containerAboutMeRef.current?.getBoundingClientRect(),
+                "skills":containerSkillsRef.current?.getBoundingClientRect(),
+                "projects":containerProjectsRef.current?.getBoundingClientRect(),
+                "experience":containerExperienceRef.current?.getBoundingClientRect(),
+                "education":containerEducationRef.current?.getBoundingClientRect(),
+            }
+
+            for (const key of Object.keys(divs)) {
+                if (!navbarHeight) continue;
+
+                const div = divs[key];
+                if (!div) continue;
+
+                // SKILLS CONTAINER
+                const {top,height} = div;
+                if (!top) continue;
+                if (!height) continue;
+                
+
+                // console.log(key,top,height,top<=0 && top+height>=0)
+                if (top-navbarHeight-50<=0 && top+height-navbarHeight-50>=0) {
+                    setCurrentDiv(key);
+                }
+            }
+        };
+
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [currentDiv]);
 
     return (
         <div ref={containerRef} className={`relative w-full min-h-screen 
@@ -216,11 +261,13 @@ export default function Home() {
                 selectedLanguage={selectedLanguage}
                 currentTheme={currentTheme}
                 transitionClasses={transitionClasses}
+                currentPos={currentDiv}
+                ref={navbarRef}
             />
             {/* MAIN CONTENT */}
             <div className="relative z-10">
                 <div className="flex-col align-middle text-left">
-                    <header className="flex text-center">
+                    <header ref={containerHeroRef} className="flex text-center">
                         <div className="mt-96 mb-96 w-full">
                             <h3>{headerContent["top"]}</h3>
                             <h1 className="text-8xl">{headerContent["name"]}</h1>
@@ -231,7 +278,7 @@ export default function Home() {
                             <Canvas3D voxelJson={computer} className="h-126 w-full justify-self-center z-11"/>
                         </div>
                     </header>
-                    <main className="md:w-4/5 xl:w-3/5 justify-self-center">
+                    <main className="lg:w-4/5 xl:w-3/5 justify-self-center">
                         {/* ABOUT ME */}
                         <div ref={containerAboutMeRef} className="flex flex-col mb-64">
                             {/* <div ref={containerAboutMeRef} className="flex flex-col mb-64">
@@ -376,7 +423,7 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{experienceContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setExperienceToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={experienceToggleIndex}/>
+                                {/* <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setExperienceToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={experienceToggleIndex}/> */}
                             </div>
                             {/* experience container */}
                             <div>
@@ -406,7 +453,7 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{educationContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setEducationToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={educationToggleIndex}/>
+                                {/* <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setEducationToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={educationToggleIndex}/> */}
                             </div>
                             <div>
                                 {

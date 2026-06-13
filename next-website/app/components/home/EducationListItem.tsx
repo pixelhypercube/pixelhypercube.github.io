@@ -69,13 +69,18 @@ export function EducationListItem({
                         }</ul>
                     </div>
                 )}
+                <hr className={`${currentTheme==="D" ? "border-stone-700" : "border-stone-400"} mb-4`}/>
                 {
                     (activities || relevant_coursework || awards) && (
                         <div className="flex flex-col gap-4">
                             {/* RELEVANT COURSEWORK */}
                             {
                                 relevant_coursework && (
-                                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-xl p-3 w-full ${transitionClasses}`}>
+                                    // ${currentTheme==="D" ? 
+                                    // "bg-stone-700 text-stone-100" : 
+                                    // "bg-stone-400 text-stone-950"} 
+                                    <div className={`
+                                    rounded-xl w-full ${transitionClasses}`}>
                                         <div className={`flex w-full justify-between ${transitionClasses}`}>
                                             <div>
                                                 <h4>{relevant_coursework_header}</h4>
@@ -88,11 +93,11 @@ export function EducationListItem({
                                             {
                                                 Object.keys(relevant_coursework).map((moduleCode : string, index : number)=>{
                                                     if (selectedRelCWIndex===0) {
-                                                        return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-600 text-white" : "bg-mauve-300 text-stone-900"} rounded-2xl p-2  ${transitionClasses}`}>
+                                                        return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2  ${transitionClasses}`}>
                                                             <p className="text-sm">{moduleCode} : {relevant_coursework[moduleCode]["name"]}</p>
                                                         </div>
                                                     } else if (selectedRelCWIndex===1) {
-                                                        return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-600 text-white" : "bg-mauve-300 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
+                                                        return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
                                                             <div className="w-full h-24">
                                                                 <Canvas3D voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />
                                                             </div>
@@ -112,7 +117,11 @@ export function EducationListItem({
                             {/* ACTIVITIES & SOCIETIES */}
                             {
                                 activities && (
-                                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-xl p-3 w-full ${transitionClasses}`}>
+                                    // ${currentTheme==="D" ? 
+                                    // "bg-stone-700 text-stone-100" : 
+                                    // "bg-stone-400 text-stone-950"}
+                                    <div className={`
+                                    rounded-xl w-full ${transitionClasses}`}>
                                         <div className={`flex justify-between ${transitionClasses}`}>
                                             <div>
                                                 <h4>{activities_header}</h4>
@@ -122,7 +131,7 @@ export function EducationListItem({
                                             </div>
                                         </div>
                                         <div className={`flex flex-col ${transitionClasses}`}>
-                                            <div className={`gap-4 ${selectedActivitiesIndex === 0 ? "grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1" : "flex flex-col"}`}>
+                                            <div className={`gap-4 ${selectedActivitiesIndex === 0 ? "grid md:grid-cols-2 sm:grid-cols-1" : "flex flex-col"}`}>
                                             {
                                                 activities.map((activity: Record<string, any>, index: number)=>{
                                                     const {name, dates, bio} = activity;
@@ -130,8 +139,8 @@ export function EducationListItem({
                                                     if (selectedActivitiesIndex === 0) {
                                                         return (
                                                             <div key={`activities-${index}`} 
-                                                            className={`${currentTheme==="D" ? "bg-stone-600 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
-                                                                <div className="w-full h-48">
+                                                            className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                                                <div className="w-full h-36">
                                                                     <Canvas3D voxelJson={activity["jsonModel"]} />
                                                                 </div>
                                                                 <div>
@@ -143,6 +152,7 @@ export function EducationListItem({
                                                                         })
                                                                     }
                                                                     </p>
+                                                                    <hr className="my-2 opacity-50" />
                                                                     <ul className="list-disc mx-5">
                                                                         {bio && bio.length>0 && bio.map((item:string,index:number)=>(<li key={`bio-${index}`}>{item}</li>))}
                                                                     </ul>
@@ -152,7 +162,7 @@ export function EducationListItem({
                                                     } else if (selectedActivitiesIndex === 1) {
                                                         return (
                                                             <div key={`activities-${index}`} 
-                                                            className={`${currentTheme==="D" ? "bg-stone-600 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                                            className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
                                                                 <div className="flex">
                                                                     <div className="w-7/8">
                                                                         <h5 className="my-0">{name}</h5>
@@ -186,13 +196,14 @@ export function EducationListItem({
                             {/* AWARDS */}
                             {
                                 awards && (
-                                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-xl p-3 w-full flex flex-col gap-2 ${transitionClasses}`}>
+                                    // ${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"}
+                                    <div className={`rounded-xl w-full flex flex-col gap-2 ${transitionClasses}`}>
                                         <h4 className="my-0">{awards_header} 🎖️</h4>
-                                        <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2">
+                                        <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                                             {awards.map((award:Record<string, any>,idx: number)=>{
                                                 const {name, date} = award;
                                                 
-                                                return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-600 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                                return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
                                                     <div>
                                                         <h5 className="my-0">{name}</h5>
                                                         <p className="my-0 text-sm italic">{date && renderDate(date)}</p>

@@ -50,7 +50,7 @@ export function ExperienceListItem({
             <hr className={currentTheme==="D" ? "border-stone-700" : "border-stone-400"} />
             <main className="mt-4">
                 {/* can consider list/grid layout toggle */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
                     {
                         description && description.map((item: any, index: number)=>{
                             const [desc, jsonModel] = item;
@@ -59,7 +59,7 @@ export function ExperienceListItem({
                                 key={`desc-exp-${index}`} 
                                 className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}
                                 >
-                                    <div className="w-full h-44 relative">
+                                    <div className="w-full h-36 relative">
                                         <Canvas3D voxelJson={jsonModel}/>
                                     </div>
                                     <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />

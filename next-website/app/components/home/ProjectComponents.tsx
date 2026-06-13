@@ -128,7 +128,7 @@ export function ProjectListItem({
                                                     <div className={`w-1 h-full ${currentTheme==="D" ? "bg-stone-300" : "bg-stone-800"}`}></div>
                                                 </div>
                                                 <div className="flex-11 mb-4 -translate-y-1">
-                                                    <h6>{header} <span className="text-sm font-normal italic opacity-50">{renderDate(date)}</span></h6>
+                                                    <h6>{header}<span className="ml-4 text-sm font-normal italic opacity-50">{renderDate(date)}</span></h6>
                                                     <ul className="list-disc ml-5 text-sm">
                                                     {
                                                         desc.map((descItem: string, index: number)=>{

@@ -80,7 +80,9 @@ import experience_ns_army_news from "./voxelModels/experience/ns/army_news.json"
 import experience_ns_telegram from "./voxelModels/experience/ns/telegram.json"
 import experience_ns_powerapps from "./voxelModels/experience/ns/powerapps.json"
 import experience_ns_osom from "./voxelModels/experience/ns/osom.json"
+import experience_ns_coding from "./voxelModels/experience/ns/coding.json"
 
+import experience_ecoexchange_updates from "./voxelModels/experience/ecoexchange/updates.json"
 import experience_ecoexchange_frontend from "./voxelModels/experience/ecoexchange/frontend.json"
 import experience_ecoexchange_tickets from "./voxelModels/experience/ecoexchange/tickets.json"
 
@@ -421,7 +423,7 @@ export const content : Record<any,any> = {
 
                 "bio":`Hello! I'm in my penultimate year pursuing a Bachelor's in Computer Science at Nanyang Technological University (NTU).
 
-I'd describe myself as a builder and tinkerer at heart. I not only enjoy creating new systems, but I also love ideating and refining solutions to existing problems!
+I'd describe myself as a builder and tinkerer at heart, where I not only enjoy creating new systems, but I also love ideating and refining solutions to existing problems!
 
 I approach software engineering the same way I approach building blocks — by breaking down convoluted systems into simple and efficient components for everyone to use stress-free (much like the 3D models I made that are scattered across this website!)
 
@@ -458,7 +460,7 @@ Hope you enjoy your stay here!`,
                     // },
                     "bouldering": {
                         "name": "Bouldering",
-                        "bio": "Well, I've just started out doing bouldering when one of my friends introduced to it, and I generally have a lot of fun climbing! Just to note that I'm extremely new to this, so it's going to take time for me to improve!",
+                        "bio": "I've just started out doing bouldering when one of my friends introduced to it, and I generally have a lot of fun climbing! Just to note that I'm extremely new to this, so it's going to take time for me to improve!",
                         "labels": { "maxGrade": "Max Indoor Grade", "comfort": "Comfort Zone", "style": "Style Profile" },
                         "styles": { "slab": "Slab / Balance: Proficient", "overhang": "Overhang / Power: Projecting", "dynos": "Dynos / Coordination: Developing", "crimps": "Crimps / Pockets: Proficient" }
                     },
@@ -529,7 +531,7 @@ Hope you enjoy your stay here!`,
                                 experience_ns_army_news
                             ],
                             [
-                                "QA-tested numerous unit-based Telegram chatbots (Parade State, Events Bot, etc.) and vastly improved overall reliability.",
+                                "QA-tested numerous unit-based Telegram chatbots (Parade State, Events Bot, etc.) and improved overall reliability.",
                                 experience_ns_telegram
                             ],
                             [
@@ -539,6 +541,10 @@ Hope you enjoy your stay here!`,
                             [
                                 "Awarded Outstanding Soldier of the Month for June 2025 for contributions to the Personnel Admin Link (PAL) team after my resumption!",
                                 experience_ns_osom
+                            ],
+                            [
+                                "Was overall a pretty interesting and worthy experience having to spend a chunk of time writing code and admin stuff while wearing green!",
+                                experience_ns_coding
                             ]
                         ],
                         "skills": ["Node.js", "EJS","Express.js", "Git"],
@@ -552,7 +558,11 @@ Hope you enjoy your stay here!`,
                         "role": "Lead Frontend Developer (Final Year Project, Singapore Polytechnic)",
                         "description": [
                             [
-                                "Led the frontend architecture and coordinated a team of 2 developers to build a responsive intranet system, replacing manual workflows with digital solutions.",
+                                "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I worked on implementing more updates according to the company's new requirements.",
+                                experience_ecoexchange_updates
+                            ],
+                            [
+                                "Led the frontend development and coordinated a team of 2 developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
                                 experience_ecoexchange_frontend
                             ],
                             [
@@ -672,24 +682,17 @@ Hope you enjoy your stay here!`,
                         "web_link":"https://pixelhypercube.github.io/CellCollab",
                         "changelog": [
                             {
-                                "header":"V1.3",
-                                "date":new Date(),
-                                "desc": [
-                                    "Implemented more settings",
-                                ]
-                            },
-                            {
                                 "header":"V1.2",
-                                "date":new Date(),
+                                "date":new Date("10/26/2025"),
                                 "desc": [
-                                    "Implemented more settings",
+                                    "Implemented more settings and improved layout",
                                 ]
                             },
                             {
                                 "header":"V1.1",
-                                "date":new Date(),
+                                "date":new Date("05/11/2025"),
                                 "desc": [
-                                    "Implemented more settings",
+                                    "Initial Release",
                                 ]
                             },
                         ]
@@ -705,24 +708,18 @@ Hope you enjoy your stay here!`,
                         "source_code":"https://github.com/pixelhypercube/Astertris",
                         "changelog": [
                             {
-                                "header":"V1.3",
-                                "date":new Date(),
+                                "header":"beta 1.5.0",
+                                "date":new Date("10/20/2025"),
                                 "desc": [
-                                    "Implemented more settings",
+                                    "More UI Improvements",
+                                    "Implemented scoring system",
                                 ]
                             },
                             {
-                                "header":"V1.2",
-                                "date":new Date(),
+                                "header":"beta 1.0.0",
+                                "date":new Date("09/01/2025"),
                                 "desc": [
-                                    "Implemented more settings",
-                                ]
-                            },
-                            {
-                                "header":"V1.1",
-                                "date":new Date(),
-                                "desc": [
-                                    "Implemented more settings",
+                                    "Initial Release",
                                 ]
                             },
                         ]
@@ -765,13 +762,14 @@ Hope you enjoy your stay here!`,
                         // [start, end]
                         "activities":[,
                             {
-                                "name":"Hall X Member",
+                                "name":"Hall X Resident",
                                 "dates": [
                                     [new Date("08/05/2024"), "Present"]
                                 ],
-                                // "bio":[
-                                //     "Participated in the 2025 & 2026 Inter-Hall Games and came in 1st and 2nd runner-up respectively!"
-                                // ],
+                                "bio":[
+                                    "Was nice to experience the inner beauties of hall life!",
+                                    "Helped me become more extroverted introvert"
+                                ],
                                 "jsonModel": hallX
                             },
                             {
@@ -786,7 +784,7 @@ Hope you enjoy your stay here!`,
                             }
                         ],
                         "bio":[
-                            <p>Clinched my childhood dream of studying computer science, huge kudos to <a className="text-slate-300 hover:text-slate-400 underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>,
+                            <p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>,
                         ],
                         "dates" :[
                             [
@@ -896,7 +894,7 @@ Hope you enjoy your stay here!`,
                             }
                         ],
                         "bio":[
-                            // "Double Bass Section Lead"
+                            "Made quite a lot of interesting things here!"
                         ],
                         "dates" :[
                             [
@@ -937,12 +935,12 @@ Hope you enjoy your stay here!`,
                                 "jsonModel":lego_mindstorms
                             }
                         ],
-                        "awards": [
-                            {
-                                "name":"Edusave Good Progress Award (2015)",
-                                "date":new Date("01/01/2016")
-                            }
-                        ],
+                        // "awards": [
+                        //     {
+                        //         "name":"Edusave Good Progress Award (2015)",
+                        //         "date":new Date("01/01/2016")
+                        //     }
+                        // ],
                         "bio":[
                             "Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum."
                         ],
