@@ -81,15 +81,24 @@ import experience_ns_telegram from "./voxelModels/experience/ns/telegram.json"
 import experience_ns_powerapps from "./voxelModels/experience/ns/powerapps.json"
 import experience_ns_osom from "./voxelModels/experience/ns/osom.json"
 import experience_ns_coding from "./voxelModels/experience/ns/coding.json"
+import experience_ns_logo from "./voxelModels/experience/ns/logo.json"
 
 import experience_ecoexchange_updates from "./voxelModels/experience/ecoexchange/updates.json"
 import experience_ecoexchange_frontend from "./voxelModels/experience/ecoexchange/frontend.json"
 import experience_ecoexchange_tickets from "./voxelModels/experience/ecoexchange/tickets.json"
+import experience_ecoexchange_logo from "./voxelModels/experience/ecoexchange/logo.json"
 
 
 import experience_leaptron_winforms from "./voxelModels/experience/leaptron/winforms.json"
 import experience_leaptron_db_nodejs from "./voxelModels/experience/leaptron/db_nodejs.json"
 import experience_leaptron_appgyver from "./voxelModels/experience/leaptron/appgyver.json"
+import experience_leaptron_logo from "./voxelModels/experience/leaptron/logo.json"
+
+
+import edu_logo_ntu from "./voxelModels/edu/ntu/logo.json"
+import edu_logo_sp from "./voxelModels/edu/sp/logo.json"
+import edu_logo_acsint from "./voxelModels/edu/acsint/logo.json"
+import edu_logo_acsbr from "./voxelModels/edu/acsbr/logo.json"
 
 import sc1007 from "./voxelModels/edu/ntu/rel_coursework/sc1007.json"
 import sc1008 from "./voxelModels/edu/ntu/rel_coursework/sc1008.json"
@@ -100,7 +109,7 @@ import roadRelay from "./voxelModels/edu/ntu/activities/road_relay.json"
 import hallX from "./voxelModels/edu/ntu/activities/hallx.json"
 import strings from "./voxelModels/edu/acsint/activities/strings.json"
 import archery from "./voxelModels/edu/acsint/activities/archery.json"
-import lego_mindstorms from "./voxelModels/edu/acsint/activities/lego_mindstorms.json"
+import lego_mindstorms from "./voxelModels/edu/acsbr/activities/lego_mindstorms.json"
 
 import { 
   DiJavascript1, DiPython, DiHtml5, DiCss3, DiReact, DiNodejsSmall, DiPostgresql, DiMysql, 
@@ -365,6 +374,7 @@ export const projectSkillsTabsDark : Record<string, any> = {
 export const projectSkillsTabsLight : Record<string, any> = {
     // Languages
     "Javascript (ES6)": <DiJavascript1 className="text-yellow-600 w-6 h-6" />,
+    "Typescript": <BsTypescript className="text-blue-500 w-6 h-6" />,
     "Python": <DiPython className="text-blue-600 w-6 h-6" />,
     "C#": <TbBrandCSharp className="text-purple-700 w-6 h-6" />,
     "C": <SiC className="text-blue-700 w-6 h-6" />,
@@ -516,6 +526,7 @@ Hope you enjoy your stay here!`,
                     {
                         "company": "Singapore Armed Forces",
                         "role": "Software Engineer (NSF)",
+                        "json_model":experience_ns_logo,
                         // "description": [
                         //     "Developed a QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
                         //     "QA tested numerous unit-based Telegram chatbots and contributed to features for the Personnel Admin Link.",
@@ -555,7 +566,8 @@ Hope you enjoy your stay here!`,
                     },
                     {
                         "company": "Eco Exchange Pte. Ltd.",
-                        "role": "Lead Frontend Developer (Final Year Project, Singapore Polytechnic)",
+                        "role": "Lead Frontend Developer (SP FYP)",
+                        "json_model":experience_ecoexchange_logo,
                         "description": [
                             [
                                 "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I worked on implementing more updates according to the company's new requirements.",
@@ -583,6 +595,7 @@ Hope you enjoy your stay here!`,
                     {
                         "company": "Leaptron Engineering Pte Ltd.",
                         "role": "Software Engineer (Intern)",
+                        "json_model":experience_leaptron_logo,
                         "description": [
                             [
                                 "Architected C# programs to help with shipping management!",
@@ -626,10 +639,10 @@ Hope you enjoy your stay here!`,
                     //     "web_link":"https://pixelhypercube.github.io/CellCollab"
                     // },
                     {
-                        "name":"My Website!",
-                        "short_description":"New version of my personal website!",
-                        "description":"Features an array of 3D voxel models scattered throughout my website, as well as a Gemini-powered chatbot to ask about any queries regarding who I am!",
-                        "reflection":"Making this is actually pretty interesting and fun to do because not only did I get to leverage my newly acquired Next.js skills to the test, but I leveraged on hand-crafting 3D voxel models from scratch! The fact that Next.js also supports backend API endpoints is a huge win!",
+                        "name":"Personal Website",
+                        "short_description":"",
+                        "description":"My digital portfolio that showcases my prior technical experience and projects I've done, as well as who I am, through 3D voxels, and an operating chatbot, thanks to Next.js and Tailwind CSS! ",
+                        "reflection":"Making this is actually pretty interesting and fun to do because not only did I get to leverage my newly acquired Next.js skills to the test, but I leveraged on hand-crafting 3D voxel models from scratch because I am visually satisfied by looking at cubes! I tried my best to make this site uniquely me and I hope that it shows throughout my entire website!",
                         "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
@@ -736,6 +749,7 @@ Hope you enjoy your stay here!`,
                         "institution": "Nanyang Technological University",
                         "certificate": "Bachelor of Computing (Honours) in Computer Science",
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        "json_model":edu_logo_ntu,
                         "relevant_coursework":
                         {
                             "SC1007": {
@@ -796,6 +810,7 @@ Hope you enjoy your stay here!`,
                     {
                         "institution": "Singapore Polytechnic",
                         "certificate": "Diploma in Information Technology",
+                        "json_model":edu_logo_sp,
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
                         // {
@@ -854,6 +869,7 @@ Hope you enjoy your stay here!`,
                     {
                         "institution": "Anglo-Chinese School (International)",
                         "certificate": "Cambridge International General Certificate of General Education (IGCSE)",
+                        "json_model":edu_logo_acsint,
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
                         // {
@@ -903,54 +919,55 @@ Hope you enjoy your stay here!`,
                         ],
                         "media_url":"./"
                     },
-                    {
-                        "institution": "Anglo-Chinese School (Barker Road)",
-                        "certificate": "",
-                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
-                        // "relevant_coursework":
-                        // {
-                        //     "SC1007": {
-                        //         "name": "Data Structures & Algorithms",
-                        //     },
-                        //     "SC1008": {
-                        //         "name": "C & C++ Programming",
-                        //     },
-                        //     "SC2002": {
-                        //         "name": "Object Oriented Design & Programming",
-                        //     },
-                        //     "SC2006": {
-                        //         "name": "Software Engineering",
-                        //     },
-                        // },
-                        // [start, end]
-                        "activities":[
-                            {
-                                "name":"Robotics",
-                                "dates": [
-                                    [new Date("01/05/2015"), new Date("12/03/2015")]
-                                ],
-                                "bio":[
-                                    "Member"
-                                ],
-                                "jsonModel":lego_mindstorms
-                            }
-                        ],
-                        // "awards": [
-                        //     {
-                        //         "name":"Edusave Good Progress Award (2015)",
-                        //         "date":new Date("01/01/2016")
-                        //     }
-                        // ],
-                        "bio":[
-                            "Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum."
-                        ],
-                        "dates" :[
-                            [
-                                new Date("01/01/2015"), new Date("12/05/2015")
-                            ],
-                        ],
-                        "media_url":"./"
-                    }
+                    // {
+                    //     "institution": "Anglo-Chinese School (Barker Road)",
+                    //     "certificate": "",
+                    //     "json_model":edu_logo_acsbr,
+                    //     // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                    //     // "relevant_coursework":
+                    //     // {
+                    //     //     "SC1007": {
+                    //     //         "name": "Data Structures & Algorithms",
+                    //     //     },
+                    //     //     "SC1008": {
+                    //     //         "name": "C & C++ Programming",
+                    //     //     },
+                    //     //     "SC2002": {
+                    //     //         "name": "Object Oriented Design & Programming",
+                    //     //     },
+                    //     //     "SC2006": {
+                    //     //         "name": "Software Engineering",
+                    //     //     },
+                    //     // },
+                    //     // [start, end]
+                    //     "activities":[
+                    //         {
+                    //             "name":"Robotics",
+                    //             "dates": [
+                    //                 [new Date("01/05/2015"), new Date("12/03/2015")]
+                    //             ],
+                    //             "bio":[
+                    //                 "Member"
+                    //             ],
+                    //             "jsonModel":lego_mindstorms
+                    //         }
+                    //     ],
+                    //     // "awards": [
+                    //     //     {
+                    //     //         "name":"Edusave Good Progress Award (2015)",
+                    //     //         "date":new Date("01/01/2016")
+                    //     //     }
+                    //     // ],
+                    //     "bio":[
+                    //         "Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum."
+                    //     ],
+                    //     "dates" :[
+                    //         [
+                    //             new Date("01/01/2015"), new Date("12/05/2015")
+                    //         ],
+                    //     ],
+                    //     "media_url":"./"
+                    // }
                 ]
             },
             "footer": {

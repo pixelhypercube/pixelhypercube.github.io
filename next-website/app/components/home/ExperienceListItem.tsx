@@ -11,10 +11,11 @@ interface ExperienceProps {
     currentTheme: string;
     skills?: Array<string>;
     transitionClasses?: string;
+    jsonModel?:Record<string, string>;
 }
 
 export function ExperienceListItem({
-    company,role,description,dates,currentTheme,skills,transitionClasses
+    company,role,description,dates,currentTheme,skills,transitionClasses,jsonModel
 } : ExperienceProps) {
     // reverse dates (optional)
     // dates.reverse();
@@ -22,7 +23,10 @@ export function ExperienceListItem({
     
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
-            <header className="flex w-full mb-5">
+            <header className="flex w-full mb-5 gap-4">
+                <div className={`hidden md:block w-32 h-32 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
+                    {jsonModel && <Canvas3D voxelJson={jsonModel}/>}
+                </div>
                 <div className="w-3/4">
                     <h3 className="m-0">{role}</h3>
                     <h5 className="m-0">{company}</h5>
@@ -36,7 +40,7 @@ export function ExperienceListItem({
                         }
                     </div>
                 </div>
-                <div className="w-1/4 text-right italic">
+                <div className="w-1/4 min-w-48 text-right italic">
                     <h6>
                     {
                         dates && dates.map((dateArr,idx: number)=>{
