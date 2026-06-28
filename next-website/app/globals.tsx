@@ -99,6 +99,8 @@ import edu_logo_ntu from "./voxelModels/edu/ntu/logo.json"
 import edu_logo_sp from "./voxelModels/edu/sp/logo.json"
 import edu_logo_acsint from "./voxelModels/edu/acsint/logo.json"
 import edu_logo_acsbr from "./voxelModels/edu/acsbr/logo.json"
+import edu_ntu_sethbling from "./voxelModels/edu/ntu/sethbling.json"
+
 
 import sc1007 from "./voxelModels/edu/ntu/rel_coursework/sc1007.json"
 import sc1008 from "./voxelModels/edu/ntu/rel_coursework/sc1008.json"
@@ -710,6 +712,7 @@ Hope you enjoy your stay here!`,
                             },
                         ]
                     },
+                    
                     {
                         "name":"Astertris",
                         "short_description":"Tetris, but you're on a floating asteroid in space!",
@@ -741,9 +744,11 @@ Hope you enjoy your stay here!`,
             },
             "education": {
                 "header":"Education",
+                "bio_header":"Bio",
                 "activities_header": "Activities & Societies",
                 "relevant_coursework_header":"Relevant Coursework",
                 "awards_header": "Awards",
+                "academic_projects_header":"Academic Projects",
                 "list": [
                     {
                         "institution": "Nanyang Technological University",
@@ -798,18 +803,35 @@ Hope you enjoy your stay here!`,
                             }
                         ],
                         "bio":[
-                            <p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>,
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>
+                            },
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>If I have to sum up my university life up to now, I would say that it's been a interesting, yet competitive 😂</p>
+                            },
                         ],
                         "dates" :[
                             [
                                 new Date("08/05/2024"), "Present"
                             ],
                         ],
-                        "media_url":"./"
+                        "media_url":"./",
+                        "academic_projects": [
+
+                        ],
+                        // for skills
+                        "skills": [
+                            "Java",
+                            "C++",
+                            "C",
+                            "Next.js"
+                        ]
                     },
                     {
                         "institution": "Singapore Polytechnic",
-                        "certificate": "Diploma in Information Technology",
+                        "certificate": "Diploma in Information Technology (Software & Apps. Spec.)",
                         "json_model":edu_logo_sp,
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
@@ -857,14 +879,27 @@ Hope you enjoy your stay here!`,
                             },
                         ],
                         "bio":[
-                            "I chose Polytechnic over IB simply because I wanted to continue being a tech nerd 🧑‍💻"
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>I chose Polytechnic solely because I want to continue enjoy being a tech nerd/geek instead of IB!</p>
+                            },
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>One of the best things that happened during my polytechnic days was that I learned how not to be an antisocial person due to me experiencing group work on steroids 💪</p>
+                            },
                         ],
                         "dates" :[
                             [
                                 new Date("04/05/2019"), new Date("03/05/2022")
                             ],
                         ],
-                        "media_url":"./"
+                        "media_url":"./",
+                        "skills": [
+                            "Java",
+                            "HTML5",
+                            "CSS",
+                            "Javascript (ES6)"
+                        ]
                     },
                     {
                         "institution": "Anglo-Chinese School (International)",
@@ -910,64 +945,79 @@ Hope you enjoy your stay here!`,
                             }
                         ],
                         "bio":[
-                            "Made quite a lot of interesting things here!"
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>Transferred here from ACS (Barker) after completing Sec 1, partly because I wanted to join my sister!</p>
+                            },
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>It was a bit hard suddenly adjusting to a new set of friends but I managed to survive at the end!</p>
+                            }
                         ],
                         "dates" :[
                             [
                                 new Date("01/05/2016"), new Date("12/03/2018")
                             ],
                         ],
-                        "media_url":"./"
+                        "media_url":"./",
+                        
                     },
-                    // {
-                    //     "institution": "Anglo-Chinese School (Barker Road)",
-                    //     "certificate": "",
-                    //     "json_model":edu_logo_acsbr,
-                    //     // "relevant_coursework":["SC1008","SC2002","SC2006"],
-                    //     // "relevant_coursework":
-                    //     // {
-                    //     //     "SC1007": {
-                    //     //         "name": "Data Structures & Algorithms",
-                    //     //     },
-                    //     //     "SC1008": {
-                    //     //         "name": "C & C++ Programming",
-                    //     //     },
-                    //     //     "SC2002": {
-                    //     //         "name": "Object Oriented Design & Programming",
-                    //     //     },
-                    //     //     "SC2006": {
-                    //     //         "name": "Software Engineering",
-                    //     //     },
-                    //     // },
-                    //     // [start, end]
-                    //     "activities":[
-                    //         {
-                    //             "name":"Robotics",
-                    //             "dates": [
-                    //                 [new Date("01/05/2015"), new Date("12/03/2015")]
-                    //             ],
-                    //             "bio":[
-                    //                 "Member"
-                    //             ],
-                    //             "jsonModel":lego_mindstorms
-                    //         }
-                    //     ],
-                    //     // "awards": [
-                    //     //     {
-                    //     //         "name":"Edusave Good Progress Award (2015)",
-                    //     //         "date":new Date("01/01/2016")
-                    //     //     }
-                    //     // ],
-                    //     "bio":[
-                    //         "Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum."
-                    //     ],
-                    //     "dates" :[
-                    //         [
-                    //             new Date("01/01/2015"), new Date("12/05/2015")
-                    //         ],
-                    //     ],
-                    //     "media_url":"./"
-                    // }
+                    {
+                        "institution": "Anglo-Chinese School (Barker Road)",
+                        "certificate": "",
+                        "json_model":edu_logo_acsbr,
+                        // "relevant_coursework":["SC1008","SC2002","SC2006"],
+                        // "relevant_coursework":
+                        // {
+                        //     "SC1007": {
+                        //         "name": "Data Structures & Algorithms",
+                        //     },
+                        //     "SC1008": {
+                        //         "name": "C & C++ Programming",
+                        //     },
+                        //     "SC2002": {
+                        //         "name": "Object Oriented Design & Programming",
+                        //     },
+                        //     "SC2006": {
+                        //         "name": "Software Engineering",
+                        //     },
+                        // },
+                        // [start, end]
+                        "activities":[
+                            {
+                                "name":"Robotics",
+                                "dates": [
+                                    [new Date("01/05/2015"), new Date("12/03/2015")]
+                                ],
+                                "bio":[
+                                    "Got to experience how to operate LEGO Mindstorms for the 1st time!"
+                                ],
+                                "jsonModel":lego_mindstorms
+                            }
+                        ],
+                        // "awards": [
+                        //     {
+                        //         "name":"Edusave Good Progress Award (2015)",
+                        //         "date":new Date("01/01/2016")
+                        //     }
+                        // ],
+                        "bio":[
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>Was fun to see many of my primary school friends, classmates and schoolmates in ACS (Barker)!</p>
+                            },
+                            {
+                                "json_model":edu_ntu_sethbling,
+                                "info":<p>Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum.</p>
+                            }
+                        ],
+                        "dates" :[
+                            [
+                                new Date("01/01/2015"), new Date("12/05/2015")
+                            ],
+                        ],
+                        "media_url":"./"
+                    }
                 ]
             },
             "footer": {

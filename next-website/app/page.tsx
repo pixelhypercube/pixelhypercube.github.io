@@ -27,7 +27,7 @@ import email_light from "./voxelModels/links/light/email.json"
 import { addEffect, Canvas } from "@react-three/fiber";
 import { View, Preload } from "@react-three/drei";
 import Lenis from "lenis";
-import { Atom, CircleEllipsis, Code, Grid, List, Road } from "lucide-react";
+import { Atom, ChevronLeft, ChevronRight, CircleEllipsis, Code, Grid, List, Road } from "lucide-react";
 import CustomToggle from "./components/CustomToggle";
 import { CgWebsite } from "react-icons/cg";
 import { useLanguage } from "./components/LanguageContext";
@@ -42,6 +42,8 @@ import { SkillContainer } from "./components/home/SkillContainer";
 import { ExperienceListItem } from "./components/home/ExperienceListItem";
 import { ProjectGridItem, ProjectListItem } from "./components/home/ProjectComponents";
 import { EducationListItem } from "./components/home/EducationListItem";
+import { BiCarousel } from "react-icons/bi";
+import { RiCarouselView } from "react-icons/ri";
 
 // function ExperienceRoadmapPoint({
 //     institution,
@@ -236,6 +238,13 @@ export default function Home() {
         return () => window.removeEventListener("scroll", onScroll);
     }, [currentDiv]);
 
+    // carousel states
+
+    const [experienceIndex, setExperienceIndex] = useState(0);
+    const [educationIndex, setEducationIndex] = useState(0);
+    const [projectIndex, setProjectIndex] = useState(0);
+        
+
     return (
         <div ref={containerRef} className={`relative w-full min-h-screen 
         ${currentTheme==="D" ? 
@@ -370,15 +379,109 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{projectsContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setProjectsToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Grid/>, <Road/>]} selectedIndex={projectsToggleIndex}/>
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <List/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>
                             </div>
-                            <div className={projectsToggleIndex==1 ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" : ""}>
-                                {
-                                    projectsContent["projects"].map((proj: any, index: number)=>{
-                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-
-                                        switch (projectsToggleIndex) {
-                                            case 0:
+                            {
+                                projectsToggleIndex===0 && (
+                                    <div className="relative w-full max-w-full min-w-0">
+                                        <div className="w-full overflow-hidden">
+                                            <div 
+                                            className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                            style={{ 
+                                                transform: `translateX(calc(-${projectIndex * 100}% - ${projectIndex * 16}px))` 
+                                            }}>
+                                                {
+                                                    projectsContent["projects"].map((proj: any, index: number)=>{
+                                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                                        
+                                                        return <div key={`proj-${index}`} className="w-full shrink-0">
+                                                            <ProjectListItem
+                                                                key={`proj-${index}`}
+                                                                reflection={reflection}
+                                                                transitionClasses={transitionClasses}
+                                                                currentTheme={currentTheme}
+                                                                name={name}
+                                                                short_description={short_description}
+                                                                description={description}
+                                                                skills={skillsList}
+                                                                date={date}
+                                                                media_url={media_url}
+                                                                source_code={source_code}
+                                                                web_link={web_link}
+                                                                about_header={projectsContent["about_header"]}
+                                                                reflection_header={projectsContent["reflection_header"]}
+                                                                changelog={changelog}
+                                                            />
+                                                        </div>;
+                                                    })
+                                                }
+                                            </div>
+                                        </div>   
+                                        {/* {projectIndex > 0 && (
+                                            <button 
+                                                onClick={()=>setProjectIndex(projectIndex-1)}
+                                                className="absolute md:-left-1 lg:-left-15 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full z-10"
+                                                aria-label="project-prev"
+                                            >
+                                                <ChevronLeft/>                                            
+                                            </button>
+                                        )}
+                                        {projectIndex < projectsContent["projects"].length-1 && (
+                                            <button 
+                                                onClick={()=>setProjectIndex(projectIndex+1)}
+                                                className="absolute md:-right-1 lg:-right-15 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full z-10"
+                                                aria-label="project-next"
+                                            >
+                                                <ChevronRight/>
+                                            </button>
+                                        )} */}
+                                        <div className="justify-center items-center flex gap-8">
+                                            <button 
+                                                onClick={()=>setProjectIndex(projectIndex-1)}
+                                                className={`rounded-full p-2 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/20" : "text-black hover:text-black/50 bg-black/20"}
+                                                ${projectIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                transition-colors duration-200 ease-in-out
+                                                hover:opacity-50
+                                                `}
+                                                aria-label="project-prev"
+                                            >
+                                                <ChevronLeft strokeWidth={2} size={32}/>                                            
+                                            </button>
+                                            {
+                                                projectsContent["projects"].map((_: any,idx: number)=>(
+                                                    <button
+                                                        key={`circle-btn-${idx}`} 
+                                                        onClick={()=>setProjectIndex(idx)}
+                                                        className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
+                                                            ${idx==projectIndex ? 
+                                                                (currentTheme==="D" ? "bg-white" : "bg-black") : 
+                                                                (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
+                                                            `}
+                                                    >
+                                                    </button>
+                                                ))
+                                            }
+                                            <button 
+                                                onClick={()=>setProjectIndex(projectIndex+1)}
+                                                className={`rounded-full p-2 ${currentTheme==="D" ? "text-white bg-white/20" : "text-black bg-black/20"}
+                                                ${projectIndex < projectsContent["projects"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                transition-colors duration-200 ease-in-out 
+                                                hover:opacity-50`}
+                                                aria-label="project-next"
+                                            >
+                                                <ChevronRight strokeWidth={2} size={32}/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                projectsToggleIndex===1 && (
+                                    <div>
+                                        {
+                                            projectsContent["projects"].map((proj: any, index: number)=>{
+                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                                
                                                 return <ProjectListItem
                                                     key={`proj-${index}`}
                                                     reflection={reflection}
@@ -396,7 +499,18 @@ export default function Home() {
                                                     reflection_header={projectsContent["reflection_header"]}
                                                     changelog={changelog}
                                                 />;
-                                            case 1:
+                                            })
+                                        }
+                                    </div>
+                                )
+                            }
+                            {
+                                projectsToggleIndex===2 && (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {
+                                            projectsContent["projects"].map((proj: any, index: number)=>{
+                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                                
                                                 return <ProjectGridItem
                                                     key={`proj-${index}`}
                                                     reflection={reflection}
@@ -411,10 +525,11 @@ export default function Home() {
                                                     source_code={source_code}
                                                     web_link={web_link}
                                                 />;
+                                            })
                                         }
-                                    })
-                                }
-                            </div>
+                                    </div>
+                                )
+                            }
                         </div>
                         
                         {/* EXPERIENCE */}
@@ -463,11 +578,13 @@ export default function Home() {
                                             certificate, 
                                             relevant_coursework,
                                             activities,
+                                            academic_projects,
                                             awards,
                                             bio,
                                             dates,
                                             media_url,
-                                            json_model} = edu;
+                                            json_model,
+                                            skills} = edu;
                                         
                                             return (
                                                 <EducationListItem
@@ -480,12 +597,17 @@ export default function Home() {
                                                     relevant_coursework_header={educationContent["relevant_coursework_header"]}
                                                     activities={activities}
                                                     activities_header={educationContent["activities_header"]}
+                                                    academic_projects={academic_projects}
+                                                    academicProjects={academic_projects}
+                                                    academic_projects_header={educationContent["academic_projects_header"]}
                                                     awards={awards}
                                                     awards_header={educationContent["awards_header"]}
                                                     bio={bio}
+                                                    bio_header={educationContent["bio_header"]}
                                                     dates={dates}
                                                     media_url={media_url}
                                                     jsonModel={json_model}
+                                                    skills={skills}
                                                 />
                                             )
                                     })

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Circle, Code } from "lucide-react";
 import { CgWebsite } from "react-icons/cg";
 import { renderDate } from "./utils";
@@ -24,14 +24,50 @@ interface ProjectProps {
     reflection_header?: string,
 }
 
+interface Tab {
+    id: string;
+    name: string;
+    data: Record<string, any> | string;
+    exists: boolean;
+    currentWidth?: number;
+}
+
 export function ProjectListItem({
     name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header
 } : ProjectProps) {
     const [currImgIndex, setCurrImgIndex] = useState(0);
     const [isChangelogOpened, setIsChangeLogOpened] = useState(false);
 
+    const [currentTabs, setCurrentTabs] = useState<Tab[]>([]);
+    const [selectedTab, setSelectedTab] = useState<any>();
+    
+    const tabs = [
+        {
+            id:"bio",
+            name:about_header,
+            data:description,
+            exists:!!description,
+            ref:useRef<HTMLButtonElement>(null)
+        },
+        {
+            id:"reflection",
+            name:reflection_header,
+            data:reflection,
+            exists:!!reflection,
+            ref:useRef<HTMLButtonElement>(null)
+        },
+    ];
+
+    useEffect(()=>{
+        const filtered = tabs.filter((item)=>item.exists) as Tab[];
+        // setCurrentTabs(filtered);
+        // setSelectedTab(filtered?.[0]?.id ?? "");
+        setCurrentTabs(filtered);
+        setSelectedTab(filtered?.[0]);
+    },[description,reflection]);
+
     return (
-        <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
+        <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full max-w-full min-w-0 rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
             <header className="flex w-full mb-5">
                 <div className="w-full">
                     <h3 className="m-0">{name}</h3>
@@ -53,18 +89,66 @@ export function ProjectListItem({
                 </div>
             </header>
             <hr className="border-stone-500"/>
-            <main className="md:flex justify-stretch mt-4 gap-4">
+            <main className="grid grid-cols-1 md:grid-cols-5 mt-4 gap-4">
                 {/* can consider list/grid layout toggle */}
-                <div className="w-full mb-4 md:mb-0 md:w-3/5 flex flex-col">
-                    <div className=" gap-4">
-                        <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
-                            <h5>{about_header}</h5>
-                            {description}
+                <div className="w-full md:col-span-3 flex flex-col min-w-0">
+                    {/* TABS */}
+                    <div className="border-b-2 border-stone-600 relative">
+                        <div className={
+                            `
+                            bg-stone-600 z-0 absolute rounded-t-lg
+                            ${transitionClasses} duration-200`
+                        }
+                        style={{
+                            width:selectedTab?.ref?.current?.clientWidth,
+                            height:selectedTab?.ref?.current?.clientHeight,
+                            transform:`translateX(${selectedTab?.ref?.current?.offsetLeft - selectedTab?.ref?.current?.parentElement?.offsetLeft}px)`,
+                        }}
+                        ></div>
+                        <div className="flex transition-all duration-100">
+                            {/* {relevant_coursework && 
+                            <button onClick={()=>setSelectedTab(0)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{relevant_coursework_header}</button>}
+                            {activities && 
+                            <button onClick={()=>setSelectedTab(1)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{activities_header}</button>}
+                            {academic_projects && 
+                            <button onClick={()=>setSelectedTab(2)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{academic_projects_header}</button>} */}
+                            {
+                                currentTabs.map((tab: any, index: number)=>{
+                                    const {name,ref} = tab;
+                                    return (
+                                        <button className={`
+                                                p-2 z-1
+                                            `} 
+                                            ref={ref} 
+                                            onClick={()=>{
+                                                setSelectedTab(tab);
+                                                // console.log(selectedTab?.ref?.current?.offsetLeft)
+                                            }} 
+                                            key={index}>{name}</button>
+                                    )
+                                })
+                            }
+                            
                         </div>
-                        <div className={`flex-1 ${currentTheme==="D" ? "bg-mauve-700" : "bg-mauve-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
-                            <h5>{reflection_header}</h5>
-                            {reflection}
-                        </div>
+                    </div>
+
+                    <div className="mt-4 gap-4">
+                        {
+                            selectedTab?.id==="bio" && (
+                                <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
+                                    <h5>{about_header}</h5>
+                                    {description}
+                                </div>
+                            )
+                        }
+                        {
+                            selectedTab?.id==="reflection" && (
+                                <div className={`flex-1 ${currentTheme==="D" ? "bg-mauve-700" : "bg-mauve-400"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
+                                    <h5>{reflection_header}</h5>
+                                    {reflection}
+                                </div>
+                            )
+                        }
                     </div>
                     <div className={`h-12 flex gap-4 shrink-0 ${transitionClasses}`}>
                         {
@@ -79,7 +163,7 @@ export function ProjectListItem({
                         }
                     </div>
                 </div>
-                <div className="w-full md:w-2/5 flex flex-col">
+                <div className="w-full md:col-span-2 flex flex-col">
                     <div className="relative group w-full aspect-video border border-stone-500 rounded-2xl overflow-hidden">
                         {
                             media_url && Array.isArray(media_url) && media_url.length > 0 && (
