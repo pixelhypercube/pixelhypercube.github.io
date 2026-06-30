@@ -12,22 +12,20 @@ interface ExperienceProps {
     skills?: Array<string>;
     transitionClasses?: string;
     jsonModel?:Record<string, string>;
+    isModelVisible?:boolean;
 }
 
 export function ExperienceListItem({
-    company,role,description,dates,currentTheme,skills,transitionClasses,jsonModel
+    company,role,description,dates,currentTheme,skills,transitionClasses,jsonModel,isModelVisible
 } : ExperienceProps) {
-    // reverse dates (optional)
-    // dates.reverse();
 
-    
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
-            <header className="flex w-full mb-5 gap-4">
-                <div className={`hidden md:block w-32 h-32 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
-                    {jsonModel && <Canvas3D voxelJson={jsonModel}/>}
+            <header className="grid grid-cols-6 w-full mb-5 gap-4">
+                <div className={`col-span-1 hidden md:block ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
+                    {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                 </div>
-                <div className="w-3/4">
+                <div className="col-span-4 md:col-span-3">
                     <h3 className="m-0">{role}</h3>
                     <h5 className="m-0">{company}</h5>
                     <div className="flex gap-x-1 mt-1">
@@ -40,7 +38,7 @@ export function ExperienceListItem({
                         }
                     </div>
                 </div>
-                <div className="w-1/4 min-w-48 text-right italic">
+                <div className="col-span-2 min-w-48 text-right italic">
                     <h6>
                     {
                         dates && dates.map((dateArr,idx: number)=>{
@@ -63,8 +61,8 @@ export function ExperienceListItem({
                                 key={`desc-exp-${index}`} 
                                 className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}
                                 >
-                                    <div className="w-full h-36 relative">
-                                        <Canvas3D voxelJson={jsonModel}/>
+                                    <div className={`w-full h-36 relative`}>
+                                        {isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                                     </div>
                                     <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />
                                     {desc}

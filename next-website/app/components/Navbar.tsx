@@ -91,18 +91,19 @@ function ItemLink({
     name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme
 } : Omit<ItemLinkProps, 'type'>) {
     const styles = (stylized) ? 
-    "bg-stone-900/80 block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold" : 
+    `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
     // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
-    "text-lg hover:font-bold transition-all ease-in-out duration-200";
+    `text-lg hover:font-bold`;
 
     const highlightBorderColorClasses = currentTheme==="D" ? "border-amber-300" : "border-amber-700";
     const highlightTextColorClasses = currentTheme==="D" ? "text-amber-300" : "text-amber-700";
     
+    const highlightIconBorderColorClasses = currentTheme==="D" ? "border-stone-300" : "border-stone-700";
 
     return <div className="mx-3">
         {
             usePathname() !== link ? 
-            <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
+            <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? `${highlightIconBorderColorClasses} border-4` : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
             <div onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
         }
         <hr className={`${isSelected ? "w-full" : "w-0 opacity-0"} transition-all duration-500 ${highlightBorderColorClasses} border-[1.75px]`}/>

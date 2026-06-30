@@ -44,6 +44,7 @@ import { ProjectGridItem, ProjectListItem } from "./components/home/ProjectCompo
 import { EducationListItem } from "./components/home/EducationListItem";
 import { BiCarousel } from "react-icons/bi";
 import { RiCarouselView } from "react-icons/ri";
+import { IoConstructOutline } from "react-icons/io5";
 
 // function ExperienceRoadmapPoint({
 //     institution,
@@ -101,8 +102,8 @@ export default function Home() {
     const [currentTheme, setCurrentTheme] = useState("D");
 
     const [projectsToggleIndex, setProjectsToggleIndex] = useState(0);
-    // const [experienceToggleIndex, setExperienceToggleIndex] = useState(0);
-    // const [educationToggleIndex, setEducationToggleIndex] = useState(0);
+    const [experienceToggleIndex, setExperienceToggleIndex] = useState(0);
+    const [educationToggleIndex, setEducationToggleIndex] = useState(0);
 
     // REFS
     const containerRef = useRef<HTMLDivElement>(null);
@@ -258,7 +259,7 @@ export default function Home() {
                 />
             <Navbar
                 callbacks={{
-                    setScrollPosHome: () => containerRef.current?.scrollIntoView({ behavior: "smooth" }),
+                    setScrollPosHome: () => containerHeroRef.current?.scrollIntoView({ behavior: "smooth" }),
                     setScrollPosAboutMe: () => containerAboutMeRef.current?.scrollIntoView({ behavior: "smooth" }),
                     setScrollPosSkills: () => containerSkillsRef.current?.scrollIntoView({ behavior: "smooth" }),
                     setScrollPosProjects: () => containerProjectsRef.current?.scrollIntoView({ behavior: "smooth" }),
@@ -417,24 +418,7 @@ export default function Home() {
                                                 }
                                             </div>
                                         </div>   
-                                        {/* {projectIndex > 0 && (
-                                            <button 
-                                                onClick={()=>setProjectIndex(projectIndex-1)}
-                                                className="absolute md:-left-1 lg:-left-15 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full z-10"
-                                                aria-label="project-prev"
-                                            >
-                                                <ChevronLeft/>                                            
-                                            </button>
-                                        )}
-                                        {projectIndex < projectsContent["projects"].length-1 && (
-                                            <button 
-                                                onClick={()=>setProjectIndex(projectIndex+1)}
-                                                className="absolute md:-right-1 lg:-right-15 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white p-2 rounded-full z-10"
-                                                aria-label="project-next"
-                                            >
-                                                <ChevronRight/>
-                                            </button>
-                                        )} */}
+                                        {/* PAGINATION */}
                                         <div className="justify-center items-center flex gap-8">
                                             <button 
                                                 onClick={()=>setProjectIndex(projectIndex-1)}
@@ -445,7 +429,7 @@ export default function Home() {
                                                 `}
                                                 aria-label="project-prev"
                                             >
-                                                <ChevronLeft strokeWidth={2} size={32}/>                                            
+                                                <ChevronLeft strokeWidth={2} size={32}/>
                                             </button>
                                             {
                                                 projectsContent["projects"].map((_: any,idx: number)=>(
@@ -538,12 +522,85 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{experienceContent["header"]}</h1>
                                 </div>
-                                {/* <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setExperienceToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={experienceToggleIndex}/> */}
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setExperienceToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <List/>]} selectedIndex={experienceToggleIndex}/>
                             </div>
                             {/* experience container */}
                             <div>
                                 {
-                                    experienceContent["experiences"].map((exp : any, index : number)=>{
+                                    experienceToggleIndex === 0 && (
+                                        <div>
+                                            <div className="w-full overflow-hidden relative">
+                                                <div 
+                                                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                                style={{ 
+                                                    transform: `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
+                                                }}>
+                                                    {
+                                                        experienceContent["experiences"].map((exp: any, index: number)=>{
+                                                            const {company, role, description, dates, skills, json_model} = exp;
+                                                            return (
+                                                                <div key={`e-${index}`} className="w-full shrink-0">
+                                                                    <ExperienceListItem 
+                                                                        key={`e-${index}`}
+                                                                        transitionClasses={transitionClasses}
+                                                                        skills={skills}
+                                                                        currentTheme={currentTheme}
+                                                                        company = {company}
+                                                                        role = {role}
+                                                                        description = {description}
+                                                                        dates = {dates}
+                                                                        jsonModel = {json_model}
+                                                                        isModelVisible = {experienceIndex===index}
+                                                                    />
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                            {/* PAGINATION */}
+                                            <div className="justify-center items-center flex gap-8">
+                                                <button 
+                                                    onClick={()=>setExperienceIndex(experienceIndex-1)}
+                                                    className={`rounded-full p-2 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/20" : "text-black hover:text-black/50 bg-black/20"}
+                                                    ${experienceIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                    transition-colors duration-200 ease-in-out
+                                                    hover:opacity-50
+                                                    `}
+                                                    aria-label="experience-prev"
+                                                >
+                                                    <ChevronLeft strokeWidth={2} size={32}/>                                            
+                                                </button>
+                                                {
+                                                    experienceContent["experiences"].map((_: any,idx: number)=>(
+                                                        <button
+                                                            key={`circle-btn-${idx}`} 
+                                                            onClick={()=>setExperienceIndex(idx)}
+                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
+                                                                ${idx==experienceIndex ? 
+                                                                    (currentTheme==="D" ? "bg-white" : "bg-black") : 
+                                                                    (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
+                                                                `}
+                                                        >
+                                                        </button>
+                                                    ))
+                                                }
+                                                <button 
+                                                    onClick={()=>setExperienceIndex(experienceIndex+1)}
+                                                    className={`rounded-full p-2 ${currentTheme==="D" ? "text-white bg-white/20" : "text-black bg-black/20"}
+                                                    ${experienceIndex < experienceContent["experiences"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                    transition-colors duration-200 ease-in-out 
+                                                    hover:opacity-50`}
+                                                    aria-label="experience-next"
+                                                >
+                                                    <ChevronRight strokeWidth={2} size={32}/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                {
+                                    experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number)=>{
                                         const {company, role, description, dates, skills, json_model} = exp;
                                         return (
                                             <ExperienceListItem 
@@ -556,6 +613,7 @@ export default function Home() {
                                                 description = {description}
                                                 dates = {dates}
                                                 jsonModel = {json_model}
+                                                isModelVisible = {true}
                                             />
                                         )
                                     })
@@ -569,11 +627,106 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{educationContent["header"]}</h1>
                                 </div>
-                                {/* <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setEducationToggleIndex(index)} className="w-full justify-end" values={[<List/>, <Road/>]} selectedIndex={educationToggleIndex}/> */}
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setEducationToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <List/>]} selectedIndex={educationToggleIndex}/>
                             </div>
                             <div>
                                 {
-                                    educationContent["list"].map((edu: any, index: number)=>{
+                                    educationToggleIndex === 0 && (
+                                        <div>
+                                            <div className="w-full overflow-hidden">
+                                                <div 
+                                                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                                style={{ 
+                                                    transform: `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
+                                                }}>
+                                                    {
+                                                        educationContent["list"].map((edu: any, index: number)=>{
+                                                            const {institution, 
+                                                                certificate, 
+                                                                relevant_coursework,
+                                                                activities,
+                                                                academic_projects,
+                                                                awards,
+                                                                bio,
+                                                                dates,
+                                                                media_url,
+                                                                json_model,
+                                                                skills} = edu;
+                                                            
+                                                                return (
+                                                                    <div key={`e-${index}`} className="w-full shrink-0">
+                                                                        <EducationListItem
+                                                                            key={`edu-${index}`}
+                                                                            transitionClasses={transitionClasses}
+                                                                            currentTheme={currentTheme}
+                                                                            institution={institution}
+                                                                            certificate={certificate}
+                                                                            relevant_coursework={relevant_coursework}
+                                                                            relevant_coursework_header={educationContent["relevant_coursework_header"]}
+                                                                            activities={activities}
+                                                                            activities_header={educationContent["activities_header"]}
+                                                                            academic_projects={academic_projects}
+                                                                            academicProjects={academic_projects}
+                                                                            academic_projects_header={educationContent["academic_projects_header"]}
+                                                                            awards={awards}
+                                                                            awards_header={educationContent["awards_header"]}
+                                                                            bio={bio}
+                                                                            bio_header={educationContent["bio_header"]}
+                                                                            dates={dates}
+                                                                            media_url={media_url}
+                                                                            jsonModel={json_model}
+                                                                            skills={skills}
+                                                                            isModelVisible = {educationIndex===index}
+                                                                        />
+                                                                    </div>
+                                                                )
+                                                        })
+                                                    }
+                                                    </div>
+                                            </div>
+                                            {/* PAGINATION */}
+                                            <div className="justify-center items-center flex gap-8">
+                                                <button 
+                                                    onClick={()=>setEducationIndex(educationIndex-1)}
+                                                    className={`rounded-full p-2 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/20" : "text-black hover:text-black/50 bg-black/20"}
+                                                    ${educationIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                    transition-colors duration-200 ease-in-out
+                                                    hover:opacity-50
+                                                    `}
+                                                    aria-label="education-prev"
+                                                >
+                                                    <ChevronLeft strokeWidth={2} size={32}/>                                            
+                                                </button>
+                                                {
+                                                    educationContent["list"].map((_: any,idx: number)=>(
+                                                        <button
+                                                            key={`circle-btn-${idx}`} 
+                                                            onClick={()=>setEducationIndex(idx)}
+                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
+                                                                ${idx==educationIndex ? 
+                                                                    (currentTheme==="D" ? "bg-white" : "bg-black") : 
+                                                                    (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
+                                                                `}
+                                                        >
+                                                        </button>
+                                                    ))
+                                                }
+                                                <button 
+                                                    onClick={()=>setEducationIndex(educationIndex+1)}
+                                                    className={`rounded-full p-2 ${currentTheme==="D" ? "text-white bg-white/20" : "text-black bg-black/20"}
+                                                    ${educationIndex < educationContent["list"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
+                                                    transition-colors duration-200 ease-in-out 
+                                                    hover:opacity-50`}
+                                                    aria-label="education-next"
+                                                >
+                                                    <ChevronRight strokeWidth={2} size={32}/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                {
+                                    educationToggleIndex === 1 && educationContent["list"].map((edu: any, index: number)=>{
                                         const {institution, 
                                             certificate, 
                                             relevant_coursework,
@@ -608,6 +761,7 @@ export default function Home() {
                                                     media_url={media_url}
                                                     jsonModel={json_model}
                                                     skills={skills}
+                                                    isModelVisible = {true}
                                                 />
                                             )
                                     })

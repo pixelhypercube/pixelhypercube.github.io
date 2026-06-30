@@ -58,18 +58,44 @@ export function ProjectListItem({
         },
     ];
 
-    useEffect(()=>{
-        const filtered = tabs.filter((item)=>item.exists) as Tab[];
-        // setCurrentTabs(filtered);
-        // setSelectedTab(filtered?.[0]?.id ?? "");
+    const [selectedTabStyle, setSelectedTabStyle] = useState<{
+        width?: number;
+        height?: number;
+        transform?: string;
+    }>({});
+
+    useEffect(() => {
+        const filtered = tabs.filter((item) => item.exists) as Tab[];
         setCurrentTabs(filtered);
-        setSelectedTab(filtered?.[0]);
+        if (!selectedTab || !filtered.some(t => t.id === selectedTab.id)) {
+            setSelectedTab(filtered?.[0]);
+        }
     },[description,reflection]);
+
+    useEffect(() => {
+        if (!selectedTab?.ref?.current) return;
+
+        const updateSliderPosition = () => {
+            const element = selectedTab.ref.current;
+            if (element) {
+                setSelectedTabStyle({
+                    width: element.clientWidth,
+                    height: element.clientHeight,
+                    transform: `translateX(${element.offsetLeft}px)`,
+                });
+            }
+        };
+
+        updateSliderPosition();
+
+        window.addEventListener("resize", updateSliderPosition);
+        return () => window.removeEventListener("resize", updateSliderPosition);
+    }, [selectedTab, currentTabs]);
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full max-w-full min-w-0 rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
-            <header className="flex w-full mb-5">
-                <div className="w-full">
+            <header className="grid grid-cols-4 w-full mb-5">
+                <div className="col-span-3">
                     <h3 className="m-0">{name}</h3>
                     <h6>{short_description}</h6>
                     <div className="flex gap-x-1">
@@ -82,7 +108,7 @@ export function ProjectListItem({
                         }
                     </div>
                 </div>
-                <div className="w-full text-right italic">
+                <div className="col-span-1 text-right italic">
                     <h6>
                         {date && renderDate(date)}
                     </h6>
@@ -96,16 +122,12 @@ export function ProjectListItem({
                     <div className="border-b-2 border-stone-600 relative">
                         <div className={
                             `
-                            bg-stone-600 z-0 absolute rounded-t-lg
+                            ${currentTheme==="D" ? "bg-stone-600" : "bg-stone-400"} z-0 absolute rounded-t-lg
                             ${transitionClasses} duration-200`
                         }
-                        style={{
-                            width:selectedTab?.ref?.current?.clientWidth,
-                            height:selectedTab?.ref?.current?.clientHeight,
-                            transform:`translateX(${selectedTab?.ref?.current?.offsetLeft - selectedTab?.ref?.current?.parentElement?.offsetLeft}px)`,
-                        }}
+                        style={selectedTabStyle}
                         ></div>
-                        <div className="flex transition-all duration-100">
+                        <div className="grid grid-flow-col auto-cols-fr transition-all duration-100 w-full items-center">
                             {/* {relevant_coursework && 
                             <button onClick={()=>setSelectedTab(0)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{relevant_coursework_header}</button>}
                             {activities && 
@@ -117,7 +139,7 @@ export function ProjectListItem({
                                     const {name,ref} = tab;
                                     return (
                                         <button className={`
-                                                p-2 z-1
+                                                p-2 z-1 h-full
                                             `} 
                                             ref={ref} 
                                             onClick={()=>{

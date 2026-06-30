@@ -27,6 +27,8 @@ interface EducationProps {
     jsonModel?:Record<string, any>;
     academicProjects:Array<Record<string, any>>;
     skills?:Array<string>;
+
+    isModelVisible?:boolean;
 }
 
 interface Tab {
@@ -54,7 +56,8 @@ export function EducationListItem({
     currentTheme,
     transitionClasses,
     jsonModel,
-    skills
+    skills,
+    isModelVisible
 } : EducationProps) {
 
     const [selectedRelCWIndex, setSelectedRelCWIndex] = useState(1);
@@ -63,6 +66,13 @@ export function EducationListItem({
     const [currentTabs, setCurrentTabs] = useState<Tab[]>([]);
     const [selectedTab, setSelectedTab] = useState<any>();
 
+    // REFS
+    const bioRef = useRef<HTMLButtonElement>(null);
+    const relevantRef = useRef<HTMLButtonElement>(null);
+    const activitiesRef = useRef<HTMLButtonElement>(null);
+    const projectsRef = useRef<HTMLButtonElement>(null);
+    const awardsRef = useRef<HTMLButtonElement>(null);
+
 
     const tabs = [
         {
@@ -70,58 +80,83 @@ export function EducationListItem({
             name:bio_header,
             data:bio,
             exists:!!bio,
-            ref:useRef<HTMLButtonElement>(null)
+            ref:bioRef
         },
         {
             id:"relevant_coursework",
             name:relevant_coursework_header,
             data:relevant_coursework,
             exists:!!relevant_coursework,
-            ref:useRef<HTMLButtonElement>(null)
+            ref:relevantRef
         },
         {
             id:"activities",
             name:activities_header,
             data:activities,
             exists:!!activities,
-            ref:useRef<HTMLButtonElement>(null)
+            ref:activitiesRef
         },
         {
             id:"academic_projects",
             name:academic_projects_header,
             data:academic_projects,
             exists:!!academic_projects,
-            ref:useRef<HTMLButtonElement>(null)
+            ref:projectsRef
         },{
             id:"awards",
             name:awards_header,
             data:awards,
             exists:!!awards,
-            ref:useRef<HTMLButtonElement>(null)
+            ref:awardsRef
         }
     ];
 
+    const [selectedTabStyle, setSelectedTabStyle] = useState<{
+        width?: number;
+        height?: number;
+        transform?: string;
+    }>({});
+
     // useRef<HTMLButtonElement>(null).current?.clientLeft
     
-    useEffect(()=>{
-        const filtered = tabs.filter((item)=>item.exists) as Tab[];
-        // setCurrentTabs(filtered);
-        // setSelectedTab(filtered?.[0]?.id ?? "");
+    useEffect(() => {
+        const filtered = tabs.filter((item) => item.exists) as Tab[];
         setCurrentTabs(filtered);
-        setSelectedTab(filtered?.[0]);
+        if (!selectedTab || !filtered.some(t => t.id === selectedTab.id)) {
+            setSelectedTab(filtered?.[0]);
+        }
+    }, [relevant_coursework, activities, academic_projects, awards]);
 
-    },[relevant_coursework, activities, academic_projects, awards]);
+    useEffect(() => {
+        if (!selectedTab?.ref?.current) return;
+
+        const updateSliderPosition = () => {
+            const element = selectedTab.ref.current;
+            if (element) {
+                setSelectedTabStyle({
+                    width: element.clientWidth,
+                    height: element.clientHeight,
+                    transform: `translateX(${element.offsetLeft}px)`,
+                });
+            }
+        };
+
+        updateSliderPosition();
+
+        window.addEventListener("resize", updateSliderPosition);
+        return () => window.removeEventListener("resize", updateSliderPosition);
+    }, [selectedTab, currentTabs]);
 
     // const parentDivRef = useRef<HTMLDivElement>(null);
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses} gap-4`}>
             <div className="w-full">
-                <header className="flex w-full gap-4">
-                    <div className={`w-32 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
-                        {jsonModel && <Canvas3D voxelJson={jsonModel}/>}
+                <header className="grid grid-cols-6 w-full gap-4">
+                    <div className={`hidden md:block col-span-1 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
+                        {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                     </div>
-                    <div className="w-full">
+                    <div className="col-span-4 md:col-span-3">
                         <h3 className="m-0">{institution}</h3>
                         <h5 className="m-0 font-normal">{certificate}</h5>
                         <div className="flex gap-x-1 mb-2">
@@ -134,7 +169,7 @@ export function EducationListItem({
                             }
                         </div>
                     </div>
-                    <div className="min-w-48 text-right italic">
+                    <div className="col-span-2 min-w-48 text-right italic">
                         <h6>
                         {
                             dates && dates.map((dateArr,_)=>{
@@ -153,7 +188,7 @@ export function EducationListItem({
                             return (
                                 <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-4 flex flex-col flex-1`} key={index}>
                                     {json_model && <div className="w-full h-36 relative">
-                                        <Canvas3D voxelJson={json_model}/>
+                                        {isModelVisible && <Canvas3D voxelJson={json_model}/>}
                                     </div>}
                                     <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />
                                     {info}
@@ -162,19 +197,15 @@ export function EducationListItem({
                         })}
                     </div> */}
                     {/* TABS */}
-                    <div className="border-b-2 border-stone-600">
+                    <div className="border-b-2 border-stone-600 relative">
                         <div className={
                             `
-                            bg-stone-600 z-0 absolute rounded-t-lg
+                            ${currentTheme==="D" ? "bg-stone-600" : "bg-stone-400"} z-0 absolute rounded-t-lg
                             ${transitionClasses} duration-200`
                         }
-                        style={{
-                            width:selectedTab?.ref?.current?.clientWidth,
-                            height:selectedTab?.ref?.current?.clientHeight,
-                            transform:`translateX(${selectedTab?.ref?.current?.offsetLeft - selectedTab?.ref?.current?.parentElement?.offsetLeft}px)`,
-                        }}
+                        style={selectedTabStyle}
                         ></div>
-                        <div className="flex transition-all duration-100">
+                        <div className="grid grid-flow-col auto-cols-fr transition-all duration-100 w-full items-center">
                             {/* {relevant_coursework && 
                             <button onClick={()=>setSelectedTab(0)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{relevant_coursework_header}</button>}
                             {activities && 
@@ -186,7 +217,7 @@ export function EducationListItem({
                                     const {name,ref} = tab;
                                     return (
                                         <button className={`
-                                                p-2 z-1
+                                                p-2 z-1 shrink-0 h-full
                                             `} 
                                             ref={ref} 
                                             onClick={()=>{
@@ -202,13 +233,13 @@ export function EducationListItem({
                     </div>
                     <div className="mt-4">
                         {selectedTab?.id==="bio" && (
-                            <div className="flex gap-4">
+                            <div className="grid md:grid-cols-2 gap-4">
                                 {bio?.map((item: any, index: number)=>{
                                     const {json_model, info} = item;
                                     return (
-                                        <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-4 flex flex-col flex-1`} key={index}>
+                                        <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-2`} key={index}>
                                             {json_model && <div className="w-full h-36 relative">
-                                                <Canvas3D voxelJson={json_model}/>
+                                                {isModelVisible && <Canvas3D voxelJson={json_model}/>}
                                             </div>}
                                             <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />
                                             {info}
@@ -234,7 +265,8 @@ export function EducationListItem({
                                                     <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} selectedIndex={selectedRelCWIndex} changeIndex={(index: number)=>setSelectedRelCWIndex(index)} values={[<List size={18}/>, <Grid size={18}/>]} />
                                                 </div> */}
                                             </div>
-                                            <div className={`${selectedRelCWIndex === 0 ? "flex flex-wrap gap-2" : "grid md:grid-cols-3 sm:grid-cols-2 gap-3"} ${transitionClasses}`}>
+                                            {/* <div className={`${selectedRelCWIndex === 0 ? "flex flex-wrap gap-2" : "grid md:grid-cols-3 sm:grid-cols-2 gap-3"} ${transitionClasses}`}> */}
+                                            <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                                 {
                                                     Object.keys(relevant_coursework).map((moduleCode : string, index : number)=>{
                                                         if (selectedRelCWIndex===0) {
@@ -244,7 +276,7 @@ export function EducationListItem({
                                                         } else if (selectedRelCWIndex===1) {
                                                             return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
                                                                 <div className="w-full h-24">
-                                                                    <Canvas3D voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />
+                                                                    {isModelVisible && <Canvas3D voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />}
                                                                 </div>
                                                                 <div className="text-center mt-4">
                                                                     <h6 className="my-0">{moduleCode}</h6>
@@ -278,8 +310,8 @@ export function EducationListItem({
                                                     <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} selectedIndex={selectedActivitiesIndex} changeIndex={(index: number)=>setSelectedActivitiesIndex(index)} values={[<Grid size={18}/>, <List size={18}/>]} />
                                                 </div> */}
                                             </div>
-                                            <div className={`flex flex-col ${transitionClasses}`}>
-                                                <div className={`gap-4 ${selectedActivitiesIndex === 0 ? "grid md:grid-cols-2 sm:grid-cols-1" : "flex flex-col"}`}>
+                                            <div className={`${transitionClasses}`}>
+                                                <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                                 {
                                                     activities.map((activity: Record<string, any>, index: number)=>{
                                                         const {name, dates, bio} = activity;
@@ -288,8 +320,8 @@ export function EducationListItem({
                                                             return (
                                                                 <div key={`activities-${index}`} 
                                                                 className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
-                                                                    <div className="w-full h-36">
-                                                                        <Canvas3D voxelJson={activity["jsonModel"]} />
+                                                                    <div className="w-full h-24">
+                                                                        {isModelVisible && <Canvas3D voxelJson={activity["jsonModel"]} />}
                                                                     </div>
                                                                     <div>
                                                                         <h5 className="my-0">{name}</h5>
@@ -323,7 +355,7 @@ export function EducationListItem({
                                                                             </p>
                                                                         </div>
                                                                         <div className="w-1/8">
-                                                                            <Canvas3D voxelJson={activity["jsonModel"]} />
+                                                                            {isModelVisible && <Canvas3D voxelJson={activity["jsonModel"]} />}
                                                                         </div>
                                                                     </div>
                                                                     <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-400"} my-2`}/>
