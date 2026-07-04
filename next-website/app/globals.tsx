@@ -433,17 +433,18 @@ export const content : Record<any,any> = {
 
                 // bio subdivided by \n
 
-                "bio":`Hello! I'm in my penultimate year pursuing a Bachelor's in Computer Science at Nanyang Technological University (NTU).
+                "bio":`Hello! My interest in computers and software began back in preschool, and by primary school I was already experimenting with programs like Cinema 4D. As I grew older, I realized how fulfilling it was to create software that people could actually use and benefit from.
 
-I'd describe myself as a builder and tinkerer at heart, where I not only enjoy creating new systems, but I also love ideating and refining solutions to existing problems!
+Ever since I started learning to code, I've approached software and web development with a *builder* and *tinkerer* mindset that's reflected in the self-made 3D models scattered across this website! I not only enjoy creating software, but I'm also fascinated with breaking down convoluted systems into simpler, more accessible components.
 
-I approach software engineering the same way I approach building blocks — by breaking down convoluted systems into simple and efficient components for everyone to use stress-free (much like the 3D models I made that are scattered across this website!)
+Right now, I'm a penultimate-year Computer Science undergraduate at Nanyang Technological University (NTU)!
 
-This website mainly serves as a digital portfolio of all my technical projects and work experience.
-
-Hope you enjoy your stay here!`, 
+If I'm not programming, you can catch me going out for long runs, going to the gym, attempting to constantly break sub-10 seconds in speedcubing, and playing modded Minecraft!`, 
                 // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
-                "bio2": "Feel free to click and drag the 3D models across the website to interact with them!",
+                "bio2":`This site mainly serves as my digital portfolio of all my technical projects and experience.
+
+Thanks for stopping by and enjoy your stay!`,
+                "bio_bottom": "Feel free to click and drag the 3D models across the website to interact with them!",
                 
                 "hobbies_header": "My Hobbies",
                 "hobbies_header1": "These are some things I like to do during my free time!",
@@ -524,6 +525,8 @@ Hope you enjoy your stay here!`,
             },
             "experience":{
                 "header":"Experience",
+                "bio_header":"Bio",
+                "reflection_header":"Reflection",
                 "experiences": [
                     {
                         "company": "Singapore Armed Forces",
@@ -560,6 +563,7 @@ Hope you enjoy your stay here!`,
                                 experience_ns_coding
                             ]
                         ],
+                        "reflection":`The idea of actually doing programming alongside regular admin work in NS not only felt quite interesting, but I have the privilege to leverage my skillsets during my service!`,
                         "skills": ["Node.js", "EJS","Express.js", "Git"],
                         "dates": [
                             [new Date("12/05/2022"), new Date("08/05/2024")] ,
@@ -576,7 +580,7 @@ Hope you enjoy your stay here!`,
                                 experience_ecoexchange_updates
                             ],
                             [
-                                "Led the frontend development and coordinated a team of 2 developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
+                                "Led the frontend development section and coordinated a team of 2 developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
                                 experience_ecoexchange_frontend
                             ],
                             [
@@ -584,6 +588,7 @@ Hope you enjoy your stay here!`,
                                 experience_ecoexchange_tickets
                             ]
                         ],
+                        "reflection":`Even though this is mainly considered a polytechnic FYP, the reason why I chose to label this as valid experience is because I have actually done valid KPIs for the company by actually letting the company actually producing 700+ real live tickets, all thanks to my contributions to my significant contributions to the frontend (which is why they could use it in the first place). Leveraging all of this without the use of LLMs is generally a big headache for most of us in the team, as we had to rely on sites like stackoverflow which sounds like a nightmare. Overall, I felt like it was a genuinely great learning experience for me working with another company and I honestly felt privileged to have had the experience with working wth them.`,
                         // "description": [
                         //     "Architected C# programs to help with shipping management!",
                         //     "Developed Node.js and created databases for efficient inventory management!",
@@ -612,6 +617,7 @@ Hope you enjoy your stay here!`,
                                 experience_leaptron_appgyver
                             ]
                         ],
+                        "reflection":`This was my first ever legitimate working experience, where I started out with working on several projects instructed by the company. It gave me the first impressions of what it's like in a working environment, where I had been quite `,
                         // "description": [
                         //     "Architected C# programs to help with shipping management!",
                         //     "Developed Node.js and created databases for efficient inventory management!",
@@ -642,8 +648,8 @@ Hope you enjoy your stay here!`,
                     // },
                     {
                         "name":"Personal Website",
-                        "short_description":"",
-                        "description":"My digital portfolio that showcases my prior technical experience and projects I've done, as well as who I am, through 3D voxels, and an operating chatbot, thanks to Next.js and Tailwind CSS! ",
+                        "short_description":"4th Version!",
+                        "description":"The website you're currently on! It features an array of 3D models scattered across the website because not only am I fascinated with seeing cubic stuff, but I also want to showcase the idea of using building blocks to build projects like these! It also exclusively features a chatbot where users can feel free to ask me about anything in their own convenience without needing to speak or chat with me in person, which can range from personal inquiries as well as fun facts about me!",
                         "reflection":"Making this is actually pretty interesting and fun to do because not only did I get to leverage my newly acquired Next.js skills to the test, but I leveraged on hand-crafting 3D voxel models from scratch because I am visually satisfied by looking at cubes! I tried my best to make this site uniquely me and I hope that it shows throughout my entire website!",
                         "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
@@ -760,22 +766,27 @@ Hope you enjoy your stay here!`,
                             "SC1007": {
                                 "name": "Data Structures & Algorithms",
                                 "jsonModel":sc1007,
+                                "module_coordinators":["Dr. Owen Noel Newton Fernando", "Assoc. Prof. Luu Anh Tuan"],
                             },
                             "SC1008": {
                                 "name": "C & C++ Programming",
                                 "jsonModel":sc1008,
+                                "module_coordinators":["Assoc. Prof. Hui Siu Cheung", "Assoc. Prof. Wang Yong"],
                             },
                             "SC2001": {
                                 "name": "Algorithm Design & Analysis",
                                 "jsonModel":sc2001,
+                                "module_coordinators":["Assoc. Prof. Dong Wei", "Assoc. Prof. Liu Ziwei"],
                             },
                             "SC2002": {
                                 "name": "Object Oriented Design & Programming",
                                 "jsonModel":sc2002,
+                                "module_coordinators":["Prof. Zhang Jie", "Dr. Li Fang"],
                             },
                             "SC2006": {
                                 "name": "Software Engineering",
                                 "jsonModel":sc2006,
+                                "module_coordinators":["Dr. Shen Zhiqi","Asst. Prof. Conrad Watt"],
                             },
                         },
                         // [start, end]
@@ -819,7 +830,47 @@ Hope you enjoy your stay here!`,
                         ],
                         "media_url":"./",
                         "academic_projects": [
-
+                            {
+                                "module_code":"SC2002",
+                                "title":"Internship Placement Management System",
+                                "short_description":"Java CLI Student Internship Placement Manager",
+                                "languages":["Java"],
+                                "media":[
+                                    // "./education/ntu/projects/ipms.png",
+                                    "./education/ntu/projects/ipms.gif",
+                                ],
+                                "description": [
+                                    "A Java Command-Line Interface (CLI) application to streamline and automate the undergraduate internship placement lifecycle.",
+                                    "Implements role-based workflows and access controls for three main actors: Students, Corporate Representatives, and Career Center Staff."
+                                ],
+                                "contributions": [
+                                    "Developed and debugged the core programming environment and execution logic of the application using Java.",
+                                    "Aided my teammates to translate the code into UML diagrams.",
+                                ],
+                                "source_code":"https://github.com/pixelhypercube/sc2002-oop",
+                            },
+                            {
+                                "module_code":"SC2006",
+                                "title":"Pawsport & Peer",
+                                "short_description":"Search for your dedicated pet caregiver in your own convenience!",
+                                "languages":["Next.js"],
+                                "media":[
+                                    "./education/ntu/projects/pnp.png",
+                                    "./education/ntu/projects/pnp2.png",
+                                    "./education/ntu/projects/pnp3.png"
+                                ],
+                                "description":[
+                                    "A multi-tenant care coordination web platform connecting pet owners with vetted localized caregivers.",
+                                    "Features functional dashboard interfaces engineered for three user roles: Owners, Caregivers, and Administrators.",
+                                    "Integrates state management for interactive scheduling calendars, formal dispute workflows, and transaction tracking.",
+                                    "Leverages live asynchronous multi-user communication frameworks via WebSockets for real-time chat."
+                                ],
+                                "contributions":[
+                                    "Developed the complete frontend user interface using Next.js.",
+                                    "Designed and implemented the core client-side layout structures, cross-page navigation routers, and reusable UI components.",
+                                ],
+                                "source_code":"https://github.com/pixelhypercube/sc2002-oop",
+                            }
                         ],
                         // for skills
                         "skills": [

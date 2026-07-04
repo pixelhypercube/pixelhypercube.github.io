@@ -35,7 +35,7 @@ import { useLanguage } from "./components/LanguageContext";
 
 // NEW IMPORTS
 
-import { renderDate } from "./components/home/utils";
+import { renderBioText, renderDate } from "./components/home/utils";
 import { HobbyButton, RunningPBDiv } from "./components/home/HobbyComponents";
 // import { ProjectSkillTab } from "./components/home/ProjectSkillTab";
 import { SkillContainer } from "./components/home/SkillContainer";
@@ -277,7 +277,7 @@ export default function Home() {
             {/* MAIN CONTENT */}
             <div className="relative z-10">
                 <div className="flex-col align-middle text-left">
-                    <header ref={containerHeroRef} className="lg:flex text-center mt-54">
+                    <header ref={containerHeroRef} className="lg:flex text-center my-60">
                         <div className="w-full my-12 self-center">
                             <h3>{headerContent["top"]}</h3>
                             <h1 className="text-8xl">{headerContent["name"]}</h1>
@@ -288,9 +288,9 @@ export default function Home() {
                             <Canvas3D voxelJson={computer} className="h-126 lg:w-full sm:w-1/2 justify-self-center z-11"/>
                         </div>
                     </header>
-                    <main className="lg:w-4/5 xl:w-3/5 mx-8 justify-self-center">
+                    <main className="w-4/5 mx-8 justify-self-center">
                         {/* ABOUT ME */}
-                        <div ref={containerAboutMeRef} className="flex flex-col mb-64">
+                        <div ref={containerAboutMeRef} className="mb-64">
                             {/* <div ref={containerAboutMeRef} className="flex flex-col mb-64">
                                 <div className="flex flex-col lg:flex-row p-5 gap-5 lg:h-96">
                                     <div className="w-full lg:w-1/2 h-64 lg:h-auto shrink-0">
@@ -304,31 +304,34 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div> */}
-                            <div className="flex flex-col p-5 gap-12 h-full items-center">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 p-5 gap-12 h-full items-center">
                                 {/* 3d voxel about me */}
-                                <div className="w-full h-64 shrink-0">
+                                <div className="h-64 shrink-0">
                                     <Canvas3D voxelJson={kj}/>
                                 </div>
-                                <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full rounded-4xl p-5 flex items-center ${transitionClasses}`}>
-                                    <div>
-                                        {
-                                            aboutMeContent["bio"] && aboutMeContent["bio"]
-                                            .split('\n\n')
-                                            .map((sentence: string,index: number)=>{
-                                                return <p className="text-xl font-light mb-4" key={`desc-${index}`}>{sentence}</p>
-                                            })
-                                        }
-                                        {/* <p className="text-xl font-light mb-4">
+                                <div className="grid gap-4">
+                                    <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} rounded-4xl p-5 items-center ${transitionClasses}`}>
+                                        <div>
                                             {
-                                                aboutMeContent["bio"] && aboutMeContent["bio"]
-                                                .split('\n\n')
-                                                .map((sentence: string,index: number)=>{
-                                                    return <p className="my-4" key={`desc-${index}`}>{sentence}</p>
-                                                })
+                                                aboutMeContent["bio"] && renderBioText(aboutMeContent["bio"])
                                             }
-                                        </p> */}
-                                        <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
+                                        </div>
+                                        <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} border-dashed mb-4 ${transitionClasses}`}/>
+                                        <div>
+                                            {
+                                                aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])
+                                            }
+                                            <p className="text-sm font-light italic">{aboutMeContent["bio_bottom"]}</p>
+                                        </div>
                                     </div>
+                                    {/* <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} rounded-4xl p-5 items-center ${transitionClasses}`}>
+                                        <div>
+                                            {
+                                                aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])
+                                            }
+                                            <p className="text-sm font-light italic">{aboutMeContent["bio_bottom"]}</p>
+                                        </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -537,7 +540,7 @@ export default function Home() {
                                                 }}>
                                                     {
                                                         experienceContent["experiences"].map((exp: any, index: number)=>{
-                                                            const {company, role, description, dates, skills, json_model} = exp;
+                                                            const {company, role, description, dates, skills, reflection, json_model} = exp;
                                                             return (
                                                                 <div key={`e-${index}`} className="w-full shrink-0">
                                                                     <ExperienceListItem 
@@ -551,6 +554,9 @@ export default function Home() {
                                                                         dates = {dates}
                                                                         jsonModel = {json_model}
                                                                         isModelVisible = {experienceIndex===index}
+                                                                        bio_header = {experienceContent["bio_header"]}
+                                                                        reflection = {reflection}
+                                                                        reflection_header = {experienceContent["reflection_header"]}
                                                                     />
                                                                 </div>
                                                             )
@@ -601,7 +607,7 @@ export default function Home() {
                                 }
                                 {
                                     experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number)=>{
-                                        const {company, role, description, dates, skills, json_model} = exp;
+                                        const {company, role, description, dates, skills, reflection, json_model} = exp;
                                         return (
                                             <ExperienceListItem 
                                                 key={`e-${index}`}
@@ -614,6 +620,9 @@ export default function Home() {
                                                 dates = {dates}
                                                 jsonModel = {json_model}
                                                 isModelVisible = {true}
+                                                bio_header = {experienceContent["bio_header"]}
+                                                reflection = {reflection}
+                                                reflection_header = {experienceContent["reflection_header"]}
                                             />
                                         )
                                     })

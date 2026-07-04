@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Grid, List } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Code, Grid, List } from "lucide-react";
 import CustomToggle from "../CustomToggle";
 import Canvas3D from "../Canvas3D";
 import { renderDate } from "./utils";
@@ -13,7 +13,7 @@ interface EducationProps {
     relevant_coursework_header: string;
     activities?: Record<string, any>;
     activities_header: string;
-    academic_projects?: Record<string, any>;
+    academic_projects?: Array<Record<string, any>>;
     academic_projects_header: string;
     awards?: Record<string, any>;
     awards_header: string;
@@ -65,6 +65,8 @@ export function EducationListItem({
 
     const [currentTabs, setCurrentTabs] = useState<Tab[]>([]);
     const [selectedTab, setSelectedTab] = useState<any>();
+
+    const [acadProjectsIndexes, setAcadProjectsIndexes] = useState<number[]>();
 
     // REFS
     const bioRef = useRef<HTMLButtonElement>(null);
@@ -118,6 +120,10 @@ export function EducationListItem({
     }>({});
 
     // useRef<HTMLButtonElement>(null).current?.clientLeft
+
+    useMemo(()=>{
+        setAcadProjectsIndexes(academic_projects?.map((_: any, index: number)=>0));
+    },[academic_projects]);
     
     useEffect(() => {
         const filtered = tabs.filter((item) => item.exists) as Tab[];
@@ -377,7 +383,130 @@ export function EducationListItem({
                         )}
                         {selectedTab?.id==="academic_projects" && (
                             <div>
-                                
+                                {academic_projects && academic_projects.map((item: any, projIndex: number)=>{
+                                    const {module_code, title, short_description, languages, media, description, contributions, source_code} = item;
+                                    
+                                    const module_info = relevant_coursework?.[module_code];
+                                    if (!module_info) return;
+
+                                    const module_name = module_info?.["name"];
+                                    if (!module_name) return;
+
+                                    const {module_coordinators} = module_info;
+
+                                    return (
+                                        <div key={`acad-proj-${projIndex}`} className={
+                                            `${currentTheme==="D" ? "bg-stone-700" : "bg-stone-300"}
+                                            rounded-2xl p-4 my-4`
+                                        }>
+                                            <header className="flex justify-between items-start">
+                                                <div>
+                                                    <div className="flex gap-2">
+                                                        <h3 className="mb-0">{title}</h3>
+                                                    </div>
+                                                    <div className="gap-2">
+                                                        {/* <h5 className="mb-0 font-medium">{module_code} - {module_name}</h5> */}
+                                                        {/* <h5 className="font-normal">{short_description}</h5> */}
+                                                        {/* {
+                                                            languages?.map((skill: any, index: number)=>{
+                                                                return (
+                                                                    <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                                                )
+                                                            })
+                                                        } */}
+                                                    </div>
+                                                    <div>
+                                                        <h6>Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className={`flex rounded-full self-center items-center justify-center p-2 w-28 h-10 text-center 
+                                                        ${currentTheme==="D" ? "border-amber-600 border bg-amber-800" : "border-amber-600 border bg-amber-300"}
+                                                        font-bold text-xl`}>
+                                                        <span>{module_code}</span>
+                                                    </div>
+                                                </div>
+                                            </header>
+                                            <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-2`}/>
+                                            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                                                <div className="lg:col-span-3">
+                                                    <div className="flex-3">
+                                                        <h5 className="mb-0">About:</h5>
+                                                        <ul className="list-disc ml-4">
+                                                            {description.map((item: any, index: number)=>{
+                                                                return <li key={`desc-${index}`}>{item}</li>
+                                                            })}
+                                                        </ul>
+                                                    </div>
+                                                    <div className="flex-3">
+                                                        <h5 className="mb-0">Key Contributions:</h5>
+                                                        <ul className="list-disc ml-4">
+                                                            {contributions.map((item: any, index: number)=>{
+                                                                return <li key={`contrib-${index}`}>{item}</li>
+                                                            })}
+                                                        </ul>
+                                                    </div>
+                                                    {/* <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-2`}/> */}
+                                                </div>
+                                                <div className="lg:col-span-2">
+                                                    <div className="flex-2">
+                                                        {
+                                                            acadProjectsIndexes && (
+                                                                <div className="relative group w-full aspect-video border border-stone-500 rounded-2xl overflow-hidden">
+                                                                    <img 
+                                                                        className="w-full aspect-video object-cover" 
+                                                                        src={media[acadProjectsIndexes[projIndex]]}
+                                                                    />
+                                                                    {
+                                                                        media.length > 1 && (
+                                                                            <div className="absolute inset-0 flex items-center justify-between">
+                                                                                <button onClick={()=>{
+                                                                                    const projs = [...acadProjectsIndexes];
+                                                                                    projs[projIndex] = (projs[projIndex] - 1 + media.length) % media.length;
+                                                                                    setAcadProjectsIndexes(projs);
+                                                                                }} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-l-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                                                    <ChevronLeft/>
+                                                                                </button>
+                                                                                <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
+                                                                                    {
+                                                                                        media.map((_: any,idx: number)=>(
+                                                                                        <button 
+                                                                                            key={`circle-btn-${idx}`} 
+                                                                                            onClick={()=>{
+                                                                                                const projs = [...acadProjectsIndexes];
+                                                                                                projs[projIndex] = idx;
+                                                                                                setAcadProjectsIndexes(projs);
+                                                                                            }} 
+                                                                                            className={`w-3 h-3 hover:scale-125 transition-all rounded-full cursor-pointer ${idx===acadProjectsIndexes[projIndex] ? "bg-white" : "bg-white/50 hover:bg-white/75"}`}></button>
+                                                                                        ))
+                                                                                    }
+                                                                                </div>
+                                                                                <button onClick={()=>{
+                                                                                    const projs = [...acadProjectsIndexes];
+                                                                                    projs[projIndex] = (projs[projIndex] + 1) % media.length;
+                                                                                    setAcadProjectsIndexes(projs);
+                                                                                }} className="pointer-events-auto h-full w-12 bg-black/80 opacity-0 hover:opacity-100 rounded-r-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                                                    <ChevronRight/>
+                                                                                </button>
+                                                                            </div>
+                                                                        )
+                                                                    }
+                                                                </div>
+                                                            )
+                                                        }
+                                                        <div className="mt-4">
+                                                        {
+                                                            source_code && (
+                                                                <a className={`w-full flex justify-center items-center gap-2 ${currentTheme==="D" ? "bg-stone-500" : "bg-stone-400"} p-2 rounded-2xl text-center font-bold text-md`} href={source_code}><Code/> Source Code</a>
+                                                            )
+                                                        }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         )}
                         {selectedTab?.id==="awards" && (
