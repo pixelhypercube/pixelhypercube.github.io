@@ -6,6 +6,51 @@ import { renderDate } from "./utils";
 import { ProjectSkillTab } from "./ProjectSkillTab";
 import { projectSkillsTabsDark, projectSkillsTabsLight } from "../../globals";
 
+interface MouseTabProps {
+    currentTheme:string;
+    module_code:string;
+    relevant_coursework:Record<any, any>;
+}
+
+export function ModuleTab(
+    {currentTheme,module_code,relevant_coursework} : MouseTabProps
+) {
+    const [mouseX, setMouseX] = useState(0);
+    const [mouseY, setMouseY] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
+
+    const hoverDivRef = useRef<HTMLDivElement>(null);
+    
+    return (
+        <div className="relative">
+            <div onMouseMove={(event: React.MouseEvent<HTMLDivElement>)=>{
+                const rect = event.currentTarget.getBoundingClientRect();
+                setMouseX(event.clientX - rect.left);
+                setMouseY(event.clientY - rect.top);
+            }}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)} 
+            className={`flex rounded-full self-center items-center justify-center p-2 w-28 h-10 text-center 
+                ${currentTheme==="D" ? "border-amber-600 border bg-amber-800" : "border-amber-600 border bg-amber-300"}
+                font-bold text-xl cursor-pointer`}>
+                <span>{module_code}</span>
+            </div>
+
+            {/* HOVER DIV */}
+            <div className={`p-2 border rounded-2xl ${currentTheme==="D" ? "border-stone-600 bg-stone-800" : "border-stone-400 bg-stone-300"} shadow-lg absolute top-0 left-0
+            text-center text-sm min-w-44
+            ${isHovering ? "opacity-100" : "opacity-0"} pointer-events-none transition-opacity duration-200 ease-in-out`}
+            ref={hoverDivRef}
+            style={{
+                transform: `translate(${mouseX-(hoverDivRef?.current?.clientWidth||0)/2}px, ${mouseY+20}px)` 
+            }}>
+                <p>{relevant_coursework[module_code]["name"]}</p>
+            </div>
+        </div>
+    )
+}
+
+
 interface EducationProps {
     institution: string;
     certificate: string;
@@ -158,11 +203,11 @@ export function EducationListItem({
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses} gap-4`}>
             <div className="w-full">
-                <header className="grid grid-cols-6 w-full gap-4">
-                    <div className={`hidden md:block col-span-1 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
+                <header className="flex w-full mb-5 gap-4">
+                    <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
                         {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                     </div>
-                    <div className="col-span-4 md:col-span-3">
+                    <div className="flex-1 min-w-0">
                         <h3 className="m-0">{institution}</h3>
                         <h5 className="m-0 font-normal">{certificate}</h5>
                         <div className="flex gap-x-1 mb-2">
@@ -175,7 +220,7 @@ export function EducationListItem({
                             }
                         </div>
                     </div>
-                    <div className="col-span-2 min-w-48 text-right italic">
+                    <div className="shrink-0 min-w-48 text-right italic">
                         <h6>
                         {
                             dates && dates.map((dateArr,_)=>{
@@ -243,7 +288,7 @@ export function EducationListItem({
                                 {bio?.map((item: any, index: number)=>{
                                     const {json_model, info} = item;
                                     return (
-                                        <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-2`} key={index}>
+                                        <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-4`} key={index}>
                                             {json_model && <div className="w-full h-36 relative">
                                                 {isModelVisible && <Canvas3D voxelJson={json_model}/>}
                                             </div>}
@@ -419,13 +464,11 @@ export function EducationListItem({
                                                         <h6>Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <div className={`flex rounded-full self-center items-center justify-center p-2 w-28 h-10 text-center 
-                                                        ${currentTheme==="D" ? "border-amber-600 border bg-amber-800" : "border-amber-600 border bg-amber-300"}
-                                                        font-bold text-xl`}>
-                                                        <span>{module_code}</span>
-                                                    </div>
-                                                </div>
+                                                <ModuleTab
+                                                currentTheme={currentTheme}
+                                                relevant_coursework={relevant_coursework}
+                                                module_code={module_code}
+                                                />
                                             </header>
                                             <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-2`}/>
                                             <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
@@ -452,7 +495,7 @@ export function EducationListItem({
                                                     <div className="flex-2">
                                                         {
                                                             acadProjectsIndexes && (
-                                                                <div className="relative group w-full aspect-video border border-stone-500 rounded-2xl overflow-hidden">
+                                                                <div className="relative group w-full aspect-video border-2 border-stone-500 rounded-2xl overflow-hidden">
                                                                     <img 
                                                                         className="w-full aspect-video object-cover" 
                                                                         src={media[acadProjectsIndexes[projIndex]]}

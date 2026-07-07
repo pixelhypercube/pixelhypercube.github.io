@@ -1,143 +1,86 @@
 {
-  "header": {
-    "top": "Hi, my name is",
-    "name": "Kai Jie (KJ) Teo",
-    "bottom": "Full-Stack Developer & Computer Science Undergraduate"
-  },
-  "about_me": {
-    "bio": "I am a second-year Computer Science undergraduate at Nanyang Technological University (NTU) with a passion for building complex, interactive software systems. From crafting full-stack web applications to tinkering with game frameworks and game physics, I love breaking down complex architectures into clean, modular code. Beyond engineering, I train as a hybrid athlete, balancing high-performance weightlifting with competitive long-distance running.",
-    "hobbies_header1": "When I am not coding,",
-    "hobbies_header2": "you can usually find me...",
-    "hobbies": [
-      { "name": "Running", "description": "Dedicated long-distance marathoner and inter-hall road relay runner. Completed the 台灣國際馬拉松in台南 (Taiwan International Marathon) with a net time of 3:34:19." },
-      { "name": "Gaming", "description": "Interested in technical systems tinkering, game mechanics exploration, and scripting with Minecraft command blocks." },
-      { "name": "Bouldering", "description": "Engaging in problem-solving on the wall, balancing physical strength with route planning and technique." },
-      { "name": "Gymming", "description": "Focused on strength training and a hybrid athlete build, tracking milestones like a 70kg bench press and 30kg dumbbell presses." },
-      { "name": "Speedcubing", "description": "Competitive speedcuber capable of sub-10 second 3x3 solves, with a personal best single of 4.80 seconds featuring a last-layer skip." }
-    ]
-  },
-  "skills": {
-    "header": "Technical Toolkit",
-    "skill_proficiencies": {
-      "expert": "Advanced / Proficient",
-      "intermediate": "Intermediate / Familiar",
-      "learning": "Currently Exploring"
-    },
-    "languages_header": "Programming Languages",
-    "languages": [
-      { "name": "TypeScript / JavaScript", "skill_proficiency": "expert" },
-      { "name": "Python", "skill_proficiency": "expert" },
-      { "name": "C#", "skill_proficiency": "intermediate" },
-      { "name": "C", "skill_proficiency": "intermediate" }
-    ],
-    "frontend_header": "Frontend Frameworks & Libraries",
-    "frontend": [
-      { "name": "Next.js", "skill_proficiency": "expert" },
-      { "name": "React.js", "skill_proficiency": "expert" },
-      { "name": "Tailwind CSS", "skill_proficiency": "expert" },
-      { "name": "Three.js / React Three Fiber", "skill_proficiency": "intermediate" }
-    ],
-    "backend_header": "Backend & Game Engineering",
-    "backend": [
-      { "name": "Node.js", "skill_proficiency": "expert" },
-      { "name": "WebSockets", "skill_proficiency": "expert" },
-      { "name": "Raylib", "skill_proficiency": "intermediate" },
-      { "name": "Pygame", "skill_proficiency": "intermediate" }
-    ],
-    "databases_header": "Databases & DevOps",
-    "databases": [
-      { "name": "PostgreSQL", "skill_proficiency": "intermediate" },
-      { "name": "MongoDB", "skill_proficiency": "intermediate" }
-    ]
-  },
-  "projects": {
-    "header": "Featured Engineering Projects",
-    "projects": [
-      {
-        "name": "Astertris",
-        "short_description": "A space-themed Tetris variant implementing complex radial gravity mechanics.",
-        "description": "Designed and engineered a standalone desktop Tetris variant where blocks fall toward a central gravity point instead of downwards. Implemented precise collision fields, custom radial rotation math, and physics optimization.",
-        "skills": ["Python", "Pygame", "Game Physics"],
-        "date": "2025-10-01"
-      },
-      {
-        "name": "CellCollab",
-        "short_description": "A real-time multiplayer sandbox environment powered by WebSockets.",
-        "description": "Architected a highly responsive web sandbox using React.js and standard WebSockets to support seamless multi-user state synchronization. Solved complex challenges related to event ordering, state conflict, and latency minimization.",
-        "skills": ["React.js", "Node.js", "WebSockets"],
-        "date": "2025-10-15"
-      },
-      {
-        "name": "Pawsport & Peer",
-        "short_description": "A pet care coordination platform for distributed responsibilities.",
-        "description": "Led the software engineering architecture for a pet management application, conducting full requirements analysis, drawing meticulous UML schemas, and laying out modular UI components for cooperative pet tracking.",
-        "skills": ["Next.js", "TypeScript", "Software Architecture"],
-        "date": "2026-02-01"
-      }
-    ]
-  },
-  "experience": {
-    "header": "Professional Experience",
-    "experiences": [
-      {
-        "company": "Armed Forces Service",
-        "role": "Full-Stack Software Developer (National Service)",
-        "description": [
-          "Rapidly designed and deployed a native mobile attendance tracking application to optimize operational military administration.",
-          "Awarded the Outstanding Soldier of the Month in June 2025 in recognition of accelerating development workflows and shipping high-impact tools under tight timelines."
-        ],
-        "dates": [["2023-11-01", "2025-11-01"]]
-      }
-    ]
-  },
-  "education": {
-    "header": "Educational Background",
-    "relevant_coursework_header": "Key University Coursework",
-    "activities_header": "Campus Activities & Leadership",
-    "list": [
-      {
-        "institution": "Nanyang Technological University (NTU)",
-        "certificate": "Bachelor of Engineering in Computer Science (Undergraduate)",
-        "dates": [["2025-08-01", "Present"]],
-        "relevant_coursework": {
-          "SC2001": { "name": "Algorithm Design and Analysis" },
-          "SC2005": { "name": "Operating Systems" },
-          "SC2006": { "name": "Software Engineering" }
-        },
-        "activities": [
-          {
-            "name": "Inter-Hall Road Relay & Athletics",
-            "dates": [["2025-08-01", "Present"]],
-            "bio": [
-              "Represented the hall community in competitive long-distance road relay races.",
-              "Maintained rigorous training cycles alongside core academic workloads."
-            ]
-          }
-        ],
-        "bio": ["Maintaining a solid foundation in computer systems, runtime analysis, and scalable agile methodologies."]
-      },
-      {
-        "institution": "Singapore Polytechnic",
-        "certificate": "Diploma in Information Technology",
-        "dates": [["2020-04-01", "2023-04-01"]],
-        "bio": ["Graduated with an intensive background in software development basics, database design, and systems deployment."]
-      },
-      {
-        "institution": "ACS (International)",
-        "certificate": "IGCSE Certificate",
-        "dates": [["2016-01-01", "2019-11-01"]],
-        "bio": ["Completed secondary education with strong analytical and multilingual foundations."]
-      }
-    ]
-  },
-  "footer": {
-    "header": "Let's Build Something Together",
-    "subheader": "Drop me a message or connect via social channels!",
-    "bottom": "Designed & Engineered by KJ Teo © 2026",
-    "form": {
-      "name": "Your Name",
-      "email": "Your Email Address",
-      "message": "Your Message"
+  "bio": {
+    "first_name": "Kai Jie",
+    "last_name": "Teo",
+    "other_names": ["Kendrick", "KJ"],
+    "hobbies": ["Long-Distance Running", "Speedcubing", "Reading", "Gymming"],
+    "physical_info": {
+      "morning_height": 180,
+      "evening_height": 178,
+      "weight": 68,
+      "pbf": 12
     }
-  }
+  },
+  "contact": {
+    "email": "6thetce@gmail.com",
+    "linkedin_url": "https://linkedin.com/in/kai-jie-teo",
+    "github_url": "https://github.com/pixelhypercube",
+    "location": "Singapore",
+    "availability": "e.g., Open to summer 2027 internships / Full-time roles starting YYYY"
+  },
+  "education": [
+    {
+      "institution": "Nanyang Technological University (NTU)",
+      "degree": "Computer Science",
+      "start_date": "2024-08",
+      "end_date": "Present",
+      "gpa": 4.56,
+      "relevant_coursework": ["SC2002","SC1007","SC2006"]
+    }
+  ],
+  "skills": {
+    "languages": ["TypeScript", "JavaScript", "Python"],
+    "frameworks": ["Next.js", "React", "Tailwind CSS"],
+    "databases": ["PostgreSQL", "MongoDB", "Redis"],
+    "tools_devops": ["Docker", "Git", "AWS", "Vercel AI SDK"]
+  },
+  "experience": [
+    {
+      "company": "Singapore Armed Forces",
+      "role": "Software Engineer (NSF)",
+      "location": "",
+      "dates":[["2022-12","2024-08"],["2025-05","2025-07"]],
+      "bullet_points": [
+        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year of studies at NTU.",
+        "Created a QR Code Scanner application using Node.js and EJS and was featured on Army News"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Personal Portfolio AI Assistant",
+      "description": "An interactive chatbot portfolio built using the Vercel AI SDK and Gemini 2.0 Flash to answer questions based on static resume context.",
+      "technologies": ["Next.js", "TypeScript", "Vercel AI SDK", "Gemini API"],
+      "github_url": "",
+      "live_url": "",
+      "highlights": [
+        "Implemented strict system prompting to eliminate model hallucinations.",
+        "Handled edge-case HTTP status codes including 400 and 429 rate limits."
+      ]
+    }
+  ],
+  "hobby_metrics": {
+    "speedcubing": {
+      "wca_id": "2016JIET01",
+      "3x3_single_pb": 4.8,
+      "favorite_method": "CFOP"
+    },
+    "running": {
+      "5k_personal_best": "21:21",
+      "10k_personal_best": "45:50",
+      "half_marathon_personal_best": "1:44",
+      "full_marathon_personal_best": "3:34:19",
+      "current_weekly_mileage":60
+    }
+  },
+  "frequently_asked_questions": [
+    {
+      "question": "Why did you build an AI assistant for your portfolio?",
+      "answer": "To provide recruiters and visitors with an instant, interactive way to query my background, skills, and metrics without scrolling through a traditional static resume."
+    },
+    {
+      "question": "Are you open to relocation?",
+      "answer": ""
+    }
+  ]
 }

@@ -186,7 +186,7 @@ export function ProjectListItem({
                     </div>
                 </div>
                 <div className="w-full md:col-span-2 flex flex-col">
-                    <div className="relative group w-full aspect-video border border-stone-500 rounded-2xl overflow-hidden">
+                    <div className="relative group w-full aspect-video border-2 border-stone-500 rounded-2xl overflow-hidden">
                         {
                             media_url && Array.isArray(media_url) && media_url.length > 0 && (
                                 <>

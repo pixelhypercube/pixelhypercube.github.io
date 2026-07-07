@@ -2,7 +2,7 @@ import { Send, User, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ChatbotMessage from "./ChatbotMessage";
 import { IS_DEBUG } from "@/app/globals";
-import { useChat, UIMessage } from "@ai-sdk/react";
+import { useChat } from "@ai-sdk/react";
 
 interface ChatbotMessageProps {
     isReceiver: boolean;
@@ -29,7 +29,7 @@ const DEMO_MESSAGES = [
 interface ChatbotDialogProps {
     messages?:[],
     isOpen:boolean,
-    dialogCallbacks?: Record<any, ()=>void>;
+    dialogCallbacks?: Record<string, ()=>void>;
     selectedLanguage: string;
     currentTheme: string;
     transitionClasses?: string;
@@ -71,18 +71,29 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
     const [messages, setMessages] = useState(IS_DEBUG ? DEMO_MESSAGES : []);
 
     const inputRef = useRef<HTMLTextAreaElement>(null!);
+    const scrollContainerRef = useRef<HTMLElement>(null!);
+
+    // Recompute scroll height on input mutations
+    const handleInputChange = () => {
+        if (inputRef.current) {
+            inputRef.current.style.height = "auto";
+            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+        }
+    };
 
     function handleSend() {
         const inputVal = inputRef.current.value;
         if (inputVal) {
-            sendMessage({
-                text:inputVal
-            })
+            sendMessage({ text: inputVal });
             inputRef.current.value = "";
+            
+            // Revert back to base height class (h-10 = 40px) post-submission
+            if (inputRef.current) {
+                inputRef.current.style.height = "40px";
+            }
         }
     }
 
-    const scrollContainerRef = useRef<HTMLElement>(null!);
     useEffect(() => {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
@@ -90,15 +101,15 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
     }, [aiMessages, error]);
 
     return (
-        <div className={`max-w-96 shadow-lg rounded-xl border ${
+        <div className={`max-w-96 h-125 shadow-lg rounded-xl border flex flex-col ${
             currentTheme === "D" ? "bg-stone-900 border-stone-800" : "bg-white border-stone-200"
         } ${transitionClasses}`}>
             {/* header */}
-            <header className={`p-3 flex h-1/6 w-full justify-between items-center rounded-t-xl ${
+            <header className={`p-3 flex shrink-0 w-full justify-between items-center rounded-t-xl ${
                 currentTheme === "D" ? "bg-olive-900 text-olive-100" : "bg-olive-600 text-white"
             } ${transitionClasses}`}>
                 <div>
-                    <h6 className="m-0 font-semibold">Chatbot</h6>
+                    <h6 className="m-0 font-semibold">Chatbot (Beta)</h6>
                 </div>
                 <div>
                     <X className="cursor-pointer opacity-80 hover:opacity-100 text-white" onClick={()=>{
@@ -108,16 +119,16 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
             </header>
 
             {/* messages list */}
-            <main ref={scrollContainerRef} className={`overflow-y-scroll p-5 h-2/3 max-h-96 custom-scrollbar ${
+            <main ref={scrollContainerRef} className={`flex-1 overflow-y-auto p-5 overscroll-y-contain custom-scrollbar ${
                 currentTheme === "D" ? "bg-stone-950" : "bg-olive-50/50"
             } ${transitionClasses}`}>
                 {aiMessages.map((msg, index)=>{
                     const isReceiver = msg.role === 'assistant'
                     const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === aiMessages.length-1;
-                    const textContent = msg.parts
+                    const textContent = msg.content || (msg.parts
                         ?.filter(part => part.type === 'text')
                         .map(part => part.text)
-                        .join('') || '';
+                        .join('')) || '';
 
                     return (
                         <div key={`msg-${index}`} className={`flex ${isReceiver ? "justify-start" : "justify-end"} gap-x-3 mb-4  ${transitionClasses}`}>
@@ -127,7 +138,6 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
                                 </div>
                             )}
                             <ChatbotMessage
-                                key={`msg-${index}`}
                                 transitionClasses={transitionClasses}
                                 currentTheme={currentTheme}
                                 isReceiver={isReceiver}
@@ -146,25 +156,29 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
                     )
                 })}
                 
-                {/* if there's error */}
                 {error && (
                     <div className="justify-self-start bg-red-100 border border-red-300 text-red-800 p-3 m-5 rounded-xl text-sm max-w-96">
                         <strong>System Notice: </strong> 
-                        {error.message.includes("API_KEY_EXPIRED") 
-                            ? "Sorry, this chatbot is currently offline for maintenance." 
-                            : "Sorry, this chatbot is receiving too much traffic right now. Please wait about 20-30 seconds before typing your next question!"}
+                        {(() => {
+                            const errMsg = error.message || "";
+                            if (errMsg.includes("API_KEY_EXPIRED")) return "Sorry, this chatbot is currently offline for maintenance.";
+                            if (errMsg.includes("RATE_LIMIT_EXHAUSTED")) return "Sorry, this chatbot is receiving too much traffic right now. Please wait about 25 seconds before typing your next question!";
+                            if (errMsg.includes("MODEL_HIGH_DEMAND")) return "The AI model is currently under heavy load globally. Please try resending your message in a few moments.";
+                            return "An unexpected error occurred. Please try again later.";
+                        })()}
                     </div>
                 )}
             </main>
 
             {/* message input */}
-            <footer className={`flex h-1/6 p-3 gap-2 rounded-b-xl border-t ${
+            <footer className={`flex shrink-0 p-3 gap-2 rounded-b-xl border-t items-end ${
                 currentTheme === "D" ? "bg-stone-900 border-stone-800" : "bg-stone-50 border-stone-100"
             } ${transitionClasses}`}>
                 <textarea 
                     ref={inputRef} 
+                    onInput={handleInputChange}
                     placeholder="Type a message..."
-                    className={`m-0 w-5/6 h-10 rounded-2xl border p-2 text-sm resize-none focus:outline-none focus:ring-1 ${
+                    className={`m-0 w-5/6 h-10 max-h-32 min-h-10 rounded-2xl border p-2 text-sm resize-none focus:outline-none focus:ring-1 overflow-y-auto custom-scrollbar ${
                         currentTheme === "D" 
                             ? "bg-stone-800 border-stone-700 text-white placeholder-stone-500 focus:ring-olive-700" 
                             : "bg-white border-stone-300 text-stone-900 placeholder-stone-400 focus:ring-olive-500"
@@ -177,7 +191,7 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
                     }}
                 />
                 <button 
-                    className={`p-2 w-10 h-10 rounded-2xl flex items-center justify-center transition-colors ${
+                    className={`p-2 w-10 h-10 rounded-2xl flex items-center justify-center transition-colors shrink-0 ${
                         currentTheme === "D" ? "bg-olive-700 hover:bg-olive-600 text-white" : "bg-olive-600 hover:bg-olive-700 text-white"
                     } ${transitionClasses}`} 
                     onClick={()=>handleSend()}

@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import { content, projectSkillsTabsDark, projectSkillsTabsLight, skills } from "./globals";
 import Chatbot from "./components/Chatbot/Chatbot";
@@ -244,6 +244,86 @@ export default function Home() {
     const [experienceIndex, setExperienceIndex] = useState(0);
     const [educationIndex, setEducationIndex] = useState(0);
     const [projectIndex, setProjectIndex] = useState(0);
+
+    // CAROUSEL HEIGHT STATES
+    const [projectHeight, setProjectHeight] = useState<number | string>("auto");
+    const [experienceHeight, setExperienceHeight] = useState<number | string>("auto");
+    const [educationHeight, setEducationHeight] = useState<number | string>("auto");
+
+    // HEIGHT MEASUREMENT REFS
+    const projectTrackRef = useRef<HTMLDivElement>(null);
+    const experienceTrackRef = useRef<HTMLDivElement>(null);
+    const educationTrackRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (projectsToggleIndex !== 0 || !projectTrackRef.current) {
+            setProjectHeight("auto");
+            return;
+        }
+
+        let observer: ResizeObserver | null = null;
+        const activeChild = projectTrackRef.current.children[projectIndex] as HTMLElement;
+
+        if (activeChild) {
+            observer = new ResizeObserver((entries) => {
+                for (let entry of entries) {
+                    // Captures height safely post-render and post-layout updates
+                    setProjectHeight(entry.target.clientHeight);
+                }
+            });
+            observer.observe(activeChild);
+        }
+
+        return () => {
+            if (observer) observer.disconnect();
+        };
+    }, [projectIndex, projectsToggleIndex]);
+
+    useEffect(() => {
+        if (experienceToggleIndex !== 0 || !experienceTrackRef.current) {
+            setExperienceHeight("auto");
+            return;
+        }
+
+        let observer: ResizeObserver | null = null;
+        const activeChild = experienceTrackRef.current.children[experienceIndex] as HTMLElement;
+
+        if (activeChild) {
+            observer = new ResizeObserver((entries) => {
+                for (let entry of entries) {
+                    setExperienceHeight(entry.target.clientHeight);
+                }
+            });
+            observer.observe(activeChild);
+        }
+
+        return () => {
+            if (observer) observer.disconnect();
+        };
+    }, [experienceIndex, experienceToggleIndex]);
+
+    useEffect(() => {
+        if (educationToggleIndex !== 0 || !educationTrackRef.current) {
+            setEducationHeight("auto");
+            return;
+        }
+
+        let observer: ResizeObserver | null = null;
+        const activeChild = educationTrackRef.current.children[educationIndex] as HTMLElement;
+
+        if (activeChild) {
+            observer = new ResizeObserver((entries) => {
+                for (let entry of entries) {
+                    setEducationHeight(entry.target.clientHeight);
+                }
+            });
+            observer.observe(activeChild);
+        }
+
+        return () => {
+            if (observer) observer.disconnect();
+        };
+    }, [educationIndex, educationToggleIndex]);
         
 
     return (
@@ -388,9 +468,10 @@ export default function Home() {
                             {
                                 projectsToggleIndex===0 && (
                                     <div className="relative w-full max-w-full min-w-0">
-                                        <div className="w-full overflow-hidden">
+                                        <div style={{ height: projectHeight }} className="w-full overflow-hidden transition-[height] duration-500 ease-in-out">
                                             <div 
-                                            className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                            ref={projectTrackRef}
+                                            className="flex gap-4 transition-transform duration-500 ease-in-out items-start"
                                             style={{ 
                                                 transform: `translateX(calc(-${projectIndex * 100}% - ${projectIndex * 16}px))` 
                                             }}>
@@ -532,9 +613,10 @@ export default function Home() {
                                 {
                                     experienceToggleIndex === 0 && (
                                         <div>
-                                            <div className="w-full overflow-hidden relative">
+                                            <div style={{ height: experienceHeight }} className="w-full overflow-hidden transition-[height] duration-500 ease-in-out relative">
                                                 <div 
-                                                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                                ref={experienceTrackRef}
+                                                className="flex gap-4 transition-transform duration-500 ease-in-out items-start"
                                                 style={{ 
                                                     transform: `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
                                                 }}>
@@ -642,9 +724,10 @@ export default function Home() {
                                 {
                                     educationToggleIndex === 0 && (
                                         <div>
-                                            <div className="w-full overflow-hidden">
+                                            <div style={{ height: educationHeight }} className="w-full overflow-hidden transition-[height] duration-500 ease-in-out">
                                                 <div 
-                                                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                                                className="flex gap-4 transition-transform duration-500 ease-in-out items-start"
+                                                ref={educationTrackRef}
                                                 style={{ 
                                                     transform: `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
                                                 }}>

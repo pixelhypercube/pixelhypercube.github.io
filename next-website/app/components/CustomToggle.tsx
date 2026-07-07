@@ -6,12 +6,16 @@ interface CustomToggleProps {
     currentTheme: string;
     iconSize?: number;
     transitionClasses?: string;
+
+    // events
+
+    onClick?: Function
 }
 
 
-export default function CustomToggle({values, selectedIndex, className, changeIndex, currentTheme, transitionClasses} : CustomToggleProps) {
+export default function CustomToggle({values, selectedIndex, className, changeIndex, currentTheme, transitionClasses, onClick} : CustomToggleProps) {
     return (
-        <div className={`flex w-full ${className}`}>
+        <div onClick={()=>onClick?.()} className={`flex w-full ${className}`}>
             {values?.map((item : any, index: number)=>{
                 return (
                     <div 

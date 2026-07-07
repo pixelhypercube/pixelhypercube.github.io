@@ -31,7 +31,7 @@ export default function Chatbot({
             <ChatbotDialog
                 selectedLanguage={selectedLanguage}
                 isOpen={isOpen}
-                messages={[]}
+                // messages={[]}
                 currentTheme={currentTheme}
                 transitionClasses={transitionClasses}
                 dialogCallbacks={{

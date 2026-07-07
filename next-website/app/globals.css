@@ -70,3 +70,35 @@
     }
   } */
 }
+
+/* Custom Scrollbar Utility Layer */
+@utility custom-scrollbar {
+  /* WebKit Browsers (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 0.75em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(75, 75, 75, 0.2);
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #868686;
+    border-radius: 20px;
+    border: 2px solid transparent; /* Gives padding inside the track slot */
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(160, 160, 160, 0.9);
+  }
+
+  &::-webkit-scrollbar-button {
+    height: 0em;
+  }
+
+  /* Firefox Standards Fallback */
+  scrollbar-width: thin;
+  scrollbar-color: #868686 rgba(75, 75, 75, 0.2);
+}

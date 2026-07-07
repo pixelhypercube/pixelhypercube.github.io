@@ -90,11 +90,11 @@ export function ExperienceListItem({
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
-            <header className="grid grid-cols-6 w-full mb-5 gap-4">
-                <div className={`col-span-1 hidden md:block ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
+            <header className="flex w-full mb-5 gap-4">
+                <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
                     {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                 </div>
-                <div className="col-span-4 md:col-span-3">
+                <div className="flex-1 min-w-0">
                     <h3 className="m-0">{role}</h3>
                     <h5 className="m-0">{company}</h5>
                     <div className="flex gap-x-1 mt-1">
@@ -107,7 +107,7 @@ export function ExperienceListItem({
                         }
                     </div>
                 </div>
-                <div className="col-span-2 min-w-48 text-right italic">
+                <div className="shrink-0 min-w-48 text-right italic">
                     <h6>
                     {
                         dates && dates.map((dateArr,idx: number)=>{
@@ -158,7 +158,29 @@ export function ExperienceListItem({
                 {/* can consider list/grid layout toggle */}
                 {
                     selectedTab?.id === "bio" && (
-                        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                        // <div className="">
+                        //     {
+                        //         description && description.map((item: any, index: number)=>{
+                        //             const [desc, jsonModel] = item;
+
+                        //             return (
+                        //                 <div
+                        //                 key={`desc-exp-${index}`} 
+                        //                 className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-4 
+                        //                 flex ${transitionClasses} gap-4 my-4`}
+                        //                 >
+                        //                     <div className={`w-16 h-16 aspect-square relative`}>
+                        //                         {isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
+                        //                     </div>
+                        //                     <div>
+                        //                         <p>{desc}</p>
+                        //                     </div>
+                        //                 </div>
+                        //             );
+                        //         })
+                        //     }
+                        // </div>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {
                                 description && description.map((item: any, index: number)=>{
                                     const [desc, jsonModel] = item;

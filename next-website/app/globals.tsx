@@ -100,6 +100,14 @@ import edu_logo_sp from "./voxelModels/edu/sp/logo.json"
 import edu_logo_acsint from "./voxelModels/edu/acsint/logo.json"
 import edu_logo_acsbr from "./voxelModels/edu/acsbr/logo.json"
 import edu_ntu_sethbling from "./voxelModels/edu/ntu/sethbling.json"
+import edu_ntu_uni_life from "./voxelModels/edu/ntu/uni_life.json"
+import kj_glasses from "./voxelModels/kj_glasses.json" // special nerdy avatar
+import edu_sp_group_work from "./voxelModels/edu/sp/group_work.json"
+
+import edu_acsbr_clock_tower from "./voxelModels/edu/acsbr/clock_tower.json"
+import edu_acs_transfer from "./voxelModels/edu/acsint/transfer.json"
+import edu_acs_friends from "./voxelModels/edu/acsint/friends.json"
+
 
 
 import sc1007 from "./voxelModels/edu/ntu/rel_coursework/sc1007.json"
@@ -718,7 +726,6 @@ Thanks for stopping by and enjoy your stay!`,
                             },
                         ]
                     },
-                    
                     {
                         "name":"Astertris",
                         "short_description":"Tetris, but you're on a floating asteroid in space!",
@@ -819,7 +826,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 "info":<p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>
                             },
                             {
-                                "json_model":edu_ntu_sethbling,
+                                "json_model":edu_ntu_uni_life,
                                 "info":<p>If I have to sum up my university life up to now, I would say that it's been a interesting, yet competitive 😂</p>
                             },
                         ],
@@ -931,11 +938,11 @@ Thanks for stopping by and enjoy your stay!`,
                         ],
                         "bio":[
                             {
-                                "json_model":edu_ntu_sethbling,
+                                "json_model":kj_glasses,
                                 "info":<p>I chose Polytechnic solely because I want to continue enjoy being a tech nerd/geek instead of IB!</p>
                             },
                             {
-                                "json_model":edu_ntu_sethbling,
+                                "json_model":edu_sp_group_work,
                                 "info":<p>One of the best things that happened during my polytechnic days was that I learned how not to be an antisocial person due to me experiencing group work on steroids 💪</p>
                             },
                         ],
@@ -997,12 +1004,12 @@ Thanks for stopping by and enjoy your stay!`,
                         ],
                         "bio":[
                             {
-                                "json_model":edu_ntu_sethbling,
-                                "info":<p>Transferred here from ACS (Barker) after completing Sec 1, partly because I wanted to join my sister!</p>
+                                "json_model":edu_acs_transfer,
+                                "info":<p>Transferred here from ACS (Barker) after completing Sec 1 not only because my parents recommended me to take the IGCSE curriculum, but partly also because I wanted to join my sister!</p>
                             },
                             {
-                                "json_model":edu_ntu_sethbling,
-                                "info":<p>It was a bit hard suddenly adjusting to a new set of friends but I managed to survive at the end!</p>
+                                "json_model":edu_acs_friends,
+                                "info":<p>It was a bit hard adjusting to a new environment and set of friends all of a sudden, but I managed to survive at the end!</p>
                             }
                         ],
                         "dates" :[
@@ -1054,12 +1061,12 @@ Thanks for stopping by and enjoy your stay!`,
                         // ],
                         "bio":[
                             {
-                                "json_model":edu_ntu_sethbling,
-                                "info":<p>Was fun to see many of my primary school friends, classmates and schoolmates in ACS (Barker)!</p>
+                                "json_model":edu_acsbr_clock_tower,
+                                "info":<p>Was fun to see many of my primary school friends, classmates and schoolmates in ACS (Barker), as my primary school, ACS (Primary) is affiliated!</p>
                             },
                             {
-                                "json_model":edu_ntu_sethbling,
-                                "info":<p>Transferred to ACS (International) after Sec 1 to pursue the Cambridge IGCSE curriculum.</p>
+                                "json_model":edu_acs_transfer,
+                                "info":<p>I was in the Express Stream (GCE O-Level), but I transferred to ACS (International) right after Sec 1.</p>
                             }
                         ],
                         "dates" :[
