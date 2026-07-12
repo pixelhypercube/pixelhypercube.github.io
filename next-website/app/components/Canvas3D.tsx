@@ -2,6 +2,7 @@
 import { Bounds, Center, Environment, MeshDistortMaterial, OrbitControls, PerspectiveCamera, Stage, useBounds, View } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { useEffect, useMemo, useRef, useState } from "react"
+import { useInView } from "react-intersection-observer"
 import * as THREE from "three"
 
 interface CustomVoxelProps {
@@ -142,8 +143,15 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
     if (!voxelJson?.data) return null;
 
     const sizeClasses = className || "w-full h-full";
+
+    const { ref, inView } = useInView({
+        threshold: 0.5, 
+        triggerOnce: false
+    });
+
+
     return (
-        <div className={`${sizeClasses} relative inline-block content-center overflow-hidden`}>
+        <div ref={ref} className={`${sizeClasses} relative inline-block content-center overflow-hidden`}>
             {/* <Canvas
             camera = {{fov,zoom:0.9}}
             className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}> */}
@@ -156,16 +164,18 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
                 <ambientLight intensity={0.5}/>
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <Environment preset="city"/>
-                <Bounds fit clip observe margin={1.2}>
+                <Bounds fit clip observe={inView} margin={1.2}>
                     <Center>
-                        <CustomVoxel voxelJson={voxelJson}/>
+                        <group visible={inView}>
+                            <CustomVoxel voxelJson={voxelJson}/>
+                        </group>
                     </Center>
                 </Bounds>
                 <OrbitControls
                 makeDefault
                 enableZoom={false}
                 enablePan={false}
-                autoRotate
+                autoRotate={inView}
                 autoRotateSpeed={autoRotateSpeed ?? 0.5} />
             </View>
             {/* </Canvas> */}

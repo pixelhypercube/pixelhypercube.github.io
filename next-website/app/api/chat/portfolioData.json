@@ -8,7 +8,8 @@
       "morning_height": 180,
       "evening_height": 178,
       "weight": 68,
-      "pbf": 12
+      "pbf": 12,
+      "build_type":"Mesomorph"
     }
   },
   "contact": {
@@ -25,14 +26,14 @@
       "start_date": "2024-08",
       "end_date": "Present",
       "gpa": 4.56,
-      "relevant_coursework": ["SC2002","SC1007","SC2006"]
+      "relevant_coursework": ["SC2002","SC1007","SC2006","SC1006"]
     }
   ],
   "skills": {
     "languages": ["TypeScript", "JavaScript", "Python"],
     "frameworks": ["Next.js", "React", "Tailwind CSS"],
     "databases": ["PostgreSQL", "MongoDB", "Redis"],
-    "tools_devops": ["Docker", "Git", "AWS", "Vercel AI SDK"]
+    "tools_devops": ["Git", "Vercel AI SDK"]
   },
   "experience": [
     {
@@ -40,22 +41,45 @@
       "role": "Software Engineer (NSF)",
       "location": "",
       "dates":[["2022-12","2024-08"],["2025-05","2025-07"]],
-      "bullet_points": [
-        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year of studies at NTU.",
-        "Created a QR Code Scanner application using Node.js and EJS and was featured on Army News"
+      "kpis": [
+        "Created a QR Code Scanner application using Node.js and EJS and was featured on Army News",
+        "Tested and validated the unit's Telegram chatbots (Parade State, Pers Node Enquiry, Events) and improved reliability by ~80%",
+        "Implemented more features and created a mobile version to the Personnel Admin Link (PAL) program, a Microsoft PowerApps program that efficiently conduct admin tasks across Personnel Nodes around Singapore.",
+        "Even though my primary job is compiling Parade States, I still volunteered in numerous other pursuits like manning phone calls and manging other events!"
+      ],
+      "notes": [
+        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year of studies at NTU."
+      ],
+      "experience": [
+        "Was my first time ever experiencing the brutal realiities of working life, where I faced numerous challenges in terms of adapting to it.",
+        "I was quite fortunate and lucky that I get to use my skillsets during my NS days, where I have actually programmed and tested numerous programs.",
+        "Even though I was not in a combat-fit unit, I am still ver grateful during my NS days as it taught me how to become more mature!"
+      ],
+      "awards":[
+        "Letter of Appreciation - Outstanding Soldier of the Month (June 2025)"
+      ]
+    },
+    {
+      "company":"Eco Exchange Pte. Ltd.",
+      "role":"Lead Frontend Developer (Final Year Project, Singapore Polytechnic",
+      "work_type":"WFH",
+      "dates":[["2021-10","2023-05"]],
+      "kpis": [
+        ""
       ]
     }
   ],
   "projects": [
     {
-      "title": "Personal Portfolio AI Assistant",
-      "description": "An interactive chatbot portfolio built using the Vercel AI SDK and Gemini 2.0 Flash to answer questions based on static resume context.",
+      "title": "Personal Website v4 w/ 3D Voxels Gemini AI Chatbot (The website you're on now!)",
+      "description": "An interactive chatbot portfolio built using the Vercel AI SDK and Gemini 2.0 Flash to answer questions based on who I am.",
       "technologies": ["Next.js", "TypeScript", "Vercel AI SDK", "Gemini API"],
       "github_url": "",
       "live_url": "",
       "highlights": [
         "Implemented strict system prompting to eliminate model hallucinations.",
-        "Handled edge-case HTTP status codes including 400 and 429 rate limits."
+        "Handled edge-case HTTP status codes.",
+        "Those 3D voxels are mostly hand crafted by me, but I still leveraged AI for corrections"
       ]
     }
   ],
@@ -63,7 +87,7 @@
     "speedcubing": {
       "wca_id": "2016JIET01",
       "3x3_single_pb": 4.8,
-      "favorite_method": "CFOP"
+      "method": "CFOP"
     },
     "running": {
       "5k_personal_best": "21:21",
@@ -71,6 +95,12 @@
       "half_marathon_personal_best": "1:44",
       "full_marathon_personal_best": "3:34:19",
       "current_weekly_mileage":60
+    },
+    "bouldering": {
+
+    },
+    "reading": {
+      "fav_books": ["Atomic Habits"]
     }
   },
   "frequently_asked_questions": [
@@ -80,7 +110,7 @@
     },
     {
       "question": "Are you open to relocation?",
-      "answer": ""
+      "answer": "At the moment, I'm not open yet, as I'm still in my 3rd year in computer science."
     }
   ]
 }

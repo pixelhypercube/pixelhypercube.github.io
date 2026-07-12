@@ -1,4 +1,4 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { AlignJustifyIcon, ArrowUpWideNarrowIcon, Circle, ColumnsIcon, LayoutGridIcon, Menu, Moon, MoveHorizontalIcon, RectangleHorizontalIcon, SquareIcon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Ref } from "react";
@@ -10,6 +10,11 @@ interface NavItem {
     selectedLanguage?: string;
     transitionClasses?: string;
     currentTheme?: string;
+    minSizeVisibility?: number;
+    maxSizeVisibility?: number;
+    
+    // passed from parent
+    isVisible?: boolean;
 }
 
 type ActionCallback = (value?: any) => void;
@@ -52,6 +57,7 @@ interface NavbarCallbacks {
     setScrollPosExperience?: () => void;
     setScrollPosEducation?: () => void;
     onThemeToggle?: (str: string) => void;
+    onLayoutWidthToggle?: (str: string) => void;
     onLanguageChange?: (lang: string) => void;
 }
 
@@ -84,11 +90,20 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
         values: [["D",(<Moon/>)], ["L",(<Sun/>)]],
         action: callbacks.onThemeToggle,
         showIcons:true,
+    },
+    {
+        id: "width",
+        type: "toggle",
+        selectedIndex: 0, // 0 for 'D', 1 for 'L'
+        values: [["N",(<SquareIcon/>)], ["W",(<RectangleHorizontalIcon/>)]],
+        action: callbacks.onLayoutWidthToggle,
+        showIcons:true,
+        minSizeVisibility:1280, // only visible on xl
     }
 ];
 
 function ItemLink({
-    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme
+    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible
 } : Omit<ItemLinkProps, 'type'>) {
     const styles = (stylized) ? 
     `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
@@ -100,7 +115,7 @@ function ItemLink({
     
     const highlightIconBorderColorClasses = currentTheme==="D" ? "border-stone-300" : "border-stone-700";
 
-    return <div className="mx-3">
+    return <div className={`mx-3 ${isVisible ? "block" : "hidden"}`}>
         {
             usePathname() !== link ? 
             <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? `${highlightIconBorderColorClasses} border-4` : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
@@ -111,7 +126,7 @@ function ItemLink({
 }
 
 function ItemDropdown({
-    values, showValues, action, transitionClasses, currentTheme
+    values, showValues, action, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible
 } : Omit<ItemDropdownProps, 'type'>) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [selectedKey, setSelectedKey] = useState(values[0]?.[0] || "");
@@ -132,7 +147,7 @@ function ItemDropdown({
     },[]);
 
     return (
-        <div className="relative flex items-center">
+        <div className={`relative flex items-center ${isVisible ? "block" : "hidden"}`}>
             <button 
             type="button"
             className="pl-3 py-2 pr-8 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 appearance-none"
@@ -208,7 +223,7 @@ function ItemDropdown({
 // }
 
 function ItemToggle({
-    values, selectedIndex = 1, showIcons = false, action, transitionClasses, currentTheme
+    values, selectedIndex = 1, showIcons = false, action, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible
 } : Omit<ItemToggleProps, 'type'>) {
     const [currentIndex, setCurrentIndex] = useState<number>(selectedIndex);
     const [name, icon] = values[selectedIndex];
@@ -217,7 +232,7 @@ function ItemToggle({
     const [currentIcon, setCurrentIcon] = useState<any>(icon);
 
     return (
-        <button className="p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1" 
+        <button className={`p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 ${isVisible ? "flex" : "hidden"}`} 
         onClick={()=>{
             const nextIndex = (currentIndex + 1) % values.length;
             setCurrentIndex(nextIndex);
@@ -241,14 +256,19 @@ function ItemToggle({
 
 // STANDARDIZED RENDERER COMPONENT
 
-function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses, currentTheme }: { item: NavItemProps; selectedLanguage?: string; isSelected?: boolean, transitionClasses?: string, currentTheme?: string }) {
+function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses, currentTheme, windowWidth }: { item: NavItemProps; selectedLanguage?: string; isSelected?: boolean, transitionClasses?: string, currentTheme?: string, windowWidth: number}) {
+
+    let isVisible = true;
+    if (item.minSizeVisibility !== undefined) isVisible = windowWidth >= item.minSizeVisibility;
+    if (item.maxSizeVisibility !== undefined) isVisible = windowWidth < item.maxSizeVisibility;
+
     switch (item.type) {
         case "link":
-            return <ItemLink currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
+            return <ItemLink isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
         case "dropdown":
-            return <ItemDropdown currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
+            return <ItemDropdown isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
         case "toggle":
-            return <ItemToggle currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
+            return <ItemToggle isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
         default:
             return null;
     }
@@ -280,27 +300,37 @@ export default function Navbar({
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <nav ref={ref} className={`
         z-50 flex justify-around m-10 p-5 ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl justify-self-center w-4/5 fixed top-0 ${transitionClasses}`}>
             <div className="flex justify-start items-center">
                 {
                     itemsLeft.map((item: any,index : number)=>(
-                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
+                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-center items-center">
                 {
                     itemsCenter.map((item: any,index : number)=>(
-                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
+                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-end items-center">
                 {
                     itemsRight.map((item: any,index : number)=>(
-                        <NavItemRenderer currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
+                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
                     ))
                 }
             </div>
@@ -321,7 +351,9 @@ export default function Navbar({
                     <div className="flex flex-col items-center gap-2 w-full">
                         {itemsCenter.map((item: any, index: number) => (
                             <div key={item.id || `mob-center-${index}`} className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
-                                <NavItemRenderer item={item}/>
+                                <NavItemRenderer 
+                                windowWidth={windowWidth}
+                                item={item}/>
                             </div>
                         ))}
                     </div>
@@ -331,7 +363,10 @@ export default function Navbar({
                     {/* Right Items (Settings) for Mobile */}
                     <div className="flex justify-center items-center gap-4 w-full">
                         {itemsRight.map((item: any, index: number) => (
-                            <NavItemRenderer key={item.id || `mob-right-${index}`} item={item}/>
+                            <NavItemRenderer 
+                            windowWidth={windowWidth}
+                            key={item.id || `mob-right-${index}`} 
+                            item={item}/>
                         ))}
                     </div>
                 </div>
