@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         3. FALLBACK BEHAVIOR: If a user query is completely out-of-scope (e.g., general trivia, unrelated tasks), or if the tool returns no data for the topic, do not say "I don't have access to this dataset." Instead, respond gracefully in character. Acknowledge the limitation and politely redirect them to what you can discuss (e.g., "I don't have records on that specific topic, but I can tell you all about KJ's software engineering projects, technical skills, or professional experience!").`;
 
         const res = streamText({
-            model: google("gemini-3.1-flash-lite-preview"),
+            model: google("gemini-3.1-flash-lite"),
             system: systemPrompt,
             messages: await convertToModelMessages(messages),
             tools: {
