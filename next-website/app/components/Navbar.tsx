@@ -1,4 +1,4 @@
-import { AlignJustifyIcon, ArrowUpWideNarrowIcon, Circle, ColumnsIcon, LayoutGridIcon, Menu, Moon, MoveHorizontalIcon, RectangleHorizontalIcon, SquareIcon, Sun, X } from "lucide-react";
+import { ChevronsLeftRight, ChevronsRightLeft, Menu, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Ref } from "react";
@@ -13,6 +13,8 @@ interface NavItem {
     minSizeVisibility?: number;
     maxSizeVisibility?: number;
     
+    mobileHovering?:boolean;
+
     // passed from parent
     isVisible?: boolean;
 }
@@ -71,18 +73,18 @@ const getItemsCenter = (callbacks: NavbarCallbacks, selectedLanguage: string) : 
     { id: "projects", type: "link", name: content[selectedLanguage]["navbar"]["projects"], link: "/", stylized: false, action: callbacks.setScrollPosProjects },
     { id: "experience", type: "link", name: content[selectedLanguage]["navbar"]["experience"], link: "/", stylized: false, action: callbacks.setScrollPosExperience },
     { id: "education", type: "link", name: content[selectedLanguage]["navbar"]["education"], link: "/", stylized: false, action: callbacks.setScrollPosEducation },
-    { id: "blogs", type: "link", name: content[selectedLanguage]["navbar"]["blogs"], link: "/blogs", stylized: false },
+    // { id: "blogs", type: "link", name: content[selectedLanguage]["navbar"]["blogs"], link: "/blogs", stylized: false },
 ];
 
 const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : NavItemProps[] => [
-    {
-        id: "lang",
-        type: "dropdown",
-        selectedValue: ["en", "English"],
-        values: [["en", "English"], ["zh-Hans", "简体中文"], ["zh-Hant", "繁體中文"], ["ja","日本語"]],
-        action: callbacks.onLanguageChange,
-        showValues:true,
-    },
+    // {
+    //     id: "lang",
+    //     type: "dropdown",
+    //     selectedValue: ["en", "English"],
+    //     values: [["en", "English"], ["zh-Hans", "简体中文"], ["zh-Hant", "繁體中文"], ["ja","日本語"]],
+    //     action: callbacks.onLanguageChange,
+    //     showValues:true,
+    // },
     {
         id: "theme",
         type: "toggle",
@@ -95,7 +97,7 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
         id: "width",
         type: "toggle",
         selectedIndex: 0, // 0 for 'D', 1 for 'L'
-        values: [["N",(<SquareIcon/>)], ["W",(<RectangleHorizontalIcon/>)]],
+        values: [["N",(<ChevronsLeftRight/>)], ["W",(<ChevronsRightLeft/>)]],
         action: callbacks.onLayoutWidthToggle,
         showIcons:true,
         minSizeVisibility:1280, // only visible on xl
@@ -103,19 +105,21 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
 ];
 
 function ItemLink({
-    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible
+    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible, mobileHovering
 } : Omit<ItemLinkProps, 'type'>) {
     const styles = (stylized) ? 
     `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
     // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
-    `text-lg hover:font-bold`;
+    `text-lg ${!mobileHovering ? "hover:font-bold" : ""}`;
 
     const highlightBorderColorClasses = currentTheme==="D" ? "border-amber-300" : "border-amber-700";
     const highlightTextColorClasses = currentTheme==="D" ? "text-amber-300" : "text-amber-700";
     
     const highlightIconBorderColorClasses = currentTheme==="D" ? "border-stone-300" : "border-stone-700";
 
-    return <div className={`mx-3 ${isVisible ? "block" : "hidden"}`}>
+    const hoverColorClasses = currentTheme==="D" ? "hover:bg-black/15" : "hover:bg-white/15";
+
+    return <div className={`mx-3 ${mobileHovering ? `${hoverColorClasses} py-2` : ""} ${isVisible ? "block" : "hidden"} rounded-xl transition-colors duration-150 ease-in-out`}>
         {
             usePathname() !== link ? 
             <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? `${highlightIconBorderColorClasses} border-4` : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
@@ -147,7 +151,7 @@ function ItemDropdown({
     },[]);
 
     return (
-        <div className={`relative flex items-center ${isVisible ? "block" : "hidden"}`}>
+        <div className={`relative flex items-center ${isVisible ? "block" : "hidden"} rounded-xl`}>
             <button 
             type="button"
             className="pl-3 py-2 pr-8 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 appearance-none"
@@ -232,7 +236,7 @@ function ItemToggle({
     const [currentIcon, setCurrentIcon] = useState<any>(icon);
 
     return (
-        <button className={`p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 ${isVisible ? "flex" : "hidden"}`} 
+        <button className={`p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 ${isVisible ? "flex" : "hidden"} rounded-xl`} 
         onClick={()=>{
             const nextIndex = (currentIndex + 1) % values.length;
             setCurrentIndex(nextIndex);
@@ -256,7 +260,7 @@ function ItemToggle({
 
 // STANDARDIZED RENDERER COMPONENT
 
-function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses, currentTheme, windowWidth }: { item: NavItemProps; selectedLanguage?: string; isSelected?: boolean, transitionClasses?: string, currentTheme?: string, windowWidth: number}) {
+function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses, currentTheme, windowWidth, mobileHovering }: { item: NavItemProps; selectedLanguage?: string; isSelected?: boolean, transitionClasses?: string, currentTheme?: string, windowWidth: number, mobileHovering?: boolean}) {
 
     let isVisible = true;
     if (item.minSizeVisibility !== undefined) isVisible = windowWidth >= item.minSizeVisibility;
@@ -264,11 +268,11 @@ function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses
 
     switch (item.type) {
         case "link":
-            return <ItemLink isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
+            return <ItemLink mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
         case "dropdown":
-            return <ItemDropdown isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
+            return <ItemDropdown mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
         case "toggle":
-            return <ItemToggle isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
+            return <ItemToggle mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showIcons={item.showIcons} values={item.values} selectedIndex={item.selectedIndex} action={item.action} />;
         default:
             return null;
     }
@@ -312,25 +316,25 @@ export default function Navbar({
 
     return (
         <nav ref={ref} className={`
-        z-50 flex justify-around m-10 p-5 ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl justify-self-center w-4/5 fixed top-0 ${transitionClasses}`}>
+        z-50 flex justify-around m-10 p-5 ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl justify-self-center w-8/9 fixed top-0 ${transitionClasses}`}>
             <div className="flex justify-start items-center">
                 {
                     itemsLeft.map((item: any,index : number)=>(
-                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
+                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-center items-center">
                 {
                     itemsCenter.map((item: any,index : number)=>(
-                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
+                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
                     ))
                 }
             </div>
             <div className="hidden lg:flex justify-end items-center">
                 {
                     itemsRight.map((item: any,index : number)=>(
-                        <NavItemRenderer windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
+                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
                     ))
                 }
             </div>
@@ -346,12 +350,13 @@ export default function Navbar({
 
             {/* MOBILE MENU DROPDOWN */}
             {isMobileMenuOpen && (
-                <div className="absolute top-[110%] left-0 w-full flex flex-col p-5 bg-stone-800 backdrop-blur-3xl border border-white/20 shadow-xl rounded-2xl lg:hidden gap-4">
+                <div className={`absolute top-[110%] left-0 w-full flex flex-col p-5 ${currentTheme==="D" ? "bg-stone-800/90" : "bg-stone-200/90"} backdrop-blur-3xl border border-white/20 shadow-xl rounded-2xl lg:hidden gap-4`}>
                     {/* Center Items for Mobile */}
                     <div className="flex flex-col items-center gap-2 w-full">
                         {itemsCenter.map((item: any, index: number) => (
                             <div key={item.id || `mob-center-${index}`} className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
                                 <NavItemRenderer 
+                                mobileHovering={true}
                                 windowWidth={windowWidth}
                                 item={item}/>
                             </div>
@@ -364,6 +369,7 @@ export default function Navbar({
                     <div className="flex justify-center items-center gap-4 w-full">
                         {itemsRight.map((item: any, index: number) => (
                             <NavItemRenderer 
+                            mobileHovering={true}
                             windowWidth={windowWidth}
                             key={item.id || `mob-right-${index}`} 
                             item={item}/>

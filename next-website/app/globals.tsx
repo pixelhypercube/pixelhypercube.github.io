@@ -338,7 +338,7 @@ export const skills : Record<any, any> = {
             "jsonModelLight":skill_light_pygame
         },
         {
-            "name":"Technical Documentation",
+            "name":"Technical Docs",
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_tech_doc,
             "jsonModelLight":skill_light_tech_doc
@@ -441,7 +441,7 @@ export const content : Record<any,any> = {
 
                 // bio subdivided by \n
 
-                "bio":`Hello! My interest in computers and software began back in preschool, and by primary school I was already experimenting with programs like Cinema 4D. As I grew older, I realized how fulfilling it was to create software that people could actually use and benefit from.
+                "bio":`Congrats, you finally found my website! My interest in computers and software began back in preschool, and by primary school I was already experimenting with programs like Cinema 4D. As I grew older, I realized how fulfilling it was to create software that people could actually use and benefit from.
 
 Ever since I started learning to code, I've approached software and web development with a *builder* and *tinkerer* mindset that's reflected in the self-made 3D models scattered across this website! I not only enjoy creating software, but I'm also fascinated with breaking down convoluted systems into simpler, more accessible components.
 
@@ -880,12 +880,12 @@ Thanks for stopping by and enjoy your stay!`,
                             }
                         ],
                         // for skills
-                        "skills": [
-                            "Java",
-                            "C++",
-                            "C",
-                            "Next.js"
-                        ]
+                        // "skills": [
+                        //     "Java",
+                        //     "C++",
+                        //     "C",
+                        //     "Next.js"
+                        // ]
                     },
                     {
                         "institution": "Singapore Polytechnic",
@@ -952,12 +952,12 @@ Thanks for stopping by and enjoy your stay!`,
                             ],
                         ],
                         "media_url":"./",
-                        "skills": [
-                            "Java",
-                            "HTML5",
-                            "CSS",
-                            "Javascript (ES6)"
-                        ]
+                        // "skills": [
+                        //     "Java",
+                        //     "HTML5",
+                        //     "CSS",
+                        //     "Javascript (ES6)"
+                        // ]
                     },
                     {
                         "institution": "Anglo-Chinese School (International)",

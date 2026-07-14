@@ -72,25 +72,25 @@ export function ProjectListItem({
         }
     },[description,reflection]);
 
-    useEffect(() => {
-        if (!selectedTab?.ref?.current) return;
+    // useEffect(() => {
+    //     if (!selectedTab?.ref?.current) return;
 
-        const updateSliderPosition = () => {
-            const element = selectedTab.ref.current;
-            if (element) {
-                setSelectedTabStyle({
-                    width: element.clientWidth,
-                    height: element.clientHeight,
-                    transform: `translateX(${element.offsetLeft}px)`,
-                });
-            }
-        };
+    //     const updateSliderPosition = () => {
+    //         const element = selectedTab.ref.current;
+    //         if (element) {
+    //             setSelectedTabStyle({
+    //                 width: element.clientWidth,
+    //                 height: element.clientHeight,
+    //                 transform: `translateX(${element.offsetLeft}px)`,
+    //             });
+    //         }
+    //     };
 
-        updateSliderPosition();
+    //     updateSliderPosition();
 
-        window.addEventListener("resize", updateSliderPosition);
-        return () => window.removeEventListener("resize", updateSliderPosition);
-    }, [selectedTab, currentTabs]);
+    //     window.addEventListener("resize", updateSliderPosition);
+    //     return () => window.removeEventListener("resize", updateSliderPosition);
+    // }, [selectedTab, currentTabs]);
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full max-w-full min-w-0 rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
@@ -139,7 +139,9 @@ export function ProjectListItem({
                                     const {name,ref} = tab;
                                     return (
                                         <button className={`
-                                                p-2 z-1 h-full
+                                                p-2 z-1 h-full rounded-t-xl
+                                                ${transitionClasses}
+                                                ${selectedTab?.id===tab?.id ? (currentTheme==="D" ? "bg-stone-600" : "bg-stone-400") : ""}
                                             `} 
                                             ref={ref} 
                                             onClick={()=>{

@@ -3,13 +3,13 @@
     "first_name": "Kai Jie",
     "last_name": "Teo",
     "other_names": ["Kendrick", "KJ"],
-    "hobbies": ["Long-Distance Running", "Speedcubing", "Reading", "Gymming"],
+    "hobbies": ["Long-Distance Running", "Speedcubing", "Reading", "Gymming", "Bouldering"],
     "physical_info": {
       "morning_height": 180,
       "evening_height": 178,
       "weight": 68,
       "pbf": 12,
-      "build_type":"Mesomorph"
+      "build_type": "Mesomorph"
     }
   },
   "contact": {
@@ -17,69 +17,210 @@
     "linkedin_url": "https://linkedin.com/in/kai-jie-teo",
     "github_url": "https://github.com/pixelhypercube",
     "location": "Singapore",
-    "availability": "e.g., Open to summer 2027 internships / Full-time roles starting YYYY"
+    "availability": "Open to summer 2027 internships / Full-time roles starting July 2028"
   },
   "education": [
     {
       "institution": "Nanyang Technological University (NTU)",
-      "degree": "Computer Science",
+      "degree": "Bachelor of Computing (Honours) in Computer Science",
       "start_date": "2024-08",
       "end_date": "Present",
       "gpa": 4.56,
-      "relevant_coursework": ["SC2002","SC1007","SC2006","SC1006"]
+      "relevant_coursework": [
+        { "code": "SC1007", "name": "Data Structures & Algorithms" },
+        { "code": "SC1008", "name": "C & C++ Programming" },
+        { "code": "SC2001", "name": "Algorithm Design & Analysis" },
+        { "code": "SC2002", "name": "Object Oriented Design & Programming" },
+        { "code": "SC2006", "name": "Software Engineering" }
+      ],
+      "activities": [
+        {
+          "name": "Hall X Resident",
+          "dates": [["2024-08", "Present"]],
+          "details": ["Experienced hall community integration, aiding progression from an introverted to a more balanced social disposition."]
+        },
+        {
+          "name": "Hall X Road Relay",
+          "dates": [["2024-08", "Present"]],
+          "details": ["Participated in the 2025 and 2026 Inter-Hall Games, securing 1st and 2nd runner-up positions respectively."]
+        }
+      ],
+      "academic_projects": [
+        {
+          "module_code": "SC2002",
+          "title": "Internship Placement Management System",
+          "description": "A Java CLI system to automate the undergraduate internship lifecycle using role-based access for Students, Corporate Representatives, and Career Center Staff.",
+          "contributions": ["Developed primary execution logic in Java and mapped final application state structures to functional UML diagrams."]
+        },
+        {
+          "module_code": "SC2006",
+          "title": "Pawsport & Peer",
+          "description": "A multi-tenant care coordination web platform connecting pet owners with localized caregivers using custom calendar states, dispute workflows, and asynchronous WebSockets chat.",
+          "contributions": ["Engineered complete front-end layout structures, modular UI elements, and routing trees utilizing Next.js."]
+        }
+      ]
+    },
+    {
+      "institution": "Singapore Polytechnic",
+      "degree": "Diploma in Information Technology (Software & Apps. Spec.)",
+      "start_date": "2019-04",
+      "end_date": "2022-03",
+      "gpa": null,
+      "awards": [
+        { "name": "Director's Honour Roll (AY2019/2020)", "date": "2020-01" },
+        { "name": "Edusave Certificate of Academic Achievement (2020)", "date": "2020-01" },
+        { "name": "Edusave Certificate of Academic Achievement (2021)", "date": "2021-01" }
+      ],
+      "details": ["Focused on software architecture patterns and collaborative group development pipelines."]
+    },
+    {
+      "institution": "Anglo-Chinese School (International)",
+      "degree": "Cambridge International General Certificate of Secondary Education (IGCSE)",
+      "start_date": "2016-01",
+      "end_date": "2018-12",
+      "activities": [
+        {
+          "name": "Philharmonic Orchestra",
+          "dates": [["2017-08", "2018-12"]],
+          "details": ["Served as Double Bass Section Lead."]
+        },
+        {
+          "name": "Archery",
+          "dates": [["2016-08", "2016-12"]],
+          "details": ["Active Member."]
+        }
+      ]
+    },
+    {
+      "institution": "Anglo-Chinese School (Barker Road)",
+      "degree": "Express Stream (Secondary 1)",
+      "start_date": "2015-01",
+      "end_date": "2015-12",
+      "activities": [
+        {
+          "name": "Robotics",
+          "dates": [["2015-01", "2015-12"]],
+          "details": ["Gained initial programming exposure building logic sequences for LEGO Mindstorms platforms."]
+        }
+      ]
     }
   ],
   "skills": {
-    "languages": ["TypeScript", "JavaScript", "Python"],
-    "frameworks": ["Next.js", "React", "Tailwind CSS"],
-    "databases": ["PostgreSQL", "MongoDB", "Redis"],
-    "tools_devops": ["Git", "Vercel AI SDK"]
+    "languages": ["TypeScript", "JavaScript (ES6)", "Python", "Java", "C#", "C", "C++", "HTML5", "CSS"],
+    "frameworks": ["Next.js", "React.js", "Tailwind CSS", "Express.js", "WebSockets", "EJS"],
+    "databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    "tools_devops": ["Git", "GitHub", "Vercel AI SDK", "Figma", "Canva", "LaTeX", "Shell Scripting", "Pygame"],
+    "spoken_languages": [
+      { "language": "English", "proficiency": "Native" },
+      { "language": "Chinese", "proficiency": "Limited Working" },
+      { "language": "Japanese", "proficiency": "Elementary" },
+      { "language": "Korean", "proficiency": "Elementary" }
+    ],
+    "metrics": {
+      "typing_speed": "100-120 wpm"
+    }
   },
   "experience": [
     {
       "company": "Singapore Armed Forces",
       "role": "Software Engineer (NSF)",
-      "location": "",
-      "dates":[["2022-12","2024-08"],["2025-05","2025-07"]],
+      "location": "Singapore",
+      "dates": [["2022-12", "2024-08"], ["2025-05", "2025-07"]],
       "kpis": [
-        "Created a QR Code Scanner application using Node.js and EJS and was featured on Army News",
-        "Tested and validated the unit's Telegram chatbots (Parade State, Pers Node Enquiry, Events) and improved reliability by ~80%",
-        "Implemented more features and created a mobile version to the Personnel Admin Link (PAL) program, a Microsoft PowerApps program that efficiently conduct admin tasks across Personnel Nodes around Singapore.",
-        "Even though my primary job is compiling Parade States, I still volunteered in numerous other pursuits like manning phone calls and manging other events!"
+        "Developed a custom QR Code attendance scanning system using Node.js and EJS to automate validation for over 300 non-training event participants, featured on official Army News channels.",
+        "Conducted end-to-end QA testing for core unit Telegram automation bots (Parade State, Events, Pers Node Enquiry), increasing system execution reliability by approximately 80%.",
+        "Extended administrative task handling architectures across national Personnel Nodes by developing new sub-features and an updated mobile viewport implementation for the Personnel Admin Link (PAL) Microsoft PowerApps ecosystem.",
+        "Supported multi-channel workflows including high-volume telephony queues and unit operations coordination alongside engineering duties."
       ],
       "notes": [
-        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year of studies at NTU."
+        "Disrupted service duration from August 2024 to May 2025 to complete the initial academic year at NTU."
       ],
       "experience": [
-        "Was my first time ever experiencing the brutal realiities of working life, where I faced numerous challenges in terms of adapting to it.",
-        "I was quite fortunate and lucky that I get to use my skillsets during my NS days, where I have actually programmed and tested numerous programs.",
-        "Even though I was not in a combat-fit unit, I am still ver grateful during my NS days as it taught me how to become more mature!"
+        "Provided initial structural exposure to enterprise workplace realities, requiring rapid adaptation to operational challenges.",
+        "Applied core programming and systems validation skillsets within institutional frameworks to legacy and greenfield projects.",
+        "Developed personal accountability and strategic mature execution baselines within a non-combat support unit configuration."
       ],
-      "awards":[
+      "awards": [
         "Letter of Appreciation - Outstanding Soldier of the Month (June 2025)"
       ]
     },
     {
-      "company":"Eco Exchange Pte. Ltd.",
-      "role":"Lead Frontend Developer (Final Year Project, Singapore Polytechnic",
-      "work_type":"WFH",
-      "dates":[["2021-10","2023-05"]],
+      "company": "Eco Exchange Pte. Ltd.",
+      "role": "Lead Frontend Developer (SP FYP)",
+      "work_type": "WFH",
+      "dates": [["2023-02", "2023-08"]],
       "kpis": [
-        ""
+        "Led front-end interface development architecture and technical tasks for a 2-developer team, building an enterprise intranet system to convert legacy paper-bound operations into persistent digital records.",
+        "Successfully managed and processed more than 700 operational recycling tickets during the active internal pilot deployment phase, mitigating historical documentation anomalies.",
+        "Extended implementation timelines by 3 months post-deadline to deliver iterative visual modifications based on secondary structural target parameters outlined by external management."
+      ],
+      "experience": [
+        "Built robust features independently by tracking and analyzing engineering discussions across historical documentation platforms like StackOverflow without reliance on large language model synthesis.",
+        "Gained direct exposure managing external industrial requirements and multi-tier group dependencies."
+      ]
+    },
+    {
+      "company": "Leaptron Engineering Pte Ltd.",
+      "role": "Software Engineer (Intern)",
+      "work_type": "On-site",
+      "dates": [["2023-02", "2023-08"]],
+      "kpis": [
+        "Architected enterprise C# desktop components using internal Windows Forms libraries to optimize logistical tracking and shipping management pipelines.",
+        "Built modular back-end data architectures in Node.js alongside structured relational databases to manage hardware asset inventory counts.",
+        "Designed and deployed a warehouse management utility using AppGyver, automating real-time material allocations for over 10 operational facility staff members."
+      ],
+      "experience": [
+        "Established core experience managing engineering targets under structured enterprise guidelines, successfully delivering multi-stack configurations."
       ]
     }
   ],
   "projects": [
     {
-      "title": "Personal Website v4 w/ 3D Voxels Gemini AI Chatbot (The website you're on now!)",
+      "title": "Personal Website v4 w/ 3D Voxels Gemini AI Chatbot",
       "description": "An interactive chatbot portfolio built using the Vercel AI SDK and Gemini 2.0 Flash to answer questions based on who I am.",
-      "technologies": ["Next.js", "TypeScript", "Vercel AI SDK", "Gemini API"],
-      "github_url": "",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel AI SDK", "Gemini API", "Three.js"],
+      "github_url": "https://github.com/pixelhypercube/pixelhypercube.github.io",
+      "live_url": "https://github.com/pixelhypercube/pixelhypercube.github.io",
+      "highlights": [
+        "Implemented strict system prompting constraints to mitigate model hallucination surfaces.",
+        "Handled edge-case HTTP status codes systematically to prevent UI crash vectors.",
+        "Hand-crafted spatial 3D voxel configurations from baseline matrices, leveraging automated visual correction frameworks."
+      ],
+      "changelog": [
+        { "version": "V4", "date": "2026-06", "changes": ["3rd major revamp using Next.js & Tailwind CSS.", "Integrated localized LLM chatbot and interactive 3D voxel models via React Three Fiber View boundaries."] },
+        { "version": "V3", "date": "2025-08", "changes": ["2nd major structural adjustment onto base React.js structures.", "Implemented explicit event canvas tracking rendering target coordinate particle updates upon user interaction."] },
+        { "version": "V2", "date": "2021-09", "changes": ["1st major framework adjustment.", "Embedded p5.js script nodes within a custom '50 facts about me' data display array.", "Refined profile layout segments into condensed high-context blocks."] },
+        { "version": "V1", "date": "2021-09", "changes": ["Initial public environment deployment."] }
+      ]
+    },
+    {
+      "title": "CellCollab",
+      "description": "A real-time, room-based multiplayer deployment of Conway's Game of Life (CGL) allowing users to modify cellular matrices collaboratively on a uniform digital board.",
+      "technologies": ["React.js", "Node.js", "Express.js", "WebSockets", "Socket.IO"],
+      "github_url": "https://github.com/pixelhypercube/CellCollab",
+      "live_url": "https://pixelhypercube.github.io/CellCollab",
+      "highlights": [
+        "Engineered synchronous multi-user matrix state consistency via WebSockets abstraction boundaries.",
+        "Integrated extensive configuration controls covering alternative cell palettes, custom grid rules, and responsive vector drawing brushes."
+      ],
+      "changelog": [
+        { "version": "V1.2", "date": "2025-10", "changes": ["Expanded user preference parameters and adjusted responsive grid padding lines."] },
+        { "version": "V1.1", "date": "2025-05", "changes": ["Initial deployment layout integration."] }
+      ]
+    },
+    {
+      "title": "Astertris",
+      "description": "A structural variation of Tetris utilizing localized radial gravity rules targeting a central floating asteroid vector space.",
+      "technologies": ["Java", "Java Swing"],
+      "github_url": "https://github.com/pixelhypercube/Astertris",
       "live_url": "",
       "highlights": [
-        "Implemented strict system prompting to eliminate model hallucinations.",
-        "Handled edge-case HTTP status codes.",
-        "Those 3D voxels are mostly hand crafted by me, but I still leveraged AI for corrections"
+        "Developed custom radial block placement mechanics where line clearances evaluate symmetrically around a central circular hub.",
+        "Designed software layout using traditional Object-Oriented Design patterns in native Java environment layouts, overriding Swing rendering limits to preserve unified retro aesthetics."
+      ],
+      "changelog": [
+        { "version": "beta 1.5.0", "date": "2025-10", "changes": ["Refined Swing panel draw rates and implemented structural score weight evaluation scales."] },
+        { "version": "beta 1.0.0", "date": "2025-09", "changes": ["Initial architecture validation check."] }
       ]
     }
   ],
@@ -87,17 +228,28 @@
     "speedcubing": {
       "wca_id": "2016JIET01",
       "3x3_single_pb": 4.8,
-      "method": "CFOP"
+      "3x3_avg_pb": 9.92,
+      "method": "CFOP",
+      "cube_main": "GAN 12 MagLev"
     },
     "running": {
       "5k_personal_best": "21:21",
       "10k_personal_best": "45:50",
-      "half_marathon_personal_best": "1:44",
+      "half_marathon_personal_best": "1:44:00",
       "full_marathon_personal_best": "3:34:19",
-      "current_weekly_mileage":60
-    },
-    "bouldering": {
-
+      "current_weekly_mileage": 60,
+      "shoe_rotation": {
+        "daily": "Asics Magic Speed 4",
+        "race": "Nike Vaporfly 3"
+      },
+      "race_history": [
+        {
+          "name":"2026 Taiwan International Marathon in Tainan (2026臺灣國際馬拉松(in臺南)",
+          "distance":42.195,
+          "time":"3:34:19",
+          "reflection":"My first overseas marathon - felt like I was flying as the roads were relatively straight!"
+        }
+      ]
     },
     "reading": {
       "fav_books": ["Atomic Habits"]
@@ -110,7 +262,15 @@
     },
     {
       "question": "Are you open to relocation?",
-      "answer": "At the moment, I'm not open yet, as I'm still in my 3rd year in computer science."
+      "answer": "At the moment, I'm not open yet, as I'm still completing my computer science undergraduate course at Nanyang Technological University."
+    },
+    {
+      "question": "What would be your biggest strengths and weaknesses?",
+      "answer": "My greatest strengths would be that I'm very focused on all of my tasks and I would be able to deliver them on time under tight constraints. My greatest weakness would be that I would accidentally be careless to some aspects, and that I'm striving to learn how to be more precise in the future."
+    },
+    {
+      "question": "What would you say is your biggest influence in your interest in computers?",
+      "answer": "When I was young, I was once intrigued by Sethbling's Minecraft redstone constructions, and I was interested in creating redstone command block contraptions. Another thing was that when I was a kid, I used to be naughty and spoil pieces of hardware, particularly CD-ROMs, because like many kids, I was an insanely curious person!"
     }
   ]
 }

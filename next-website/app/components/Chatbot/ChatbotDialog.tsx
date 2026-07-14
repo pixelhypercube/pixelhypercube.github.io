@@ -1,5 +1,5 @@
 import { Send, User, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Ref, useEffect, useRef, useState } from "react";
 import ChatbotMessage from "./ChatbotMessage";
 import { IS_DEBUG } from "@/app/globals";
 import { useChat } from "@ai-sdk/react";
@@ -27,53 +27,51 @@ const DEMO_MESSAGES = [
 ]
 
 interface ChatbotDialogProps {
-    messages?:[],
-    isOpen:boolean,
-    dialogCallbacks?: Record<string, ()=>void>;
+    messages: any[];
+    sendMessage: (message: { text: string }) => void;
+    status: string;
+    error: Error | undefined;
+    isOpen: boolean;
+    dialogCallbacks?: Record<string, () => void>;
     selectedLanguage: string;
     currentTheme: string;
     transitionClasses?: string;
+    ref?: Ref<HTMLDivElement> | undefined;
 }
-
-export default function ChatbotDialog({dialogCallbacks, selectedLanguage, currentTheme, transitionClasses} : ChatbotDialogProps) {
-    const openingMessage: Record<string, string> = {
-        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything!",
-        "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
-        "zh-Hant": "你好！又是我，凱傑！在這裡你可以問我任何事情！真的是任何事情哦！",
-        "ja": "こんにちは！またまたカイジエです！ここからは何でも気軽に聞いてね！本当に何でもいいよ！",
-    };
-    
-    const {messages: aiMessages, sendMessage, status, error} = useChat({
-        messages: IS_DEBUG ? [
-            {
-                id: '1',
-                role: 'user',
-                content: "this is a sender's message",
-                parts: [{ type: 'text', text: "this is a sender's message" }]
-            },
-            {
-                id: '2',
-                role: 'assistant',
-                content: "this is a receiver's message",
-                parts: [{ type: 'text', text: "this is a receiver's message" }]
-            }
-        ] : [
-            {
-                id: '1',
-                role: 'assistant',
-                content: openingMessage[selectedLanguage],
-                parts: [{ type: 'text', text: openingMessage[selectedLanguage] }]
-            }
-        ]
-    });
+export default function ChatbotDialog({
+    messages,
+    sendMessage,
+    status,
+    error,
+    dialogCallbacks,
+    selectedLanguage,
+    currentTheme,
+    transitionClasses,
+    ref
+} : ChatbotDialogProps) {
     
     const [isOpen, setOpen] = useState(false);
-    const [messages, setMessages] = useState(IS_DEBUG ? DEMO_MESSAGES : []);
-
     const inputRef = useRef<HTMLTextAreaElement>(null!);
     const scrollContainerRef = useRef<HTMLElement>(null!);
 
-    // Recompute scroll height on input mutations
+    const scrollToBottom = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+        }
+    };
+
+    // scroll when messages modify or errors append
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages, error]);
+
+    // scroll on initial open (mount), with a micro-task delay to clear CSS transition animations
+    useEffect(() => {
+        scrollToBottom();
+        const timer = setTimeout(scrollToBottom, 50);
+        return () => clearTimeout(timer);
+    }, []);
+
     const handleInputChange = () => {
         if (inputRef.current) {
             inputRef.current.style.height = "auto";
@@ -81,27 +79,19 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
         }
     };
 
-    function handleSend() {
+    const handleSend = () => {
         const inputVal = inputRef.current.value;
         if (inputVal) {
             sendMessage({ text: inputVal });
             inputRef.current.value = "";
-            
-            // Revert back to base height class (h-10 = 40px) post-submission
             if (inputRef.current) {
                 inputRef.current.style.height = "40px";
             }
         }
     }
 
-    useEffect(() => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
-        }
-    }, [aiMessages, error]);
-
     return (
-        <div className={`max-w-96 h-125 shadow-lg rounded-xl border flex flex-col ${
+        <div ref={ref} className={`md:max-w-96 h-125 shadow-lg rounded-xl border flex flex-col ${
             currentTheme === "D" ? "bg-stone-900 border-stone-800" : "bg-white border-stone-200"
         } ${transitionClasses}`}>
             {/* header */}
@@ -119,22 +109,22 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
             </header>
 
             {/* messages list */}
-            <main ref={scrollContainerRef} className={`flex-1 overflow-y-auto p-5 overscroll-y-contain custom-scrollbar ${
+            <main ref={scrollContainerRef} data-lenis-prevent className={`flex-1 overflow-y-auto p-5 overscroll-y-contain custom-scrollbar ${
                 currentTheme === "D" ? "bg-stone-950" : "bg-olive-50/50"
             } ${transitionClasses}`}>
-                {aiMessages.map((msg, index)=>{
+                {messages.map((msg, index)=>{
                     const isReceiver = msg.role === 'assistant'
-                    const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === aiMessages.length-1;
+                    const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === messages.length-1;
                     const textContent = msg.content || (msg.parts
-                        ?.filter(part => part.type === 'text')
-                        .map(part => part.text)
+                        ?.filter((part: any) => part.type === 'text')
+                        .map((part: any) => part.text)
                         .join('')) || '';
 
                     return (
                         <div key={`msg-${index}`} className={`flex ${isReceiver ? "justify-start" : "justify-end"} gap-x-3 mb-4  ${transitionClasses}`}>
                             {isReceiver && (
                                 <div className="w-10 h-10 rounded-full bg-stone-600 flex items-center justify-center overflow-hidden shrink-0 self-end">
-                                    <img key={`kj-avatar-${index}`} src={"./kj.png"} alt="KJ" className="w-full h-full object-cover"/>
+                                    <img key={`kj-avatar-${index}`} src={`./logo_${selectedLanguage}.svg`} alt="KJ" className="w-1/2 h-1/2 object-cover"/>
                                 </div>
                             )}
                             <ChatbotMessage
@@ -178,7 +168,7 @@ export default function ChatbotDialog({dialogCallbacks, selectedLanguage, curren
                     ref={inputRef} 
                     onInput={handleInputChange}
                     placeholder="Type a message..."
-                    className={`m-0 w-5/6 h-10 max-h-32 min-h-10 rounded-2xl border p-2 text-sm resize-none focus:outline-none focus:ring-1 overflow-y-auto custom-scrollbar ${
+                    className={`m-0 w-full h-10 max-h-32 min-h-10 rounded-2xl border p-2 text-sm resize-none focus:outline-none focus:ring-1 overflow-y-auto custom-scrollbar ${
                         currentTheme === "D" 
                             ? "bg-stone-800 border-stone-700 text-white placeholder-stone-500 focus:ring-olive-700" 
                             : "bg-white border-stone-300 text-stone-900 placeholder-stone-400 focus:ring-olive-500"

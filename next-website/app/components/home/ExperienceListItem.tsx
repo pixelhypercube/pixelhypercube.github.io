@@ -68,29 +68,29 @@ export function ExperienceListItem({
         }
     }, [description,reflection]);
 
-    useEffect(() => {
-        if (!selectedTab?.ref?.current) return;
+    // useEffect(() => {
+    //     if (!selectedTab?.ref?.current) return;
 
-        const updateSliderPosition = () => {
-            const element = selectedTab.ref.current;
-            if (element) {
-                setSelectedTabStyle({
-                    width: element.clientWidth,
-                    height: element.clientHeight,
-                    transform: `translateX(${element.offsetLeft}px)`,
-                });
-            }
-        };
+    //     const updateSliderPosition = () => {
+    //         const element = selectedTab.ref.current;
+    //         if (element) {
+    //             setSelectedTabStyle({
+    //                 width: element.clientWidth,
+    //                 height: element.clientHeight,
+    //                 transform: `translateX(${element.offsetLeft}px)`,
+    //             });
+    //         }
+    //     };
 
-        updateSliderPosition();
+    //     updateSliderPosition();
 
-        window.addEventListener("resize", updateSliderPosition);
-        return () => window.removeEventListener("resize", updateSliderPosition);
-    }, [selectedTab, currentTabs]);
+    //     window.addEventListener("resize", updateSliderPosition);
+    //     return () => window.removeEventListener("resize", updateSliderPosition);
+    // }, [selectedTab, currentTabs]);
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
-            <header className="flex w-full mb-5 gap-4">
+            <header className="md:flex w-full mb-5 gap-4">
                 <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
                     {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                 </div>
@@ -107,7 +107,7 @@ export function ExperienceListItem({
                         }
                     </div>
                 </div>
-                <div className="shrink-0 min-w-48 text-right italic">
+                <div className="shrink-0 min-w-48 md:mt-0 mt-2 md:text-right italic">
                     <h6>
                     {
                         dates && dates.map((dateArr,idx: number)=>{
@@ -141,7 +141,9 @@ export function ExperienceListItem({
                                     const {name,ref} = tab;
                                     return (
                                         <button className={`
-                                                p-2 z-1 shrink-0 h-full
+                                                p-2 z-1 shrink-0 h-full rounded-t-xl
+                                                ${transitionClasses}
+                                                ${selectedTab?.id===tab?.id ? (currentTheme==="D" ? "bg-stone-600" : "bg-stone-400") : ""}
                                             `} 
                                             ref={ref} 
                                             onClick={()=>{

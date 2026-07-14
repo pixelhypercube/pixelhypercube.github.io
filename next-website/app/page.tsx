@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
-import { content, projectSkillsTabsDark, projectSkillsTabsLight, skills } from "./globals";
+import { content, IS_DEBUG, projectSkillsTabsDark, projectSkillsTabsLight, skills } from "./globals";
 import Chatbot from "./components/Chatbot/Chatbot";
 import Canvas3D from "./components/Canvas3D";
 
@@ -17,9 +17,11 @@ import speedcubing from "./voxelModels/speedcubing.json"
 import linkedin_dark from "./voxelModels/links/dark/linkedin.json"
 import github_dark from "./voxelModels/links/dark/github.json"
 import email_dark from "./voxelModels/links/dark/email.json"
+import resume_dark from "./voxelModels/links/dark/resume.json"
 import linkedin_light from "./voxelModels/links/light/linkedin.json"
 import github_light from "./voxelModels/links/light/github.json"
 import email_light from "./voxelModels/links/light/email.json"
+import resume_light from "./voxelModels/links/light/resume.json"
 
 // additional json
 // import { ntu_coursework } from "./globals";
@@ -45,6 +47,7 @@ import { EducationListItem } from "./components/home/EducationListItem";
 import { BiCarousel } from "react-icons/bi";
 import { RiCarouselView } from "react-icons/ri";
 import { IoConstructOutline } from "react-icons/io5";
+import { useChat } from "@ai-sdk/react";
 
 // function ExperienceRoadmapPoint({
 //     institution,
@@ -114,6 +117,7 @@ export default function Home() {
     const containerEducationRef = useRef<HTMLDivElement>(null);
 
     const navbarRef = useRef<HTMLDivElement>(null);
+    const chatbotRef = useRef<HTMLDivElement>(null);
 
     var currContent = content[selectedLanguage];
     const {home} = currContent;
@@ -147,54 +151,54 @@ export default function Home() {
 
     // FORM HANDLER
 
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
-    });
+    // const [formData, setFormData] = useState({
+    //     name: "",
+    //     email: "",
+    //     message: ""
+    // });
 
-    const [status, setStatus] = useState("idle"); // idle, submitting, success, error
+    // const [status, setStatus] = useState("idle"); // idle, submitting, success, error
 
-    interface FormData {
-        name: string;
-        email: string;
-        message: string;
-    }
+    // interface FormData {
+    //     name: string;
+    //     email: string;
+    //     message: string;
+    // }
 
-    interface HandleChangeEvent extends React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> {}
+    // interface HandleChangeEvent extends React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> {}
 
-    const handleChange = (e: HandleChangeEvent) => {
-        const { name, value } = e.target;
-        setFormData((prev: FormData) => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+    // const handleChange = (e: HandleChangeEvent) => {
+    //     const { name, value } = e.target;
+    //     setFormData((prev: FormData) => ({
+    //         ...prev,
+    //         [name]: value
+    //     }));
+    // };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setStatus("submitting");
+    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     setStatus("submitting");
 
-        try {
-            // replace url with your actual API endpoint or email service provider URL
-            const response = await fetch("https://api.example.com/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+    //     try {
+    //         // replace url with your actual API endpoint or email service provider URL
+    //         const response = await fetch("https://api.example.com/contact", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(formData),
+    //         });
 
-            if (response.ok) {
-                setStatus("success");
-                setFormData({ name: "", email: "", message: "" }); // reset form
-            } else {
-                setStatus("error");
-            }
-        } catch (error) {
-            setStatus("error");
-        }
-    };
+    //         if (response.ok) {
+    //             setStatus("success");
+    //             setFormData({ name: "", email: "", message: "" }); // reset form
+    //         } else {
+    //             setStatus("error");
+    //         }
+    //     } catch (error) {
+    //         setStatus("error");
+    //     }
+    // };
     
     // determine current div pos
 
@@ -349,6 +353,48 @@ export default function Home() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // CHATBOT MESSAGES
+
+    const openingMessage: Record<string, string> = {
+        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything!",
+        "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
+        "zh-Hant": "你好！又是我，凱傑！在這裡你可以問我任何事情！真的是任何事情哦！",
+        "ja": "こんにちは！またまたカイジエです！ここからは何でも気軽に聞いてね！本当に何でもいいよ！",
+    };
+
+    const { messages: chatbotMessages, sendMessage, status, error } = useChat({
+        messages: IS_DEBUG ? [
+            { id: '1', role: 'user', content: "this is a sender's message", parts: [{ type: 'text', text: "this is a sender's message" }] },
+            { id: '2', role: 'assistant', content: "this is a receiver's message", parts: [{ type: 'text', text: "this is a receiver's message" }] }
+        ] : [
+            { id: '1', role: 'assistant', content: openingMessage[selectedLanguage], parts: [{ type: 'text', text: openingMessage[selectedLanguage] }] }
+        ]
+    });
+
+
+    // FOR MOBILE PAGINATION
+
+    const handleTouchScroll = (
+        e: React.UIEvent<HTMLDivElement>,
+        setIndex: React.Dispatch<React.SetStateAction<number>>
+    ) => {
+        if (!isTouchDevice) return;
+
+        const container = e.currentTarget;
+        const scrollLeft = container.scrollLeft;
+        
+        // each child item has a width of calc(100% - 32px) and the flex container has gap-4 (16px)
+        const containerWidth = container.clientWidth;
+        const itemWidth = containerWidth - 32;
+        const gap = 16;
+        const totalStepWidth = itemWidth + gap;
+
+        // Compute the nearest scrolled item index
+        const currentActiveIndex = Math.round(scrollLeft / totalStepWidth);
+        
+        setIndex(currentActiveIndex);
+    };
+
     // determine smooth scrolling (desktop only)
 
     if (!isTouchDevice) addEffect((t)=>lenis.raf(t));
@@ -359,11 +405,15 @@ export default function Home() {
         "bg-stone-900 text-white" : 
         "bg-stone-200 text-stone-900"} ${transitionClasses}`}>
             <Chatbot 
-                    // isOpen={false}
-                    currentTheme={currentTheme}
-                    selectedLanguage={selectedLanguage}
-                    transitionClasses={transitionClasses}
-                />
+                messages={chatbotMessages}
+                sendMessage={sendMessage}
+                status={status}
+                error={error}
+                currentTheme={currentTheme}
+                selectedLanguage={selectedLanguage}
+                transitionClasses={transitionClasses}
+                ref={chatbotRef}
+            />
             <Navbar
                 callbacks={{
                     setScrollPosHome: () => containerHeroRef.current?.scrollIntoView({ behavior: "smooth" }),
@@ -508,7 +558,9 @@ export default function Home() {
                                                     ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
                                                     : "overflow-hidden"
                                             }`}
-                                            style={{ height: isTouchDevice ? 'auto' : projectHeight }}
+                                            // style={{ height: isTouchDevice ? 'auto' : projectHeight }}
+                                            style={{ height: projectHeight }}
+                                            onScroll={(e) => handleTouchScroll(e, setProjectIndex)}
                                         >
                                             <div 
                                                 ref={projectTrackRef}
@@ -670,7 +722,8 @@ export default function Home() {
                                                 isTouchDevice 
                                                     ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
                                                     : "overflow-hidden"
-                                            } transition-[height] duration-500 ease-in-out relative`}>
+                                            } transition-[height] duration-500 ease-in-out relative`}
+                                            onScroll={(e) => handleTouchScroll(e, setExperienceIndex)}>
                                                 <div 
                                                 ref={experienceTrackRef}
                                                 className={`flex flex-row gap-4 items-start ${
@@ -680,7 +733,8 @@ export default function Home() {
                                                     transform: isTouchDevice ? 
                                                     "none" :
                                                     `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
-                                                }}>
+                                                }}
+                                                >
                                                     {
                                                         experienceContent["experiences"].map((exp: any, index: number)=>{
                                                             const {company, role, description, dates, skills, reflection, json_model} = exp;
@@ -794,7 +848,8 @@ export default function Home() {
                                                 isTouchDevice 
                                                     ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
                                                     : "overflow-hidden"
-                                            } transition-[height] duration-500 ease-in-out`}>
+                                            } transition-[height] duration-500 ease-in-out`}
+                                            onScroll={(e) => handleTouchScroll(e, setProjectIndex)}>
                                                 <div 
                                                 className={`flex flex-row gap-4 items-start ${
                                                     !isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""
@@ -804,7 +859,9 @@ export default function Home() {
                                                     transform: isTouchDevice ? 
                                                     "none" : 
                                                     `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
-                                                }}>
+                                                }}
+                                                onScroll={(e) => handleTouchScroll(e, setEducationIndex)}
+                                                >
                                                     {
                                                         educationContent["list"].map((edu: any, index: number)=>{
                                                             const {institution, 
@@ -848,6 +905,7 @@ export default function Home() {
                                                                             skills={skills}
                                                                             // isModelVisible = {educationIndex===index || isTouchDevice}
                                                                             isModelVisible={true}
+                                                                            windowWidth={windowWidth}
                                                                         />
                                                                     </div>
                                                                 )
@@ -933,6 +991,7 @@ export default function Home() {
                                                     jsonModel={json_model}
                                                     skills={skills}
                                                     isModelVisible = {true}
+                                                    windowWidth={windowWidth}
                                                 />
                                             )
                                     })
@@ -944,43 +1003,111 @@ export default function Home() {
                     </main>
                     <footer className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-400"} text-center ${transitionClasses} py-20`}>
                         <div className="lg:flex p-5">
-                            <div className="lg:w-1/2 md:w-full flex flex-col justify-center items-center">
+                            <div className="md:w-full flex flex-col justify-center items-center">
                                 <h1 className="text-6xl">{footerContent["header"]}</h1>
                                 <h3 className="italic">{footerContent["subheader"]}</h3>
                                 <div className="flex w-2/5 gap-1">
                                     {currentTheme === "D" && (
                                         <>
-                                            <a className="w-full h-20" href="https://linkedin.com/in/kai-jie-teo">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="https://linkedin.com/in/kai-jie-teo"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={linkedin_dark} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Open LinkedIn</p>
+                                                </div>
                                             </a>
                                             
-                                            <a className="w-full h-20" href="https://github.com/pixelhypercube">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="https://github.com/pixelhypercube"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={github_dark} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Open GitHub</p>
+                                                </div>
                                             </a>
                                             
-                                            <a className="w-full h-20" href="mailto:kj.teo.work@gmail.com">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="mailto:kj.teo.work@gmail.com"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={email_dark} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Send Email</p>
+                                                </div>
+                                            </a>
+
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="/Teo_Kai_Jie_Kendrick_Resume.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={resume_dark} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">View Resume</p>
+                                                </div>
                                             </a>
                                         </>
                                     )}
                                     {currentTheme === "L" && (
                                         <>
-                                            <a className="w-full h-20" href="https://linkedin.com/in/kai-jie-teo">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="https://linkedin.com/in/kai-jie-teo"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={linkedin_light} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-white text-stone-900 border-stone-200 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Open LinkedIn</p>
+                                                </div>
                                             </a>
                                             
-                                            <a className="w-full h-20" href="https://github.com/pixelhypercube">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="https://github.com/pixelhypercube"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={github_light} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-white text-stone-900 border-stone-200 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Open GitHub</p>
+                                                </div>
                                             </a>
                                             
-                                            <a className="w-full h-20" href="mailto:kj.teo.work@gmail.com">
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="mailto:kj.teo.work@gmail.com"
+                                            >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={email_light} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-white text-stone-900 border-stone-200 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">Send Email</p>
+                                                </div>
+                                            </a>
+
+                                            <a 
+                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                href="Teo_Kai_Jie_Kendrick_Resume.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Canvas3D autoRotateSpeed={0} voxelJson={resume_light} />
+                                                <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-white text-stone-900 border-stone-200 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
+                                                    <p className="m-0">View Resume</p>
+                                                </div>
                                             </a>
                                         </>
                                     )}
                                 </div>
                             </div>
-                            <form 
+                            {/* <form 
                             className="lg:w-1/2 md:w-full flex flex-col text-left gap-y-4 p-5"
                             onSubmit={handleSubmit}>
                                 <div className="flex flex-col">
@@ -1024,7 +1151,7 @@ export default function Home() {
                                 </div>
                                 {status === "success" && <p className="text-green-500 mt-2">Message sent successfully!</p>}
                                 {status === "error" && <p className="text-red-500 mt-2">Failed to send message. Try again.</p>}
-                            </form>
+                            </form> */}
                         </div>
                         <div className="mt-10 pb-10">
                             <p className="italic font-light">{footerContent["bottom"]}</p>

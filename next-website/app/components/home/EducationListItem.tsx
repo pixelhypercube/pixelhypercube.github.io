@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Code, Grid, List } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Code, Grid, List } from "lucide-react";
 import CustomToggle from "../CustomToggle";
 import Canvas3D from "../Canvas3D";
 import { renderDate } from "./utils";
@@ -74,6 +74,7 @@ interface EducationProps {
     skills?:Array<string>;
 
     isModelVisible?:boolean;
+    windowWidth:number;
 }
 
 interface Tab {
@@ -102,7 +103,8 @@ export function EducationListItem({
     transitionClasses,
     jsonModel,
     skills,
-    isModelVisible
+    isModelVisible,
+    windowWidth
 } : EducationProps) {
 
     const [selectedRelCWIndex, setSelectedRelCWIndex] = useState(1);
@@ -178,32 +180,36 @@ export function EducationListItem({
         }
     }, [relevant_coursework, activities, academic_projects, awards]);
 
-    useEffect(() => {
-        if (!selectedTab?.ref?.current) return;
+    // MOBILE TAB DROPDOWN
+    const [mobileDropdownOpened, setMobileDropdownOpened] = useState(false);
 
-        const updateSliderPosition = () => {
-            const element = selectedTab.ref.current;
-            if (element) {
-                setSelectedTabStyle({
-                    width: element.clientWidth,
-                    height: element.clientHeight,
-                    transform: `translateX(${element.offsetLeft}px)`,
-                });
-            }
-        };
+    // useEffect(() => {
+    //     if (!selectedTab?.ref?.current) return;
 
-        updateSliderPosition();
+    //     const updateSliderPosition = () => {
+    //         const element = selectedTab.ref.current;
+    //         if (element) {
+    //             setSelectedTabStyle({
+    //                 width: element.clientWidth,
+    //                 height: element.clientHeight,
+    //                 transform: `translateX(${element.offsetLeft}px)`,
+    //             });
+    //         }
+    //     };
 
-        window.addEventListener("resize", updateSliderPosition);
-        return () => window.removeEventListener("resize", updateSliderPosition);
-    }, [selectedTab, currentTabs]);
+    //     updateSliderPosition();
+
+    //     window.addEventListener("resize", updateSliderPosition);
+    //     return () => window.removeEventListener("resize", updateSliderPosition);
+    // }, [selectedTab, currentTabs]);
 
     // const parentDivRef = useRef<HTMLDivElement>(null);
+
 
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses} gap-4`}>
             <div className="w-full">
-                <header className="flex w-full mb-5 gap-4">
+                <header className="md:flex w-full mb-5 gap-4">
                     <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
                         {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
                     </div>
@@ -220,7 +226,7 @@ export function EducationListItem({
                             }
                         </div>
                     </div>
-                    <div className="shrink-0 min-w-48 text-right italic">
+                    <div className="shrink-0 min-w-48 md:text-right italic">
                         <h6>
                         {
                             dates && dates.map((dateArr,_)=>{
@@ -248,7 +254,7 @@ export function EducationListItem({
                         })}
                     </div> */}
                     {/* TABS */}
-                    <div className="border-b-2 border-stone-600 relative">
+                    <div className="md:border-b-2 border-stone-600 relative">
                         <div className={
                             `
                             ${currentTheme==="D" ? "bg-stone-600" : "bg-stone-400"} z-0 absolute rounded-t-lg
@@ -256,31 +262,63 @@ export function EducationListItem({
                         }
                         style={selectedTabStyle}
                         ></div>
-                        <div className="grid grid-flow-col auto-cols-fr transition-all duration-100 w-full items-center">
-                            {/* {relevant_coursework && 
-                            <button onClick={()=>setSelectedTab(0)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{relevant_coursework_header}</button>}
-                            {activities && 
-                            <button onClick={()=>setSelectedTab(1)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{activities_header}</button>}
-                            {academic_projects && 
-                            <button onClick={()=>setSelectedTab(2)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{academic_projects_header}</button>} */}
-                            {
-                                currentTabs.map((tab: any, index: number)=>{
-                                    const {name,ref} = tab;
-                                    return (
-                                        <button className={`
-                                                p-2 z-1 shrink-0 h-full
-                                            `} 
-                                            ref={ref} 
-                                            onClick={()=>{
-                                                setSelectedTab(tab);
-                                                // console.log(selectedTab?.ref?.current?.offsetLeft)
-                                            }} 
-                                            key={index}>{name}</button>
-                                    )
-                                })
-                            }
-                            
-                        </div>
+                        {(currentTabs.length<=2 || windowWidth>=640) ? (
+                            <div className="grid grid-flow-col auto-cols-fr transition-all duration-100 w-full items-center">
+                                {/* {relevant_coursework && 
+                                <button onClick={()=>setSelectedTab(0)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{relevant_coursework_header}</button>}
+                                {activities && 
+                                <button onClick={()=>setSelectedTab(1)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{activities_header}</button>}
+                                {academic_projects && 
+                                <button onClick={()=>setSelectedTab(2)} className={`rounded-xl p-2 w-full ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"}`}>{academic_projects_header}</button>} */}
+                                {
+                                    currentTabs.map((tab: any, index: number)=>{
+                                        const {name,ref} = tab;
+                                        return (
+                                            <button className={`
+                                                    p-2 z-1 shrink-0 h-full rounded-t-xl
+                                                    ${transitionClasses}
+                                                    ${selectedTab?.id===tab?.id ? (currentTheme==="D" ? "bg-stone-600" : "bg-stone-400") : ""}
+                                                `} 
+                                                ref={ref} 
+                                                onClick={()=>{
+                                                    setSelectedTab(tab);
+                                                    // console.log(selectedTab?.ref?.current?.offsetLeft)
+                                                }} 
+                                                key={index}>{name}</button>
+                                        )
+                                    })
+                                }
+                            </div>
+                        ) : (
+                            // DROPDOWN ON MOBILE VIEW AND IF NUM. TABS > 2
+                            <div className="relative">
+                                <div onClick={()=>setMobileDropdownOpened(!mobileDropdownOpened)} className={`border ${currentTheme==="D" ? "bg-stone-700 border-stone-400" : "bg-stone-400 border-stone-700"} rounded-2xl p-3 w-full
+                                flex justify-between ${transitionClasses}`}
+                                >
+                                    {selectedTab?.name}
+                                    <ChevronDown 
+                                    className={`transition-transform duration-150 ease-in-out`} 
+                                    style={{transform:`rotate(${mobileDropdownOpened ? "180deg" : "0deg"})`}}/>
+                                </div>
+                                {mobileDropdownOpened && (
+                                    <div className={`absolute ${currentTheme==="D" ? "bg-black" : "bg-white"} top-14 rounded-2xl p-3 w-full z-100`}>
+                                        {
+                                            currentTabs.map((tab: any, index: number)=>{
+                                                const {name, ref} = tab;
+                                                return (
+                                                    <div className={`hover:${currentTheme==="D" ? "bg-white/20" : "bg-black/20"} w-full p-2 rounded-xl transition-colors duration-100 ease-in-out select-none`} key={tab.id || index} onClick={()=>{
+                                                        setSelectedTab(tab);
+                                                        setMobileDropdownOpened(false);
+                                                    }}>
+                                                        {name}
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
                     <div className="mt-4">
                         {selectedTab?.id==="bio" && (
@@ -290,7 +328,10 @@ export function EducationListItem({
                                     return (
                                         <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-4`} key={index}>
                                             {json_model && <div className="w-full h-36 relative">
-                                                {isModelVisible && <Canvas3D voxelJson={json_model}/>}
+                                                {isModelVisible && 
+                                                <Canvas3D 
+                                                className={mobileDropdownOpened && index===0 ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
+                                                voxelJson={json_model}/>}
                                             </div>}
                                             <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />
                                             {info}
@@ -327,7 +368,9 @@ export function EducationListItem({
                                                         } else if (selectedRelCWIndex===1) {
                                                             return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
                                                                 <div className="w-full h-24">
-                                                                    {isModelVisible && <Canvas3D voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />}
+                                                                    {isModelVisible && <Canvas3D 
+                                                                    className={(index===0 && mobileDropdownOpened) ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
+                                                                    voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />}
                                                                 </div>
                                                                 <div className="text-center mt-4">
                                                                     <h6 className="my-0">{moduleCode}</h6>
@@ -372,7 +415,10 @@ export function EducationListItem({
                                                                 <div key={`activities-${index}`} 
                                                                 className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
                                                                     <div className="w-full h-24">
-                                                                        {isModelVisible && <Canvas3D voxelJson={activity["jsonModel"]} />}
+                                                                        {isModelVisible && 
+                                                                        <Canvas3D 
+                                                                        className={(index===1 && mobileDropdownOpened) ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
+                                                                        voxelJson={activity["jsonModel"]} />}
                                                                     </div>
                                                                     <div>
                                                                         <h5 className="my-0">{name}</h5>
@@ -406,7 +452,10 @@ export function EducationListItem({
                                                                             </p>
                                                                         </div>
                                                                         <div className="w-1/8">
-                                                                            {isModelVisible && <Canvas3D voxelJson={activity["jsonModel"]} />}
+                                                                            {isModelVisible && 
+                                                                            <Canvas3D 
+                                                                            className={(index===0 && mobileDropdownOpened) ? "hidden" : ""}  // special condition to hide 1st model when mobile dropdown is opened
+                                                                            voxelJson={activity["jsonModel"]} />}
                                                                         </div>
                                                                     </div>
                                                                     <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-400"} my-2`}/>
@@ -441,10 +490,15 @@ export function EducationListItem({
 
                                     return (
                                         <div key={`acad-proj-${projIndex}`} className={
-                                            `${currentTheme==="D" ? "bg-stone-700" : "bg-stone-300"}
+                                            `${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"}
                                             rounded-2xl p-4 my-4`
                                         }>
-                                            <header className="flex justify-between items-start">
+                                            <header className="md:flex justify-between items-start flex-row-reverse">
+                                                <ModuleTab
+                                                currentTheme={currentTheme}
+                                                relevant_coursework={relevant_coursework}
+                                                module_code={module_code}
+                                                />
                                                 <div>
                                                     <div className="flex gap-2">
                                                         <h3 className="mb-0">{title}</h3>
@@ -464,11 +518,6 @@ export function EducationListItem({
                                                         <h6>Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
                                                     </div>
                                                 </div>
-                                                <ModuleTab
-                                                currentTheme={currentTheme}
-                                                relevant_coursework={relevant_coursework}
-                                                module_code={module_code}
-                                                />
                                             </header>
                                             <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-2`}/>
                                             <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
@@ -540,7 +589,7 @@ export function EducationListItem({
                                                         <div className="mt-4">
                                                         {
                                                             source_code && (
-                                                                <a className={`w-full flex justify-center items-center gap-2 ${currentTheme==="D" ? "bg-stone-500" : "bg-stone-400"} p-2 rounded-2xl text-center font-bold text-md`} href={source_code}><Code/> Source Code</a>
+                                                                <a className={`w-full flex justify-center items-center gap-2 ${currentTheme==="D" ? "bg-stone-500" : "bg-stone-300"} p-2 rounded-2xl text-center font-bold text-md`} href={source_code}><Code/> Source Code</a>
                                                             )
                                                         }
                                                         </div>

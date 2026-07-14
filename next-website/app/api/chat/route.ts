@@ -11,10 +11,13 @@ export async function POST(req: Request) {
     try {
         const { messages } = await req.json();
 
-        const systemPrompt = `You are a helpful assistant for KJ's personal portfolio website. 
-        You do not possess bulk access to KJ's dataset initially. You must invoke the 'getPortfolioSection' 
-        tool to look up information regarding bio, contact, education, skills, experience, projects, or hobby metrics. 
-        Strictly answer using only the data returned by the tool. Do not hallucinate or extrapolate details.`;
+        const systemPrompt = `You are a helpful, precise assistant for KJ's personal portfolio website. 
+        You have comprehensive access to KJ's background via the 'getPortfolioSection' tool. 
+        
+        CRITICAL OPERATING RULES:
+        1. When asked about KJ's bio, contact, education, skills, experience, projects, or hobbies, immediately call 'getPortfolioSection'.
+        2. Base your answers strictly on the JSON data returned by the tool. Do not hallucinate, extrapolate, or invent details.
+        3. FALLBACK BEHAVIOR: If a user query is completely out-of-scope (e.g., general trivia, unrelated tasks), or if the tool returns no data for the topic, do not say "I don't have access to this dataset." Instead, respond gracefully in character. Acknowledge the limitation and politely redirect them to what you can discuss (e.g., "I don't have records on that specific topic, but I can tell you all about KJ's software engineering projects, technical skills, or professional experience!").`;
 
         const res = streamText({
             model: google("gemini-3.1-flash-lite-preview"),
