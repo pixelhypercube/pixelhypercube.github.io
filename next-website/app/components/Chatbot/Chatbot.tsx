@@ -2,6 +2,8 @@ import { Bot, MessageCircle } from "lucide-react";
 import ChatbotDialog from "./ChatbotDialog";
 import { Ref, useState } from "react";
 
+import { content } from '../../globals';
+
 interface DialogCallbacks {
     closeChatbot:()=>void
 }
@@ -36,6 +38,8 @@ export default function Chatbot({
     const dialogTextAndBgClasses = currentTheme === "D" 
     ? "bg-amber-700 border border-amber-500 text-white" 
     : "bg-amber-500 border border-amber-600 text-black";
+
+    const chatbotTextInfo = content[selectedLanguage]["chatbot"];
     
     return (
         <div ref={ref} className={`fixed ${!opened ? "bottom-10 right-10" : "md:bottom-0 md:right-0 bottom-0 right-0"} z-100 transition-colors duration-200 ease-in-out`} onClick={onClick}>
@@ -56,7 +60,7 @@ export default function Chatbot({
             ) : (
                 <div onClick={() => setOpened(true)} className={`rounded-4xl w-16 h-16 flex justify-center items-center ${currentTheme==="D" ? "bg-olive-700" : "bg-olive-400"} shadow-lg ${transitionClasses}`}>
                     <div className={`absolute bottom-20 right-0 ${dialogTextAndBgClasses} rounded-xl p-2 w-36 text-sm text-center shadow-lg animate-bounce [animation-duration:3s]`}>
-                        <p className="m-0">Ask me anything!</p>
+                        <p className="m-0">{chatbotTextInfo["intro_dialog"]}</p>
                     </div>
                     <Bot size={32}/>
                 </div>

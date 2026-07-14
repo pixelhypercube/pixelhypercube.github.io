@@ -1,8 +1,9 @@
-import { ChevronsLeftRight, ChevronsRightLeft, Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronsLeftRight, ChevronsRightLeft, FileText, Menu, Moon, Sun, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Ref } from "react";
-import {content} from "../globals";
+import { content } from "../globals";
+import { GrDocument } from "react-icons/gr";
 
 interface NavItem {
     id?: string;
@@ -24,6 +25,7 @@ type ActionCallback = (value?: any) => void;
 export interface ItemLinkProps extends NavItem {
     type: "link";
     name: string;
+    icon?: any;
     link?: string;
     stylized: boolean; // for special items like home
     imageUrl?: string;
@@ -101,32 +103,56 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
         action: callbacks.onLayoutWidthToggle,
         showIcons:true,
         minSizeVisibility:1280, // only visible on xl
-    }
+    },
+    { 
+        id: "resume", 
+        type: "link", 
+        name: content[selectedLanguage]["navbar"]["resume"],
+        icon: <FileText/>, 
+        link: "/Teo_Kai_Jie_Kendrick_Resume.pdf", 
+        stylized: false, 
+        // action: callbacks.setScrollPosEducation 
+    },
 ];
 
 function ItemLink({
-    name, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible, mobileHovering
+    name, icon, link, stylized, imageUrl, action, isSelected, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible, mobileHovering
 } : Omit<ItemLinkProps, 'type'>) {
-    const styles = (stylized) ? 
-    `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
-    // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
-    `text-lg ${!mobileHovering ? "hover:font-bold" : ""}`;
-
-    const highlightBorderColorClasses = currentTheme==="D" ? "border-amber-300" : "border-amber-700";
-    const highlightTextColorClasses = currentTheme==="D" ? "text-amber-300" : "text-amber-700";
     
-    const highlightIconBorderColorClasses = currentTheme==="D" ? "border-stone-300" : "border-stone-700";
+    if (icon) {
+        return <div className={`relative group ${isVisible ? "block" : "hidden"}`}>
+            {
+                usePathname() !== link ? 
+                <a onClick={()=>action?.()} href={link ? link : "#"} className="p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 flex">{icon}</a> :
+                <div onClick={()=>action?.()} className="p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 flex cursor-pointer select-none">{icon}</div>
+            }
+            
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100 z-30">
+                <p className="m-0">{name}</p>
+            </div>
+        </div>
+    } else {
+        const styles = (stylized) ? 
+        `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
+        // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
+        `text-lg ${!mobileHovering ? "hover:font-bold" : ""}`;
 
-    const hoverColorClasses = currentTheme==="D" ? "hover:bg-black/15" : "hover:bg-white/15";
+        const highlightBorderColorClasses = currentTheme==="D" ? "border-amber-300" : "border-amber-700";
+        const highlightTextColorClasses = currentTheme==="D" ? "text-amber-300" : "text-amber-700";
+        
+        const highlightIconBorderColorClasses = currentTheme==="D" ? "border-stone-300" : "border-stone-700";
 
-    return <div className={`mx-3 ${mobileHovering ? `${hoverColorClasses} py-2` : ""} ${isVisible ? "block" : "hidden"} rounded-xl transition-colors duration-150 ease-in-out`}>
-        {
-            usePathname() !== link ? 
-            <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? `${highlightIconBorderColorClasses} border-4` : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
-            <div onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
-        }
-        <hr className={`${isSelected ? "w-full" : "w-0 opacity-0"} transition-all duration-500 ${highlightBorderColorClasses} border-[1.75px]`}/>
-    </div>
+        const hoverColorClasses = currentTheme==="D" ? "hover:bg-black/15" : "hover:bg-white/15";
+
+        return <div className={`mx-3 ${mobileHovering ? `${hoverColorClasses} py-2` : ""} ${isVisible ? "block" : "hidden"} rounded-xl transition-colors duration-150 ease-in-out`}>
+            {
+                usePathname() !== link ? 
+                <a onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? `${highlightIconBorderColorClasses} border-4` : ""}`} href={link ? link : "#"}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</a> :
+                <div onClick={()=>action?.()} className={`${styles} ${transitionClasses} ${isSelected ? highlightTextColorClasses : ""} cursor-pointer select-none`}>{imageUrl ? <img className="w-1/2" alt={name} src={imageUrl}/> : name}</div>
+            }
+            <hr className={`${isSelected ? "w-full" : "w-0 opacity-0"} transition-all duration-500 ${highlightBorderColorClasses} border-[1.75px]`}/>
+        </div>
+    }
 }
 
 function ItemDropdown({
@@ -268,7 +294,7 @@ function NavItemRenderer({ item, selectedLanguage, isSelected, transitionClasses
 
     switch (item.type) {
         case "link":
-            return <ItemLink mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
+            return <ItemLink icon={item.icon} mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} isSelected={isSelected} selectedLanguage={selectedLanguage} imageUrl={item.imageUrl} stylized={item.stylized} name={item.name} link={item.link} action={item.action} />;
         case "dropdown":
             return <ItemDropdown mobileHovering={mobileHovering} isVisible={isVisible} currentTheme={currentTheme} transitionClasses={transitionClasses} selectedLanguage={selectedLanguage} showValues={item.showValues} values={item.values} selectedValue={item.selectedValue} action={item.action} />;
         case "toggle":

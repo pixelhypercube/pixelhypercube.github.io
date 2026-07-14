@@ -149,6 +149,16 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
         triggerOnce: false
     });
 
+    const [layoutSettled, setLayoutSettled] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLayoutSettled(true);
+        }, 500);
+        
+        return () => clearTimeout(timer);
+    }, []);
+
 
     return (
         <div ref={ref} className={`${sizeClasses} relative inline-block content-center overflow-hidden`}>

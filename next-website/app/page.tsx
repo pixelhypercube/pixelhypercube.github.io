@@ -92,7 +92,6 @@ import { useChat } from "@ai-sdk/react";
 
 
 export default function Home() {
-    const lenis = new Lenis({syncTouch:true});
 
     // STATES
     const {selectedLanguage, setSelectedLanguage} = useLanguage();
@@ -391,13 +390,30 @@ export default function Home() {
 
         // Compute the nearest scrolled item index
         const currentActiveIndex = Math.round(scrollLeft / totalStepWidth);
-        
+
         setIndex(currentActiveIndex);
     };
 
-    // determine smooth scrolling (desktop only)
 
-    if (!isTouchDevice) addEffect((t)=>lenis.raf(t));
+     useEffect(() => {
+        // This instantiates Lenis safely only when the browser environment is active
+        const lenisInstance = new Lenis({ syncTouch: true });
+
+        let removeR3FEffect: (() => void) | undefined;
+
+        // Safely bind the frame request animation loop on desktop devices
+        if (!isTouchDevice) {
+            removeR3FEffect = addEffect((t) => {
+                lenisInstance.raf(t);
+            });
+        }
+
+        // Clean up listeners and loops when the component unmounts
+        return () => {
+            if (removeR3FEffect) removeR3FEffect();
+            lenisInstance.destroy();
+        };
+    }, [isTouchDevice]);
 
     return (
         <div ref={containerRef} className={`relative w-full min-h-screen 

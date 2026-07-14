@@ -426,7 +426,11 @@ export const content : Record<any,any> = {
             "projects":"Projects",
             "experience":"Experience",
             "education":"Education",
-            "blogs":"Blogs"
+            "blogs":"Blogs",
+            "resume":"Download Resume"
+        },
+        "chatbot": {
+            "intro_dialog": "Any further inquiries? Ask my AI twin instead!",
         },
         "home" : {
             // COMPONENT SPECIFIC
