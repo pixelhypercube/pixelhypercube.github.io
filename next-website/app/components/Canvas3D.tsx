@@ -174,13 +174,21 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
                 <ambientLight intensity={0.5}/>
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <Environment preset="city"/>
-                <Bounds fit clip observe={inView} margin={1.2}>
+                {layoutSettled ? (
+                    <Bounds fit clip observe={inView} margin={1.2}>
+                        <Center>
+                            <group visible={inView}>
+                                <CustomVoxel voxelJson={voxelJson}/>
+                            </group>
+                        </Center>
+                    </Bounds>
+                ) : (
                     <Center>
                         <group visible={inView}>
                             <CustomVoxel voxelJson={voxelJson}/>
                         </group>
                     </Center>
-                </Bounds>
+                )}
                 <OrbitControls
                 makeDefault
                 enableZoom={false}
