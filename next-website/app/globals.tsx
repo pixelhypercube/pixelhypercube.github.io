@@ -583,7 +583,10 @@ Thanks for stopping by and enjoy your stay!`,
                             ],
                             [
                                 "Was overall a pretty interesting and worthy experience having to spend a chunk of time writing code and admin stuff while wearing green!",
-                                experience_ns_coding
+                                experience_ns_coding,
+                                {
+                                    "fov":35,
+                                }
                             ]
                         ],
                         "reflection":`The idea of actually doing programming alongside regular admin work in NS not only felt quite interesting, but I have the privilege to leverage my skillsets during my service!`,
@@ -601,11 +604,17 @@ Thanks for stopping by and enjoy your stay!`,
                         "description": [
                             [
                                 "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I worked on implementing more updates according to the company's new requirements.",
-                                experience_ecoexchange_updates
+                                experience_ecoexchange_updates,
+                                {
+                                    "fov":35,
+                                }
                             ],
                             [
                                 "Led the frontend development section and coordinated a team of 2 developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
-                                experience_ecoexchange_frontend
+                                experience_ecoexchange_frontend,
+                                {
+                                    "fov":35,
+                                }
                             ],
                             [
                                 "Successfully processed 700+ recycling tickets during the pilot phase, eliminating paper inefficiencies and streamlining data entry.",
@@ -638,7 +647,10 @@ Thanks for stopping by and enjoy your stay!`,
                             ],
                             [
                                 "Developed Node.js and created databases for efficient inventory management!",
-                                experience_leaptron_db_nodejs
+                                experience_leaptron_db_nodejs,
+                                {
+                                    "fov":35,
+                                }
                             ],
                             [
                                 "Made an app using Appgyver to help 10+ staff with tracking warehouse management systems!",
@@ -823,6 +835,9 @@ Thanks for stopping by and enjoy your stay!`,
                             "SC2006": {
                                 "name": "Software Engineering",
                                 "jsonModel":sc2006,
+                                "json_model_cam_settings": {
+                                    "fov":35,
+                                },
                                 "module_coordinators":["Dr. Shen Zhiqi","Asst. Prof. Conrad Watt"],
                             },
                         },

@@ -1193,7 +1193,7 @@ export default function Home() {
             {/* GLOBAL CANVAS */}
             <Canvas 
                 eventSource={containerRef as React.RefObject<HTMLElement>}
-                className="inset-0! pointer-events-none z-10 fixed!"
+                className="fixed! inset-0! pointer-events-none z-10"
                 events={undefined}
                 camera={{fov:10,zoom:0.5}}
             >

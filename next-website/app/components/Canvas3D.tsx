@@ -49,22 +49,50 @@ function InstancedColor({color, positions, geometry, materialProps} : {
     )
 }
 
-function CustomVoxel({voxelJson,size=1}: CustomVoxelProps) {
+function CustomVoxel({voxelJson, size=1}: CustomVoxelProps) {
     const voxels = useMemo(()=>{
         if (!voxelJson?.data?.voxels) return [];
         const rawVoxels = voxelJson.data.voxels.split(";");
-        return rawVoxels
-        .filter((v: string)=>v.trim() !== "") // rem empty strings
-        .map((v: string)=>{
-            const [x,y,z,color] = v.split(",");
-            const hexColor = color.startsWith('#') ? color : `#${color}`;
-            return {
-                position: [parseInt(x),parseInt(y),parseInt(z)],
-                color:hexColor
-            };
-        })
-    },[voxelJson]);
+        
+        let minX = Infinity, maxX = -Infinity;
+        let minY = Infinity, maxY = -Infinity;
+        let minZ = Infinity, maxZ = -Infinity;
 
+        // parse coords and keep track of outer boundaries
+        const parsed = rawVoxels
+            .filter((v: string)=>v.trim() !== "") 
+            .map((v: string)=>{
+                const [x, y, z, color] = v.split(",");
+                const nX = parseInt(x);
+                const nY = parseInt(y);
+                const nZ = parseInt(z);
+
+                if (nX < minX) minX = nX; if (nX > maxX) maxX = nX;
+                if (nY < minY) minY = nY; if (nY > maxY) maxY = nY;
+                if (nZ < minZ) minZ = nZ; if (nZ > maxZ) maxZ = nZ;
+
+                const hexColor = color.startsWith('#') ? color : `#${color}`;
+                return {
+                    position: [nX, nY, nZ] as [number, number, number],
+                    color: hexColor
+                };
+            });
+
+        // compute geometric center of the model cloud
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+        const centerZ = (minZ + maxZ) / 2;
+
+        // shift every coordinate so the entire model is natively centered at (0, 0, 0)
+        return parsed.map((v: any) => ({
+            ...v,
+            position: [
+                v.position[0] - centerX,
+                v.position[1] - centerY,
+                v.position[2] - centerZ
+            ] as [number, number, number]
+        }));
+    },[voxelJson]);
 
     const colorGroups = useMemo(()=>{
         const map = new Map<string, [number, number, number][]>();
@@ -75,10 +103,8 @@ function CustomVoxel({voxelJson,size=1}: CustomVoxelProps) {
         return map;
     },[voxels]);
 
-
-    const materialProps = voxelJson?.render?.materials?.default || { roughness: 0.8, metalness: 0 }; // safety check
+    const materialProps = voxelJson?.render?.materials?.default || { roughness: 0.8, metalness: 0 };
     const geometry = useMemo(()=>new THREE.BoxGeometry(size,size,size),[size]);
-
     const groupRef = useRef<THREE.Group>(null);
 
     return (
@@ -95,43 +121,7 @@ function CustomVoxel({voxelJson,size=1}: CustomVoxelProps) {
         </group>
     )
 }
-// function VoxelSphere({radius=3, size=0.4, gap=0}) {
-//     const voxels = useMemo(()=>{
-//         const res = [];
-       
-//         const step = size + gap;
-//         for (let x = -radius;x<=radius;x+=step) {
-//             for (let y = -radius;y<=radius;y+=step) {
-//                 for (let z = -radius;z<=radius;z+=step) {
-//                     if (Math.sqrt(x*x+y*y+z*z)<=radius) {
-//                         res.push([x,y,z]);
-//                     }
-//                 }
-//             }
-//         }
-//         return res;
-//     }, [radius,size,gap]);
-//     return (
-//         <group>
-//             {voxels.map((pos,i)=>(
-//                 <mesh key={i} position={pos as [number, number, number]}>
-//                     <boxGeometry args={[size, size, size]} />
-//                     <meshStandardMaterial color="#ffe9bf" />
-//                 </mesh>
-//             ))}
-//         </group>
-//     )
-// }
-// function Model() {
-//     return (
-//         <group>
-//             <mesh>
-//                 <boxGeometry args={[1,1,1]}/>
-//                 <MeshDistortMaterial color={"#ffffff"} speed={2}/>
-//             </mesh>
-//         </group>
-//     )
-// }
+
 interface Canvas3DProps {
     voxelJson: Record<string, any>;
     className?: string;
@@ -139,7 +129,8 @@ interface Canvas3DProps {
     autoRotateSpeed?: number;
     camPosition?: [number, number, number];
 }
-export default function Canvas3D({voxelJson, className, fov = 50, autoRotateSpeed, camPosition} : Canvas3DProps) {
+
+export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, camPosition} : Canvas3DProps) {
     if (!voxelJson?.data) return null;
 
     const sizeClasses = className || "w-full h-full";
@@ -155,29 +146,23 @@ export default function Canvas3D({voxelJson, className, fov = 50, autoRotateSpee
         const timer = setTimeout(() => {
             setLayoutSettled(true);
         }, 500);
-        
         return () => clearTimeout(timer);
     }, []);
 
-
     return (
         <div ref={ref} className={`${sizeClasses} relative inline-block content-center overflow-hidden`}>
-            {/* <Canvas
-            camera = {{fov,zoom:0.9}}
-            className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}> */}
             {layoutSettled && (
                 <View className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}>
-                    <PerspectiveCamera makeDefault position={camPosition ?? [0, 20, 40]} fov={fov} />
+                    <PerspectiveCamera makeDefault position={camPosition ?? [0, 20, 40]} fov={fov ?? 55} />
 
                     <ambientLight intensity={0.5}/>
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                     <Environment preset="city"/>
                     
-                    <Center>
-                        <group visible={inView}>
-                            <CustomVoxel voxelJson={voxelJson}/>
-                        </group>
-                    </Center>
+                    {/* Centering is handled directly by data calculations; Center and Bounds wrappers removed */}
+                    <group visible={inView}>
+                        <CustomVoxel voxelJson={voxelJson}/>
+                    </group>
 
                     <OrbitControls
                         makeDefault
