@@ -165,43 +165,29 @@ export default function Canvas3D({voxelJson, className, fov = 50, autoRotateSpee
             {/* <Canvas
             camera = {{fov,zoom:0.9}}
             className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}> */}
-            <View
-            // camera = {{fov,zoom:0.9}}
-            className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}>
+            {layoutSettled && (
+                <View className={`${sizeClasses} pointer-events-auto inline-block overflow-hidden`}>
+                    <PerspectiveCamera makeDefault position={camPosition ?? [0, 20, 40]} fov={fov} />
 
-                <PerspectiveCamera makeDefault position={camPosition ?? [0, 20, 40]} fov={fov} />
-
-                <ambientLight intensity={0.5}/>
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <Environment preset="city"/>
-                <Center>
-                    <group visible={inView}>
-                        <CustomVoxel voxelJson={voxelJson}/>
-                    </group>
-                </Center>
-                {/* {layoutSettled ? (
-                    <Bounds fit clip observe={inView} margin={1.2}>
-                        <Center>
-                            <group visible={inView}>
-                                <CustomVoxel voxelJson={voxelJson}/>
-                            </group>
-                        </Center>
-                    </Bounds>
-                ) : (
+                    <ambientLight intensity={0.5}/>
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+                    <Environment preset="city"/>
+                    
                     <Center>
                         <group visible={inView}>
                             <CustomVoxel voxelJson={voxelJson}/>
                         </group>
                     </Center>
-                )} */}
-                <OrbitControls
-                makeDefault
-                enableZoom={false}
-                enablePan={false}
-                autoRotate={inView}
-                autoRotateSpeed={autoRotateSpeed ?? 0.5} />
-            </View>
-            {/* </Canvas> */}
+
+                    <OrbitControls
+                        makeDefault
+                        enableZoom={false}
+                        enablePan={false}
+                        autoRotate={inView}
+                        autoRotateSpeed={autoRotateSpeed ?? 0.5} 
+                    />
+                </View>
+            )}
         </div>
     )
 }
