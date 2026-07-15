@@ -23,81 +23,26 @@ import github_light from "./voxelModels/links/light/github.json"
 import email_light from "./voxelModels/links/light/email.json"
 import resume_light from "./voxelModels/links/light/resume.json"
 
-// additional json
-// import { ntu_coursework } from "./globals";
-
 import { addEffect, Canvas } from "@react-three/fiber";
 import { View, Preload } from "@react-three/drei";
-import Lenis from "lenis";
-import { Atom, ChevronLeft, ChevronRight, CircleEllipsis, Code, Grid, List, Road, Rows3 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Rows3, Grid } from "lucide-react";
 import CustomToggle from "./components/CustomToggle";
-import { CgWebsite } from "react-icons/cg";
 import { useLanguage } from "./components/LanguageContext";
 
-
 // NEW IMPORTS
-
 import { renderBioText, renderDate } from "./components/home/utils";
-import { HobbyButton, RunningPBDiv } from "./components/home/HobbyComponents";
-// import { ProjectSkillTab } from "./components/home/ProjectSkillTab";
 import { SkillContainer } from "./components/home/SkillContainer";
 import { ExperienceListItem } from "./components/home/ExperienceListItem";
 import { ProjectGridItem, ProjectListItem } from "./components/home/ProjectComponents";
 import { EducationListItem } from "./components/home/EducationListItem";
-import { BiCarousel } from "react-icons/bi";
 import { RiCarouselView } from "react-icons/ri";
-import { IoConstructOutline } from "react-icons/io5";
 import { useChat } from "@ai-sdk/react";
-
-// function ExperienceRoadmapPoint({
-//     institution,
-//     certificate,
-//     relevant_coursework,
-//     relevant_coursework_header,
-//     activities,
-//     activities_header,
-//     bio,
-//     dates,
-//     media_url,
-//     currentTheme
-// } : ExperienceProps) {
-
-//     return (
-//         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-200 text-stone-900"} w-40 h-20 rounded-full`}>
-//             {
-//                 dates && dates.map((dateArr,_)=>{
-//                     const [startDate, endDate] = dateArr;
-//                     return renderDate(startDate) + " - " + (endDate instanceof Date ? renderDate(endDate) : endDate);
-//                 }).join(", ")
-//             }
-//             {institution}
-//         </div>
-//     )
-// }
-
-// interface ExperienceRoadmapProps {
-//     list:[]
-// }
-
-// function ExperienceRoadmap({list} : ExperienceRoadmapProps) {
-
-//     return (
-//         <>
-//             {list && list.map((item: any, index: number)=>{
-                
-//             })}
-//         </>
-//     )
-// }
-
+import Lenis from "lenis";
 
 export default function Home() {
-
     // STATES
     const {selectedLanguage, setSelectedLanguage} = useLanguage();
     const [selectedHobby, setSelectedHobby] = useState<any>(running);
-    // const [scrollY, setScrollY] = useState(0);
-    // const [isChatbotOpen, setChatbotOpen] = useState(false);
 
     const [currentTheme, setCurrentTheme] = useState("D");
     const [layoutWidth, setLayoutWidth] = useState("N");
@@ -128,94 +73,23 @@ export default function Home() {
     var projectsContent = home["projects"];
     var educationContent = home["education"];
 
-    var ntuCoursework = home["ntu_coursework"];
-
     var footerContent = home["footer"];
-    var formContent = footerContent["form"];
 
-    const {hobbies} = aboutMeContent;
-
-    // for smooth transition between light and dark
     const transitionClasses = `transition-all ease-in-out duration-500`;
-
-    // placeholder input styles
-
-    const inputTheme = "border rounded-2xl m-1 p-2 w-full transition-colors duration-200 outline-none focus:ring-2 focus:ring-stone-500"
-    const darkInputTheme = `bg-stone-700 border-stone-700 text-white placeholder-stone-400 ${inputTheme} ${transitionClasses}`;
-    const lightInputTheme = `bg-white border-stone-300 text-stone-900 placeholder-stone-500 ${inputTheme} ${transitionClasses}`;
-
-    const submitTheme = "w-full px-6 py-2 rounded-2xl font-bold text-lg cursor-pointer transition-colors duration-200"
-    const darkSubmitTheme = `bg-stone-700 hover:bg-stone-600 text-white ${submitTheme} ${transitionClasses}`;
-    const lightSubmitTheme = `bg-stone-300 hover:bg-stone-500 text-stone-900 ${submitTheme} ${transitionClasses}`;
-
-    // FORM HANDLER
-
-    // const [formData, setFormData] = useState({
-    //     name: "",
-    //     email: "",
-    //     message: ""
-    // });
-
-    // const [status, setStatus] = useState("idle"); // idle, submitting, success, error
-
-    // interface FormData {
-    //     name: string;
-    //     email: string;
-    //     message: string;
-    // }
-
-    // interface HandleChangeEvent extends React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> {}
-
-    // const handleChange = (e: HandleChangeEvent) => {
-    //     const { name, value } = e.target;
-    //     setFormData((prev: FormData) => ({
-    //         ...prev,
-    //         [name]: value
-    //     }));
-    // };
-
-    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     setStatus("submitting");
-
-    //     try {
-    //         // replace url with your actual API endpoint or email service provider URL
-    //         const response = await fetch("https://api.example.com/contact", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(formData),
-    //         });
-
-    //         if (response.ok) {
-    //             setStatus("success");
-    //             setFormData({ name: "", email: "", message: "" }); // reset form
-    //         } else {
-    //             setStatus("error");
-    //         }
-    //     } catch (error) {
-    //         setStatus("error");
-    //     }
-    // };
-    
-    // determine current div pos
 
     const [currentDiv, setCurrentDiv] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         const onScroll = () => {
-
-            // NAVBAR HEIGHT
             const navbarHeight = navbarRef.current?.clientHeight;
             
             const divs: Record<string, DOMRect | undefined> = {
-                "hero":containerHeroRef.current?.getBoundingClientRect(),
-                "about_me":containerAboutMeRef.current?.getBoundingClientRect(),
-                "skills":containerSkillsRef.current?.getBoundingClientRect(),
-                "projects":containerProjectsRef.current?.getBoundingClientRect(),
-                "experience":containerExperienceRef.current?.getBoundingClientRect(),
-                "education":containerEducationRef.current?.getBoundingClientRect(),
+                "hero": containerHeroRef.current?.getBoundingClientRect(),
+                "about_me": containerAboutMeRef.current?.getBoundingClientRect(),
+                "skills": containerSkillsRef.current?.getBoundingClientRect(),
+                "projects": containerProjectsRef.current?.getBoundingClientRect(),
+                "experience": containerExperienceRef.current?.getBoundingClientRect(),
+                "education": containerEducationRef.current?.getBoundingClientRect(),
             }
 
             for (const key of Object.keys(divs)) {
@@ -224,14 +98,10 @@ export default function Home() {
                 const div = divs[key];
                 if (!div) continue;
 
-                // SKILLS CONTAINER
-                const {top,height} = div;
-                if (!top) continue;
-                if (!height) continue;
-                
+                const {top, height} = div;
+                if (!top || !height) continue;
 
-                // console.log(key,top,height,top<=0 && top+height>=0)
-                if (top-navbarHeight-50<=0 && top+height-navbarHeight-50>=0) {
+                if (top - navbarHeight - 50 <= 0 && top + height - navbarHeight - 50 >= 0) {
                     setCurrentDiv(key);
                 }
             }
@@ -242,7 +112,6 @@ export default function Home() {
     }, [currentDiv]);
 
     // carousel states
-
     const [experienceIndex, setExperienceIndex] = useState(0);
     const [educationIndex, setEducationIndex] = useState(0);
     const [projectIndex, setProjectIndex] = useState(0);
@@ -269,7 +138,6 @@ export default function Home() {
         if (activeChild) {
             observer = new ResizeObserver((entries) => {
                 for (let entry of entries) {
-                    // Captures height safely post-render and post-layout updates
                     setProjectHeight(entry.target.clientHeight);
                 }
             });
@@ -328,7 +196,6 @@ export default function Home() {
     }, [educationIndex, educationToggleIndex]);
 
     // DETECT WHETHER DEVICE IS TOUCHSCREEN OR NOT
-
     const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
@@ -341,7 +208,6 @@ export default function Home() {
     }, []);
 
     // WINDOW WIDTH GLOBAL VARIABLE
-    
     const [windowWidth, setWindowWidth] = useState<number>(0);
 
     useEffect(() => {
@@ -353,7 +219,6 @@ export default function Home() {
     }, []);
 
     // CHATBOT MESSAGES
-
     const openingMessage: Record<string, string> = {
         "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything!",
         "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
@@ -370,9 +235,7 @@ export default function Home() {
         ]
     });
 
-
     // FOR MOBILE PAGINATION
-
     const handleTouchScroll = (
         e: React.UIEvent<HTMLDivElement>,
         setIndex: React.Dispatch<React.SetStateAction<number>>
@@ -382,44 +245,41 @@ export default function Home() {
         const container = e.currentTarget;
         const scrollLeft = container.scrollLeft;
         
-        // each child item has a width of calc(100% - 32px) and the flex container has gap-4 (16px)
         const containerWidth = container.clientWidth;
         const itemWidth = containerWidth - 32;
         const gap = 16;
         const totalStepWidth = itemWidth + gap;
 
-        // Compute the nearest scrolled item index
         const currentActiveIndex = Math.round(scrollLeft / totalStepWidth);
-
         setIndex(currentActiveIndex);
     };
 
+    // useEffect(() => {
+    //     // This instantiates Lenis safely only when the browser environment is active
+    //     const lenisInstance = new Lenis({ syncTouch: true });
 
-     useEffect(() => {
-        // This instantiates Lenis safely only when the browser environment is active
-        const lenisInstance = new Lenis({ syncTouch: true });
+    //     let removeR3FEffect: (() => void) | undefined;
 
-        let removeR3FEffect: (() => void) | undefined;
+    //     // Safely bind the frame request animation loop on desktop devices
+    //     if (!isTouchDevice) {
+    //         removeR3FEffect = addEffect((t) => {
+    //             lenisInstance.raf(t);
+    //         });
+    //     }
 
-        // Safely bind the frame request animation loop on desktop devices
-        if (!isTouchDevice) {
-            removeR3FEffect = addEffect((t) => {
-                lenisInstance.raf(t);
-            });
-        }
-
-        // Clean up listeners and loops when the component unmounts
-        return () => {
-            if (removeR3FEffect) removeR3FEffect();
-            lenisInstance.destroy();
-        };
-    }, [isTouchDevice]);
+    //     // Clean up listeners and loops when the component unmounts
+    //     return () => {
+    //         if (removeR3FEffect) removeR3FEffect();
+    //         lenisInstance.destroy();
+    //     };
+    // }, [isTouchDevice]);
 
     return (
-        <div ref={containerRef} className={`relative w-full min-h-screen 
-        ${currentTheme==="D" ? 
-        "bg-stone-900 text-white" : 
-        "bg-stone-200 text-stone-900"} ${transitionClasses}`}>
+        <div 
+            ref={containerRef} 
+            className={`relative w-full min-h-screen touch-pan-y ${currentTheme === "D" ? "bg-stone-900 text-white" : "bg-stone-200 text-stone-900"} ${transitionClasses}`}
+            style={{ touchAction: "pan-y" }}
+        >
             <Chatbot 
                 messages={chatbotMessages}
                 sendMessage={sendMessage}
@@ -438,9 +298,9 @@ export default function Home() {
                     setScrollPosProjects: () => containerProjectsRef.current?.scrollIntoView({ behavior: "smooth" }),
                     setScrollPosExperience: () => containerExperienceRef.current?.scrollIntoView({ behavior: "smooth" }),
                     setScrollPosEducation: () => containerEducationRef.current?.scrollIntoView({ behavior: "smooth" }),
-                    onThemeToggle:(newTheme: string) => setCurrentTheme(newTheme),
-                    onLayoutWidthToggle:(newLayoutWidth: string) => setLayoutWidth(newLayoutWidth),
-                    onLanguageChange:(newLanguage: string) => setSelectedLanguage(newLanguage)
+                    onThemeToggle: (newTheme: string) => setCurrentTheme(newTheme),
+                    onLayoutWidthToggle: (newLayoutWidth: string) => setLayoutWidth(newLayoutWidth),
+                    onLanguageChange: (newLanguage: string) => setSelectedLanguage(newLanguage)
                 }}
                 selectedLanguage={selectedLanguage}
                 currentTheme={currentTheme}
@@ -458,54 +318,27 @@ export default function Home() {
                             <h4>{headerContent["bottom"]}</h4>
                         </div>
                         <div className="w-full my-12 flex justify-center items-center">
-                            {/* 3d computer model */}
                             <Canvas3D voxelJson={computer} className="h-126 lg:w-full sm:w-1/2 justify-self-center z-11"/>
                         </div>
                     </header>
-                    <main className={`${layoutWidth==="N" ? "xl:w-6/9 w-8/9" : "w-8/9"} mx-8 justify-self-center ${transitionClasses}`}>
+                    <main className={`${layoutWidth === "N" ? "xl:w-6/9 w-8/9" : "w-8/9"} mx-8 justify-self-center ${transitionClasses}`}>
                         {/* ABOUT ME */}
                         <div ref={containerAboutMeRef} className="mb-64">
-                            {/* <div ref={containerAboutMeRef} className="flex flex-col mb-64">
-                                <div className="flex flex-col lg:flex-row p-5 gap-5 lg:h-96">
-                                    <div className="w-full lg:w-1/2 h-64 lg:h-auto shrink-0">
-                                        <Canvas3D voxelJson={kj}/>
-                                    </div>
-                                    <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full lg:w-1/2 rounded-4xl p-5 flex items-center ${transitionClasses}`}>
-                                        <div>
-                                            <p className="text-xl font-light mb-4">{aboutMeContent["bio"]}</p>
-                                            <p className="text-md font-light italic">{aboutMeContent["bio2"]}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 p-5 gap-12 h-full items-center">
-                                {/* 3d voxel about me */}
                                 <div className="h-64 shrink-0">
                                     <Canvas3D voxelJson={kj}/>
                                 </div>
                                 <div className="grid gap-4">
-                                    <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} rounded-4xl p-5 items-center ${transitionClasses}`}>
+                                    <div className={`${currentTheme === "D" ? "bg-stone-800" : "bg-stone-300"} rounded-4xl p-5 items-center ${transitionClasses}`}>
                                         <div>
-                                            {
-                                                aboutMeContent["bio"] && renderBioText(aboutMeContent["bio"])
-                                            }
+                                            {aboutMeContent["bio"] && renderBioText(aboutMeContent["bio"])}
                                         </div>
-                                        <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} border-dashed mb-4 ${transitionClasses}`}/>
+                                        <hr className={`${currentTheme === "D" ? "border-stone-600" : "border-stone-400"} border-dashed mb-4 ${transitionClasses}`}/>
                                         <div>
-                                            {
-                                                aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])
-                                            }
+                                            {aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])}
                                             <p className="text-sm font-light italic">{aboutMeContent["bio_bottom"]}</p>
                                         </div>
                                     </div>
-                                    {/* <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} rounded-4xl p-5 items-center ${transitionClasses}`}>
-                                        <div>
-                                            {
-                                                aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])
-                                            }
-                                            <p className="text-sm font-light italic">{aboutMeContent["bio_bottom"]}</p>
-                                        </div>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -513,7 +346,7 @@ export default function Home() {
                         <div ref={containerSkillsRef} className="my-5">
                             <h1>{skillsInfo["header"]}</h1>
                             {
-                                Object.keys(skills).map((skill:string,idx:number)=>{
+                                Object.keys(skills).map((skill: string, idx: number) => {
                                     return (
                                         <div key={`skill-cat-${idx}`}>
                                             <h4 className="text-left">{skillsInfo[`${skill}_header`]}</h4>
@@ -525,15 +358,14 @@ export default function Home() {
                                                 }`}
                                             >
                                                 {
-                                                    skills[skill].map((s: any, index: number)=>{
+                                                    skills[skill].map((s: any, index: number) => {
                                                         const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight, camPosition, fov} = s;
-
                                                         const proficiency = 
-                                                        dict_obj==="lang" ? 
-                                                        skillsInfo["language_proficiencies"][skill_proficiency] : 
-                                                        dict_obj==="none" ?
-                                                        skill_proficiency :
-                                                        skillsInfo["skill_proficiencies"][skill_proficiency];
+                                                            dict_obj === "lang" ? 
+                                                            skillsInfo["language_proficiencies"][skill_proficiency] : 
+                                                            dict_obj === "none" ?
+                                                            skill_proficiency :
+                                                            skillsInfo["skill_proficiencies"][skill_proficiency];
                                                         
                                                         return (
                                                             <SkillContainer
@@ -551,7 +383,6 @@ export default function Home() {
                                                         )
                                                     })
                                                 }
-                                                
                                             </div>
                                         </div>
                                     )
@@ -565,26 +396,19 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{projectsContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>
                             </div>
                             {
-                                projectsToggleIndex===0 && (
+                                projectsToggleIndex === 0 && (
                                     <div className="relative w-full max-w-full min-w-0">
                                         <div 
-                                            className={`w-full ${
-                                                isTouchDevice 
-                                                    ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
-                                                    : "overflow-hidden"
-                                            }`}
-                                            // style={{ height: isTouchDevice ? 'auto' : projectHeight }}
+                                            className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"}`}
                                             style={{ height: projectHeight }}
                                             onScroll={(e) => handleTouchScroll(e, setProjectIndex)}
                                         >
                                             <div 
                                                 ref={projectTrackRef}
-                                                className={`flex flex-row gap-4 items-start ${
-                                                    !isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""
-                                                }`}
+                                                className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
                                                 style={{ 
                                                     transform: isTouchDevice 
                                                         ? 'none' 
@@ -592,72 +416,56 @@ export default function Home() {
                                                 }}
                                             >
                                                 {
-                                                    projectsContent["projects"].map((proj: any, index: number)=>{
+                                                    projectsContent["projects"].map((proj: any, index: number) => {
                                                         const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                                        
-                                                        return <div 
-                                                            key={`proj-${index}`} 
-                                                            className={`shrink-0 ${
-                                                                isTouchDevice 
-                                                                    ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" 
-                                                                    : "w-full"
-                                                            }`}
-                                                        >
-                                                            <ProjectListItem
-                                                                key={`proj-${index}`}
-                                                                reflection={reflection}
-                                                                transitionClasses={transitionClasses}
-                                                                currentTheme={currentTheme}
-                                                                name={name}
-                                                                short_description={short_description}
-                                                                description={description}
-                                                                skills={skillsList}
-                                                                date={date}
-                                                                media_url={media_url}
-                                                                source_code={source_code}
-                                                                web_link={web_link}
-                                                                about_header={projectsContent["about_header"]}
-                                                                reflection_header={projectsContent["reflection_header"]}
-                                                                changelog={changelog}
-                                                            />
-                                                        </div>;
+                                                        return (
+                                                            <div 
+                                                                key={`proj-${index}`} 
+                                                                className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}
+                                                            >
+                                                                <ProjectListItem
+                                                                    key={`proj-${index}`}
+                                                                    reflection={reflection}
+                                                                    transitionClasses={transitionClasses}
+                                                                    currentTheme={currentTheme}
+                                                                    name={name}
+                                                                    short_description={short_description}
+                                                                    description={description}
+                                                                    skills={skillsList}
+                                                                    date={date}
+                                                                    media_url={media_url}
+                                                                    source_code={source_code}
+                                                                    web_link={web_link}
+                                                                    about_header={projectsContent["about_header"]}
+                                                                    reflection_header={projectsContent["reflection_header"]}
+                                                                    changelog={changelog}
+                                                                />
+                                                            </div>
+                                                        );
                                                     })
                                                 }
                                             </div>
                                         </div>   
-                                        {/* PAGINATION */}
                                         {!isTouchDevice && <div className="flex justify-center items-center gap-8">
                                             <button 
-                                                onClick={()=>setProjectIndex(projectIndex-1)}
-                                                className={`${windowWidth>=768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"}
-                                                ${projectIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                transition-colors duration-200 ease-in-out
-                                                hover:opacity-50
-                                                `}
+                                                onClick={() => setProjectIndex(projectIndex - 1)}
+                                                className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${projectIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                 aria-label="project-prev"
                                             >
                                                 <ChevronLeft strokeWidth={2} size={48}/>
                                             </button>
                                             {
-                                                projectsContent["projects"].map((_: any,idx: number)=>(
+                                                projectsContent["projects"].map((_: any, idx: number) => (
                                                     <button
                                                         key={`circle-btn-${idx}`} 
-                                                        onClick={()=>setProjectIndex(idx)}
-                                                        className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
-                                                            ${idx==projectIndex ? 
-                                                                (currentTheme==="D" ? "bg-white" : "bg-black") : 
-                                                                (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
-                                                            `}
-                                                    >
-                                                    </button>
+                                                        onClick={() => setProjectIndex(idx)}
+                                                        className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer ${idx == projectIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
+                                                    />
                                                 ))
                                             }
                                             <button 
-                                                onClick={()=>setProjectIndex(projectIndex+1)}
-                                                className={`${windowWidth>=768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white bg-white/10" : "text-black bg-black/20"}
-                                                ${projectIndex < projectsContent["projects"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                transition-colors duration-200 ease-in-out 
-                                                hover:opacity-50`}
+                                                onClick={() => setProjectIndex(projectIndex + 1)}
+                                                className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white bg-white/10" : "text-black bg-black/20"} ${projectIndex < projectsContent["projects"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                 aria-label="project-next"
                                             >
                                                 <ChevronRight strokeWidth={2} size={48}/>
@@ -667,12 +475,11 @@ export default function Home() {
                                 )
                             }
                             {
-                                projectsToggleIndex===1 && (
+                                projectsToggleIndex === 1 && (
                                     <div>
                                         {
-                                            projectsContent["projects"].map((proj: any, index: number)=>{
+                                            projectsContent["projects"].map((proj: any, index: number) => {
                                                 const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                                
                                                 return <ProjectListItem
                                                     key={`proj-${index}`}
                                                     reflection={reflection}
@@ -696,12 +503,11 @@ export default function Home() {
                                 )
                             }
                             {
-                                projectsToggleIndex===2 && (
+                                projectsToggleIndex === 2 && (
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {
-                                            projectsContent["projects"].map((proj: any, index: number)=>{
-                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                                
+                                            projectsContent["projects"].map((proj: any, index: number) => {
+                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link} = proj;
                                                 return <ProjectGridItem
                                                     key={`proj-${index}`}
                                                     reflection={reflection}
@@ -729,60 +535,44 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{experienceContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setExperienceToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={experienceToggleIndex}/>
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setExperienceToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={experienceToggleIndex}/>
                             </div>
-                            {/* experience container */}
                             <div>
                                 {
                                     experienceToggleIndex === 0 && (
                                         <div className="relative w-full max-w-full min-w-0">
-                                            <div style={{ height: experienceHeight }} className={`w-full ${
-                                                isTouchDevice 
-                                                    ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
-                                                    : "overflow-hidden"
-                                            } transition-[height] duration-500 ease-in-out relative`}
-                                            onScroll={(e) => handleTouchScroll(e, setExperienceIndex)}>
+                                            <div style={{ height: experienceHeight }} className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"} transition-[height] duration-500 ease-in-out relative`} onScroll={(e) => handleTouchScroll(e, setExperienceIndex)}>
                                                 <div 
-                                                ref={experienceTrackRef}
-                                                className={`flex flex-row gap-4 items-start ${
-                                                    !isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""
-                                                }`}
-                                                style={{ 
-                                                    transform: isTouchDevice ? 
-                                                    "none" :
-                                                    `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
-                                                }}
+                                                    ref={experienceTrackRef}
+                                                    className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
+                                                    style={{ 
+                                                        transform: isTouchDevice ? "none" : `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
+                                                    }}
                                                 >
                                                     {
-                                                        experienceContent["experiences"].map((exp: any, index: number)=>{
+                                                        experienceContent["experiences"].map((exp: any, index: number) => {
                                                             const {company, role, description, dates, skills, reflection, json_model, json_model_cam_settings} = exp;
-
                                                             const fov = json_model_cam_settings?.["fov"];
                                                             const camPosition = json_model_cam_settings?.["camPosition"];
 
                                                             return (
-                                                                <div key={`e-${index}`} className={`shrink-0 ${
-                                                                    isTouchDevice 
-                                                                        ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" 
-                                                                        : "w-full"
-                                                                }`}>
+                                                                <div key={`e-${index}`} className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}>
                                                                     <ExperienceListItem 
                                                                         key={`e-${index}`}
                                                                         transitionClasses={transitionClasses}
                                                                         skills={skills}
                                                                         currentTheme={currentTheme}
-                                                                        company = {company}
-                                                                        role = {role}
-                                                                        description = {description}
-                                                                        dates = {dates}
-                                                                        jsonModel = {json_model}
-                                                                        jsonModelFov = {fov}
-                                                                        jsonModelCamPosition = {camPosition}
-                                                                        // isModelVisible = {experienceIndex===index}
+                                                                        company={company}
+                                                                        role={role}
+                                                                        description={description}
+                                                                        dates={dates}
+                                                                        jsonModel={json_model}
+                                                                        jsonModelFov={fov}
+                                                                        jsonModelCamPosition={camPosition}
                                                                         isModelVisible={true}
-                                                                        bio_header = {experienceContent["bio_header"]}
-                                                                        reflection = {reflection}
-                                                                        reflection_header = {experienceContent["reflection_header"]}
+                                                                        bio_header={experienceContent["bio_header"]}
+                                                                        reflection={reflection}
+                                                                        reflection_header={experienceContent["reflection_header"]}
                                                                     />
                                                                 </div>
                                                             )
@@ -790,39 +580,26 @@ export default function Home() {
                                                     }
                                                 </div>
                                             </div>
-                                            {/* PAGINATION */}
                                             {!isTouchDevice && <div className="justify-center items-center flex gap-8">
                                                 <button 
-                                                    onClick={()=>setExperienceIndex(experienceIndex-1)}
-                                                    className={`${windowWidth>=768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"}
-                                                    ${experienceIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                    transition-colors duration-200 ease-in-out
-                                                    hover:opacity-50
-                                                    `}
+                                                    onClick={() => setExperienceIndex(experienceIndex - 1)}
+                                                    className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${experienceIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                     aria-label="experience-prev"
                                                 >
-                                                    <ChevronLeft strokeWidth={2} size={48}/>                                            
+                                                    <ChevronLeft strokeWidth={2} size={48}/>                                             
                                                 </button>
                                                 {
-                                                    experienceContent["experiences"].map((_: any,idx: number)=>(
+                                                    experienceContent["experiences"].map((_: any, idx: number) => (
                                                         <button
                                                             key={`circle-btn-${idx}`} 
-                                                            onClick={()=>setExperienceIndex(idx)}
-                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
-                                                                ${idx==experienceIndex ? 
-                                                                    (currentTheme==="D" ? "bg-white" : "bg-black") : 
-                                                                    (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
-                                                                `}
-                                                        >
-                                                        </button>
+                                                            onClick={() => setExperienceIndex(idx)}
+                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer ${idx == experienceIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
+                                                        />
                                                     ))
                                                 }
                                                 <button 
-                                                    onClick={()=>setExperienceIndex(experienceIndex+1)}
-                                                    className={`${windowWidth>=768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"}
-                                                    ${experienceIndex < experienceContent["experiences"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                    transition-colors duration-200 ease-in-out 
-                                                    hover:opacity-50`}
+                                                    onClick={() => setExperienceIndex(experienceIndex + 1)}
+                                                    className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${experienceIndex < experienceContent["experiences"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                     aria-label="experience-next"
                                                 >
                                                     <ChevronRight strokeWidth={2} size={48}/>
@@ -832,7 +609,7 @@ export default function Home() {
                                     )
                                 }
                                 {
-                                    experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number)=>{
+                                    experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number) => {
                                         const {company, role, description, dates, skills, reflection, json_model, json_model_fov} = exp;
                                         return (
                                             <ExperienceListItem 
@@ -840,16 +617,16 @@ export default function Home() {
                                                 transitionClasses={transitionClasses}
                                                 skills={skills}
                                                 currentTheme={currentTheme}
-                                                company = {company}
-                                                role = {role}
-                                                description = {description}
-                                                dates = {dates}
-                                                jsonModel = {json_model}
-                                                jsonModelFov = {json_model_fov}
-                                                isModelVisible = {true}
-                                                bio_header = {experienceContent["bio_header"]}
-                                                reflection = {reflection}
-                                                reflection_header = {experienceContent["reflection_header"]}
+                                                company={company}
+                                                role={role}
+                                                description={description}
+                                                dates={dates}
+                                                jsonModel={json_model}
+                                                jsonModelFov={json_model_fov}
+                                                isModelVisible={true}
+                                                bio_header={experienceContent["bio_header"]}
+                                                reflection={reflection}
+                                                reflection_header={experienceContent["reflection_header"]}
                                             />
                                         )
                                     })
@@ -863,120 +640,80 @@ export default function Home() {
                                 <div className="w-full">
                                     <h1 className="m-0">{educationContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number)=>setEducationToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={educationToggleIndex}/>
+                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setEducationToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={educationToggleIndex}/>
                             </div>
                             <div>
                                 {
                                     educationToggleIndex === 0 && (
                                         <div className="relative w-full max-w-full min-w-0">
-                                            <div style={{ height: educationHeight }} className={`w-full ${
-                                                isTouchDevice 
-                                                    ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" 
-                                                    : "overflow-hidden"
-                                            } transition-[height] duration-500 ease-in-out`}
-                                            onScroll={(e) => handleTouchScroll(e, setProjectIndex)}>
+                                            <div style={{ height: educationHeight }} className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"} transition-[height] duration-500 ease-in-out`} onScroll={(e) => handleTouchScroll(e, setEducationIndex)}>
                                                 <div 
-                                                className={`flex flex-row gap-4 items-start ${
-                                                    !isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""
-                                                }`}
-                                                ref={educationTrackRef}
-                                                style={{ 
-                                                    transform: isTouchDevice ? 
-                                                    "none" : 
-                                                    `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
-                                                }}
-                                                onScroll={(e) => handleTouchScroll(e, setEducationIndex)}
+                                                    className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
+                                                    ref={educationTrackRef}
+                                                    style={{ 
+                                                        transform: isTouchDevice ? "none" : `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
+                                                    }}
                                                 >
                                                     {
-                                                        educationContent["list"].map((edu: any, index: number)=>{
-                                                            const {institution, 
-                                                                certificate, 
-                                                                relevant_coursework,
-                                                                activities,
-                                                                academic_projects,
-                                                                awards,
-                                                                bio,
-                                                                dates,
-                                                                media_url,
-                                                                json_model,
-                                                                json_model_cam_settings,
-                                                                skills} = edu;
-
+                                                        educationContent["list"].map((edu: any, index: number) => {
+                                                            const {institution, certificate, relevant_coursework, activities, academic_projects, awards, bio, dates, media_url, json_model, json_model_cam_settings, skills} = edu;
                                                             const fov = json_model_cam_settings?.["fov"];
                                                             const camPosition = json_model_cam_settings?.["camPosition"];
                                                             
-                                                                return (
-                                                                    <div key={`e-${index}`} className={`shrink-0 ${
-                                                                        isTouchDevice 
-                                                                            ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" 
-                                                                            : "w-full"
-                                                                    }`}>
-                                                                        <EducationListItem
-                                                                            key={`edu-${index}`}
-                                                                            transitionClasses={transitionClasses}
-                                                                            currentTheme={currentTheme}
-                                                                            institution={institution}
-                                                                            certificate={certificate}
-                                                                            relevant_coursework={relevant_coursework}
-                                                                            relevant_coursework_header={educationContent["relevant_coursework_header"]}
-                                                                            activities={activities}
-                                                                            activities_header={educationContent["activities_header"]}
-                                                                            academic_projects={academic_projects}
-                                                                            academicProjects={academic_projects}
-                                                                            academic_projects_header={educationContent["academic_projects_header"]}
-                                                                            awards={awards}
-                                                                            awards_header={educationContent["awards_header"]}
-                                                                            bio={bio}
-                                                                            bio_header={educationContent["bio_header"]}
-                                                                            dates={dates}
-                                                                            media_url={media_url}
-                                                                            jsonModel={json_model}
-                                                                            jsonModelFov={fov}
-                                                                            jsonModelCamPosition={camPosition}
-                                                                            skills={skills}
-                                                                            // isModelVisible = {educationIndex===index || isTouchDevice}
-                                                                            isModelVisible={true}
-                                                                            windowWidth={windowWidth}
-                                                                        />
-                                                                    </div>
-                                                                )
+                                                            return (
+                                                                <div key={`e-${index}`} className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}>
+                                                                    <EducationListItem
+                                                                        key={`edu-${index}`}
+                                                                        transitionClasses={transitionClasses}
+                                                                        currentTheme={currentTheme}
+                                                                        institution={institution}
+                                                                        certificate={certificate}
+                                                                        relevant_coursework={relevant_coursework}
+                                                                        relevant_coursework_header={educationContent["relevant_coursework_header"]}
+                                                                        activities={activities}
+                                                                        activities_header={educationContent["activities_header"]}
+                                                                        academic_projects={academic_projects}
+                                                                        academicProjects={academic_projects}
+                                                                        academic_projects_header={educationContent["academic_projects_header"]}
+                                                                        awards={awards}
+                                                                        awards_header={educationContent["awards_header"]}
+                                                                        bio={bio}
+                                                                        bio_header={educationContent["bio_header"]}
+                                                                        dates={dates}
+                                                                        media_url={media_url}
+                                                                        jsonModel={json_model}
+                                                                        jsonModelFov={fov}
+                                                                        jsonModelCamPosition={camPosition}
+                                                                        skills={skills}
+                                                                        isModelVisible={true}
+                                                                        windowWidth={windowWidth}
+                                                                    />
+                                                                </div>
+                                                            )
                                                         })
                                                     }
-                                                    </div>
+                                                </div>
                                             </div>
-                                            {/* PAGINATION */}
                                             {!isTouchDevice && <div className="justify-center items-center flex gap-8">
                                                 <button 
-                                                    onClick={()=>setEducationIndex(educationIndex-1)}
-                                                    className={`${windowWidth>=768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"}
-                                                    ${educationIndex>0 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                    transition-colors duration-200 ease-in-out
-                                                    hover:opacity-50
-                                                    `}
+                                                    onClick={() => setEducationIndex(educationIndex - 1)}
+                                                    className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${educationIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                     aria-label="education-prev"
                                                 >
-                                                    <ChevronLeft strokeWidth={2} size={48}/>                                            
+                                                    <ChevronLeft strokeWidth={2} size={48}/>                                             
                                                 </button>
                                                 {
-                                                    educationContent["list"].map((_: any,idx: number)=>(
+                                                    educationContent["list"].map((_: any, idx: number) => (
                                                         <button
                                                             key={`circle-btn-${idx}`} 
-                                                            onClick={()=>setEducationIndex(idx)}
-                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer 
-                                                                ${idx==educationIndex ? 
-                                                                    (currentTheme==="D" ? "bg-white" : "bg-black") : 
-                                                                    (currentTheme==="D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}
-                                                                `}
-                                                        >
-                                                        </button>
+                                                            onClick={() => setEducationIndex(idx)}
+                                                            className={`w-4 h-4 hover:scale-12 class-all rounded-full cursor-pointer ${idx == educationIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
+                                                        />
                                                     ))
                                                 }
                                                 <button 
-                                                    onClick={()=>setEducationIndex(educationIndex+1)}
-                                                    className={`${windowWidth>=768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme==="D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"}
-                                                    ${educationIndex < educationContent["list"].length-1 ? "opacity-100" : "opacity-0 pointer-events-none"}
-                                                    transition-colors duration-200 ease-in-out 
-                                                    hover:opacity-50`}
+                                                    onClick={() => setEducationIndex(educationIndex + 1)}
+                                                    className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${educationIndex < educationContent["list"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
                                                     aria-label="education-next"
                                                 >
                                                     <ChevronRight strokeWidth={2} size={48}/>
@@ -986,53 +723,40 @@ export default function Home() {
                                     )
                                 }
                                 {
-                                    educationToggleIndex === 1 && educationContent["list"].map((edu: any, index: number)=>{
-                                        const {institution, 
-                                            certificate, 
-                                            relevant_coursework,
-                                            activities,
-                                            academic_projects,
-                                            awards,
-                                            bio,
-                                            dates,
-                                            media_url,
-                                            json_model,
-                                            skills} = edu;
-                                        
-                                            return (
-                                                <EducationListItem
-                                                    key={`edu-${index}`}
-                                                    transitionClasses={transitionClasses}
-                                                    currentTheme={currentTheme}
-                                                    institution={institution}
-                                                    certificate={certificate}
-                                                    relevant_coursework={relevant_coursework}
-                                                    relevant_coursework_header={educationContent["relevant_coursework_header"]}
-                                                    activities={activities}
-                                                    activities_header={educationContent["activities_header"]}
-                                                    academic_projects={academic_projects}
-                                                    academicProjects={academic_projects}
-                                                    academic_projects_header={educationContent["academic_projects_header"]}
-                                                    awards={awards}
-                                                    awards_header={educationContent["awards_header"]}
-                                                    bio={bio}
-                                                    bio_header={educationContent["bio_header"]}
-                                                    dates={dates}
-                                                    media_url={media_url}
-                                                    jsonModel={json_model}
-                                                    skills={skills}
-                                                    isModelVisible = {true}
-                                                    windowWidth={windowWidth}
-                                                />
-                                            )
+                                    educationToggleIndex === 1 && educationContent["list"].map((edu: any, index: number) => {
+                                        const {institution, certificate, relevant_coursework, activities, academic_projects, awards, bio, dates, media_url, json_model, skills} = edu;
+                                        return (
+                                            <EducationListItem
+                                                key={`edu-${index}`}
+                                                transitionClasses={transitionClasses}
+                                                currentTheme={currentTheme}
+                                                institution={institution}
+                                                certificate={certificate}
+                                                relevant_coursework={relevant_coursework}
+                                                relevant_coursework_header={educationContent["relevant_coursework_header"]}
+                                                activities={activities}
+                                                activities_header={educationContent["activities_header"]}
+                                                academic_projects={academic_projects}
+                                                academicProjects={academic_projects}
+                                                academic_projects_header={educationContent["academic_projects_header"]}
+                                                awards={awards}
+                                                awards_header={educationContent["awards_header"]}
+                                                bio={bio}
+                                                bio_header={educationContent["bio_header"]}
+                                                dates={dates}
+                                                media_url={media_url}
+                                                jsonModel={json_model}
+                                                skills={skills}
+                                                isModelVisible={true}
+                                                windowWidth={windowWidth}
+                                            />
+                                        )
                                     })
                                 }
                             </div>
                         </div>
-                        {/* HOBBIES ( COMING SOON ) */}
-                        
                     </main>
-                    <footer className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-400"} text-center ${transitionClasses} py-20`}>
+                    <footer className={`${currentTheme === "D" ? "bg-stone-800" : "bg-stone-400"} text-center ${transitionClasses} py-20`}>
                         <div className="lg:flex p-5">
                             <div className="md:w-full flex flex-col justify-center items-center">
                                 <h1 className="text-6xl">{footerContent["header"]}</h1>
@@ -1138,51 +862,6 @@ export default function Home() {
                                     )}
                                 </div>
                             </div>
-                            {/* <form 
-                            className="lg:w-1/2 md:w-full flex flex-col text-left gap-y-4 p-5"
-                            onSubmit={handleSubmit}>
-                                <div className="flex flex-col">
-                                    <label htmlFor="Name">{formContent["name"]}</label>
-                                    <input className={
-                                        currentTheme === "D" ? darkInputTheme : lightInputTheme
-                                    } type="text" 
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required/>
-                                </div>
-                                <div className="flex flex-col">
-                                    <label htmlFor="Email">{formContent["email"]}</label>
-                                    <input className={
-                                        currentTheme === "D" ? darkInputTheme : lightInputTheme
-                                    } type="email" 
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required/>
-                                </div>
-                                <div className="flex flex-col">
-                                    <label htmlFor="Message">{formContent["message"]}</label>
-                                    <textarea className={
-                                        `${currentTheme === "D" ? darkInputTheme : lightInputTheme} h-25`
-                                    }
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required></textarea>
-                                </div>
-                                <hr className="w-full border-stone-400 self-center"/>
-                                <div>
-                                    <input 
-                                    className={currentTheme==="D" ? darkSubmitTheme : lightSubmitTheme} 
-                                    type="submit"
-                                    disabled={status === "submitting"}
-                                    value={status === "submitting" ? "Sending..." : "Submit"} 
-                                    />
-                                </div>
-                                {status === "success" && <p className="text-green-500 mt-2">Message sent successfully!</p>}
-                                {status === "error" && <p className="text-red-500 mt-2">Failed to send message. Try again.</p>}
-                            </form> */}
                         </div>
                         <div className="mt-10 pb-10">
                             <p className="italic font-light">{footerContent["bottom"]}</p>
@@ -1195,7 +874,7 @@ export default function Home() {
                 eventSource={containerRef as React.RefObject<HTMLElement>}
                 className="fixed! inset-0! pointer-events-none z-10"
                 events={undefined}
-                camera={{fov:10,zoom:0.5}}
+                camera={{fov: 10, zoom: 0.5}}
             >
                 <View.Port />
                 <Preload all/>
