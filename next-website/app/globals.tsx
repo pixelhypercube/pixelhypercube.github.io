@@ -240,7 +240,8 @@ export const skills : Record<any, any> = {
             "name":"PostgreSQL",
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_postgresql,
-            "jsonModelLight":skill_light_postgresql
+            "jsonModelLight":skill_light_postgresql,
+            "fov":35,
         },
         {
             "name":"MySQL",
@@ -254,13 +255,15 @@ export const skills : Record<any, any> = {
             "name":"Git",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_git,
-            "jsonModelLight":skill_light_git
+            "jsonModelLight":skill_light_git,
+            "fov":65,
         },
         {
             "name":"Github",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_github,
-            "jsonModelLight":skill_light_github
+            "jsonModelLight":skill_light_github,
+            "fov":65,
         }
     ],
     "design": [
@@ -567,7 +570,10 @@ Thanks for stopping by and enjoy your stay!`,
                             ],
                             [
                                 <p>Featured on <a className="underline" href="https://www.facebook.com/photo/?fbid=615021920650301&set=pcb.615023607316799">Army News</a> for contributions to the QR Code attendance scanning system!</p>,
-                                experience_ns_army_news
+                                experience_ns_army_news,
+                                {
+                                    "fov":65
+                                }
                             ],
                             [
                                 "QA-tested numerous unit-based Telegram chatbots (Parade State, Events Bot, etc.) and improved overall reliability.",
@@ -589,7 +595,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 }
                             ]
                         ],
-                        "reflection":`The idea of actually doing programming alongside regular admin work in NS not only felt quite interesting, but I have the privilege to leverage my skillsets during my service!`,
+                        "reflection":`My National Service (NS) experience was somewhat different from many others as I was posted to a clerical unit. During my service, I had the opportunity to apply my skills to develop and test systems designed to optimize manual processes. One of my greatest achievements was building a QR Code attendance scanning system that successfully streamlined tracking for hundreds of users. In addition, I managed administrative duties — a great introduction to the brutal realities of the working world. Despite the ups and downs I faced throughout my service, I am still thankful for all the opportunities I was given, as the entire experience helped me mature and grow significantly!`,
                         "skills": ["Node.js", "EJS","Express.js", "Git"],
                         "dates": [
                             [new Date("12/05/2022"), new Date("08/05/2024")] ,
@@ -657,7 +663,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 experience_leaptron_appgyver
                             ]
                         ],
-                        "reflection":`This was my first ever legitimate working experience, where I started out with working on several projects instructed by the company. It gave me the first impressions of what it's like in a working environment, where I had been quite `,
+                        "reflection":`My time at Leaptron Engineering marked my first step into the IT industry, where I was immediately tasked with executing several company projects. It was a steep learning curve that pushed me far beyond the foundational concepts I learnt in polytechnic, which forced me to rapidly acquire new technical skills ranging from C# to Modbus. The workload was genuinely intense at times - resulting in burning the midnight oil to meet demanding project deadlines. However, it helped me develop resilience and solve critical problems under pressure. Despite the intense hours and heavy deliverables, I am incredibly grateful for the experience because it provided me with an authentic and unfiltered look into the IT world and equipped me with practical capabilities that cannot be taught in a classroom.`,
                         // "description": [
                         //     "Architected C# programs to help with shipping management!",
                         //     "Developed Node.js and created databases for efficient inventory management!",
