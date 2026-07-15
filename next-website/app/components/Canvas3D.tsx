@@ -137,9 +137,9 @@ interface Canvas3DProps {
     className?: string;
     fov?: number;
     autoRotateSpeed?: number;
-    camPosition?: number;
+    camPosition?: [number, number, number];
 }
-export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, camPosition} : Canvas3DProps) {
+export default function Canvas3D({voxelJson, className, fov = 50, autoRotateSpeed, camPosition} : Canvas3DProps) {
     if (!voxelJson?.data) return null;
 
     const sizeClasses = className || "w-full h-full";
@@ -174,7 +174,12 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
                 <ambientLight intensity={0.5}/>
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <Environment preset="city"/>
-                {layoutSettled ? (
+                <Center>
+                    <group visible={inView}>
+                        <CustomVoxel voxelJson={voxelJson}/>
+                    </group>
+                </Center>
+                {/* {layoutSettled ? (
                     <Bounds fit clip observe={inView} margin={1.2}>
                         <Center>
                             <group visible={inView}>
@@ -188,7 +193,7 @@ export default function Canvas3D({voxelJson, className, fov, autoRotateSpeed, ca
                             <CustomVoxel voxelJson={voxelJson}/>
                         </group>
                     </Center>
-                )}
+                )} */}
                 <OrbitControls
                 makeDefault
                 enableZoom={false}

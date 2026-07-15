@@ -13,6 +13,8 @@ interface ExperienceProps {
     skills?: Array<string>;
     transitionClasses?: string;
     jsonModel?:Record<string, string>;
+    jsonModelFov?:number;
+    jsonModelCamPosition?:[number, number, number];
     isModelVisible?:boolean;
     reflection?:string;
 
@@ -29,7 +31,7 @@ interface Tab {
 }
 
 export function ExperienceListItem({
-    company,role,description,dates,currentTheme,skills,transitionClasses,jsonModel,isModelVisible,reflection,bio_header,reflection_header
+    company,role,description,dates,currentTheme,skills,transitionClasses,jsonModel,jsonModelFov,jsonModelCamPosition,isModelVisible,reflection,bio_header,reflection_header
 } : ExperienceProps) {
     const [currentTabs, setCurrentTabs] = useState<Tab[]>([]);
     const [selectedTab, setSelectedTab] = useState<any>();
@@ -87,12 +89,11 @@ export function ExperienceListItem({
     //     window.addEventListener("resize", updateSliderPosition);
     //     return () => window.removeEventListener("resize", updateSliderPosition);
     // }, [selectedTab, currentTabs]);
-
     return (
         <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
             <header className="md:flex w-full mb-5 gap-4">
                 <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
-                    {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
+                    {jsonModel && isModelVisible && <Canvas3D fov={jsonModelFov} camPosition={jsonModelCamPosition} voxelJson={jsonModel}/>}
                 </div>
                 <div className="flex-1 min-w-0">
                     <h3 className="m-0">{role}</h3>
@@ -186,13 +187,16 @@ export function ExperienceListItem({
                             {
                                 description && description.map((item: any, index: number)=>{
                                     const [desc, jsonModel] = item;
+
+                                    const fov = item?.[2]?.fov;
+                                    const camPosition = item?.[2]?.camPosition;
                                     return (
                                         <div 
                                         key={`desc-exp-${index}`} 
                                         className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}
                                         >
                                             <div className={`w-full h-36 relative`}>
-                                                {isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
+                                                {isModelVisible && <Canvas3D fov={fov} camPosition={camPosition} voxelJson={jsonModel}/>}
                                             </div>
                                             <hr className={`${currentTheme==="D" ? "border-stone-500" : "border-stone-500"} mb-2`} />
                                             {desc}

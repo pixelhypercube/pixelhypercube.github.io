@@ -283,28 +283,32 @@ export const skills : Record<any, any> = {
             "dict_obj": "lang", // default is skill_proficiencies
             "skill_proficiency":5,
             "jsonModelDark":skill_dark_lang_en,
-            "jsonModelLight":skill_light_lang_en
+            "jsonModelLight":skill_light_lang_en,
+            "fov":30
         },
         {
             "name":"Chinese",
             "dict_obj": "lang",
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_lang_cn,
-            "jsonModelLight":skill_light_lang_cn
+            "jsonModelLight":skill_light_lang_cn,
+            "fov":35
         },
         {
             "name":"Japanese",
             "dict_obj": "lang",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_lang_jp,
-            "jsonModelLight":skill_light_lang_jp
+            "jsonModelLight":skill_light_lang_jp,
+            "fov":40
         },
         {
             "name":"Korean",
             "dict_obj": "lang",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_lang_kr,
-            "jsonModelLight":skill_light_lang_kr
+            "jsonModelLight":skill_light_lang_kr,
+            "fov":40
         },
         {
             "name":"Typing Speed",
@@ -323,19 +327,23 @@ export const skills : Record<any, any> = {
             "name":"LaTeX",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_latex,
-            "jsonModelLight":skill_light_latex
+            "jsonModelLight":skill_light_latex,
+            "fov":80,
+            "camPosition":[0,5,60]
         },
         {
             "name":"Shell Scripting",
             "skill_proficiency":0,
             "jsonModelDark":skill_dark_shell_scripting,
-            "jsonModelLight":skill_light_shell_scripting
+            "jsonModelLight":skill_light_shell_scripting,
+            "fov":35
         },
         {
             "name":"Pygame",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_pygame,
-            "jsonModelLight":skill_light_pygame
+            "jsonModelLight":skill_light_pygame,
+            "fov":80
         },
         {
             "name":"Technical Docs",
@@ -544,6 +552,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "company": "Singapore Armed Forces",
                         "role": "Software Engineer (NSF)",
                         "json_model":experience_ns_logo,
+                        "json_model_cam_settings":{
+                            "fov":25,
+                        },
                         // "description": [
                         //     "Developed a QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
                         //     "QA tested numerous unit-based Telegram chatbots and contributed to features for the Personnel Admin Link.",
@@ -586,6 +597,7 @@ Thanks for stopping by and enjoy your stay!`,
                         "company": "Eco Exchange Pte. Ltd.",
                         "role": "Lead Frontend Developer (SP FYP)",
                         "json_model":experience_ecoexchange_logo,
+                        "json_model_fov":45,
                         "description": [
                             [
                                 "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I worked on implementing more updates according to the company's new requirements.",
@@ -597,7 +609,11 @@ Thanks for stopping by and enjoy your stay!`,
                             ],
                             [
                                 "Successfully processed 700+ recycling tickets during the pilot phase, eliminating paper inefficiencies and streamlining data entry.",
-                                experience_ecoexchange_tickets
+                                experience_ecoexchange_tickets,
+                                {
+                                    "fov":55,
+                                    "camPosition":[0,5,80]
+                                }
                             ]
                         ],
                         "reflection":`Even though this is mainly considered a polytechnic FYP, the reason why I chose to label this as valid experience is because I have actually done valid KPIs for the company by actually letting the company actually producing 700+ real live tickets, all thanks to my contributions to my significant contributions to the frontend (which is why they could use it in the first place). Leveraging all of this without the use of LLMs is generally a big headache for most of us in the team, as we had to rely on sites like stackoverflow which sounds like a nightmare. Overall, I felt like it was a genuinely great learning experience for me working with another company and I honestly felt privileged to have had the experience with working wth them.`,
@@ -772,6 +788,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "certificate": "Bachelor of Computing (Honours) in Computer Science",
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         "json_model":edu_logo_ntu,
+                        "json_model_cam_settings": {
+                            "fov":45,
+                        },
                         "relevant_coursework":
                         {
                             "SC1007": {
@@ -782,6 +801,10 @@ Thanks for stopping by and enjoy your stay!`,
                             "SC1008": {
                                 "name": "C & C++ Programming",
                                 "jsonModel":sc1008,
+                                "json_model_cam_settings": {
+                                    "fov":70,
+                                    "camPosition":[0,5,50]
+                                },
                                 "module_coordinators":["Assoc. Prof. Hui Siu Cheung", "Assoc. Prof. Wang Yong"],
                             },
                             "SC2001": {
@@ -792,6 +815,9 @@ Thanks for stopping by and enjoy your stay!`,
                             "SC2002": {
                                 "name": "Object Oriented Design & Programming",
                                 "jsonModel":sc2002,
+                                "json_model_cam_settings": {
+                                    "fov":70,
+                                },
                                 "module_coordinators":["Prof. Zhang Jie", "Dr. Li Fang"],
                             },
                             "SC2006": {
@@ -811,7 +837,11 @@ Thanks for stopping by and enjoy your stay!`,
                                     "Was nice to experience the inner beauties of hall life!",
                                     "Helped me become more extroverted introvert"
                                 ],
-                                "jsonModel": hallX
+                                "jsonModel": hallX,
+                                "json_model_cam_settings": {
+                                    "fov":70,
+                                    "camPosition":[0,5,150]
+                                },
                             },
                             {
                                 "name":"Hall X Road Relay",
@@ -827,10 +857,16 @@ Thanks for stopping by and enjoy your stay!`,
                         "bio":[
                             {
                                 "json_model":edu_ntu_sethbling,
+                                "json_model_cam_settings":{
+                                    "fov":15,
+                                },
                                 "info":<p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>
                             },
                             {
                                 "json_model":edu_ntu_uni_life,
+                                "json_model_cam_settings":{
+                                    "fov":35,
+                                },
                                 "info":<p>If I have to sum up my university life up to now, I would say that it's been a interesting, yet competitive 😂</p>
                             },
                         ],
@@ -943,10 +979,16 @@ Thanks for stopping by and enjoy your stay!`,
                         "bio":[
                             {
                                 "json_model":kj_glasses,
+                                "json_model_cam_settings":{
+                                    "fov":55,
+                                },
                                 "info":<p>I chose Polytechnic solely because I want to continue enjoy being a tech nerd/geek instead of IB!</p>
                             },
                             {
                                 "json_model":edu_sp_group_work,
+                                "json_model_cam_settings":{
+                                    "fov":45,
+                                },
                                 "info":<p>One of the best things that happened during my polytechnic days was that I learned how not to be an antisocial person due to me experiencing group work on steroids 💪</p>
                             },
                         ],
@@ -967,6 +1009,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "institution": "Anglo-Chinese School (International)",
                         "certificate": "Cambridge International General Certificate of General Education (IGCSE)",
                         "json_model":edu_logo_acsint,
+                        "json_model_cam_settings": {
+                            "fov":65,
+                        },
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
                         // {
@@ -1009,6 +1054,10 @@ Thanks for stopping by and enjoy your stay!`,
                         "bio":[
                             {
                                 "json_model":edu_acs_transfer,
+                                "json_model_cam_settings":{
+                                    "fov":45,
+                                    "camPosition":[0,5,100]
+                                },
                                 "info":<p>Transferred here from ACS (Barker) after completing Sec 1 not only because my parents recommended me to take the IGCSE curriculum, but partly also because I wanted to join my sister!</p>
                             },
                             {
@@ -1028,6 +1077,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "institution": "Anglo-Chinese School (Barker Road)",
                         "certificate": "",
                         "json_model":edu_logo_acsbr,
+                        "json_model_cam_settings": {
+                            "fov":65,
+                        },
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
                         // {
@@ -1066,10 +1118,18 @@ Thanks for stopping by and enjoy your stay!`,
                         "bio":[
                             {
                                 "json_model":edu_acsbr_clock_tower,
+                                "json_model_cam_settings":{
+                                    "fov":45,
+                                    "camPosition":[0,5,60]
+                                },
                                 "info":<p>Was fun to see many of my primary school friends, classmates and schoolmates in ACS (Barker), as my primary school, ACS (Primary) is affiliated!</p>
                             },
                             {
                                 "json_model":edu_acs_transfer,
+                                "json_model_cam_settings":{
+                                    "fov":45,
+                                    "camPosition":[0,5,100]
+                                },
                                 "info":<p>I was in the Express Stream (GCE O-Level), but I transferred to ACS (International) right after Sec 1.</p>
                             }
                         ],

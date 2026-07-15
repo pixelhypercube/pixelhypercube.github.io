@@ -73,6 +73,10 @@ interface EducationProps {
     academicProjects:Array<Record<string, any>>;
     skills?:Array<string>;
 
+    // JSON MODEL CAM SETTINGS
+    jsonModelFov?: number;
+    jsonModelCamPosition?: [number, number, number];
+
     isModelVisible?:boolean;
     windowWidth:number;
 }
@@ -102,6 +106,8 @@ export function EducationListItem({
     currentTheme,
     transitionClasses,
     jsonModel,
+    jsonModelFov,
+    jsonModelCamPosition,
     skills,
     isModelVisible,
     windowWidth
@@ -211,7 +217,7 @@ export function EducationListItem({
             <div className="w-full">
                 <header className="md:flex w-full mb-5 gap-4">
                     <div className={`hidden md:block aspect-square w-full max-w-36 max-h-36 justify-self-start shrink-0 ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl`}>
-                        {jsonModel && isModelVisible && <Canvas3D voxelJson={jsonModel}/>}
+                        {jsonModel && isModelVisible && <Canvas3D fov={jsonModelFov} camPosition={jsonModelCamPosition} voxelJson={jsonModel}/>}
                     </div>
                     <div className="flex-1 min-w-0">
                         <h3 className="m-0">{institution}</h3>
@@ -324,12 +330,18 @@ export function EducationListItem({
                         {selectedTab?.id==="bio" && (
                             <div className="grid md:grid-cols-2 gap-4">
                                 {bio?.map((item: any, index: number)=>{
-                                    const {json_model, info} = item;
+                                    const {json_model, info, json_model_cam_settings} = item;
+
+                                    const fov = json_model_cam_settings?.["fov"];
+                                    const camPosition = json_model_cam_settings?.["camPosition"];
+
                                     return (
                                         <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-xl p-4`} key={index}>
                                             {json_model && <div className="w-full h-36 relative">
                                                 {isModelVisible && 
                                                 <Canvas3D 
+                                                fov={fov}
+                                                camPosition={camPosition}
                                                 className={mobileDropdownOpened && index===0 ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
                                                 voxelJson={json_model}/>}
                                             </div>}
@@ -361,6 +373,13 @@ export function EducationListItem({
                                             <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                                 {
                                                     Object.keys(relevant_coursework).map((moduleCode : string, index : number)=>{
+                                                        
+                                                        const {json_model_cam_settings} = relevant_coursework[moduleCode];
+
+                                                        const fov = json_model_cam_settings?.["fov"];
+                                                        const camPosition = json_model_cam_settings?.["camPosition"];
+
+
                                                         if (selectedRelCWIndex===0) {
                                                             return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2  ${transitionClasses}`}>
                                                                 <p className="text-sm">{moduleCode} : {relevant_coursework[moduleCode]["name"]}</p>
@@ -369,6 +388,8 @@ export function EducationListItem({
                                                             return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-700 text-white" : "bg-mauve-400 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
                                                                 <div className="w-full h-24">
                                                                     {isModelVisible && <Canvas3D 
+                                                                    fov={fov}
+                                                                    camPosition={camPosition}
                                                                     className={(index===0 && mobileDropdownOpened) ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
                                                                     voxelJson={relevant_coursework[moduleCode]["jsonModel"]} />}
                                                                 </div>
@@ -408,7 +429,10 @@ export function EducationListItem({
                                                 <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                                 {
                                                     activities.map((activity: Record<string, any>, index: number)=>{
-                                                        const {name, dates, bio} = activity;
+                                                        const {name, dates, bio, json_model_cam_settings} = activity;
+
+                                                        const fov = json_model_cam_settings?.["fov"];
+                                                        const camPosition = json_model_cam_settings?.["camPosition"];
                                                         
                                                         if (selectedActivitiesIndex === 0) {
                                                             return (
@@ -417,6 +441,8 @@ export function EducationListItem({
                                                                     <div className="w-full h-24">
                                                                         {isModelVisible && 
                                                                         <Canvas3D 
+                                                                        fov={fov}
+                                                                        camPosition={camPosition}
                                                                         className={(index===1 && mobileDropdownOpened) ? "opacity-0" : ""}  // special condition to hide 1st model when mobile dropdown is opened
                                                                         voxelJson={activity["jsonModel"]} />}
                                                                     </div>
@@ -454,6 +480,8 @@ export function EducationListItem({
                                                                         <div className="w-1/8">
                                                                             {isModelVisible && 
                                                                             <Canvas3D 
+                                                                            fov={fov}
+                                                                            camPosition={camPosition}
                                                                             className={(index===0 && mobileDropdownOpened) ? "hidden" : ""}  // special condition to hide 1st model when mobile dropdown is opened
                                                                             voxelJson={activity["jsonModel"]} />}
                                                                         </div>

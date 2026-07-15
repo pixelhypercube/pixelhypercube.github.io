@@ -526,14 +526,14 @@ export default function Home() {
                                             >
                                                 {
                                                     skills[skill].map((s: any, index: number)=>{
-                                                        const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight} = s;
+                                                        const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight, camPosition, fov} = s;
 
                                                         const proficiency = 
                                                         dict_obj==="lang" ? 
                                                         skillsInfo["language_proficiencies"][skill_proficiency] : 
                                                         dict_obj==="none" ?
                                                         skill_proficiency :
-                                                        skillsInfo["skill_proficiencies"][skill_proficiency]
+                                                        skillsInfo["skill_proficiencies"][skill_proficiency];
                                                         
                                                         return (
                                                             <SkillContainer
@@ -545,6 +545,8 @@ export default function Home() {
                                                                 jsonModelDark={jsonModelDark}
                                                                 jsonModelLight={jsonModelLight}
                                                                 className={isTouchDevice ? "shrink-0 snap-start" : ""}
+                                                                camPosition={camPosition}
+                                                                fov={fov}
                                                             />
                                                         )
                                                     })
@@ -753,7 +755,11 @@ export default function Home() {
                                                 >
                                                     {
                                                         experienceContent["experiences"].map((exp: any, index: number)=>{
-                                                            const {company, role, description, dates, skills, reflection, json_model} = exp;
+                                                            const {company, role, description, dates, skills, reflection, json_model, json_model_cam_settings} = exp;
+
+                                                            const fov = json_model_cam_settings?.["fov"];
+                                                            const camPosition = json_model_cam_settings?.["camPosition"];
+
                                                             return (
                                                                 <div key={`e-${index}`} className={`shrink-0 ${
                                                                     isTouchDevice 
@@ -770,6 +776,8 @@ export default function Home() {
                                                                         description = {description}
                                                                         dates = {dates}
                                                                         jsonModel = {json_model}
+                                                                        jsonModelFov = {fov}
+                                                                        jsonModelCamPosition = {camPosition}
                                                                         // isModelVisible = {experienceIndex===index}
                                                                         isModelVisible={true}
                                                                         bio_header = {experienceContent["bio_header"]}
@@ -825,7 +833,7 @@ export default function Home() {
                                 }
                                 {
                                     experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number)=>{
-                                        const {company, role, description, dates, skills, reflection, json_model} = exp;
+                                        const {company, role, description, dates, skills, reflection, json_model, json_model_fov} = exp;
                                         return (
                                             <ExperienceListItem 
                                                 key={`e-${index}`}
@@ -837,6 +845,7 @@ export default function Home() {
                                                 description = {description}
                                                 dates = {dates}
                                                 jsonModel = {json_model}
+                                                jsonModelFov = {json_model_fov}
                                                 isModelVisible = {true}
                                                 bio_header = {experienceContent["bio_header"]}
                                                 reflection = {reflection}
@@ -890,7 +899,11 @@ export default function Home() {
                                                                 dates,
                                                                 media_url,
                                                                 json_model,
+                                                                json_model_cam_settings,
                                                                 skills} = edu;
+
+                                                            const fov = json_model_cam_settings?.["fov"];
+                                                            const camPosition = json_model_cam_settings?.["camPosition"];
                                                             
                                                                 return (
                                                                     <div key={`e-${index}`} className={`shrink-0 ${
@@ -918,6 +931,8 @@ export default function Home() {
                                                                             dates={dates}
                                                                             media_url={media_url}
                                                                             jsonModel={json_model}
+                                                                            jsonModelFov={fov}
+                                                                            jsonModelCamPosition={camPosition}
                                                                             skills={skills}
                                                                             // isModelVisible = {educationIndex===index || isTouchDevice}
                                                                             isModelVisible={true}
@@ -1065,7 +1080,7 @@ export default function Home() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <Canvas3D autoRotateSpeed={0} voxelJson={resume_dark} />
+                                                <Canvas3D autoRotateSpeed={0} camPosition={[0,5,30]} voxelJson={resume_dark} />
                                                 <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-black text-white border-stone-700 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
                                                     <p className="m-0">View Resume</p>
                                                 </div>
@@ -1114,7 +1129,7 @@ export default function Home() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <Canvas3D autoRotateSpeed={0} voxelJson={resume_light} />
+                                                <Canvas3D autoRotateSpeed={0} camPosition={[0,5,30]} voxelJson={resume_light} />
                                                 <div className="absolute top-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-xl border pointer-events-none whitespace-nowrap bg-white text-stone-900 border-stone-200 opacity-0 scale-95 transition-all duration-150 ease-out group-hover:opacity-100 group-hover:scale-100 group-focus-visible:opacity-100 group-focus-visible:scale-100">
                                                     <p className="m-0">View Resume</p>
                                                 </div>
