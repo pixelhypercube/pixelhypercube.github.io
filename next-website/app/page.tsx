@@ -236,7 +236,7 @@ export default function Home() {
 
     // CHATBOT MESSAGES
     const openingMessage: Record<string, string> = {
-        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything!",
+        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything! Take note that this chatbot is currently in its beta phase, and that means that there will be a lot more improvements along the way!",
         "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
         "zh-Hant": "你好！又是我，凱傑！在這裡你可以問我任何事情！真的是任何事情哦！",
         "ja": "こんにちは！またまたカイジエです！ここからは何でも気軽に聞いてね！本当に何でもいいよ！",

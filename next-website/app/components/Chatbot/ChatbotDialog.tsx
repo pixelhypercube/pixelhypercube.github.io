@@ -99,7 +99,7 @@ export default function ChatbotDialog({
                 currentTheme === "D" ? "bg-olive-900 text-olive-100" : "bg-olive-600 text-white"
             } ${transitionClasses}`}>
                 <div>
-                    <h6 className="m-0 font-semibold">Chatbot (Beta)</h6>
+                    <h6 className="m-0 font-semibold">KJ's AI Chatbot (Beta)</h6>
                 </div>
                 <div>
                     <X className="cursor-pointer opacity-80 hover:opacity-100 text-white" onClick={()=>{

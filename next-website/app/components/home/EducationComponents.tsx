@@ -705,7 +705,7 @@ export function EducationTimelineElem({
                     <div className={`aspect-square w-full max-w-16 max-h-16 justify-self-start shrink-0 ${transitionClasses} ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-full`}>
                         {jsonModel && isModelVisible && <Canvas3D fov={jsonModelFov} camPosition={jsonModelCamPosition} voxelJson={jsonModel}/>}
                     </div>
-                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} ${transitionClasses} h-full w-2 justify-self-center -translate-y-2`}></div>
+                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} ${transitionClasses} rounded-full h-full w-2 justify-self-center -translate-y-2`}></div>
                 </div>
                 {/* RIGHT COL */}
                 <div className="mb-4">
