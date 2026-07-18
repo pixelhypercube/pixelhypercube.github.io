@@ -631,7 +631,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 }
                             ]
                         ],
-                        "reflection":`Even though this is mainly considered a polytechnic FYP, the reason why I chose to label this as valid experience is because I have actually done valid KPIs for the company by actually letting the company actually producing 700+ real live tickets, all thanks to my contributions to my significant contributions to the frontend (which is why they could use it in the first place). Leveraging all of this without the use of LLMs is generally a big headache for most of us in the team, as we had to rely on sites like stackoverflow which sounds like a nightmare. Overall, I felt like it was a genuinely great learning experience for me working with another company and I honestly felt privileged to have had the experience with working wth them.`,
+                        "reflection":`Even though this is mainly considered a polytechnic FYP, the reason why I chose to label this as valid experience is because I have actually done valid KPIs for the company by actually letting the company actually producing 700+ real live tickets, all thanks to my contributions to my significant contributions to the frontend (which is why they could use it in the first place). Leveraging all of this without the use of LLMs is generally a big headache for most of us in the team, as we had to rely on sites like StackOverflow which sounds like a nightmare. Overall, I felt like it was a genuinely great learning experience for me working with another company and I honestly felt privileged to have had the experience with working with them.`,
                         // "description": [
                         //     "Architected C# programs to help with shipping management!",
                         //     "Developed Node.js and created databases for efficient inventory management!",
@@ -807,7 +807,7 @@ Thanks for stopping by and enjoy your stay!`,
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         "json_model":edu_logo_ntu,
                         "json_model_cam_settings": {
-                            "fov":45,
+                            "fov":40,
                         },
                         "relevant_coursework":
                         {
@@ -1031,7 +1031,7 @@ Thanks for stopping by and enjoy your stay!`,
                         "certificate": "Cambridge International General Certificate of General Education (IGCSE)",
                         "json_model":edu_logo_acsint,
                         "json_model_cam_settings": {
-                            "fov":65,
+                            "fov":75,
                         },
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":
@@ -1099,7 +1099,7 @@ Thanks for stopping by and enjoy your stay!`,
                         "certificate": "",
                         "json_model":edu_logo_acsbr,
                         "json_model_cam_settings": {
-                            "fov":65,
+                            "fov":75,
                         },
                         // "relevant_coursework":["SC1008","SC2002","SC2006"],
                         // "relevant_coursework":

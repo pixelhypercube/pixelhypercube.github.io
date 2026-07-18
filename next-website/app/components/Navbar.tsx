@@ -78,7 +78,7 @@ const getItemsCenter = (callbacks: NavbarCallbacks, selectedLanguage: string) : 
     // { id: "blogs", type: "link", name: content[selectedLanguage]["navbar"]["blogs"], link: "/blogs", stylized: false },
 ];
 
-const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : NavItemProps[] => [
+const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string, currentTheme?: string) : NavItemProps[] => [
     // {
     //     id: "lang",
     //     type: "dropdown",
@@ -90,7 +90,7 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
     {
         id: "theme",
         type: "toggle",
-        selectedIndex: 0, // 0 for 'D', 1 for 'L'
+        selectedIndex: currentTheme==="D" ? 0 : 1, // 0 for 'D', 1 for 'L'
         values: [["D",(<Moon/>)], ["L",(<Sun/>)]],
         action: callbacks.onThemeToggle,
         showIcons:true,
@@ -98,7 +98,7 @@ const getItemsRight = (callbacks: NavbarCallbacks, selectedLanguage: string) : N
     {
         id: "width",
         type: "toggle",
-        selectedIndex: 0, // 0 for 'D', 1 for 'L'
+        selectedIndex: 0, // 0 for 'N', 1 for 'W'
         values: [["N",(<ChevronsLeftRight/>)], ["W",(<ChevronsRightLeft/>)]],
         action: callbacks.onLayoutWidthToggle,
         showIcons:true,
@@ -256,10 +256,14 @@ function ItemToggle({
     values, selectedIndex = 1, showIcons = false, action, transitionClasses, currentTheme, minSizeVisibility, maxSizeVisibility, isVisible
 } : Omit<ItemToggleProps, 'type'>) {
     const [currentIndex, setCurrentIndex] = useState<number>(selectedIndex);
+
+    useEffect(() => {
+        setCurrentIndex(selectedIndex);
+    }, [selectedIndex]);
+
     const [name, icon] = values[selectedIndex];
 
-    const [currentName, setCurrentName] = useState<string>(name);
-    const [currentIcon, setCurrentIcon] = useState<any>(icon);
+    const [currentName, currentIcon] = values[currentIndex] || [];
 
     return (
         <button className={`p-2 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1 ${isVisible ? "flex" : "hidden"} rounded-xl`} 
@@ -267,11 +271,7 @@ function ItemToggle({
             const nextIndex = (currentIndex + 1) % values.length;
             setCurrentIndex(nextIndex);
             
-            // change new curr name and new curr icon
-            const [newName, newIcon] = values[nextIndex];
-            setCurrentName(newName);
-            setCurrentIcon(newIcon);
-            
+            const [newName] = values[nextIndex];
             action?.(newName);
         }}>
             {
@@ -326,7 +326,7 @@ export default function Navbar({
 
     const itemsLeft = getItemsLeft(callbacks, selectedLanguage);
     const itemsCenter = getItemsCenter(callbacks, selectedLanguage);
-    const itemsRight = getItemsRight(callbacks, selectedLanguage);
+    const itemsRight = getItemsRight(callbacks, selectedLanguage, currentTheme);
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

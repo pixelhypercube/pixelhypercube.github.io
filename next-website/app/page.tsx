@@ -32,9 +32,9 @@ import { useLanguage } from "./components/LanguageContext";
 // NEW IMPORTS
 import { renderBioText, renderDate } from "./components/home/utils";
 import { SkillContainer } from "./components/home/SkillContainer";
-import { ExperienceListItem } from "./components/home/ExperienceListItem";
+import { ExperienceListItem, ExperienceTimelineElem } from "./components/home/ExperienceComponents";
 import { ProjectGridItem, ProjectListItem } from "./components/home/ProjectComponents";
-import { EducationListItem } from "./components/home/EducationListItem";
+import { EducationListItem, EducationTimelineElem } from "./components/home/EducationComponents";
 import { RiCarouselView } from "react-icons/ri";
 import { useChat } from "@ai-sdk/react";
 import Lenis from "lenis";
@@ -78,6 +78,22 @@ export default function Home() {
     const transitionClasses = `transition-all ease-in-out duration-500`;
 
     const [currentDiv, setCurrentDiv] = useState("");
+
+    // AUTO SET THEME BASED ON BROWSER'S THEME PREFERENCES
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        console.log(mediaQuery)
+        
+        setCurrentTheme(mediaQuery.matches ? "D" : "L");
+
+        const handleChange = (e: MediaQueryListEvent) => {
+            setCurrentTheme(e.matches ? "D" : "L");
+        };
+
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
+
 
     useEffect(() => {
         const onScroll = () => {
@@ -392,243 +408,76 @@ export default function Home() {
 
                         {/* PROJECTS */}
                         <div ref={containerProjectsRef} className="my-48">
-                            <div className="flex items-center">
+                            <div className="flex items-center mb-12">
                                 <div className="w-full">
                                     <h1 className="m-0">{projectsContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>
+                                {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>} */}
                             </div>
-                            {
-                                projectsToggleIndex === 0 && (
-                                    <div className="relative w-full max-w-full min-w-0">
-                                        <div 
-                                            className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"}`}
-                                            style={{ height: projectHeight }}
-                                            onScroll={(e) => handleTouchScroll(e, setProjectIndex)}
-                                        >
-                                            <div 
-                                                ref={projectTrackRef}
-                                                className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
-                                                style={{ 
-                                                    transform: isTouchDevice 
-                                                        ? 'none' 
-                                                        : `translateX(calc(-${projectIndex * 100}% - ${projectIndex * 16}px))` 
-                                                }}
-                                            >
-                                                {
-                                                    projectsContent["projects"].map((proj: any, index: number) => {
-                                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                                        return (
-                                                            <div 
-                                                                key={`proj-${index}`} 
-                                                                className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}
-                                                            >
-                                                                <ProjectListItem
-                                                                    key={`proj-${index}`}
-                                                                    reflection={reflection}
-                                                                    transitionClasses={transitionClasses}
-                                                                    currentTheme={currentTheme}
-                                                                    name={name}
-                                                                    short_description={short_description}
-                                                                    description={description}
-                                                                    skills={skillsList}
-                                                                    date={date}
-                                                                    media_url={media_url}
-                                                                    source_code={source_code}
-                                                                    web_link={web_link}
-                                                                    about_header={projectsContent["about_header"]}
-                                                                    reflection_header={projectsContent["reflection_header"]}
-                                                                    changelog={changelog}
-                                                                />
-                                                            </div>
-                                                        );
-                                                    })
-                                                }
-                                            </div>
-                                        </div>   
-                                        {!isTouchDevice && <div className="flex justify-center items-center gap-8">
-                                            <button 
-                                                onClick={() => setProjectIndex(projectIndex - 1)}
-                                                className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${projectIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                aria-label="project-prev"
-                                            >
-                                                <ChevronLeft strokeWidth={2} size={48}/>
-                                            </button>
-                                            {
-                                                projectsContent["projects"].map((_: any, idx: number) => (
-                                                    <button
-                                                        key={`circle-btn-${idx}`} 
-                                                        onClick={() => setProjectIndex(idx)}
-                                                        className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer ${idx == projectIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
-                                                    />
-                                                ))
-                                            }
-                                            <button 
-                                                onClick={() => setProjectIndex(projectIndex + 1)}
-                                                className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white bg-white/10" : "text-black bg-black/20"} ${projectIndex < projectsContent["projects"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                aria-label="project-next"
-                                            >
-                                                <ChevronRight strokeWidth={2} size={48}/>
-                                            </button>
-                                        </div>}
-                                    </div>
-                                )
-                            }
-                            {
-                                projectsToggleIndex === 1 && (
-                                    <div>
-                                        {
-                                            projectsContent["projects"].map((proj: any, index: number) => {
-                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                                return <ProjectListItem
-                                                    key={`proj-${index}`}
-                                                    reflection={reflection}
-                                                    transitionClasses={transitionClasses}
-                                                    currentTheme={currentTheme}
-                                                    name={name}
-                                                    short_description={short_description}
-                                                    description={description}
-                                                    skills={skillsList}
-                                                    date={date}
-                                                    media_url={media_url}
-                                                    source_code={source_code}
-                                                    web_link={web_link}
-                                                    about_header={projectsContent["about_header"]}
-                                                    reflection_header={projectsContent["reflection_header"]}
-                                                    changelog={changelog}
-                                                />;
-                                            })
-                                        }
-                                    </div>
-                                )
-                            }
-                            {
-                                projectsToggleIndex === 2 && (
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        {
-                                            projectsContent["projects"].map((proj: any, index: number) => {
-                                                const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link} = proj;
-                                                return <ProjectGridItem
-                                                    key={`proj-${index}`}
-                                                    reflection={reflection}
-                                                    transitionClasses={transitionClasses}
-                                                    currentTheme={currentTheme}
-                                                    name={name}
-                                                    short_description={short_description}
-                                                    description={description}
-                                                    skills={skillsList}
-                                                    date={date}
-                                                    media_url={media_url}
-                                                    source_code={source_code}
-                                                    web_link={web_link}
-                                                />;
-                                            })
-                                        }
-                                    </div>
-                                )
-                            }
+                            <div>
+                                {
+                                    projectsContent["projects"].map((proj: any, index: number) => {
+                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                        return (
+                                            <ProjectListItem
+                                                key={`proj-${index}`}
+                                                reflection={reflection}
+                                                transitionClasses={transitionClasses}
+                                                currentTheme={currentTheme}
+                                                name={name}
+                                                short_description={short_description}
+                                                description={description}
+                                                skills={skillsList}
+                                                date={date}
+                                                media_url={media_url}
+                                                source_code={source_code}
+                                                web_link={web_link}
+                                                about_header={projectsContent["about_header"]}
+                                                reflection_header={projectsContent["reflection_header"]}
+                                                changelog={changelog}
+                                            />
+                                        );
+                                    })
+                                }
+                            </div>
                         </div>
                         
                         {/* EXPERIENCE */}
                         <div ref={containerExperienceRef} className="my-48">
-                            <div className="flex items-center">
+                            <div className="flex items-center mb-12">
                                 <div className="w-full">
                                     <h1 className="m-0">{experienceContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setExperienceToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={experienceToggleIndex}/>
+                                {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setExperienceToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={experienceToggleIndex}/>} */}
                             </div>
                             <div>
                                 {
-                                    experienceToggleIndex === 0 && (
-                                        <div className="relative w-full max-w-full min-w-0">
-                                            <div style={{ height: experienceHeight }} className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"} transition-[height] duration-500 ease-in-out relative`} onScroll={(e) => handleTouchScroll(e, setExperienceIndex)}>
-                                                <div 
-                                                    ref={experienceTrackRef}
-                                                    className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
-                                                    style={{ 
-                                                        transform: isTouchDevice ? "none" : `translateX(calc(-${experienceIndex * 100}% - ${experienceIndex * 16}px))` 
-                                                    }}
-                                                >
-                                                    {
-                                                        experienceContent["experiences"].map((exp: any, index: number) => {
-                                                            const {company, role, description, dates, skills, reflection, json_model, json_model_cam_settings} = exp;
-                                                            const fov = json_model_cam_settings?.["fov"];
-                                                            const camPosition = json_model_cam_settings?.["camPosition"];
+                                    experienceContent["experiences"].map((exp: any, index: number) => {
+                                        const {company, role, description, dates, skills, reflection, json_model, json_model_cam_settings} = exp;
+                                        const fov = json_model_cam_settings?.["fov"];
+                                        const camPosition = json_model_cam_settings?.["camPosition"];
 
-                                                            return (
-                                                                <div key={`e-${index}`} className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}>
-                                                                    <ExperienceListItem 
-                                                                        key={`e-${index}`}
-                                                                        transitionClasses={transitionClasses}
-                                                                        skills={skills}
-                                                                        currentTheme={currentTheme}
-                                                                        company={company}
-                                                                        role={role}
-                                                                        description={description}
-                                                                        dates={dates}
-                                                                        jsonModel={json_model}
-                                                                        jsonModelFov={fov}
-                                                                        jsonModelCamPosition={camPosition}
-                                                                        isModelVisible={true}
-                                                                        bio_header={experienceContent["bio_header"]}
-                                                                        reflection={reflection}
-                                                                        reflection_header={experienceContent["reflection_header"]}
-                                                                    />
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            </div>
-                                            {!isTouchDevice && <div className="justify-center items-center flex gap-8">
-                                                <button 
-                                                    onClick={() => setExperienceIndex(experienceIndex - 1)}
-                                                    className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${experienceIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                    aria-label="experience-prev"
-                                                >
-                                                    <ChevronLeft strokeWidth={2} size={48}/>                                             
-                                                </button>
-                                                {
-                                                    experienceContent["experiences"].map((_: any, idx: number) => (
-                                                        <button
-                                                            key={`circle-btn-${idx}`} 
-                                                            onClick={() => setExperienceIndex(idx)}
-                                                            className={`w-4 h-4 hover:scale-125 transition-all rounded-full cursor-pointer ${idx == experienceIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
-                                                        />
-                                                    ))
-                                                }
-                                                <button 
-                                                    onClick={() => setExperienceIndex(experienceIndex + 1)}
-                                                    className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${experienceIndex < experienceContent["experiences"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                    aria-label="experience-next"
-                                                >
-                                                    <ChevronRight strokeWidth={2} size={48}/>
-                                                </button>
-                                            </div>}
-                                        </div>
-                                    )
-                                }
-                                {
-                                    experienceToggleIndex === 1 && experienceContent["experiences"].map((exp: any, index: number) => {
-                                        const {company, role, description, dates, skills, reflection, json_model, json_model_fov} = exp;
                                         return (
-                                            <ExperienceListItem 
-                                                key={`e-${index}`}
-                                                transitionClasses={transitionClasses}
-                                                skills={skills}
-                                                currentTheme={currentTheme}
-                                                company={company}
-                                                role={role}
-                                                description={description}
-                                                dates={dates}
-                                                jsonModel={json_model}
-                                                jsonModelFov={json_model_fov}
-                                                isModelVisible={true}
-                                                bio_header={experienceContent["bio_header"]}
-                                                reflection={reflection}
-                                                reflection_header={experienceContent["reflection_header"]}
-                                            />
-                                        )
+                                            <div key={`e-${index}`}>
+                                                <ExperienceTimelineElem 
+                                                    key={`e-${index}`}
+                                                    transitionClasses={transitionClasses}
+                                                    skills={skills}
+                                                    currentTheme={currentTheme}
+                                                    company={company}
+                                                    role={role}
+                                                    description={description}
+                                                    dates={dates}
+                                                    jsonModel={json_model}
+                                                    jsonModelFov={fov}
+                                                    jsonModelCamPosition={camPosition}
+                                                    isModelVisible={true}
+                                                    bio_header={experienceContent["bio_header"]}
+                                                    reflection={reflection}
+                                                    reflection_header={experienceContent["reflection_header"]}
+                                                />
+                                            </div>
+                                        );
                                     })
                                 }
                             </div>
@@ -636,97 +485,21 @@ export default function Home() {
 
                         {/* EDUCATION */}
                         <div ref={containerEducationRef} className="my-48">
-                            <div className="flex items-center">
+                            <div className="flex items-center mb-12">
                                 <div className="w-full">
                                     <h1 className="m-0">{educationContent["header"]}</h1>
                                 </div>
-                                <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setEducationToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={educationToggleIndex}/>
+                                {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setEducationToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>]} selectedIndex={educationToggleIndex}/>} */}
                             </div>
                             <div>
                                 {
-                                    educationToggleIndex === 0 && (
-                                        <div className="relative w-full max-w-full min-w-0">
-                                            <div style={{ height: educationHeight }} className={`w-full ${isTouchDevice ? "overflow-x-auto snap-x snap-mandatory no-scrollbar" : "overflow-hidden"} transition-[height] duration-500 ease-in-out`} onScroll={(e) => handleTouchScroll(e, setEducationIndex)}>
-                                                <div 
-                                                    className={`flex flex-row gap-4 items-start ${!isTouchDevice ? "transition-transform duration-500 ease-in-out" : ""}`}
-                                                    ref={educationTrackRef}
-                                                    style={{ 
-                                                        transform: isTouchDevice ? "none" : `translateX(calc(-${educationIndex * 100}% - ${educationIndex * 16}px))` 
-                                                    }}
-                                                >
-                                                    {
-                                                        educationContent["list"].map((edu: any, index: number) => {
-                                                            const {institution, certificate, relevant_coursework, activities, academic_projects, awards, bio, dates, media_url, json_model, json_model_cam_settings, skills} = edu;
-                                                            const fov = json_model_cam_settings?.["fov"];
-                                                            const camPosition = json_model_cam_settings?.["camPosition"];
-                                                            
-                                                            return (
-                                                                <div key={`e-${index}`} className={`shrink-0 ${isTouchDevice ? "w-[calc(100%-32px)] snap-center first:ml-4 last:mr-4" : "w-full"}`}>
-                                                                    <EducationListItem
-                                                                        key={`edu-${index}`}
-                                                                        transitionClasses={transitionClasses}
-                                                                        currentTheme={currentTheme}
-                                                                        institution={institution}
-                                                                        certificate={certificate}
-                                                                        relevant_coursework={relevant_coursework}
-                                                                        relevant_coursework_header={educationContent["relevant_coursework_header"]}
-                                                                        activities={activities}
-                                                                        activities_header={educationContent["activities_header"]}
-                                                                        academic_projects={academic_projects}
-                                                                        academicProjects={academic_projects}
-                                                                        academic_projects_header={educationContent["academic_projects_header"]}
-                                                                        awards={awards}
-                                                                        awards_header={educationContent["awards_header"]}
-                                                                        bio={bio}
-                                                                        bio_header={educationContent["bio_header"]}
-                                                                        dates={dates}
-                                                                        media_url={media_url}
-                                                                        jsonModel={json_model}
-                                                                        jsonModelFov={fov}
-                                                                        jsonModelCamPosition={camPosition}
-                                                                        skills={skills}
-                                                                        isModelVisible={true}
-                                                                        windowWidth={windowWidth}
-                                                                    />
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            </div>
-                                            {!isTouchDevice && <div className="justify-center items-center flex gap-8">
-                                                <button 
-                                                    onClick={() => setEducationIndex(educationIndex - 1)}
-                                                    className={`${windowWidth >= 768 ? "absolute -left-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${educationIndex > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                    aria-label="education-prev"
-                                                >
-                                                    <ChevronLeft strokeWidth={2} size={48}/>                                             
-                                                </button>
-                                                {
-                                                    educationContent["list"].map((_: any, idx: number) => (
-                                                        <button
-                                                            key={`circle-btn-${idx}`} 
-                                                            onClick={() => setEducationIndex(idx)}
-                                                            className={`w-4 h-4 hover:scale-12 class-all rounded-full cursor-pointer ${idx == educationIndex ? (currentTheme === "D" ? "bg-white" : "bg-black") : (currentTheme === "D" ? "bg-white/50 hover:bg-white/75" : "bg-black/50 hover:bg-black/75")}`}
-                                                        />
-                                                    ))
-                                                }
-                                                <button 
-                                                    onClick={() => setEducationIndex(educationIndex + 1)}
-                                                    className={`${windowWidth >= 768 ? "absolute -right-16 top-1/2 -translate-y-1/2 z-10" : ""} rounded-full p-1 ${currentTheme === "D" ? "text-white hover:text-white/50 bg-white/10" : "text-black hover:text-black/50 bg-black/20"} ${educationIndex < educationContent["list"].length - 1 ? "opacity-100" : "opacity-0 pointer-events-none"} transition-colors duration-200 ease-in-out hover:opacity-50`}
-                                                    aria-label="education-next"
-                                                >
-                                                    <ChevronRight strokeWidth={2} size={48}/>
-                                                </button>
-                                            </div>}
-                                        </div>
-                                    )
-                                }
-                                {
-                                    educationToggleIndex === 1 && educationContent["list"].map((edu: any, index: number) => {
-                                        const {institution, certificate, relevant_coursework, activities, academic_projects, awards, bio, dates, media_url, json_model, skills} = edu;
+                                    educationContent["list"].map((edu: any, index: number) => {
+                                        const {institution, certificate, relevant_coursework, activities, academic_projects, awards, bio, dates, media_url, json_model, json_model_cam_settings, skills} = edu;
+                                        const fov = json_model_cam_settings?.["fov"];
+                                        const camPosition = json_model_cam_settings?.["camPosition"];
+                                        
                                         return (
-                                            <EducationListItem
+                                            <EducationTimelineElem
                                                 key={`edu-${index}`}
                                                 transitionClasses={transitionClasses}
                                                 currentTheme={currentTheme}
@@ -746,6 +519,8 @@ export default function Home() {
                                                 dates={dates}
                                                 media_url={media_url}
                                                 jsonModel={json_model}
+                                                jsonModelFov={fov}
+                                                jsonModelCamPosition={camPosition}
                                                 skills={skills}
                                                 isModelVisible={true}
                                                 windowWidth={windowWidth}
@@ -761,11 +536,11 @@ export default function Home() {
                             <div className="md:w-full flex flex-col justify-center items-center">
                                 <h1 className="text-6xl">{footerContent["header"]}</h1>
                                 <h3 className="italic">{footerContent["subheader"]}</h3>
-                                <div className="flex w-2/5 gap-1">
+                                <div className="flex justify-center gap-4">
                                     {currentTheme === "D" && (
                                         <>
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="https://linkedin.com/in/kai-jie-teo"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -777,7 +552,7 @@ export default function Home() {
                                             </a>
                                             
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="https://github.com/pixelhypercube"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -789,7 +564,7 @@ export default function Home() {
                                             </a>
                                             
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="mailto:kj.teo.work@gmail.com"
                                             >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={email_dark} />
@@ -799,7 +574,7 @@ export default function Home() {
                                             </a>
 
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="/Teo_Kai_Jie_Kendrick_Resume.pdf"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -814,7 +589,7 @@ export default function Home() {
                                     {currentTheme === "L" && (
                                         <>
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="https://linkedin.com/in/kai-jie-teo"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -826,7 +601,7 @@ export default function Home() {
                                             </a>
                                             
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="https://github.com/pixelhypercube"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -838,7 +613,7 @@ export default function Home() {
                                             </a>
                                             
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="mailto:kj.teo.work@gmail.com"
                                             >
                                                 <Canvas3D autoRotateSpeed={0} voxelJson={email_light} />
@@ -848,7 +623,7 @@ export default function Home() {
                                             </a>
 
                                             <a 
-                                                className="w-full h-20 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
+                                                className="w-16 h-16 relative group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500" 
                                                 href="Teo_Kai_Jie_Kendrick_Resume.pdf"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
