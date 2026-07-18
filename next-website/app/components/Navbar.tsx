@@ -133,7 +133,7 @@ function ItemLink({
         </div>
     } else {
         const styles = (stylized) ? 
-        `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-400/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
+        `${currentTheme==="D" ? "bg-stone-900/80" : "bg-stone-600/80"} block backdrop-blur-lg border border-white/20 text-3xl rounded-full w-14 h-14 flex justify-center items-center font-extrabold` : 
         // "block p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl m-1";
         `text-lg ${!mobileHovering ? "hover:font-bold" : ""}`;
 

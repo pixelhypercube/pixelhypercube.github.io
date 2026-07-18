@@ -1027,7 +1027,7 @@ export function EducationTimelineElem({
                                         {awards.map((award:Record<string, any>,idx: number)=>{
                                             const {name, date} = award;
                                             
-                                            return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                            return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
                                                 <div>
                                                     <h5 className="my-0">{name}</h5>
                                                     <p className="my-0 text-sm italic">{date && renderDate(date)}</p>
