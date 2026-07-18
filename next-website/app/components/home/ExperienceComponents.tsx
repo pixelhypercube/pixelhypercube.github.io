@@ -238,7 +238,7 @@ export function ExperienceTimelineElem({
     const [reflectionOpened, setReflectionOpened] = useState(false);
     return (
         <div>
-            <main className="flex gap-4">
+            <main className="flex gap-4 mb-12">
                 {/* LEFT COL */}
                 <div className={`w-full max-w-16 shrink-0`}>
                     <div className={`aspect-square w-full max-w-16 max-h-16 justify-self-start shrink-0 ${transitionClasses} ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-full`}>
