@@ -1,4 +1,4 @@
-import { Bot, MessageCircle } from "lucide-react";
+import { Bot, MessageCircle, X } from "lucide-react";
 import ChatbotDialog from "./ChatbotDialog";
 import { Ref, useState } from "react";
 
@@ -36,10 +36,12 @@ export default function Chatbot({
     const [opened, setOpened] = useState<boolean>(isOpen);
 
     const dialogTextAndBgClasses = currentTheme === "D" 
-    ? "bg-amber-700 border border-amber-500 text-white" 
-    : "bg-amber-500 border border-amber-600 text-black";
+    ? "bg-olive-700 border border-olive-500 text-white" 
+    : "bg-olive-500 border border-olive-600 text-black";
 
     const chatbotTextInfo = content[selectedLanguage]["chatbot"];
+
+    const [dialogClosed, setDialogClosed] = useState(false);
     
     return (
         <div ref={ref} className={`fixed ${!opened ? "bottom-10 right-10" : "md:bottom-0 md:right-0 bottom-0 right-0"} z-100 transition-colors duration-200 ease-in-out`} onClick={onClick}>
@@ -58,8 +60,9 @@ export default function Chatbot({
                     }}
                 />
             ) : (
-                <div onClick={() => setOpened(true)} className={`rounded-4xl w-16 h-16 flex justify-center items-center ${currentTheme==="D" ? "bg-olive-700" : "bg-olive-400"} shadow-lg ${transitionClasses}`}>
-                    <div className={`absolute bottom-20 right-0 ${dialogTextAndBgClasses} rounded-xl p-2 w-36 text-sm text-center shadow-lg animate-bounce [animation-duration:3s]`}>
+                <div onClick={() => {setOpened(true); setDialogClosed(true);}} className={`relative rounded-4xl w-16 h-16 flex justify-center items-center ${currentTheme==="D" ? "bg-yellow-700" : "bg-yellow-400"} shadow-lg ${transitionClasses}`}>
+                    <div className={`hidden ${!dialogClosed ? "md:block" : ""} absolute bottom-20 right-0 ${dialogTextAndBgClasses} rounded-xl p-2 w-36 text-sm text-center shadow-lg animate-bounce [animation-duration:3s]`}>
+                        {/* <X size={16} className="absolute right-2 top-2" /> */}
                         <p className="m-0">{chatbotTextInfo["intro_dialog"]}</p>
                     </div>
                     <Bot size={32}/>

@@ -701,11 +701,11 @@ export function EducationTimelineElem({
         <div>
             <main className="flex gap-4 mb-12">
                 {/* LEFT COL */}
-                <div className={`w-full max-w-16 shrink-0 ${transitionClasses}`}>
+                <div className={`hidden md:block w-full max-w-16 shrink-0 ${transitionClasses}`}>
                     <div className={`aspect-square w-full max-w-16 max-h-16 justify-self-start shrink-0 ${transitionClasses} ${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} rounded-full`}>
                         {jsonModel && isModelVisible && <Canvas3D fov={jsonModelFov} camPosition={jsonModelCamPosition} voxelJson={jsonModel}/>}
                     </div>
-                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} ${transitionClasses} rounded-full h-full w-2 justify-self-center -translate-y-2`}></div>
+                    <div className={`${currentTheme==="D" ? "bg-stone-700 text-white" : "bg-stone-400 text-stone-900"} ${transitionClasses} rounded-full h-full w-2 mx-auto -translate-y-2`}></div>
                 </div>
                 {/* RIGHT COL */}
                 <div className="mb-4">
