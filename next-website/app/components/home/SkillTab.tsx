@@ -1,10 +1,10 @@
-interface ProjectSkillTabProps {
+interface SkillTabProps {
     name?: string;
     icon?: any;
     currentTheme: string;
 }
 
-export function ProjectSkillTab({name, icon, currentTheme} : ProjectSkillTabProps) {
+export function SkillTab({name, icon, currentTheme} : SkillTabProps) {
     return (
         <div 
             className={`${
@@ -14,7 +14,7 @@ export function ProjectSkillTab({name, icon, currentTheme} : ProjectSkillTabProp
             <div className="flex items-center justify-center shrink-0">
                 {icon}
             </div>
-            <p className="m-0 font-medium text-sm max-w-0 opacity-0 overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out group-hover:max-w-40 group-hover:opacity-100 group-hover:ml-1.5">
+            <p className="m-0 font-medium text-sm max-w-0 opacity-0 overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out group-hover:max-w-40 group-hover:opacity-100 group-hover:ml-1.5 group-active:max-w-40 group-active:opacity-100 group-active:ml-1.5">
                 {name}
             </p>
         </div>

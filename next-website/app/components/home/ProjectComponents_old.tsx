@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Circle, Code } from "lucide-react";
 import { CgWebsite } from "react-icons/cg";
 import { renderDate } from "./utils";
-import { ProjectSkillTab } from "./ProjectSkillTab";
+import { SkillTab } from "./SkillTab";
 import { projectSkillsTabsDark, projectSkillsTabsLight } from "../../globals";
 
 interface ProjectProps {
@@ -102,7 +102,7 @@ export function ProjectListItem({
                         {
                             skills?.map((skill,index)=>{
                                 return (
-                                    <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                    <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                 )
                             })
                         }
@@ -299,7 +299,7 @@ export function ProjectGridItem({
                         {
                             skills?.map((skill,index)=>{
                                 return (
-                                    <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                    <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                 )
                             })
                         }

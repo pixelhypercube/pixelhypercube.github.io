@@ -414,12 +414,12 @@ export default function Home() {
                                 </div>
                                 {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>} */}
                             </div>
-                            <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                                 {
                                     projectsContent["projects"].map((proj: any, index: number) => {
                                         const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
                                         return (
-                                            <ProjectListItem
+                                            <ProjectGridItem
                                                 key={`proj-${index}`}
                                                 reflection={reflection}
                                                 transitionClasses={transitionClasses}

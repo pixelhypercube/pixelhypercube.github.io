@@ -1,6 +1,6 @@
 import { projectSkillsTabsDark, projectSkillsTabsLight } from "@/app/globals";
 import Canvas3D from "../Canvas3D";
-import { ProjectSkillTab } from "./ProjectSkillTab";
+import { SkillTab } from "./SkillTab";
 import { renderDate } from "./utils";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
@@ -103,7 +103,7 @@ export function ExperienceListItem({
                         {
                             skills?.map((skill,index)=>{
                                 return (
-                                    <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                    <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                 )
                             })
                         }
@@ -265,7 +265,7 @@ export function ExperienceTimelineElem({
                             {
                                 skills?.map((skill,index)=>{
                                     return (
-                                        <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                        <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                     )
                                 })
                             }
@@ -316,7 +316,7 @@ export function ExperienceTimelineElem({
                     } */}
                     {/* REFLECTION */}
                     <div className={`${currentTheme==="D" ? "bg-mauve-800" : "bg-mauve-300"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
-                        <div onClick={()=>setReflectionOpened(!reflectionOpened)} className={`flex justify-between`}>
+                        <div onClick={()=>setReflectionOpened(!reflectionOpened)} className={`flex justify-between items-center`}>
                             <h5 className="mb-0">{reflection_header}</h5>
                             <ChevronDown className={`transform transition-transform duration-150 ${reflectionOpened ? "rotate-180" : ""}`}/>
                         </div>

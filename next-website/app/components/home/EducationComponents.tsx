@@ -3,7 +3,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Code, Grid, List } f
 import CustomToggle from "../CustomToggle";
 import Canvas3D from "../Canvas3D";
 import { renderDate } from "./utils";
-import { ProjectSkillTab } from "./ProjectSkillTab";
+import { SkillTab } from "./SkillTab";
 import { projectSkillsTabsDark, projectSkillsTabsLight } from "../../globals";
 
 interface MouseTabProps {
@@ -226,7 +226,7 @@ export function EducationListItem({
                             {
                                 skills?.map((skill,index)=>{
                                     return (
-                                        <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                        <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                     )
                                 })
                             }
@@ -370,7 +370,7 @@ export function EducationListItem({
                                                 </div> */}
                                             </div>
                                             {/* <div className={`${selectedRelCWIndex === 0 ? "flex flex-wrap gap-2" : "grid md:grid-cols-3 sm:grid-cols-2 gap-3"} ${transitionClasses}`}> */}
-                                            <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
+                                            <div className={`grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                                 {
                                                     Object.keys(relevant_coursework).map((moduleCode : string, index : number)=>{
                                                         
@@ -537,7 +537,7 @@ export function EducationListItem({
                                                         {/* {
                                                             languages?.map((skill: any, index: number)=>{
                                                                 return (
-                                                                    <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                                                    <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                                                 )
                                                             })
                                                         } */}
@@ -726,7 +726,7 @@ export function EducationTimelineElem({
                             {
                                 skills?.map((skill,index)=>{
                                     return (
-                                        <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                        <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                     )
                                 })
                             }
@@ -783,7 +783,7 @@ export function EducationTimelineElem({
                                         </div> */}
                                     </div>
                                     {/* <div className={`${selectedRelCWIndex === 0 ? "flex flex-wrap gap-2" : "grid md:grid-cols-3 sm:grid-cols-2 gap-3"} ${transitionClasses}`}> */}
-                                    <div className={`grid md:grid-cols-3 grid-cols-2 gap-3 ${transitionClasses}`}>
+                                    <div className={`grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 ${transitionClasses}`}>
                                         {
                                             Object.keys(relevant_coursework).map((moduleCode : string, index : number)=>{
                                                 
@@ -920,7 +920,7 @@ export function EducationTimelineElem({
                                                 {/* {
                                                     languages?.map((skill: any, index: number)=>{
                                                         return (
-                                                            <ProjectSkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
+                                                            <SkillTab currentTheme={currentTheme} name={skill} icon={(currentTheme==="D") ? projectSkillsTabsDark[skill] :  projectSkillsTabsLight[skill]} key={`skill-${index}`}/>
                                                         )
                                                     })
                                                 } */}
@@ -930,7 +930,7 @@ export function EducationTimelineElem({
                                             </div>
                                         </div>
                                     </header>
-                                    <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-2`}/>
+                                    <hr className={`${currentTheme==="D" ? "border-stone-600" : "border-stone-400"} my-4`}/>
                                     <div className="lg:flex lg:flex-row-reverse gap-4">
                                         <div className="flex-1">
                                             {
@@ -979,16 +979,16 @@ export function EducationTimelineElem({
                                             }
                                         </div>
                                         <div className="flex-1">
-                                            <div className="flex-3">
-                                                <h5 className="mb-0">About:</h5>
+                                            <div className={`${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"} rounded-2xl p-4 mb-4`}>
+                                                <h5 className="mb-0">About</h5>
                                                 <ul className="list-disc ml-4">
                                                     {description.map((item: any, index: number)=>{
                                                         return <li key={`desc-${index}`}>{item}</li>
                                                     })}
                                                 </ul>
                                             </div>
-                                            <div className="flex-3">
-                                                <h5 className="mb-0">Key Contributions:</h5>
+                                            <div className={`${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"} rounded-2xl p-4`}>
+                                                <h5 className="mb-0">Key Contributions</h5>
                                                 <ul className="list-disc ml-4">
                                                     {contributions.map((item: any, index: number)=>{
                                                         return <li key={`contrib-${index}`}>{item}</li>
