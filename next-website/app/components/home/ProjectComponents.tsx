@@ -17,7 +17,8 @@ interface ProjectProps {
     web_link?: string,
     currentTheme: string,
     transitionClasses?: string,
-    changelog?: Array<Record<string, any>>
+    changelog?: Array<Record<string, any>>,
+    isArchived?: boolean,
     
     // headers
     about_header?: string,
@@ -33,7 +34,7 @@ interface Tab {
 }
 
 export function ProjectListItem({
-    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header
+    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header,isArchived
 } : ProjectProps) {
     const [currImgIndex, setCurrImgIndex] = useState(0);
     const [isChangelogOpened, setIsChangeLogOpened] = useState(false);
@@ -61,7 +62,7 @@ export function ProjectListItem({
     const [reflectionOpened, setReflectionOpened] = useState(false);
 
     return (
-        <div className={`${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} w-full max-w-full min-w-0 rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
+        <div className={`${currentTheme==="D" ? (!isArchived ? "bg-stone-800" : "bg-olive-800") : (!isArchived ? "bg-stone-300" : "bg-olive-300")} w-full max-w-full min-w-0 rounded-2xl p-5 text-left my-5 ${transitionClasses}`}>
             <header className="grid grid-cols-4 w-full mb-5">
                 <div className="col-span-3">
                     <h3 className="m-0">{name}</h3>
@@ -195,7 +196,7 @@ export function ProjectListItem({
 }
 
 export function ProjectGridItem({
-    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header
+    name,short_description,description,reflection,skills,date,media_url,source_code,web_link,currentTheme,transitionClasses,changelog,about_header,reflection_header,isArchived
 } : ProjectProps) {
 
     const [currImgIndex, setCurrImgIndex] = useState(0);
@@ -204,7 +205,7 @@ export function ProjectGridItem({
 
 
     return (
-        <div className={`flex flex-col rounded-2xl border border-stone-400/30 ${currentTheme==="D" ? "bg-stone-800" : "bg-stone-400"} ${transitionClasses}`}>
+        <div className={`flex flex-col rounded-2xl border border-stone-400/30 ${currentTheme==="D" ? (!isArchived ? "bg-stone-800" : "bg-olive-800") : (!isArchived ? "bg-stone-300" : "bg-olive-300")} ${transitionClasses}`}>
             <div className="relative group w-full aspect-video rounded-t-2xl overflow-hidden">
                 {
                     media_url && Array.isArray(media_url) && media_url.length > 0 && (
@@ -217,7 +218,7 @@ export function ProjectGridItem({
                             {
                                 media_url.length > 1 && (
                                     <div className="absolute inset-0 flex items-center justify-between">
-                                        <button onClick={()=>setCurrImgIndex((currImgIndex-1+media_url.length) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/20 opacity-100 flex items-center justify-center transition-opacity text-xl font-bold">
+                                        <button onClick={()=>setCurrImgIndex((currImgIndex-1+media_url.length) % media_url.length)} className="pointer-events-auto w-10 h-10 ml-2 rounded-full bg-black/50 opacity-100 flex items-center justify-center transition-opacity text-xl font-bold">
                                             <ChevronLeft/>
                                         </button>
                                         <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
@@ -230,7 +231,7 @@ export function ProjectGridItem({
                                                 ))
                                             }
                                         </div>
-                                        <button onClick={()=>setCurrImgIndex((currImgIndex+1) % media_url.length)} className="pointer-events-auto h-full w-12 bg-black/20 opacity-100 flex items-center justify-center transition-opacity text-xl font-bold">
+                                        <button onClick={()=>setCurrImgIndex((currImgIndex+1) % media_url.length)} className="pointer-events-auto w-10 h-10 mr-2 rounded-full bg-black/50 opacity-100 flex items-center justify-center transition-opacity text-xl font-bold">
                                             <ChevronRight/>
                                         </button>
                                     </div>
@@ -248,7 +249,7 @@ export function ProjectGridItem({
                     </button>
                 </div> */}
             </div>
-            <div className={`rounded-b-2xl ${currentTheme==="D" ? "bg-stone-900" : "bg-stone-200"} p-4`}> 
+            <div className={`rounded-b-2xl ${currentTheme==="D" ? (!isArchived ? "bg-stone-900" : "bg-taupe-900") : (!isArchived ? "bg-stone-200" : "bg-taupe-200")} p-4`}> 
                 <div className="w-full text-left italic">
                     <h6 className="mb-0 font-light opacity-80">
                         {date && renderDate(date)}
@@ -276,16 +277,18 @@ export function ProjectGridItem({
                         {description}
                     </div>
                     {/* REFLECTION */}
-                    <div className={`${currentTheme==="D" ? "bg-mauve-800" : "bg-mauve-300"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
-                        <div onClick={()=>setReflectionOpened(!reflectionOpened)} className={`flex justify-between items-center`}>
-                            <h5 className="mb-0">{reflection_header}</h5>
-                            <ChevronDown className={`transform transition-transform duration-150 ${reflectionOpened ? "rotate-180" : "rotate-0"}`}/>
+                    {reflection && (
+                        <div className={`${currentTheme==="D" ? "bg-mauve-800" : "bg-mauve-300"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
+                            <div onClick={()=>setReflectionOpened(!reflectionOpened)} className={`flex justify-between items-center`}>
+                                <h5 className="mb-0">{reflection_header}</h5>
+                                <ChevronDown className={`transform transition-transform duration-150 ${reflectionOpened ? "rotate-180" : "rotate-0"}`}/>
+                            </div>
+                            <div className={`transition-all duration-250 ease-in-out overflow-hidden ${reflectionOpened ? "max-h-10000 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
+                                <hr className={`my-2 border-stone-500`}/>
+                                {reflection}
+                            </div>
                         </div>
-                        <div className={`transition-all duration-250 ease-in-out overflow-hidden ${reflectionOpened ? "max-h-10000 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
-                            <hr className={`my-2 border-stone-500`}/>
-                            {reflection}
-                        </div>
-                    </div>
+                    )}
                     {/* CHANGELOG */}
                     {
                         changelog && (

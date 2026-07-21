@@ -17,7 +17,7 @@ interface ProjectProps {
     web_link?: string,
     currentTheme: string,
     transitionClasses?: string,
-    changelog?: Array<Record<string, any>>
+    changelog?: Array<Record<string, any>>,
     
     // headers
     about_header?: string,

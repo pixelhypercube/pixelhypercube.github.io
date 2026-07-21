@@ -793,7 +793,7 @@ export function EducationTimelineElem({
                                                 const camPosition = json_model_cam_settings?.["camPosition"];
 
 
-                                                return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-800 text-white" : "bg-mauve-300 text-stone-900"} rounded-2xl p-2 flex flex-col  ${transitionClasses}`}>
+                                                return <div key={`mod-${index}`} className={`${currentTheme==="D" ? "bg-mauve-800 text-white" : "bg-mauve-300 text-stone-900"} rounded-2xl p-4 flex flex-col  ${transitionClasses}`}>
                                                         <div className="w-full h-24">
                                                             {isModelVisible && <Canvas3D 
                                                             fov={fov}
@@ -814,7 +814,7 @@ export function EducationTimelineElem({
                         }
                     </div>
 
-                    {/* ACTIVITIES */}
+                    {/* ACTIVITIES & SOCIETIES */}
                     {
                         activities && <div onClick={()=>setActivitiesOpened(!activitiesOpened)} className={`flex justify-between items-center my-4 border-b ${currentTheme==="D" ? "border-b-stone-600" : "border-b-stone-400"}`}>
                             <h5 className="mb-2">{activities_header}</h5>
@@ -838,7 +838,7 @@ export function EducationTimelineElem({
                                         </div> */}
                                     </div>
                                     <div className={`${transitionClasses}`}>
-                                        <div className={`grid md:grid-cols-3 sm:grid-cols-2 gap-3 ${transitionClasses}`}>
+                                        <div className={`grid sm:grid-cols-2 gap-3 ${transitionClasses}`}>
                                         {
                                             activities.map((activity: Record<string, any>, index: number)=>{
                                                 const {name, dates, bio, json_model_cam_settings} = activity;
@@ -847,7 +847,7 @@ export function EducationTimelineElem({
                                                 const camPosition = json_model_cam_settings?.["camPosition"];
                                                 
                                                 return <div key={`activities-${index}`} 
-                                                    className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                                    className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}>
                                                         <div className="w-full h-24">
                                                             {isModelVisible && 
                                                             <Canvas3D 
@@ -947,7 +947,7 @@ export function EducationTimelineElem({
                                                                         const projs = [...acadProjectsIndexes];
                                                                         projs[projIndex] = (projs[projIndex] - 1 + media.length) % media.length;
                                                                         setAcadProjectsIndexes(projs);
-                                                                    }} className="pointer-events-auto h-full w-12 bg-black/20 opacity-100 rounded-l-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                                    }} className="pointer-events-auto h-10 w-10 ml-2 bg-black/50 opacity-100 rounded-full flex items-center justify-center transition-opacity text-xl font-bold">
                                                                         <ChevronLeft/>
                                                                     </button>
                                                                     <div className="flex gap-2 p-2 rounded-full bg-black/50 self-end mb-2 opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-200">
@@ -968,7 +968,7 @@ export function EducationTimelineElem({
                                                                         const projs = [...acadProjectsIndexes];
                                                                         projs[projIndex] = (projs[projIndex] + 1) % media.length;
                                                                         setAcadProjectsIndexes(projs);
-                                                                    }} className="pointer-events-auto h-full w-12 bg-black/20 opacity-100 rounded-r-2xl flex items-center justify-center transition-opacity text-xl font-bold">
+                                                                    }} className="pointer-events-auto h-10 w-10 mr-2 bg-black/50 opacity-100 rounded-full flex items-center justify-center transition-opacity text-xl font-bold">
                                                                         <ChevronRight/>
                                                                     </button>
                                                                 </div>
@@ -987,7 +987,7 @@ export function EducationTimelineElem({
                                                     })}
                                                 </ul>
                                             </div>
-                                            <div className={`${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"} rounded-2xl p-4`}>
+                                            <div className={`${currentTheme==="D" ? "bg-taupe-700" : "bg-taupe-400"} rounded-2xl p-4`}>
                                                 <h5 className="mb-0">Key Contributions</h5>
                                                 <ul className="list-disc ml-4">
                                                     {contributions.map((item: any, index: number)=>{
@@ -1013,7 +1013,7 @@ export function EducationTimelineElem({
                     {/* AWARDS */}
                     {
                         awards && <div onClick={()=>setAwardsOpened(!awardsOpened)} className={`flex justify-between items-center my-4 border-b ${currentTheme==="D" ? "border-b-stone-600" : "border-b-stone-400"}`}>
-                            <h4 className="mb-2">{awards_header}</h4>
+                            <h5 className="mb-2">{awards_header}</h5>
                             <ChevronDown className={`transform transition-transform duration-150 ${awardsOpened ? "rotate-180" : ""}`}/>
                         </div>
                     }
@@ -1023,11 +1023,11 @@ export function EducationTimelineElem({
                                 // ${currentTheme==="D" ? "bg-stone-700 text-stone-100" : "bg-stone-400 text-stone-950"}
                                 <div className={`rounded-xl w-full flex flex-col gap-2 ${transitionClasses}`}>
                                     {/* <h4 className="my-0">{awards_header} 🎖️</h4> */}
-                                    <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+                                    <div className="grid sm:grid-cols-1 gap-4">
                                         {awards.map((award:Record<string, any>,idx: number)=>{
                                             const {name, date} = award;
                                             
-                                            return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-2 ${transitionClasses}`}>
+                                            return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}>
                                                 <div>
                                                     <h5 className="my-0">{name}</h5>
                                                     <p className="my-0 text-sm italic">{date && renderDate(date)}</p>

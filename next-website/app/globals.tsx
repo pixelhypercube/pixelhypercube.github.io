@@ -389,7 +389,10 @@ export const projectSkillsTabsDark : Record<string, any> = {
 
     // Deployment
     "Git": <DiGit className="text-orange-400 w-6 h-6"/>,
-    "Github": <DiGithub className="text-white w-6 h-6"/>
+    "Github": <DiGithub className="text-white w-6 h-6"/>,
+
+    // Game Dev
+    "Pygame": <img src="./skills/pygame.png" className="w-6 invert-100" alt="skill-pygame"/>
 };
 
 export const projectSkillsTabsLight : Record<string, any> = {
@@ -424,7 +427,10 @@ export const projectSkillsTabsLight : Record<string, any> = {
 
     // Deployment
     "Git": <DiGit className="text-orange-600 w-6 h-6"/>,
-    "Github": <DiGithub className="text-black w-6 h-6"/>
+    "Github": <DiGithub className="text-black w-6 h-6"/>,
+
+    // Game Dev
+    "Pygame": <img src="./skills/pygame.png" className="w-6" alt="skill-pygame"/>
 };
 
 export const content : Record<any,any> = {
@@ -678,6 +684,7 @@ Thanks for stopping by and enjoy your stay!`,
             },
             "projects": {
                 "header":"Projects",
+                "description":"",
                 "about_header": "About",
                 "reflection_header": "Reflection",
                 "projects":[
@@ -696,7 +703,7 @@ Thanks for stopping by and enjoy your stay!`,
                         "name":"Personal Website",
                         "short_description":"4th Version!",
                         "description":"The website you're currently on! It features an array of 3D models scattered across the website because not only am I fascinated with seeing cubic stuff, but I also want to showcase the idea of using building blocks to build projects like these! It also exclusively features a chatbot where users can feel free to ask me about anything in their own convenience without needing to speak or chat with me in person, which can range from personal inquiries as well as fun facts about me!",
-                        "reflection":"Making this is actually pretty interesting and fun to do because not only did I get to leverage my newly acquired Next.js skills to the test, but I leveraged on hand-crafting 3D voxel models from scratch because I am visually satisfied by looking at cubes! I tried my best to make this site uniquely me and I hope that it shows throughout my entire website!",
+                        "reflection":"In this fourth iteration of my personal website, I underwent multiple refactors to keep pace with evolving web standards, where I leveraged Next.js (TypeScript), Tailwind, and Three.js to express my tinkerer and builder identity through my website. As I was designing the website's UI layouts, I had to completely revamp and change certain components numerous times as there were times I felt like the initial components were not the best fit. Additionally, the main reason I wanted to hand-craft those 3D models was because I'm someone who's fascinated by cubes from playing Minecraft. On top of this, debugging and testing out the LLM chatbot was a bit of a challenge, as I had to constantly brainstorm all of the data about me to let users have a pleasant experience interacting with the chatbot. Overall, I felt like this was a great experience to showcase my personality because it's generally quite difficult to do it while creating a website at the same time!",
                         "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
@@ -741,9 +748,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "name":"CellCollab",
                         "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
                         "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time! Using room-based sycnrohnization via Socket.IO, players can join into the same board and will allow them to experience the fascinating landscape of cellular automata! Also features highly customizable settings, such as color schemes, custom brush edits, and so much more!",
-                        "reflection":"The main reason I decided to make this was that I wanted to challenge myself by leveraging Socket.IO in areas that are not typically used in conventional business operations, and making this is generally quite a fun and interesting experience because it allows me to use my fascination with cellular automata into something that can be enjoyed by multiple people at the same time!",
+                        "reflection":"As I was fascinated with cellular automata, I wanted to make this more accessible for other people to collaborate on the same board while simultaneously learning how it works. So, I levelled up and used Socket.IO to learn how the core functionalities of WebSockets work. I had to spread this out over two months because I had to constantly create, test, and debug numerous components to accommodate the vast array of settings and customizations of the boards. Building this was genuinely a fun and rewarding experience, and that has inspired me to make more full-stack projects over time!",
                         "skillsList":["React.js","Node.js","Express.js","WebSockets"],
-                        "date": new Date(),
+                        "date": new Date("6/01/2025"),
                         "media_url":["./projects/cellCollab.gif"],
                         "source_code":"https://github.com/pixelhypercube/CellCollab",
                         "web_link":"https://pixelhypercube.github.io/CellCollab",
@@ -768,9 +775,9 @@ Thanks for stopping by and enjoy your stay!`,
                         "name":"Astertris",
                         "short_description":"Tetris, but you're on a floating asteroid in space!",
                         "description":"Imagine you are on a floating asteroid in space, but you decide to play Tetris on it. That is how the word 'Astertris' is formed, by combining the words 'Asteroid' and 'Tetris'! With radial gravity mechanics, Tetrominoes fall down towards the center of the asteroid, and 'Lines' (i.e. the ones where the whole row is filled for it to be cleared) can be cleared on any side of the asteroid! Made using Object-Oriented Programming (OOP) concepts and Data Structures using Java and Java Swing!",
-                        "reflection":"I personally made this to prepare for one of my modules, SC2002 (Object Oriented Design and Programming) to practice my Java because I have honestly not touched in about a year! As I knew that there are probably thousands of Tetris clones out there, especially those original ones, I decided to come up with an idea that would manipulate the usage of the conventional direction of downwards gravity frequently used in 2D games. Overall, it was very surprising that I could pull off a consistent retro-vibe even though Java Swing is probably not the best tool for actual game development (other than Minecraft)!",
+                        "reflection":"I primarily made this to prepare for two of my upcoming university modules, SC2002 (Object-Oriented Design and Programming) & SC1007 (Data Structures & Algorithms) because I wanted to practice my practical fundamentals in Java OODP & Data Structures. Knowing that there are probably millions of identical Tetris clones out there, I decided to come up with an idea that would manipulate the usage of the conventional downward direction of gravity used in the original Tetris game. Thanks to data structures like Queues for users to see the next Tetrominoes falling, as well as 2D vectors to determine the next falling state of the Tetromino, I was finally able to execute this seamlessly. Furthermore, the Java Swing environment surprisingly pulled off a consistent retro vibe!",
                         "skillsList":["Java"],
-                        "date": new Date(),
+                        "date": new Date("10/01/2025"),
                         "media_url":["./projects/astertris.gif"],
                         "source_code":"https://github.com/pixelhypercube/Astertris",
                         "changelog": [
@@ -791,6 +798,174 @@ Thanks for stopping by and enjoy your stay!`,
                             },
                         ]
                     }
+                ],
+            },
+            "old_projects": {
+                "header":"Historical Projects",
+                "description":"These early projects helped shape who I am as a developer!",
+                "about_header": "About",
+                "reflection_header": "Reflection",
+                "projects":[
+                    {
+                        "name":"pySquidGame",
+                        "short_description":"Squid Game in pygame!",
+                        "description":"A playable pygame application based on Netflix's 'Squid Game'! Contains all 6 game stages available in 'Squid Game' - Red Light Green Light, Honeycomb, Tug of War, Marbles, Glass Stepping Stones, Squid Game (Final Game)",
+                        "reflection":"As I was fascinated by the games played in \"Squid Game\", I quickly wanted to make a replica of it using Pygame. When I was initially prototyping the 'Red Light Green Light' game back in 2021, one of the greatest challenges was learning how to deal with certain game mechanics, such as the physical collision of players and numerous state changes. Upon the release of new episodes of \"Squid Game\", I decided to return to it to finish creating the 5 remaining games (including the pre-game Ddakji). Thanks to the help of LLMs to speed up brainstorming ideas and the implementation of physical states, I successfully managed to complete my goal of making every single game in the series!",
+                        "skillsList":["Python","Pygame"],
+                        "date": new Date("07/01/2025"),
+                        "media_url":[
+                            "./projects/pySquidGame.png",
+                            "./projects/pySquidGame2.png",
+                            "./projects/pySquidGame3.png",
+                            "./projects/pySquidGame4.png",
+                            "./projects/pySquidGame5.png",
+                            "./projects/pySquidGame6.png",
+                            "./projects/pySquidGame7.png",
+                            "./projects/pySquidGame8.png",
+                            "./projects/pySquidGame9.png",
+                        ],
+                        "source_code":"https://github.com/pixelhypercube/pySquidGame",
+                        "changelog": [
+                            {
+                                "header":"v1.1.0",
+                                "date":new Date("07/22/2025"),
+                                "desc": [
+                                    "Implemented Ddakji minigame",
+                                    "Updated the UI of buttons and layouts"
+                                ]
+                            },
+                            {
+                                "header":"v1.0.1",
+                                "date":new Date("06/28/2025"),
+                                "desc": [
+                                    "Fixed more bugs and improved RLGL game mechanics",
+                                ]
+                            },
+                            {
+                                "header":"v1.0",
+                                "date":new Date("06/28/2025"),
+                                "desc": [
+                                    "Initial Release",
+                                    "Finished all the 5 other games"
+                                ]
+                            },
+                            {
+                                "header":"beta 1.0.1",
+                                "date":new Date("10/16/2021"),
+                                "desc": [
+                                    "Amended home screen layout",
+                                ]
+                            },
+                            {
+                                "header":"beta 1.0",
+                                "date":new Date("10/14/2021"),
+                                "desc": [
+                                    "Initial Beta Release",
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "name":"Mini Speed Golf",
+                        "short_description":"",
+                        "description":"A minigolf game made using Python (pygame) that allows you to hit the ball while it's moving, allowing you to speedrun through golf stages as fast as possible! Contains 10 unique stages, with each stage having its own distinct and fun characteristics!",
+                        "reflection":"",
+                        "skillsList":["Python","Pygame"],
+                        "date": new Date("04/01/2022"),
+                        "media_url":[
+                            "./projects/miniSpeedGolf.gif"
+                        ],
+                        "source_code":"https://github.com/pixelhypercube/Mini-Speed-Golf",
+                        "changelog": [
+                            {
+                                "header":"beta 1.1.1",
+                                "date":new Date("04/27/2022"),
+                                "desc": [
+                                    "Patched some bugs and changed color scheme a bit",
+                                ]
+                            },
+                            {
+                                "header":"beta 1.1",
+                                "date":new Date("10/16/2022"),
+                                "desc": [
+                                    "Renamed the game's name to 'Mini Speed Golf'",
+                                    "Updated some hole par numbers"
+                                ]
+                            },
+                            {
+                                "header":"beta 1.0",
+                                "date":new Date("10/12/2020"),
+                                "desc": [
+                                    "Initial Beta Release",
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "name":"Loves Me... ?",
+                        "short_description":"",
+                        "description":"A replica of the 'Loves Me...' minigame from Super Mario 64 DS, made using p5.js!",
+                        "reflection":"",
+                        "skillsList":["HTML5","CSS","Javascript (ES6)"],
+                        "date": new Date("05/21/2021"),
+                        "media_url":[
+                            "./projects/lovesMe.gif"
+                        ],
+                        "source_code":"https://github.com/pixelhypercube/Loves-Me-Replica/",
+                        "web_link":"https://pixelhypercube.github.io/Loves-Me-Replica/",
+                        "changelog": [
+                            {
+                                "header":"v1.0",
+                                "date":new Date("05/21/2021"),
+                                "desc": [
+                                    "Initial Release",
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "name":"Coin Dozer Replica",
+                        "short_description":"",
+                        "description":"A mini 2D online Coin Dozer to relive one of my favorite childhood games using p5.js & matter.js!",
+                        "reflection":"",
+                        "skillsList":["HTML5","CSS","Javascript (ES6)"],
+                        "date": new Date("01/01/2021"),
+                        "media_url":[
+                            "./projects/coinDozerReplica.gif"
+                        ],
+                        "source_code":"https://github.com/pixelhypercube/Side-Projects/tree/main/Coin-Dozer-Replica",
+                        "web_link":"https://pixelhypercube.github.io/Side-Projects/Coin-Dozer-Replica/index.html",
+                        "changelog": [
+                            {
+                                "header":"v1.0",
+                                "date":new Date("01/19/2021"),
+                                "desc": [
+                                    "Initial Release",
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        "name":"Console Spaceship Battle",
+                        "short_description":"",
+                        "description":"A spaceship battle game made exclusively using a Python console! Includes shooting mechanics with laser bullets to battle enemy spaceships, with additional graphics like moving stars in the background.",
+                        "reflection":"",
+                        "skillsList":["Python"],
+                        "date": new Date("09/22/2020"),
+                        "media_url":[
+                            "./projects/consoleSpaceshipBattle.gif"
+                        ],
+                        "source_code":"https://github.com/pixelhypercube/Mini-Speed-Golf",
+                        "changelog": [
+                            {
+                                "header":"v1.0",
+                                "date":new Date("09/22/2020"),
+                                "desc": [
+                                    "Initial Release",
+                                ]
+                            },
+                        ]
+                    },
                 ]
             },
             "education": {
@@ -823,7 +998,7 @@ Thanks for stopping by and enjoy your stay!`,
                                     "fov":70,
                                     "camPosition":[0,5,50]
                                 },
-                                "module_coordinators":["Assoc. Prof. Hui Siu Cheung", "Assoc. Prof. Wang Yong"],
+                                "module_coordinators":["Assoc. Prof. Hui Siu Cheung", "Asst. Prof. Wang Yong"],
                             },
                             "SC2001": {
                                 "name": "Algorithm Design & Analysis",
@@ -852,7 +1027,7 @@ Thanks for stopping by and enjoy your stay!`,
                             {
                                 "name":"Hall X Resident",
                                 "dates": [
-                                    [new Date("08/05/2024"), "Present"]
+                                    [new Date("08/05/2024"), new Date("05/01/2026")]
                                 ],
                                 "bio":[
                                     "Was nice to experience the inner beauties of hall life!",
@@ -867,7 +1042,7 @@ Thanks for stopping by and enjoy your stay!`,
                             {
                                 "name":"Hall X Road Relay",
                                 "dates": [
-                                    [new Date("08/05/2024"), "Present"]
+                                    [new Date("08/05/2024"), new Date("05/01/2026")]
                                 ],
                                 "bio":[
                                     "Participated in the 2025 & 2026 Inter-Hall Games and came in 1st and 2nd runner-up respectively!"
@@ -888,7 +1063,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 "json_model_cam_settings":{
                                     "fov":35,
                                 },
-                                "info":<p>If I have to sum up my university life up to now, I would say that it's been a interesting, yet competitive 😂</p>
+                                "info":<p>If I have to sum up my university life in one sentence, it'll be: 'Interesting, but very competitive 😂'!</p>
                             },
                         ],
                         "dates" :[
@@ -912,8 +1087,7 @@ Thanks for stopping by and enjoy your stay!`,
                                     "Implements role-based workflows and access controls for three main actors: Students, Corporate Representatives, and Career Center Staff."
                                 ],
                                 "contributions": [
-                                    "Developed and debugged the core programming environment and execution logic of the application using Java.",
-                                    "Aided my teammates to translate the code into UML diagrams.",
+                                    "Developed and debugged the core Java application, collaborating with teammates to ensure accurate translation of the code into UML diagrams."
                                 ],
                                 "source_code":"https://github.com/pixelhypercube/sc2002-oop",
                             },
@@ -1010,7 +1184,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 "json_model_cam_settings":{
                                     "fov":45,
                                 },
-                                "info":<p>One of the best things that happened during my polytechnic days was that I learned how not to be an antisocial person due to me experiencing group work on steroids 💪</p>
+                                "info":<p>One of the best things that happened during my polytechnic days was that I learned how not to be antisocial because I experienced group work on steroids 💪</p>
                             },
                         ],
                         "dates" :[

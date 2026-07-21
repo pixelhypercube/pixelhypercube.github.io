@@ -57,6 +57,7 @@ export default function Home() {
     const containerAboutMeRef = useRef<HTMLDivElement>(null);
     const containerSkillsRef = useRef<HTMLDivElement>(null);
     const containerProjectsRef = useRef<HTMLDivElement>(null);
+    const containerOldProjectsRef = useRef<HTMLDivElement>(null);
     const containerExperienceRef = useRef<HTMLDivElement>(null);
     const containerEducationRef = useRef<HTMLDivElement>(null);
 
@@ -71,6 +72,7 @@ export default function Home() {
     var skillsInfo = home["skills"];
     var experienceContent = home["experience"];
     var projectsContent = home["projects"];
+    var oldProjectsContent = home["old_projects"];
     var educationContent = home["education"];
 
     var footerContent = home["footer"];
@@ -411,10 +413,11 @@ export default function Home() {
                             <div className="flex items-center mb-12">
                                 <div className="w-full">
                                     <h1 className="m-0">{projectsContent["header"]}</h1>
+                                    <p className="m-0 text-light italic">{projectsContent["description"]}</p>
                                 </div>
                                 {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>} */}
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-12">
                                 {
                                     projectsContent["projects"].map((proj: any, index: number) => {
                                         const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
@@ -440,8 +443,42 @@ export default function Home() {
                                     })
                                 }
                             </div>
+
+                            <div className="flex items-center mb-12">
+                                <div className="w-full">
+                                    <h2 className="m-0">{oldProjectsContent["header"]}</h2>
+                                    <p className="m-0 text-light italic">{oldProjectsContent["description"]}</p>
+                                </div>
+                                {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>} */}
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                                {
+                                    oldProjectsContent["projects"].map((proj: any, index: number) => {
+                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                        return (
+                                            <ProjectGridItem
+                                                key={`proj-${index}`}
+                                                reflection={reflection}
+                                                transitionClasses={transitionClasses}
+                                                currentTheme={currentTheme}
+                                                name={name}
+                                                short_description={short_description}
+                                                description={description}
+                                                skills={skillsList}
+                                                date={date}
+                                                media_url={media_url}
+                                                source_code={source_code}
+                                                web_link={web_link}
+                                                about_header={projectsContent["about_header"]}
+                                                reflection_header={projectsContent["reflection_header"]}
+                                                changelog={changelog}
+                                                isArchived={true}
+                                            />
+                                        );
+                                    })
+                                }
+                            </div>
                         </div>
-                        
                         {/* EXPERIENCE */}
                         <div ref={containerExperienceRef} className="my-48">
                             <div className="flex items-center mb-12">
