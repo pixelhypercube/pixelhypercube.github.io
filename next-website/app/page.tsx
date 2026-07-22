@@ -25,7 +25,7 @@ import resume_light from "./voxelModels/links/light/resume.json"
 
 import { addEffect, Canvas } from "@react-three/fiber";
 import { View, Preload } from "@react-three/drei";
-import { ChevronLeft, ChevronRight, Rows3, Grid } from "lucide-react";
+import { ChevronLeft, ChevronRight, Rows3, Grid, ChevronDown } from "lucide-react";
 import CustomToggle from "./components/CustomToggle";
 import { useLanguage } from "./components/LanguageContext";
 
@@ -272,6 +272,8 @@ export default function Home() {
         setIndex(currentActiveIndex);
     };
 
+    const [oldProjectsOpened, setOldProjectsOpened] = useState(false);
+
     // useEffect(() => {
     //     // This instantiates Lenis safely only when the browser environment is active
     //     const lenisInstance = new Lenis({ syncTouch: true });
@@ -443,40 +445,44 @@ export default function Home() {
                                     })
                                 }
                             </div>
-
-                            <div className="flex items-center mb-12">
+                            <div className="flex items-center mb-8">
                                 <div className="w-full">
                                     <h2 className="m-0">{oldProjectsContent["header"]}</h2>
                                     <p className="m-0 text-light italic">{oldProjectsContent["description"]}</p>
                                 </div>
-                                {/* {!isTouchDevice && <CustomToggle transitionClasses={transitionClasses} currentTheme={currentTheme} changeIndex={(index: number) => setProjectsToggleIndex(index)} className="w-full justify-end" values={[<RiCarouselView size={24}/>, <Rows3/>, <Grid/>]} selectedIndex={projectsToggleIndex}/>} */}
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                                {
-                                    oldProjectsContent["projects"].map((proj: any, index: number) => {
-                                        const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
-                                        return (
-                                            <ProjectGridItem
-                                                key={`proj-${index}`}
-                                                reflection={reflection}
-                                                transitionClasses={transitionClasses}
-                                                currentTheme={currentTheme}
-                                                name={name}
-                                                short_description={short_description}
-                                                description={description}
-                                                skills={skillsList}
-                                                date={date}
-                                                media_url={media_url}
-                                                source_code={source_code}
-                                                web_link={web_link}
-                                                about_header={projectsContent["about_header"]}
-                                                reflection_header={projectsContent["reflection_header"]}
-                                                changelog={changelog}
-                                                isArchived={true}
-                                            />
-                                        );
-                                    })
-                                }
+                            <div onClick={()=>setOldProjectsOpened(!oldProjectsOpened)} className={`w-full flex justify-between items-center mb-8 rounded-xl p-4 ${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"}`}>
+                                <h5 className="mb-0">{oldProjectsOpened ? "Hide" : "Show"} {oldProjectsContent["projects"].length} Historical Projects</h5>
+                                <ChevronDown size={30} className={`${oldProjectsOpened ? "rotate-180" : "rotate-0"} transition-transform duration-150 ease-in-out`} />
+                            </div>
+                            <div className={`transition-all duration-250 ease-in-out overflow-hidden ${oldProjectsOpened ? "max-h-10000 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
+                                <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 items-start`}>
+                                    {
+                                        oldProjectsContent["projects"].map((proj: any, index: number) => {
+                                            const {name, short_description, description, reflection, skillsList, date, media_url, source_code, web_link, changelog} = proj;
+                                            return (
+                                                <ProjectGridItem
+                                                    key={`proj-${index}`}
+                                                    reflection={reflection}
+                                                    transitionClasses={transitionClasses}
+                                                    currentTheme={currentTheme}
+                                                    name={name}
+                                                    short_description={short_description}
+                                                    description={description}
+                                                    skills={skillsList}
+                                                    date={date}
+                                                    media_url={media_url}
+                                                    source_code={source_code}
+                                                    web_link={web_link}
+                                                    about_header={projectsContent["about_header"]}
+                                                    reflection_header={projectsContent["reflection_header"]}
+                                                    changelog={changelog}
+                                                    isArchived={true}
+                                                />
+                                            );
+                                        })
+                                    }
+                                </div>
                             </div>
                         </div>
                         {/* EXPERIENCE */}

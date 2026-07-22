@@ -456,7 +456,7 @@ export const content : Record<any,any> = {
             "header": {
                 "top":"Hi! I'm",
                 "name":"KJ Teo",
-                "bottom":"CS Builder & Tinkerer @ NTU"
+                "bottom":"and I like to build and tinker things"
             },
             "about_me":{
 
@@ -683,7 +683,7 @@ Thanks for stopping by and enjoy your stay!`,
                 ]
             },
             "projects": {
-                "header":"Projects",
+                "header":"Featured Projects",
                 "description":"",
                 "about_header": "About",
                 "reflection_header": "Reflection",

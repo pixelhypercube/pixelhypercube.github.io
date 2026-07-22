@@ -9,7 +9,7 @@
       "evening_height": 178,
       "weight": 68,
       "pbf": 12,
-      "build_type": "Mesomorph"
+      "build_type": "Ecto-Mesomorph"
     }
   },
   "contact": {
@@ -133,7 +133,7 @@
         "Supported multi-channel workflows including high-volume telephony queues and unit operations coordination alongside engineering duties."
       ],
       "notes": [
-        "Disrupted service duration from August 2024 to May 2025 to complete the initial academic year at NTU."
+        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year at NTU."
       ],
       "experience": [
         "Provided initial structural exposure to enterprise workplace realities, requiring rapid adaptation to operational challenges.",
@@ -224,7 +224,7 @@
       ]
     }
   ],
-  "hobby_metrics": {
+  "hobbies": {
     "speedcubing": {
       "wca_id": "2016JIET01",
       "3x3_single_pb": 4.8,
@@ -248,11 +248,28 @@
           "distance":42.195,
           "time":"3:34:19",
           "reflection":"My first overseas marathon - felt like I was flying as the roads were relatively straight!"
+        },
+        {
+          "name":"Standard Chartered Singapore Marathon 2023",
+          "distance":42.195,
+          "time":"4:49:51",
+          "reflection":"My very first marathon, didn't really train the best but the great thing is that I survived, especially under the heat and humidity!"
         }
       ]
     },
     "reading": {
-      "fav_books": ["Atomic Habits"]
+      "fav_books": [{
+        "title":"Atomic Habits",
+        "author":"James Clear"
+      }, 
+      {
+        "title":"The Subtle Art of Not Giving a F*ck",
+        "author":"Mark Manson"
+      },
+      {
+        "title":"Quiet",
+        "author":"Susan Cain"
+      }]
     }
   },
   "frequently_asked_questions": [
@@ -271,6 +288,18 @@
     {
       "question": "What would you say is your biggest influence in your interest in computers?",
       "answer": "When I was young, I was once intrigued by Sethbling's Minecraft redstone constructions, and I was interested in creating redstone command block contraptions. Another thing was that when I was a kid, I used to be naughty and spoil pieces of hardware, particularly CD-ROMs, because like many kids, I was an insanely curious person!"
+    },
+    {
+      "question": "Where do you see yourself in 5-10 years time?",
+      "answer": "In 5 years, I see myself as someone who has a great amount of software engineering experience and is adept in learning and adapting to new pieces of technologies. I would have made numerous side projects that are put in good use and that I would be very proud and happy about myself that I have made the steps to help others in need. In 10 years time, knowing that I have extensive experience in the industry, I see myself ideating a future startup that would help to suit the community better."
+    },
+    {
+      "question": "What was your story on how you got into IT and computing?",
+      "answer": "So when I was in pre-school, I was relatively fascinated with knowing how computers and other technologies work, where I would described myself as being relatively naughty and I would play with the CD drives to learn how it works (which upsets my parents to a certain extent, but as long as they know I don't do that again, it's all good). Also, I would fiddle around with learning how to use computer software programs at a relatively young age, where I learn how to use Cinema 4D by myself without any mentor to teach me. Later on, after my 10th birthday, I started playing Minecraft, and it has become my favourite game of all time as I am instantly fascinated with interacting in an interactive sandbox world filled with cubes. Minecraft has given me a space where it allowed me to learn how to tinker and build things, which eventually shaped me into the developer I am right now!"
+    },
+    {
+      "question": "What made you interested in pursuing Computer Science?",
+      "answer": "Knowing that I have a strong interest in playing Minecraft since 10 years old, I watched Sethbling - a Minecraft Youtuber (and speedrunner) who is well known for making insane redstone contraption videos. Knowing that he uses Redstone, a Minecraft equivalent of a wire, the way he executes it in the video was just so fascinating and inspiring to me, where I desperately wanted to make my own Redstone contraptions! Knowing that he graduated with a Computer Science degree also made me interested to complete a Computer Science degree too!"
     }
   ]
 }

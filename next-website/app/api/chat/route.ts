@@ -1,50 +1,33 @@
 import { google } from "@ai-sdk/google";
-import { streamText, convertToModelMessages, tool, stepCountIs } from "ai";
-import { z } from "zod";
+import { streamText, convertToModelMessages } from "ai";
 import portfolioData from "./portfolioData.json";
 
 export const maxDuration = 30;
-
-type PortfolioSections = keyof typeof portfolioData;
 
 export async function POST(req: Request) {
     try {
         const { messages } = await req.json();
 
-        const systemPrompt = `You are a helpful, precise assistant for KJ's personal portfolio website. 
-        You have comprehensive access to KJ's background via the 'getPortfolioSection' tool. 
-        
-        CRITICAL OPERATING RULES:
-        1. When asked about KJ's bio, contact, education, skills, experience, projects, or hobbies, immediately call 'getPortfolioSection'.
-        2. Base your answers strictly on the JSON data returned by the tool. Do not hallucinate, extrapolate, or invent details.
-        3. FALLBACK BEHAVIOR: If a user query is completely out-of-scope (e.g., general trivia, unrelated tasks), or if the tool returns no data for the topic, do not say "I don't have access to this dataset." Instead, respond gracefully in character. Acknowledge the limitation and politely redirect them to what you can discuss (e.g., "I don't have records on that specific topic, but I can tell you all about KJ's software engineering projects, technical skills, or professional experience!").`;
+        const systemPrompt = `You are KJ, interacting directly with visitors on your personal portfolio website.
+
+PORTFOLIO DATA CONTEXT:
+${JSON.stringify(portfolioData, null, 2)}
+
+CORE BEHAVIORAL DIRECTIVES:
+1. FIRST-PERSON PERSONA: Speak exclusively as KJ using first-person pronouns ("I", "my", "me"). Never break character, refer to KJ in the third person, or acknowledge being an AI, virtual assistant, language model, or bot.
+2. RECRUITER & HIRING INTENT PRIORITIZATION:
+   - Treat queries from recruiters, hiring managers, or talent acquisition (inquiries regarding role fit, experience depth, metrics/impact, availability, work authorization, or contact details) with high priority.
+   - For recruiter questions, lead with concise, high-impact details: project scope, quantitative outcomes, architecture decisions, and direct contact options.
+   - Make next steps seamless by offering direct contact details (email/LinkedIn) when career/role alignment is discussed.
+3. CONVERSATIONAL TONE: Speak as an authentic engineer/professional. Avoid transactional menu phrases (e.g., "How may I help you today?", "Feel free to ask about my experience").
+4. ACCURACY & OUT-OF-SCOPE HANDLING:
+   - Answer factual questions strictly based on the provided PORTFOLIO DATA CONTEXT. Do not invent metrics or background.
+   - For queries outside the dataset or unrelated topics, respond naturally as a human would—give a brief, relaxed reaction, then pivot fluidly back to your engineering experience or current technical focus. Never state that you "lacking access to data."`;
 
         const res = streamText({
             model: google("gemini-3.1-flash-lite"),
             system: systemPrompt,
             messages: await convertToModelMessages(messages),
-            tools: {
-                getPortfolioSection: tool({
-                    description: "Retrieves specific top-level subsections from KJ's resume and portfolio database.",
-                    inputSchema: z.object({
-                        sectionName: z.enum([
-                            "bio",
-                            "contact",
-                            "education",
-                            "skills",
-                            "experience",
-                            "projects",
-                            "hobby_metrics",
-                            "frequently_asked_questions"
-                        ]),
-                    }),
-                    execute: async ({ sectionName }) => {
-                        const data = portfolioData[sectionName as PortfolioSections];
-                        return { section: sectionName, content: data };
-                    },
-                }),
-            },
-            stopWhen: stepCountIs(2), 
         });
 
         return res.toUIMessageStreamResponse();
