@@ -317,7 +317,8 @@ export default function ChatbotDialog({
             } ${transitionClasses}`}>
                 {messages.map((msg, index)=>{
                     const isReceiver = msg.role === 'assistant'
-                    const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === messages.length-1;
+                    // const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === messages.length-1;
+                    const isTyping = false; // make it disabled as there's a lot of info generated already
                     const textContent = msg.content || (msg.parts
                         ?.filter((part: any) => part.type === 'text')
                         .map((part: any) => part.text)
