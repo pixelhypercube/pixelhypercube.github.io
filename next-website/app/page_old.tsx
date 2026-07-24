@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import { content, IS_DEBUG, projectSkillsTabsDark, projectSkillsTabsLight, skills } from "./globals";
 import Chatbot from "./components/Chatbot/Chatbot";
@@ -274,6 +274,55 @@ export default function Home() {
     //     };
     // }, [isTouchDevice]);
 
+    const MOCK_RECS = [
+        {
+            type: "summary",
+            recommendation: "Summarize KJ",
+            message: "Give me a brief summary about who you are.",
+        },
+        {
+            type: "search",
+            recommendation: "Search technical stack",
+            message: "What core technologies and frameworks do you specialize in?",
+        },
+        {
+            type: "ask",
+            recommendation: "Career highlights",
+            message: "What are your top engineering accomplishments and impact metrics?",
+        },
+    ];
+
+    const [recommendations, setRecommendations] = useState(IS_DEBUG ? MOCK_RECS : []);
+
+    const fetchRecommendations = useCallback(async (currentMessages: any[]) => {
+        try {
+            const res = await fetch("/api/chat/recommendations", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ messages: currentMessages }),
+            });
+
+            if (!res.ok) return;
+
+            const data = await res.json();
+            if (data?.recommendations) {
+                setRecommendations(data.recommendations);
+            }
+        } catch (err) {
+            console.error("Failed to fetch recommendations:", err);
+        }
+    }, []);
+
+    const handleSendMessage = useCallback((message:{text: string})=>{
+        setRecommendations([]);
+        sendMessage(message);
+    }, [sendMessage]);
+
+    useEffect(() => {
+        fetchRecommendations(chatbotMessages);
+        // eslint-disable-next-deps
+    }, []);
+
     return (
         <div 
             ref={containerRef} 
@@ -282,7 +331,8 @@ export default function Home() {
         >
             <Chatbot 
                 messages={chatbotMessages}
-                sendMessage={sendMessage}
+                recommendations={recommendations}
+                sendMessage={handleSendMessage}
                 status={status}
                 error={error}
                 currentTheme={currentTheme}
