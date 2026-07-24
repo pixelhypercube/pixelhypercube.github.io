@@ -8,8 +8,8 @@ import { projectSkillsTabsDark, projectSkillsTabsLight } from "../../globals";
 interface ProjectProps {
     name?: string,
     short_description?: string,
-    description?: string,
-    reflection?: string,
+    description?: Array<Array<any>>,
+    reflection?: Array<Array<any>>,
     skills?: [],
     date?: Date,
     media_url?: Array<string>, // first one is the MAIN media
@@ -125,7 +125,15 @@ export function ProjectListItem({
                     {/* BIO */}
                     <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-700" : "bg-stone-400"} h-full rounded-2xl p-4 overflow-y-auto ${transitionClasses}`}>
                         <h5>{about_header}</h5>
-                        {description}
+                        <ul className="list-disc ml-4">
+                            {description?.map((item: any, index: number)=>{
+                                const [desc, model] = item;
+
+                                return (
+                                    <li key={`proj-desc-${index}`}>{desc}</li>
+                                )
+                            })}
+                        </ul>
                     </div>
                 </div>
             </main>
@@ -137,7 +145,15 @@ export function ProjectListItem({
                     </div>
                     <div className={`transition-all duration-250 ease-in-out overflow-hidden ${reflectionOpened ? "max-h-10000 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
                         <hr className={`my-2 border-stone-400`}/>
-                        {reflection}
+                        <ul className="list-disc ml-4">
+                            {reflection?.map((item: any, index: number)=>{
+                                const [desc, model] = item;
+
+                                return (
+                                    <li key={`proj-reflection-${index}`}>{desc}</li>
+                                )
+                            })}
+                        </ul>
                     </div>
                 </div>
                 {
@@ -249,7 +265,7 @@ export function ProjectGridItem({
                     </button>
                 </div> */}
             </div>
-            <div className={`rounded-b-2xl ${currentTheme==="D" ? (!isArchived ? "bg-stone-900" : "bg-taupe-900") : (!isArchived ? "bg-stone-200" : "bg-taupe-200")} p-4`}> 
+            <div className={`rounded-b-2xl ${currentTheme==="D" ? (!isArchived ? "bg-stone-900" : "bg-taupe-900") : (!isArchived ? "bg-stone-200" : "bg-taupe-200")} p-4 ${transitionClasses}`}> 
                 <div className="w-full text-left italic">
                     <h6 className="mb-0 font-light opacity-80">
                         {date && renderDate(date)}
@@ -274,7 +290,15 @@ export function ProjectGridItem({
                     {/* BIO */}
                     <div className={`flex-1 ${currentTheme==="D" ? "bg-stone-800" : "bg-stone-300"} h-full mb-4 rounded-2xl p-4 overflow-y-auto ${transitionClasses}`}>
                         <h5>{about_header}</h5>
-                        {description}
+                        <ul className="list-disc ml-4">
+                            {description?.map((item: any, index: number)=>{
+                                const [desc, model] = item;
+
+                                return (
+                                    <li key={`proj-desc-${index}`}>{desc}</li>
+                                )
+                            })}
+                        </ul>
                     </div>
                     {/* REFLECTION */}
                     {reflection && (
@@ -285,7 +309,15 @@ export function ProjectGridItem({
                             </div>
                             <div className={`transition-all duration-250 ease-in-out overflow-hidden ${reflectionOpened ? "max-h-10000 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}>
                                 <hr className={`my-2 border-stone-500`}/>
-                                {reflection}
+                                <ul className="list-disc ml-4">
+                                    {reflection?.map((item: any, index: number)=>{
+                                        const [desc, model] = item;
+
+                                        return (
+                                            <li key={`proj-reflection-${index}`}>{desc}</li>
+                                        )
+                                    })}
+                                </ul>
                             </div>
                         </div>
                     )}

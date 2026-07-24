@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import { content, IS_DEBUG, projectSkillsTabsDark, projectSkillsTabsLight, skills } from "./globals";
 import Chatbot from "./components/Chatbot/Chatbot";
@@ -236,22 +236,6 @@ export default function Home() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // CHATBOT MESSAGES
-    const openingMessage: Record<string, string> = {
-        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything! Take note that this chatbot is currently in its beta phase, and that means that there will be a lot more improvements along the way!",
-        "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
-        "zh-Hant": "你好！又是我，凱傑！在這裡你可以問我任何事情！真的是任何事情哦！",
-        "ja": "こんにちは！またまたカイジエです！ここからは何でも気軽に聞いてね！本当に何でもいいよ！",
-    };
-
-    const { messages: chatbotMessages, sendMessage, status, error } = useChat({
-        messages: IS_DEBUG ? [
-            { id: '1', role: 'user', content: "this is a sender's message", parts: [{ type: 'text', text: "this is a sender's message" }] },
-            { id: '2', role: 'assistant', content: "this is a receiver's message", parts: [{ type: 'text', text: "this is a receiver's message" }] }
-        ] : [
-            { id: '1', role: 'assistant', content: openingMessage[selectedLanguage], parts: [{ type: 'text', text: openingMessage[selectedLanguage] }] }
-        ]
-    });
 
     // FOR MOBILE PAGINATION
     const handleTouchScroll = (
@@ -274,25 +258,89 @@ export default function Home() {
 
     const [oldProjectsOpened, setOldProjectsOpened] = useState(false);
 
-    // useEffect(() => {
-    //     // This instantiates Lenis safely only when the browser environment is active
-    //     const lenisInstance = new Lenis({ syncTouch: true });
+    // RECOMMENDATIONS
 
-    //     let removeR3FEffect: (() => void) | undefined;
+    const MOCK_RECS = [
+        {
+            type: "summary",
+            recommendation: "Summarize KJ",
+            message: "Give me a brief summary about who you are.",
+        },
+        {
+            type: "search",
+            recommendation: "Search technical stack",
+            message: "What core technologies and frameworks do you specialize in?",
+        },
+        {
+            type: "ask",
+            recommendation: "Career highlights",
+            message: "What are your top engineering accomplishments and impact metrics?",
+        },
+    ];
 
-    //     // Safely bind the frame request animation loop on desktop devices
-    //     if (!isTouchDevice) {
-    //         removeR3FEffect = addEffect((t) => {
-    //             lenisInstance.raf(t);
-    //         });
-    //     }
+    const [recommendations, setRecommendations] = useState(IS_DEBUG ? MOCK_RECS : []);
 
-    //     // Clean up listeners and loops when the component unmounts
-    //     return () => {
-    //         if (removeR3FEffect) removeR3FEffect();
-    //         lenisInstance.destroy();
-    //     };
-    // }, [isTouchDevice]);
+    const fetchRecommendations = useCallback(async (currentMessages: any[]) => {
+        try {
+            const res = await fetch("/api/chat/recommendations", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ messages: currentMessages }),
+            });
+
+            if (!res.ok) return;
+
+            const data = await res.json();
+            if (data?.recommendations) {
+                setRecommendations(data.recommendations);
+            }
+        } catch (err) {
+            console.error("Failed to fetch recommendations:", err);
+        }
+    }, []);
+
+    // CHATBOT MESSAGES
+    const openingMessage: Record<string, string> = {
+        "en": "Hi! It's me, KJ again! Feel free to ask me about anything here! Like literally anything! Take note that this chatbot is currently in its beta phase, and that means that there will be a lot more improvements along the way!",
+        "zh-Hans": "你好！又是我，凯杰！在这里你可以问我任何事情！真的是任何事情哦！",
+        "zh-Hant": "你好！又是我，凱傑！在這裡你可以問我任何事情！真的是任何事情哦！",
+        "ja": "こんにちは！またまたカイジエです！ここからは何でも気軽に聞いてね！本当に何でもいいよ！",
+    };
+
+    const { messages: chatbotMessages, sendMessage, status, error } = useChat({
+        messages: IS_DEBUG ? [
+            { id: '1', role: 'user', content: "this is a sender's message", parts: [{ type: 'text', text: "this is a sender's message" }] },
+            { id: '2', role: 'assistant', content: "this is a receiver's message", parts: [{ type: 'text', text: "this is a receiver's message" }] }
+        ] : [
+            { id: '1', role: 'assistant', content: openingMessage[selectedLanguage], parts: [{ type: 'text', text: openingMessage[selectedLanguage] }] }
+        ],
+        onFinish: (message) => {
+            fetchRecommendations([...chatbotMessages, message?.message]);
+        },
+    });
+
+    const handleSendMessage = useCallback((message:{text: string})=>{
+        setRecommendations([]);
+        sendMessage(message);
+    }, [sendMessage]);
+
+    useEffect(() => {
+        fetchRecommendations(chatbotMessages);
+        // eslint-disable-next-deps
+    }, []);
+
+
+    // AUTO ADD DARK TO EVERYTHING IF DARK
+
+    useEffect(() => {
+        if (currentTheme === "D") {
+            document.documentElement.classList.add("dark");
+            document.documentElement.setAttribute("data-theme", "D");
+        } else {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.setAttribute("data-theme", "L");
+        }
+    }, [currentTheme]);
 
     return (
         <div 
@@ -302,7 +350,8 @@ export default function Home() {
         >
             <Chatbot 
                 messages={chatbotMessages}
-                sendMessage={sendMessage}
+                recommendations={recommendations}
+                sendMessage={handleSendMessage}
                 status={status}
                 error={error}
                 currentTheme={currentTheme}

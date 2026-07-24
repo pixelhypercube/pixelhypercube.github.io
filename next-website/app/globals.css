@@ -5,12 +5,13 @@
   --foreground-light: #3F3A36;
 }
 
-@theme inline {
+@theme {
   --color-background-light: var(--background-light);
   --color-foreground-light: var(--foreground-light);
 
   --font-sans: var(--font-inter-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "PingFang TC", "Hiragino Sans", "Microsoft YaHei", "Microsoft JhengHei", "Yu Gothic UI", "Meiryo", sans-serif;
-  --font-mono: var(--font-inter-mono), monospace;
+  /* --font-mono: var(--font-inter-mono), monospace; */
+  --font-mono: "Courier New", Courier, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,10 +23,52 @@
 
 
 @layer base {
+  /* Firefox Scrollbar Standards */
+  html, body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  /* WebKit Scrollbar Standards (Chrome, Safari, Edge) */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: transparent !important;
+  }
+
+  /* Force non-thumb track, gutters, and corners to be 100% transparent */
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-corner,
+  body::-webkit-scrollbar-corner {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Scrollbar Thumb */
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  html::-webkit-scrollbar-thumb:hover,
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  html::-webkit-scrollbar-button,
+  body::-webkit-scrollbar-button {
+    display: none;
+    height: 0px;
+  }
+
   body {
     background: var(--background-light);
     color: var(--foreground-light);
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: var(--font-sans);
   }
 
@@ -41,64 +84,56 @@
   h4 { font-size: 1.563rem; }
   h5 { font-size: 1.25rem; }
   h6 { font-size: 1rem; }
-
-  /* input,textarea {
-    background: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    margin: 4px 0px 4px 0px;
-    padding: 6px;
-  }
-
-  input[type="submit"] {
-    background:#c7c3c0;
-    width:100%;
-  } */
-
-  /* DARK MODE */
-  /* @media (prefers-color-scheme: dark) {
-    input, textarea {
-      background: #1a1a1a;
-      color: white;
-      border-color: #444;
-    }
-
-    input[type="submit"] {
-      background:#3F3A36;
-      width:100%;
-    }
-  } */
 }
 
-/* Custom Scrollbar Utility Layer */
-@utility custom-scrollbar {
-  /* WebKit Browsers (Chrome, Safari, Edge) */
+:root, [data-theme="L"] {
+  --background-light: #ffffff;
+  --foreground-light: #3F3A36;
+  
+  /* Light Mode Scrollbar Thumb Colors (Darker Gray Thumb) */
+  --scrollbar-thumb: rgba(60, 60, 60, 0.4);
+  --scrollbar-thumb-hover: rgba(30, 30, 30, 0.7);
+}
+
+.dark, [data-theme="D"] {
+  --background-light: #3F3A36;
+  --foreground-light: #ffffff;
+
+  /* Dark Mode Scrollbar Thumb Colors (Lighter Gray Thumb) */
+  --scrollbar-thumb: rgba(200, 200, 200, 0.35);
+  --scrollbar-thumb-hover: rgba(240, 240, 240, 0.6);
+}
+
+/* Custom Scrollbar Utility Class for Inner Components */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+
   &::-webkit-scrollbar {
-    width: 0.75em;
+    width: 8px;
+    height: 8px;
+    background: transparent !important;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: rgba(75, 75, 75, 0.2);
-    border-radius: 20px;
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-corner {
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #868686;
+    background-color: var(--scrollbar-thumb);
     border-radius: 20px;
-    border: 2px solid transparent; /* Gives padding inside the track slot */
+    border: 2px solid transparent;
     background-clip: padding-box;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(160, 160, 160, 0.9);
+    background-color: var(--scrollbar-thumb-hover);
   }
 
   &::-webkit-scrollbar-button {
-    height: 0em;
+    display: none;
+    height: 0px;
   }
-
-  /* Firefox Standards Fallback */
-  scrollbar-width: thin;
-  scrollbar-color: #868686 rgba(75, 75, 75, 0.2);
 }

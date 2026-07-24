@@ -3,7 +3,9 @@
     "first_name": "Kai Jie",
     "last_name": "Teo",
     "other_names": ["Kendrick", "KJ"],
-    "hobbies": ["Long-Distance Running", "Speedcubing", "Reading", "Gymming", "Bouldering"],
+    "summary": "Penultimate-year Computer Science undergraduate at Nanyang Technological University (NTU). Builder and tinkerer at heart who approaches software engineering by breaking complex systems into clean, interactive components.",
+    "hobbies": ["Long-Distance Running", "Speedcubing", "Reading", "Gymming", "Bouldering", "Modded Minecraft"],
+    "mbti":"INTJ",
     "physical_info": {
       "morning_height": 180,
       "evening_height": 178,
@@ -13,7 +15,7 @@
     }
   },
   "contact": {
-    "email": "6thetce@gmail.com",
+    "email": "kj.teo.work@gmail.com",
     "linkedin_url": "https://linkedin.com/in/kai-jie-teo",
     "github_url": "https://github.com/pixelhypercube",
     "location": "Singapore",
@@ -25,19 +27,20 @@
       "degree": "Bachelor of Computing (Honours) in Computer Science",
       "start_date": "2024-08",
       "end_date": "Present",
+      "expected_graduation":"2028-07",
       "gpa": 4.56,
       "relevant_coursework": [
-        { "code": "SC1007", "name": "Data Structures & Algorithms" },
-        { "code": "SC1008", "name": "C & C++ Programming" },
-        { "code": "SC2001", "name": "Algorithm Design & Analysis" },
-        { "code": "SC2002", "name": "Object Oriented Design & Programming" },
-        { "code": "SC2006", "name": "Software Engineering" }
+        { "code": "SC1007", "name": "Data Structures & Algorithms", "coordinators": ["Dr. Owen Noel Newton Fernando", "Assoc. Prof. Luu Anh Tuan"] },
+        { "code": "SC1008", "name": "C & C++ Programming", "coordinators": ["Assoc. Prof. Hui Siu Cheung", "Asst. Prof. Wang Yong"] },
+        { "code": "SC2001", "name": "Algorithm Design & Analysis", "coordinators": ["Assoc. Prof. Dong Wei", "Assoc. Prof. Liu Ziwei"] },
+        { "code": "SC2002", "name": "Object Oriented Design & Programming", "coordinators": ["Prof. Zhang Jie", "Dr. Li Fang"] },
+        { "code": "SC2006", "name": "Software Engineering", "coordinators": ["Dr. Shen Zhiqi", "Asst. Prof. Conrad Watt"] }
       ],
       "activities": [
         {
           "name": "Hall X Resident",
           "dates": [["2024-08", "Present"]],
-          "details": ["Experienced hall community integration, aiding progression from an introverted to a more balanced social disposition."]
+          "details": ["Experienced hall community integration, helping transition from an introverted to a more balanced social disposition."]
         },
         {
           "name": "Hall X Road Relay",
@@ -49,15 +52,21 @@
         {
           "module_code": "SC2002",
           "title": "Internship Placement Management System",
-          "description": "A Java CLI system to automate the undergraduate internship lifecycle using role-based access for Students, Corporate Representatives, and Career Center Staff.",
-          "contributions": ["Developed primary execution logic in Java and mapped final application state structures to functional UML diagrams."]
+          "description": "A Java CLI system to automate the undergraduate internship placement lifecycle using role-based access for Students, Corporate Representatives, and Career Center Staff.",
+          "contributions": ["Developed primary execution logic in Java and mapped final application state structures to functional UML diagrams."],
+          "source_code": "https://github.com/pixelhypercube/sc2002-oop"
         },
         {
           "module_code": "SC2006",
           "title": "Pawsport & Peer",
           "description": "A multi-tenant care coordination web platform connecting pet owners with localized caregivers using custom calendar states, dispute workflows, and asynchronous WebSockets chat.",
-          "contributions": ["Engineered complete front-end layout structures, modular UI elements, and routing trees utilizing Next.js."]
+          "contributions": ["Engineered complete front-end layout structures, modular UI elements, and routing trees utilizing Next.js."],
+          "source_code": "https://github.com/pixelhypercube/PawsportAndPeer"
         }
+      ],
+      "bio_reflections": [
+        "Clinched my childhood dream of studying computer science, huge kudos to Sethbling for the inspiration!",
+        "If I have to sum up my university life in one sentence, it'll be: 'Interesting, but very competitive!' 😂"
       ]
     },
     {
@@ -67,11 +76,15 @@
       "end_date": "2022-03",
       "gpa": null,
       "awards": [
-        { "name": "Director's Honour Roll (AY2019/2020)", "date": "2020-01" },
+        { "name": "Edusave Certificate of Academic Achievement (2021)", "date": "2021-01" },
         { "name": "Edusave Certificate of Academic Achievement (2020)", "date": "2020-01" },
-        { "name": "Edusave Certificate of Academic Achievement (2021)", "date": "2021-01" }
+        { "name": "Director's Honour Roll (AY2019/2020)", "date": "2020-01" }
       ],
-      "details": ["Focused on software architecture patterns and collaborative group development pipelines."]
+      "details": ["Focused on software architecture patterns and collaborative group development pipelines."],
+      "bio_reflections": [
+        "I chose Polytechnic solely because I wanted to continue being a tech nerd/geek instead of taking IB!",
+        "Learned effective group collaboration and teamwork dynamics through intensive project deliverables."
+      ]
     },
     {
       "institution": "Anglo-Chinese School (International)",
@@ -81,14 +94,18 @@
       "activities": [
         {
           "name": "Philharmonic Orchestra",
-          "dates": [["2017-08", "2018-12"]],
+          "dates": [["2017-01", "2018-12"]],
           "details": ["Served as Double Bass Section Lead."]
         },
         {
           "name": "Archery",
-          "dates": [["2016-08", "2016-12"]],
+          "dates": [["2016-01", "2016-12"]],
           "details": ["Active Member."]
         }
+      ],
+      "bio_reflections": [
+        "Transferred from ACS (Barker) post-Sec 1 to complete the IGCSE curriculum alongside my sister.",
+        "Adjusted to a international academic environment and expanded my social circle."
       ]
     },
     {
@@ -102,19 +119,72 @@
           "dates": [["2015-01", "2015-12"]],
           "details": ["Gained initial programming exposure building logic sequences for LEGO Mindstorms platforms."]
         }
+      ],
+      "bio_reflections": [
+        "Attended ACS (Barker Road) following ACS (Primary) affiliation before transferring to ACS (International)."
       ]
     }
   ],
   "skills": {
-    "languages": ["TypeScript", "JavaScript (ES6)", "Python", "Java", "C#", "C", "C++", "HTML5", "CSS"],
-    "frameworks": ["Next.js", "React.js", "Tailwind CSS", "Express.js", "WebSockets", "EJS"],
-    "databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
-    "tools_devops": ["Git", "GitHub", "Vercel AI SDK", "Figma", "Canva", "LaTeX", "Shell Scripting", "Pygame"],
+    "proficiency_levels_legend": {
+      "technical": {
+        "0": "Novice",
+        "1": "Familiar",
+        "2": "Proficient"
+      },
+      "languages": {
+        "1": "Elementary",
+        "2": "Limited Working",
+        "3": "Professional",
+        "4": "Full Professional",
+        "5": "Native"
+      }
+    },
+    "languages": [
+      { "name": "JavaScript (ES6)", "level": 2, "proficiency": "Proficient" },
+      { "name": "TypeScript", "level": 1, "proficiency": "Familiar" },
+      { "name": "Python", "level": 2, "proficiency": "Proficient" },
+      { "name": "Java", "level": 2, "proficiency": "Proficient" },
+      { "name": "C#", "level": 1, "proficiency": "Familiar" },
+      { "name": "C", "level": 1, "proficiency": "Familiar" },
+      { "name": "C++", "level": 1, "proficiency": "Familiar" },
+      { "name": "HTML5", "level": 2, "proficiency": "Proficient" },
+      { "name": "CSS", "level": 2, "proficiency": "Proficient" }
+    ],
+    "frontend": [
+      { "name": "React.js", "level": 1, "proficiency": "Familiar" },
+      { "name": "Next.js", "level": 1, "proficiency": "Familiar" },
+      { "name": "Tailwind CSS", "level": 1, "proficiency": "Familiar" }
+    ],
+    "backend": [
+      { "name": "Node.js", "level": 2, "proficiency": "Proficient" },
+      { "name": "Express.js", "level": 1, "proficiency": "Familiar" },
+      { "name": "WebSockets", "level": 1, "proficiency": "Familiar" }
+    ],
+    "databases": [
+      { "name": "PostgreSQL", "level": 2, "proficiency": "Proficient" },
+      { "name": "MySQL", "level": 2, "proficiency": "Proficient" }
+    ],
+    "deployment": [
+      { "name": "Git", "level": 1, "proficiency": "Familiar" },
+      { "name": "GitHub", "level": 1, "proficiency": "Familiar" }
+    ],
+    "design": [
+      { "name": "Figma", "level": 2, "proficiency": "Proficient" },
+      { "name": "Canva", "level": 2, "proficiency": "Proficient" }
+    ],
+    "others": [
+      { "name": "Video Editing", "level": 2, "proficiency": "Proficient" },
+      { "name": "LaTeX", "level": 1, "proficiency": "Familiar" },
+      { "name": "Shell Scripting", "level": 0, "proficiency": "Novice" },
+      { "name": "Pygame", "level": 1, "proficiency": "Familiar" },
+      { "name": "Technical Docs", "level": 2, "proficiency": "Proficient" }
+    ],
     "spoken_languages": [
-      { "language": "English", "proficiency": "Native" },
-      { "language": "Chinese", "proficiency": "Limited Working" },
-      { "language": "Japanese", "proficiency": "Elementary" },
-      { "language": "Korean", "proficiency": "Elementary" }
+      { "language": "English", "level": 5, "proficiency": "Native" },
+      { "language": "Chinese", "level": 2, "proficiency": "Limited Working" },
+      { "language": "Japanese", "level": 1, "proficiency": "Elementary" },
+      { "language": "Korean", "level": 1, "proficiency": "Elementary" }
     ],
     "metrics": {
       "typing_speed": "100-120 wpm"
@@ -128,18 +198,15 @@
       "dates": [["2022-12", "2024-08"], ["2025-05", "2025-07"]],
       "kpis": [
         "Developed a custom QR Code attendance scanning system using Node.js and EJS to automate validation for over 300 non-training event participants, featured on official Army News channels.",
-        "Conducted end-to-end QA testing for core unit Telegram automation bots (Parade State, Events, Pers Node Enquiry), increasing system execution reliability by approximately 80%.",
+        "Conducted end-to-end QA testing for core unit Telegram automation bots (Parade State, Events, Pers Node Enquiry), increasing system execution reliability.",
         "Extended administrative task handling architectures across national Personnel Nodes by developing new sub-features and an updated mobile viewport implementation for the Personnel Admin Link (PAL) Microsoft PowerApps ecosystem.",
-        "Supported multi-channel workflows including high-volume telephony queues and unit operations coordination alongside engineering duties."
+        "Awarded Outstanding Soldier of the Month for June 2025 for technical contributions to the PAL platform."
       ],
       "notes": [
-        "Disrupted from Aug 2024 to May 2025 to pursue my 1st year at NTU."
+        "Disrupted from Aug 2024 to May 2025 to pursue Year 1 studies at NTU."
       ],
-      "experience": [
-        "Provided initial structural exposure to enterprise workplace realities, requiring rapid adaptation to operational challenges.",
-        "Applied core programming and systems validation skillsets within institutional frameworks to legacy and greenfield projects.",
-        "Developed personal accountability and strategic mature execution baselines within a non-combat support unit configuration."
-      ],
+      "reflection": "My National Service experience provided an introduction to enterprise realities and operational discipline. Building a QR Code attendance scanner and optimizing unit workflows provided practical avenues to deliver tangible software solutions in a non-combat clerical deployment.",
+      "skills": ["Node.js", "EJS", "Express.js", "Git", "PowerApps"],
       "awards": [
         "Letter of Appreciation - Outstanding Soldier of the Month (June 2025)"
       ]
@@ -150,14 +217,12 @@
       "work_type": "WFH",
       "dates": [["2023-02", "2023-08"]],
       "kpis": [
-        "Led front-end interface development architecture and technical tasks for a 2-developer team, building an enterprise intranet system to convert legacy paper-bound operations into persistent digital records.",
+        "Led front-end interface development architecture and technical tasks for a 2-developer team, building an enterprise intranet system to convert legacy paper-bound operations into digital records.",
         "Successfully managed and processed more than 700 operational recycling tickets during the active internal pilot deployment phase, mitigating historical documentation anomalies.",
-        "Extended implementation timelines by 3 months post-deadline to deliver iterative visual modifications based on secondary structural target parameters outlined by external management."
+        "Extended implementation timelines post-deadline to deliver iterative visual modifications based on secondary structural target parameters outlined by external management."
       ],
-      "experience": [
-        "Built robust features independently by tracking and analyzing engineering discussions across historical documentation platforms like StackOverflow without reliance on large language model synthesis.",
-        "Gained direct exposure managing external industrial requirements and multi-tier group dependencies."
-      ]
+      "reflection": "Working on real client deliverables without relying on LLMs reinforced self-driven problem-solving using documentation and developer platforms like StackOverflow.",
+      "skills": ["HTML5", "CSS", "JavaScript (ES6)"]
     },
     {
       "company": "Leaptron Engineering Pte Ltd.",
@@ -166,61 +231,163 @@
       "dates": [["2023-02", "2023-08"]],
       "kpis": [
         "Architected enterprise C# desktop components using internal Windows Forms libraries to optimize logistical tracking and shipping management pipelines.",
-        "Built modular back-end data architectures in Node.js alongside structured relational databases to manage hardware asset inventory counts.",
+        "Built modular back-end data architectures in Node.js alongside structured relational databases (PostgreSQL) to manage hardware asset inventory counts.",
         "Designed and deployed a warehouse management utility using AppGyver, automating real-time material allocations for over 10 operational facility staff members."
       ],
-      "experience": [
-        "Established core experience managing engineering targets under structured enterprise guidelines, successfully delivering multi-stack configurations."
-      ]
+      "reflection": "Provided foundational software engineering experience in an industrial environment, building technical adaptability across C#, Node.js, and physical automation protocols like Modbus.",
+      "skills": ["C#", "Node.js", "PostgreSQL", "Java", "Android Studio", "Git"]
     }
   ],
   "projects": [
     {
-      "title": "Personal Website v4 w/ 3D Voxels Gemini AI Chatbot",
-      "description": "An interactive chatbot portfolio built using the Vercel AI SDK and Gemini 2.0 Flash to answer questions based on who I am.",
-      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel AI SDK", "Gemini API", "Three.js"],
+      "title": "Personal Website",
+      "short_description": "4th Version!",
+      "description": "An interactive chatbot portfolio built using Next.js, TypeScript, Tailwind CSS, Three.js, Vercel AI SDK, and Gemini 2.0 Flash to showcase my builder/tinkerer identity through custom 3D voxel models and an AI twin.",
+      "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Vercel AI SDK", "Gemini API"],
       "github_url": "https://github.com/pixelhypercube/pixelhypercube.github.io",
       "live_url": "https://github.com/pixelhypercube/pixelhypercube.github.io",
+      "is_archived": false,
       "highlights": [
-        "Implemented strict system prompting constraints to mitigate model hallucination surfaces.",
-        "Handled edge-case HTTP status codes systematically to prevent UI crash vectors.",
-        "Hand-crafted spatial 3D voxel configurations from baseline matrices, leveraging automated visual correction frameworks."
+        "Integrated an interactive LLM chatbot twin utilizing Gemini API & Vercel AI SDK to answer visitor inquiries.",
+        "Hand-crafted spatial 3D voxel models across all sections reflecting a block-builder design aesthetic inspired by Minecraft.",
+        "Implemented responsive OS-style window UI with full drag, resize, maximize, and theme switching controls."
+      ],
+      "reflection": [
+        "In this fourth iteration of my personal website, I underwent multiple refactors to keep pace with evolving web standards, leveraging Next.js, Tailwind, and Three.js.",
+        "Hand-crafted 3D voxel models reflect my lifelong fascination with blocks and Minecraft.",
+        "Fine-tuning system prompts for the LLM chatbot presented challenges in ensuring context accuracy without hallucinations."
       ],
       "changelog": [
-        { "version": "V4", "date": "2026-06", "changes": ["3rd major revamp using Next.js & Tailwind CSS.", "Integrated localized LLM chatbot and interactive 3D voxel models via React Three Fiber View boundaries."] },
-        { "version": "V3", "date": "2025-08", "changes": ["2nd major structural adjustment onto base React.js structures.", "Implemented explicit event canvas tracking rendering target coordinate particle updates upon user interaction."] },
-        { "version": "V2", "date": "2021-09", "changes": ["1st major framework adjustment.", "Embedded p5.js script nodes within a custom '50 facts about me' data display array.", "Refined profile layout segments into condensed high-context blocks."] },
-        { "version": "V1", "date": "2021-09", "changes": ["Initial public environment deployment."] }
+        { "version": "V4", "date": "2026-06", "changes": ["3rd major revamp with Next.js & Tailwind CSS.", "Integrated LLM chatbot & interactive 3D voxel models."] },
+        { "version": "V3", "date": "2025-08", "changes": ["2nd major revamp using React.js.", "Implemented particle interactions upon click."] },
+        { "version": "V2", "date": "2021-09", "changes": ["1st major revamp using p5.js scripts.", "Refined bio sections into structured high-context blocks."] },
+        { "version": "V1", "date": "2021-09", "changes": ["Initial public deployment."] }
       ]
     },
     {
       "title": "CellCollab",
-      "description": "A real-time, room-based multiplayer deployment of Conway's Game of Life (CGL) allowing users to modify cellular matrices collaboratively on a uniform digital board.",
+      "short_description": "Conway's Game of Life (CGL), but with multiplayer!",
+      "description": "A real-time, room-based multiplayer deployment of Conway's Game of Life allowing users to modify cellular matrices collaboratively on a uniform digital board using WebSockets and Socket.IO.",
       "technologies": ["React.js", "Node.js", "Express.js", "WebSockets", "Socket.IO"],
       "github_url": "https://github.com/pixelhypercube/CellCollab",
       "live_url": "https://pixelhypercube.github.io/CellCollab",
+      "is_archived": false,
       "highlights": [
-        "Engineered synchronous multi-user matrix state consistency via WebSockets abstraction boundaries.",
-        "Integrated extensive configuration controls covering alternative cell palettes, custom grid rules, and responsive vector drawing brushes."
+        "Engineered real-time room-based board synchronization via Socket.IO.",
+        "Features customizable settings including alternative color palettes, custom brush edits, and rule sets."
+      ],
+      "reflection": [
+        "Built to explore WebSockets synchronization and state persistence in multiplayer board setups.",
+        "Tested board state broadcasts across high-latency simulated network conditions."
       ],
       "changelog": [
-        { "version": "V1.2", "date": "2025-10", "changes": ["Expanded user preference parameters and adjusted responsive grid padding lines."] },
-        { "version": "V1.1", "date": "2025-05", "changes": ["Initial deployment layout integration."] }
+        { "version": "V1.2", "date": "2025-10", "changes": ["Implemented more settings and improved layout."] },
+        { "version": "V1.1", "date": "2025-05", "changes": ["Initial public release."] }
       ]
     },
     {
       "title": "Astertris",
-      "description": "A structural variation of Tetris utilizing localized radial gravity rules targeting a central floating asteroid vector space.",
+      "short_description": "Tetris, but you're on a floating asteroid in space!",
+      "description": "A structural variation of Tetris utilizing localized radial gravity rules where Tetrominoes fall toward the center of a floating central asteroid, rendered in Java Swing using Object-Oriented Design and Data Structures.",
       "technologies": ["Java", "Java Swing"],
       "github_url": "https://github.com/pixelhypercube/Astertris",
       "live_url": "",
+      "is_archived": false,
       "highlights": [
-        "Developed custom radial block placement mechanics where line clearances evaluate symmetrically around a central circular hub.",
-        "Designed software layout using traditional Object-Oriented Design patterns in native Java environment layouts, overriding Swing rendering limits to preserve unified retro aesthetics."
+        "Developed radial gravity block placement mechanics clearable symmetrically on any side of the asteroid.",
+        "Utilized Queue data structures for previewing upcoming pieces and 2D vectors to calculate state changes."
+      ],
+      "reflection": [
+        "Created to practice Java Object-Oriented Design and Data Structure fundamentals ahead of NTU modules SC2002 & SC1007.",
+        "Overcame conventional downward gravity boundaries by modeling custom 2D vector attraction logic."
       ],
       "changelog": [
-        { "version": "beta 1.5.0", "date": "2025-10", "changes": ["Refined Swing panel draw rates and implemented structural score weight evaluation scales."] },
-        { "version": "beta 1.0.0", "date": "2025-09", "changes": ["Initial architecture validation check."] }
+        { "version": "beta 1.5.0", "date": "2025-10", "changes": ["UI improvements and scoring system integration."] },
+        { "version": "beta 1.0.0", "date": "2025-09", "changes": ["Initial Release."] }
+      ]
+    },
+    {
+      "title": "pySquidGame",
+      "short_description": "Squid Game in pygame!",
+      "description": "A playable Pygame application reproducing all 6 game stages from Netflix's 'Squid Game' (Red Light Green Light, Honeycomb, Tug of War, Marbles, Glass Stepping Stones, and Squid Game) plus Ddakji.",
+      "technologies": ["Python", "Pygame"],
+      "github_url": "https://github.com/pixelhypercube/pySquidGame",
+      "live_url": "",
+      "is_archived": true,
+      "highlights": [
+        "Implemented custom physics collisions and state management across 6 distinct minigames.",
+        "Updated button UI and game mechanics iteratively."
+      ],
+      "reflection": [
+        "Initially prototyped 'Red Light Green Light' in 2021 before returning in 2025 to complete all remaining minigames.",
+        "Gained extensive experience managing game loops, collision detection, and multi-scene transitions in Pygame."
+      ],
+      "changelog": [
+        { "version": "v1.1.0", "date": "2025-07", "changes": ["Implemented Ddakji minigame and updated UI."] },
+        { "version": "v1.0.1", "date": "2025-06", "changes": ["Bug fixes and RLGL physics improvements."] },
+        { "version": "v1.0", "date": "2025-06", "changes": ["Completed remaining 5 minigames."] },
+        { "version": "beta 1.0", "date": "2021-10", "changes": ["Initial Beta Release."] }
+      ]
+    },
+    {
+      "title": "Mini Speed Golf",
+      "short_description": "Speedrun through golf stages as fast as possible!",
+      "description": "A 2D minigolf game in Python (Pygame) allowing players to hit the ball while in motion to speedrun through 10 unique stages.",
+      "technologies": ["Python", "Pygame"],
+      "github_url": "https://github.com/pixelhypercube/Mini-Speed-Golf",
+      "live_url": "",
+      "is_archived": true,
+      "highlights": [
+        "Built continuous ball motion physics and 10 custom golf course layouts."
+      ],
+      "changelog": [
+        { "version": "beta 1.1.1", "date": "2022-04", "changes": ["Bug fixes and color palette refinements."] },
+        { "version": "beta 1.0", "date": "2020-10", "changes": ["Initial Release."] }
+      ]
+    },
+    {
+      "title": "Loves Me... ?",
+      "short_description": "Super Mario 64 DS minigame replica!",
+      "description": "A Web-based replica of the 'Loves Me...' petal-pulling minigame from Super Mario 64 DS built with p5.js.",
+      "technologies": ["HTML5", "CSS", "JavaScript (ES6)", "p5.js"],
+      "github_url": "https://github.com/pixelhypercube/Loves-Me-Replica/",
+      "live_url": "https://pixelhypercube.github.io/Loves-Me-Replica/",
+      "is_archived": true,
+      "highlights": [
+        "Recreated interactive petal detachment and random fortune generation mechanics using p5.js canvas graphics."
+      ],
+      "changelog": [
+        { "version": "v1.0", "date": "2021-05", "changes": ["Initial Release."] }
+      ]
+    },
+    {
+      "title": "Coin Dozer Replica",
+      "short_description": "2D online arcade coin pusher game!",
+      "description": "A 2D online arcade coin pusher replica reproducing classic childhood gameplay mechanics using p5.js and matter.js physics engine.",
+      "technologies": ["HTML5", "CSS", "JavaScript (ES6)", "p5.js", "matter.js"],
+      "github_url": "https://github.com/pixelhypercube/Side-Projects/tree/main/Coin-Dozer-Replica",
+      "live_url": "https://pixelhypercube.github.io/Side-Projects/Coin-Dozer-Replica/index.html",
+      "is_archived": true,
+      "highlights": [
+        "Integrated 2D rigid body physics (matter.js) for realistic coin drops and pusher movements."
+      ],
+      "changelog": [
+        { "version": "v1.0", "date": "2021-01", "changes": ["Initial Release."] }
+      ]
+    },
+    {
+      "title": "Console Spaceship Battle",
+      "short_description": "Python terminal-based arcade space shooter!",
+      "description": "A spaceship arcade battle game rendered exclusively inside a Python console/terminal, complete with laser shooting mechanics, enemy AI, and scrolling background star particles.",
+      "technologies": ["Python"],
+      "github_url": "https://github.com/pixelhypercube/Mini-Speed-Golf",
+      "live_url": "",
+      "is_archived": true,
+      "highlights": [
+        "Simulated 2D ASCII graphics rendering and real-time input loop inside a standard terminal window."
+      ],
+      "changelog": [
+        { "version": "v1.0", "date": "2020-09", "changes": ["Initial Release."] }
       ]
     }
   ],
@@ -229,77 +396,107 @@
       "wca_id": "2016JIET01",
       "3x3_single_pb": 4.8,
       "3x3_avg_pb": 9.92,
-      "method": "CFOP",
+      "ao5": "11.42s",
+      "ao100": "13.15s",
+      "method": "CFOP (Full OLL/PLL)",
       "cube_main": "GAN 12 MagLev"
     },
     "running": {
-      "5k_personal_best": "21:21",
-      "10k_personal_best": "45:50",
-      "half_marathon_personal_best": "1:44:00",
+      "5k_personal_best": "21:20",
+      "10k_personal_best": "45:45",
+      "half_marathon_personal_best": "1:44:40",
       "full_marathon_personal_best": "3:34:19",
       "current_weekly_mileage": 60,
       "shoe_rotation": {
-        "daily": "Asics Magic Speed 4",
+        "daily": "Asics Superblast 3",
         "race": "Nike Vaporfly 3"
       },
       "race_history": [
         {
-          "name":"2026 Taiwan International Marathon in Tainan (2026臺灣國際馬拉松(in臺南)",
-          "distance":42.195,
-          "time":"3:34:19",
-          "reflection":"My first overseas marathon - felt like I was flying as the roads were relatively straight!"
+          "name": "2026 Taiwan International Marathon in Tainan (2026臺灣國際馬拉松 in 臺南)",
+          "distance": 42.195,
+          "time": "3:34:19",
+          "reflection": "First overseas marathon. Flat course allowed for steady pacing throughout."
         },
         {
-          "name":"Standard Chartered Singapore Marathon 2023",
-          "distance":42.195,
-          "time":"4:49:51",
-          "reflection":"My very first marathon, didn't really train the best but the great thing is that I survived, especially under the heat and humidity!"
+          "name": "Standard Chartered Singapore Marathon 2023",
+          "distance": 42.195,
+          "time": "4:49:51",
+          "reflection": "First official full marathon completed under high tropical heat and humidity."
         }
       ]
     },
     "reading": {
-      "fav_books": [{
-        "title":"Atomic Habits",
-        "author":"James Clear"
-      }, 
-      {
-        "title":"The Subtle Art of Not Giving a F*ck",
-        "author":"Mark Manson"
-      },
-      {
-        "title":"Quiet",
-        "author":"Susan Cain"
-      }]
+      "fav_books": [
+        { "title": "Atomic Habits", "author": "James Clear" },
+        { "title": "The Subtle Art of Not Giving a F*ck", "author": "Mark Manson" },
+        { "title": "Quiet", "author": "Susan Cain" }
+      ]
+    },
+    "bouldering": {
+      "level": "Beginner"
+    },
+    "gymming": {
+      "goal":"Build Arm Muscles",
+      "bench_press_pb":"80kg"
     }
   },
   "frequently_asked_questions": [
     {
-      "question": "Why did you build an AI assistant for your portfolio?",
-      "answer": "To provide recruiters and visitors with an instant, interactive way to query my background, skills, and metrics without scrolling through a traditional static resume."
+      "question": "Why did you build an AI assistant for your website?",
+      "answer": "To provide recruiters and visitors with an instant, interactive way to query my background, skills, and metrics without scrolling through a traditional static resume. Additionally, people can also use my chatbot to get to know more about me, like my hobbies, interests, and tastes - preventing awkwardness when people reach out to ask about these basics!"
     },
     {
       "question": "Are you open to relocation?",
-      "answer": "At the moment, I'm not open yet, as I'm still completing my computer science undergraduate course at Nanyang Technological University."
+      "answer": "Not right now, because I'm focused on opportunities in Singapore while completing my computer science degree at Nanyang Technological University."
     },
     {
-      "question": "What would be your biggest strengths and weaknesses?",
-      "answer": "My greatest strengths would be that I'm very focused on all of my tasks and I would be able to deliver them on time under tight constraints. My greatest weakness would be that I would accidentally be careless to some aspects, and that I'm striving to learn how to be more precise in the future."
+      "question": "What are your biggest strengths and weaknesses?",
+      "answer": "My greatest strength is my intense focus and reliability in delivering projects on time under tight constraints. My key area of continuous improvement is maintaining meticulous precision across high-velocity development cycles."
     },
     {
-      "question": "What would you say is your biggest influence in your interest in computers?",
-      "answer": "When I was young, I was once intrigued by Sethbling's Minecraft redstone constructions, and I was interested in creating redstone command block contraptions. Another thing was that when I was a kid, I used to be naughty and spoil pieces of hardware, particularly CD-ROMs, because like many kids, I was an insanely curious person!"
+      "question": "Who and what was your biggest influence in getting into computing?",
+      "answer": "Minecraft was my all-time biggest inspiration for what I'm doing right now, because it allowed me to build and tinker with stuff just like how I use programming and web development to do the same things! Also, early exposure to technical creators like SethBling building complex Redstone logic gates in Minecraft inspired me to understand the principles behind computing systems."
     },
     {
-      "question": "Where do you see yourself in 5-10 years time?",
-      "answer": "In 5 years, I see myself as someone who has a great amount of software engineering experience and is adept in learning and adapting to new pieces of technologies. I would have made numerous side projects that are put in good use and that I would be very proud and happy about myself that I have made the steps to help others in need. In 10 years time, knowing that I have extensive experience in the industry, I see myself ideating a future startup that would help to suit the community better."
+      "question": "Where do you see yourself in 5-10 years?",
+      "answer": "In 5 years, I aim to be a proficient software engineer delivering scalable software products and personal tools. In 10 years, I see myself leveraging industry experience to architect impactful software solutions."
     },
     {
-      "question": "What was your story on how you got into IT and computing?",
-      "answer": "So when I was in pre-school, I was relatively fascinated with knowing how computers and other technologies work, where I would described myself as being relatively naughty and I would play with the CD drives to learn how it works (which upsets my parents to a certain extent, but as long as they know I don't do that again, it's all good). Also, I would fiddle around with learning how to use computer software programs at a relatively young age, where I learn how to use Cinema 4D by myself without any mentor to teach me. Later on, after my 10th birthday, I started playing Minecraft, and it has become my favourite game of all time as I am instantly fascinated with interacting in an interactive sandbox world filled with cubes. Minecraft has given me a space where it allowed me to learn how to tinker and build things, which eventually shaped me into the developer I am right now!"
+      "question": "What are some things that keep you motivated in your career?",
+      "answer": "One of the best things that keeps me motivated is that I generally like to build and tinker with things to help others carry out their daily needs and requirements seamlessly. I gain fulfillment if all of their objectives are successful, where a notable contribution involved me letting 300+ participants scan their attendance during my unit's non-training events. Because of this, I have the drive to keep on using my expertise to not only code, debug, and build applications, but also solve issues and simplify complex methodologies into easily accessible components."
     },
     {
-      "question": "What made you interested in pursuing Computer Science?",
-      "answer": "Knowing that I have a strong interest in playing Minecraft since 10 years old, I watched Sethbling - a Minecraft Youtuber (and speedrunner) who is well known for making insane redstone contraption videos. Knowing that he uses Redstone, a Minecraft equivalent of a wire, the way he executes it in the video was just so fascinating and inspiring to me, where I desperately wanted to make my own Redstone contraptions! Knowing that he graduated with a Computer Science degree also made me interested to complete a Computer Science degree too!"
+      "question": "What are your plans for 2027?",
+      "answer": "Finish the semester strong with solid grades, as well as searching and preparing for internships!"
+    },
+    {
+      "question": "What skillsets are you focusing on refining?",
+      "answer": "Definitely Next.js, because most modern websites rely on Next.js nowadays. Additionally, one of my favorite things about Next.js is the fact that I can combine backend routes with frontend!"
+    },
+    {
+      "question": "What are your favourite comfort foods?",
+      "answer": "Sushi, Sashimi, Egg Fried Rice, and Tomahawk Steak (to max protein)."
+    },
+    {
+      "question": "What are your biggest motivations to pursue fitness (especially running)?",
+      "answer": "The main reason is for better mental health — for instance, running is a cheat code for me to get extra dopamine to stabilize my mood! Additionally, going to the gym to gain muscle helps me become more confident about having a healthy body. Physical health means little if mental health isn't prioritized as well."
+    },
+    {
+      "question": "Are you planning to combine code with fitness?",
+      "answer": "Of course! I'm thinking about making new projects that involve applying my skillsets to help people live physically healthier lives!"
+    },
+    {
+      "question": "Are you an introvert or an extrovert?",
+      "answer": "Growing up, I was generally considered an introverted person — described as soft-spoken and preferring to recharge by myself. After NS and staying in hall, I opened up more and have gotten a lot more sociable, but I still definitely need my alone time! Right now, I can 'mask' as an extrovert — a lecturer once asked if I was naturally outspoken because I asked many questions and voiced out in class — but I still prefer to recharge by myself!"
+    },
+    {
+      "question": "What are your pet peeves?",
+      "answer": "No offense, but it's when I find UI components that look a bit off or vibe-coded, or parts of code that look too redundant (might be common among developers too)."
+    },
+    {
+      "question": "I noticed you did not have any working/internship experience during your term break from May 2026 to Aug 2026. Why?",
+      "answer": "One of the main reasons was that since I couldn't secure my desired internships at the time, I decided to use this break to not only work on this website, but also take time to reflect and recharge. The previous semester was academically intense, so I used this period to reset and prevent burnout, traveling to Japan with my mother and sister to explore Hokkaido and Tokyo!"
     }
   ]
 }

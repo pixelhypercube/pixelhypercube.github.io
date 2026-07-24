@@ -17,6 +17,7 @@ import skill_dark_git from "./voxelModels/skills/dark/git.json"
 import skill_dark_github from "./voxelModels/skills/dark/github.json"
 
 import skill_dark_javascript from "./voxelModels/skills/dark/javascript.json"
+import skill_dark_typescript from "./voxelModels/skills/dark/typescript.json"
 import skill_dark_python from "./voxelModels/skills/dark/python.json"
 import skill_dark_java from "./voxelModels/skills/dark/java.json"
 import skill_dark_cs from "./voxelModels/skills/dark/cs.json"
@@ -56,6 +57,7 @@ import skill_light_figma from "./voxelModels/skills/light/figma.json"
 import skill_light_canva from "./voxelModels/skills/light/canva.json"
 
 import skill_light_javascript from "./voxelModels/skills/light/javascript.json"
+import skill_light_typescript from "./voxelModels/skills/light/typescript.json"
 import skill_light_python from "./voxelModels/skills/light/python.json"
 import skill_light_java from "./voxelModels/skills/light/java.json"
 import skill_light_cs from "./voxelModels/skills/light/cs.json"
@@ -151,6 +153,12 @@ export const skills : Record<any, any> = {
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_javascript,
             "jsonModelLight":skill_light_javascript
+        },
+        {
+            "name":"Typescript",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_typescript,
+            "jsonModelLight":skill_light_typescript,
         },
         {
             "name":"Python",
@@ -684,15 +692,17 @@ Thanks for stopping by and enjoy your stay!`,
             },
             "projects": {
                 "header":"Featured Projects",
-                "description":"",
+                "description":[],
                 "about_header": "About",
                 "reflection_header": "Reflection",
                 "projects":[
                     // {
                     //     "name":"PromptWars",
                     //     "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
-                    //     "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time!",
-                    //     "reflection":"",
+                    //     "description": [
+                    //         ["Experience Conway's Game of Life while collaborating with other users on the same board in real time!", null]
+                    //     ],
+                    //     "reflection":[],
                     //     "skillsList":["React.js","Node.js","Express.js","WebSockets"],
                     //     "date": new Date(),
                     //     "media_url":["./projects/cellCollab.gif"],
@@ -702,8 +712,18 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Personal Website",
                         "short_description":"4th Version!",
-                        "description":"The website you're currently on! It features an array of 3D models scattered across the website because not only am I fascinated with seeing cubic stuff, but I also want to showcase the idea of using building blocks to build projects like these! It also exclusively features a chatbot where users can feel free to ask me about anything in their own convenience without needing to speak or chat with me in person, which can range from personal inquiries as well as fun facts about me!",
-                        "reflection":"In this fourth iteration of my personal website, I underwent multiple refactors to keep pace with evolving web standards, where I leveraged Next.js (TypeScript), Tailwind, and Three.js to express my tinkerer and builder identity through my website. As I was designing the website's UI layouts, I had to completely revamp and change certain components numerous times as there were times I felt like the initial components were not the best fit. Additionally, the main reason I wanted to hand-craft those 3D models was because I'm someone who's fascinated by cubes from playing Minecraft. On top of this, debugging and testing out the LLM chatbot was a bit of a challenge, as I had to constantly brainstorm all of the data about me to let users have a pleasant experience interacting with the chatbot. Overall, I felt like this was a great experience to showcase my personality because it's generally quite difficult to do it while creating a website at the same time!",
+                        "description": [
+                            ["The website you're currently on!", null],
+                            ["It features an array of 3D models scattered across the website because not only am I fascinated with seeing cubic stuff, but I also want to showcase the idea of using building blocks to build projects like these!", null],
+                            ["It also exclusively features a chatbot where users can feel free to ask me about anything in their own convenience without needing to speak or chat with me in person, which can range from personal inquiries as well as fun facts about me!", null]
+                        ],
+                        "reflection": [
+                            ["In this fourth iteration of my personal website, I underwent multiple refactors to keep pace with evolving web standards, where I leveraged Next.js (TypeScript), Tailwind, and Three.js to express my tinkerer and builder identity through my website.", null],
+                            ["As I was designing the website's UI layouts, I had to completely revamp and change certain components numerous times as there were times I felt like the initial components were not the best fit.", null],
+                            ["Additionally, the main reason I wanted to hand-craft those 3D models was because I'm someone who's fascinated by cubes from playing Minecraft.", null],
+                            ["On top of this, debugging and testing out the LLM chatbot was a bit of a challenge, as I had to constantly brainstorm all of the data about me to let users have a pleasant experience interacting with the chatbot.", null],
+                            ["Overall, I felt like this was a great experience to showcase my personality because it's generally quite difficult to do it while creating a website at the same time!", null]
+                        ],
                         "skillsList":["Next.js","Typescript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
@@ -747,8 +767,17 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"CellCollab",
                         "short_description":"Conway's Game of Life (CGL), but with multiplayer!",
-                        "description":"Experience Conway's Game of Life while collaborating with other users on the same board in real time! Using room-based sycnrohnization via Socket.IO, players can join into the same board and will allow them to experience the fascinating landscape of cellular automata! Also features highly customizable settings, such as color schemes, custom brush edits, and so much more!",
-                        "reflection":"As I was fascinated with cellular automata, I wanted to make this more accessible for other people to collaborate on the same board while simultaneously learning how it works. So, I levelled up and used Socket.IO to learn how the core functionalities of WebSockets work. I had to spread this out over two months because I had to constantly create, test, and debug numerous components to accommodate the vast array of settings and customizations of the boards. Building this was genuinely a fun and rewarding experience, and that has inspired me to make more full-stack projects over time!",
+                        "description": [
+                            ["Experience Conway's Game of Life while collaborating with other users on the same board in real time!", null],
+                            ["Using room-based sycnrohnization via Socket.IO, players can join into the same board and will allow them to experience the fascinating landscape of cellular automata!", null],
+                            ["Also features highly customizable settings, such as color schemes, custom brush edits, and so much more!", null]
+                        ],
+                        "reflection": [
+                            ["As I was fascinated with cellular automata, I wanted to make this more accessible for other people to collaborate on the same board while simultaneously learning how it works.", null],
+                            ["So, I levelled up and used Socket.IO to learn how the core functionalities of WebSockets work.", null],
+                            ["I had to spread this out over two months because I had to constantly create, test, and debug numerous components to accommodate the vast array of settings and customizations of the boards.", null],
+                            ["Building this was genuinely a fun and rewarding experience, and that has inspired me to make more full-stack projects over time!", null]
+                        ],
                         "skillsList":["React.js","Node.js","Express.js","WebSockets"],
                         "date": new Date("6/01/2025"),
                         "media_url":["./projects/cellCollab.gif"],
@@ -774,8 +803,18 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Astertris",
                         "short_description":"Tetris, but you're on a floating asteroid in space!",
-                        "description":"Imagine you are on a floating asteroid in space, but you decide to play Tetris on it. That is how the word 'Astertris' is formed, by combining the words 'Asteroid' and 'Tetris'! With radial gravity mechanics, Tetrominoes fall down towards the center of the asteroid, and 'Lines' (i.e. the ones where the whole row is filled for it to be cleared) can be cleared on any side of the asteroid! Made using Object-Oriented Programming (OOP) concepts and Data Structures using Java and Java Swing!",
-                        "reflection":"I primarily made this to prepare for two of my upcoming university modules, SC2002 (Object-Oriented Design and Programming) & SC1007 (Data Structures & Algorithms) because I wanted to practice my practical fundamentals in Java OODP & Data Structures. Knowing that there are probably millions of identical Tetris clones out there, I decided to come up with an idea that would manipulate the usage of the conventional downward direction of gravity used in the original Tetris game. Thanks to data structures like Queues for users to see the next Tetrominoes falling, as well as 2D vectors to determine the next falling state of the Tetromino, I was finally able to execute this seamlessly. Furthermore, the Java Swing environment surprisingly pulled off a consistent retro vibe!",
+                        "description": [
+                            ["Imagine you are on a floating asteroid in space, but you decide to play Tetris on it.", null],
+                            ["That is how the word 'Astertris' is formed, by combining the words 'Asteroid' and 'Tetris'!", null],
+                            ["With radial gravity mechanics, Tetrominoes fall down towards the center of the asteroid, and 'Lines' (i.e. the ones where the whole row is filled for it to be cleared) can be cleared on any side of the asteroid!", null],
+                            ["Made using Object-Oriented Programming (OOP) concepts and Data Structures using Java and Java Swing!", null]
+                        ],
+                        "reflection": [
+                            ["I primarily made this to prepare for two of my upcoming university modules, SC2002 (Object-Oriented Design and Programming) & SC1007 (Data Structures & Algorithms) because I wanted to practice my practical fundamentals in Java OODP & Data Structures.", null],
+                            ["Knowing that there are probably millions of identical Tetris clones out there, I decided to come up with an idea that would manipulate the usage of the conventional downward direction of gravity used in the original Tetris game.", null],
+                            ["Thanks to data structures like Queues for users to see the next Tetrominoes falling, as well as 2D vectors to determine the next falling state of the Tetromino, I was finally able to execute this seamlessly.", null],
+                            ["Furthermore, the Java Swing environment surprisingly pulled off a consistent retro vibe!", null]
+                        ],
                         "skillsList":["Java"],
                         "date": new Date("10/01/2025"),
                         "media_url":["./projects/astertris.gif"],
@@ -802,15 +841,25 @@ Thanks for stopping by and enjoy your stay!`,
             },
             "old_projects": {
                 "header":"Historical Projects",
-                "description":"These early projects helped shape who I am as a developer!",
+                "description": [
+                    ["These early projects helped shape who I am as a developer!", null]
+                ],
                 "about_header": "About",
                 "reflection_header": "Reflection",
                 "projects":[
                     {
                         "name":"pySquidGame",
                         "short_description":"Squid Game in pygame!",
-                        "description":"A playable pygame application based on Netflix's 'Squid Game'! Contains all 6 game stages available in 'Squid Game' - Red Light Green Light, Honeycomb, Tug of War, Marbles, Glass Stepping Stones, Squid Game (Final Game)",
-                        "reflection":"As I was fascinated by the games played in \"Squid Game\", I quickly wanted to make a replica of it using Pygame. When I was initially prototyping the 'Red Light Green Light' game back in 2021, one of the greatest challenges was learning how to deal with certain game mechanics, such as the physical collision of players and numerous state changes. Upon the release of new episodes of \"Squid Game\", I decided to return to it to finish creating the 5 remaining games (including the pre-game Ddakji). Thanks to the help of LLMs to speed up brainstorming ideas and the implementation of physical states, I successfully managed to complete my goal of making every single game in the series!",
+                        "description": [
+                            ["A playable pygame application based on Netflix's 'Squid Game'!", null],
+                            ["Contains all 6 game stages available in 'Squid Game' - Red Light Green Light, Honeycomb, Tug of War, Marbles, Glass Stepping Stones, Squid Game (Final Game)", null]
+                        ],
+                        "reflection": [
+                            ["As I was fascinated by the games played in \"Squid Game\", I quickly wanted to make a replica of it using Pygame.", null],
+                            ["When I was initially prototyping the 'Red Light Green Light' game back in 2021, one of the greatest challenges was learning how to deal with certain game mechanics, such as the physical collision of players and numerous state changes.", null],
+                            ["Upon the release of new episodes of \"Squid Game\", I decided to return to it to finish creating the 5 remaining games (including the pre-game Ddakji).", null],
+                            ["Thanks to the help of LLMs to speed up brainstorming ideas and the implementation of physical states, I successfully managed to complete my goal of making every single game in the series!", null]
+                        ],
                         "skillsList":["Python","Pygame"],
                         "date": new Date("07/01/2025"),
                         "media_url":[
@@ -868,8 +917,11 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Mini Speed Golf",
                         "short_description":"",
-                        "description":"A minigolf game made using Python (pygame) that allows you to hit the ball while it's moving, allowing you to speedrun through golf stages as fast as possible! Contains 10 unique stages, with each stage having its own distinct and fun characteristics!",
-                        "reflection":"",
+                        "description": [
+                            ["A minigolf game made using Python (pygame) that allows you to hit the ball while it's moving, allowing you to speedrun through golf stages as fast as possible!", null],
+                            ["Contains 10 unique stages, with each stage having its own distinct and fun characteristics!", null]
+                        ],
+                        "reflection":[],
                         "skillsList":["Python","Pygame"],
                         "date": new Date("04/01/2022"),
                         "media_url":[
@@ -904,8 +956,10 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Loves Me... ?",
                         "short_description":"",
-                        "description":"A replica of the 'Loves Me...' minigame from Super Mario 64 DS, made using p5.js!",
-                        "reflection":"",
+                        "description": [
+                            ["A replica of the 'Loves Me...' minigame from Super Mario 64 DS, made using p5.js!", null]
+                        ],
+                        "reflection":[],
                         "skillsList":["HTML5","CSS","Javascript (ES6)"],
                         "date": new Date("05/21/2021"),
                         "media_url":[
@@ -926,8 +980,10 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Coin Dozer Replica",
                         "short_description":"",
-                        "description":"A mini 2D online Coin Dozer to relive one of my favorite childhood games using p5.js & matter.js!",
-                        "reflection":"",
+                        "description": [
+                            ["A mini 2D online Coin Dozer to relive one of my favorite childhood games using p5.js & matter.js!", null]
+                        ],
+                        "reflection":[],
                         "skillsList":["HTML5","CSS","Javascript (ES6)"],
                         "date": new Date("01/01/2021"),
                         "media_url":[
@@ -948,8 +1004,11 @@ Thanks for stopping by and enjoy your stay!`,
                     {
                         "name":"Console Spaceship Battle",
                         "short_description":"",
-                        "description":"A spaceship battle game made exclusively using a Python console! Includes shooting mechanics with laser bullets to battle enemy spaceships, with additional graphics like moving stars in the background.",
-                        "reflection":"",
+                        "description": [
+                            ["A spaceship battle game made exclusively using a Python console!", null],
+                            ["Includes shooting mechanics with laser bullets to battle enemy spaceships, with additional graphics like moving stars in the background.", null]
+                        ],
+                        "reflection":[],
                         "skillsList":["Python"],
                         "date": new Date("09/22/2020"),
                         "media_url":[
@@ -965,7 +1024,7 @@ Thanks for stopping by and enjoy your stay!`,
                                 ]
                             },
                         ]
-                    },
+                    }
                 ]
             },
             "education": {
@@ -1228,17 +1287,17 @@ Thanks for stopping by and enjoy your stay!`,
                             {
                                 "name":"Philharmonic Orchestra",
                                 "dates": [
-                                    [new Date("08/05/2017"), new Date("12/03/2018")]
+                                    [new Date("01/01/2017"), new Date("12/31/2018")]
                                 ],
                                 "bio":[
-                                    "Double Bass Section Lead"
+                                    "Double Bass Section Lead (2018)"
                                 ],
                                 "jsonModel":strings
                             },
                             {
                                 "name":"Archery",
                                 "dates": [
-                                    [new Date("08/05/2016"), new Date("12/03/2016")]
+                                    [new Date("01/01/2016"), new Date("12/31/2016")]
                                 ],
                                 "bio":[
                                     "Member"

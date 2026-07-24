@@ -16,6 +16,7 @@ interface ChatbotProps {
     transitionClasses?: string;
     ref?: Ref<HTMLDivElement> | undefined;
     messages: any[];
+    recommendations: any[];
     sendMessage: (message: { text: string }) => void;
     status: string;
     error: Error | undefined;
@@ -29,6 +30,7 @@ export default function Chatbot({
     transitionClasses,
     ref,
     messages,
+    recommendations,
     sendMessage,
     status,
     error
@@ -50,6 +52,7 @@ export default function Chatbot({
                     selectedLanguage={selectedLanguage}
                     isOpen={isOpen}
                     messages={messages}
+                    recommendations={recommendations}
                     sendMessage={sendMessage}
                     status={status}
                     error={error}

@@ -1,6 +1,21 @@
 import { google } from "@ai-sdk/google";
-import { streamText, convertToModelMessages } from "ai";
+import { streamText, convertToModelMessages, generateText, Output } from "ai";
 import portfolioData from "./portfolioData.json";
+import { z } from "zod";
+
+const recommendationSchema = z.object({
+    recommendations: z.array(
+        z.object({
+        type: z.enum(["search", "ask", "summary"]),
+        recommendation: z
+            .string()
+            .describe("Short UI display label shown on the button"),
+        message: z
+            .string()
+            .describe("Full prompt text dispatched to the AI model upon click"),
+        })
+    ).min(2).max(3),
+});
 
 export const maxDuration = 30;
 
