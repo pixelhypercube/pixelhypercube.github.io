@@ -59,8 +59,8 @@
         {
           "module_code": "SC2006",
           "title": "Pawsport & Peer",
-          "description": "A multi-tenant care coordination web platform connecting pet owners with localized caregivers using custom calendar states, dispute workflows, and asynchronous WebSockets chat.",
-          "contributions": ["Engineered complete front-end layout structures, modular UI elements, and routing trees utilizing Next.js."],
+          "description": "A multi-tenant care coordination web platform connecting pet owners with localized caregivers using custom calendar states, dispute workflows, and a live chat interface using Websockets.",
+          "contributions": ["Developed the complete frontend user interface using Next.js. (p.s. I did not touched the backend (including the Websockets) as my other teammate did the entirety of the backend and database.","Designed and implemented the core client-side layout structures, cross-page navigation routers, and reusable UI components."],
           "source_code": "https://github.com/pixelhypercube/PawsportAndPeer"
         }
       ],

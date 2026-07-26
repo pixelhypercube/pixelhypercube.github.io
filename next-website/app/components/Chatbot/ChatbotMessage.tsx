@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
-import { Download } from "lucide-react";
+import { Check, Copy, Download, Repeat } from "lucide-react";
 
 
 // helper function to trigger client-side file downloads
@@ -24,17 +24,22 @@ interface ChatbotMessageProps {
     dateTime: Date,
     showTypingAnimation: boolean,
     currentTheme?: string,
-    transitionClasses?: string
+    transitionClasses?: string,
+    repeatFn?:()=>void;
+    canRepeat: boolean;
 }
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export default function ChatbotMessage({
     isReceiver,
     text = "",
     dateTime = new Date(),
     showTypingAnimation = false,
     currentTheme = "L",
-    transitionClasses
+    transitionClasses,
+    repeatFn,
+    canRepeat
 } : ChatbotMessageProps) {
     const [mounted, setMounted] = useState(false);
     
@@ -67,6 +72,21 @@ export default function ChatbotMessage({
             isCancelled = true;
         };
     }, [text, showTypingAnimation]);
+
+
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async () => {
+        try {
+            await navigator.clipboard.writeText(currText);
+            setCopied(true);
+            
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    };
+
 
     if (!mounted) return null;
 
@@ -208,11 +228,28 @@ export default function ChatbotMessage({
                 </ReactMarkdown>
             </div>
             <hr className={currentTheme === "D" ? 'border-stone-700/50 my-1' : 'border-stone-300 my-1'}/>
-            <p className={`text-right text-xs italic ${currentTheme === "D" ? 'text-stone-400' : 'text-stone-500'}`}>{dateTime.toLocaleTimeString('en-US', { 
-                hour: 'numeric', 
-                minute: '2-digit', 
-                hour12: true 
-            }).toLowerCase()}</p>
+            <div className="flex justify-between">
+                {isReceiver && (
+                    <div className="flex gap-2">
+                        {
+                            canRepeat && <Repeat size={16} onClick={repeatFn} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                        }
+                        <div onClick={()=>handleCopy()}>
+                            {
+                                !copied ?
+                                <Copy size={16} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/> :
+                                <Check size={16} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                            }
+                        </div>
+                        <p className={`mb-0 text-xs transition-opacity duration-150 ease-in-out select-none ${copied ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>Copied!</p>
+                    </div>
+                )}
+                <p className={`text-right text-xs italic ${currentTheme === "D" ? 'text-stone-400' : 'text-stone-500'}`}>{dateTime.toLocaleTimeString('en-US', { 
+                    hour: 'numeric', 
+                    minute: '2-digit', 
+                    hour12: true 
+                }).toLowerCase()}</p>
+            </div>
         </div>
     )
 }

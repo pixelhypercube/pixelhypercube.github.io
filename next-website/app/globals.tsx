@@ -623,14 +623,14 @@ Thanks for stopping by and enjoy your stay!`,
                         "json_model_fov":45,
                         "description": [
                             [
-                                "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I worked on implementing more updates according to the company's new requirements.",
+                                "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I was tasked on implementing more features according to the company's new requirements.",
                                 experience_ecoexchange_updates,
                                 {
                                     "fov":35,
                                 }
                             ],
                             [
-                                "Led the frontend development section and coordinated a team of 2 developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
+                                "Led the frontend development section and coordinated a team of 2 frontend developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
                                 experience_ecoexchange_frontend,
                                 {
                                     "fov":35,
@@ -653,7 +653,7 @@ Thanks for stopping by and enjoy your stay!`,
                         // ],
                         "skills": ["HTML5", "CSS", "Javascript (ES6)"],
                         "dates": [
-                            [new Date("02/01/2023"), new Date("08/30/2023")] 
+                            [new Date("10/01/2022"), new Date("05/31/2023")] 
                         ]
                     },
                     {
@@ -1216,17 +1216,17 @@ Thanks for stopping by and enjoy your stay!`,
                         "awards": [
                             {
                                 "name":"Edusave Certificate of Academic Achievement (2021)",
-                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
-                                "date":new Date("01/01/2020")
-                            },
-                            {
-                                "name":"Edusave Certificate of Academic Achievement (2020)",
-                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
+                                "description": "Awarded for being in the top 25% in the cohort for the academic year.",
                                 "date":new Date("01/01/2021")
                             },
                             {
+                                "name":"Edusave Certificate of Academic Achievement (2020)",
+                                "description": "Awarded for being in the top 25% in the cohort for the academic year.",
+                                "date":new Date("01/01/2020")
+                            },
+                            {
                                 "name":"Director's Honour Roll (AY2019/2020)",
-                                // "description": "Awarded for being in the top 10% in the cohort for the semester, as well as displaying SP CORE values.",
+                                "description": "Awarded for being in the top 10% in the cohort for the academic year, as well as displaying SP CORE values.",
                                 "date":new Date("01/01/2020")
                             },
                         ],

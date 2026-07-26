@@ -543,7 +543,7 @@ export function EducationListItem({
                                                         } */}
                                                     </div>
                                                     <div>
-                                                        <h6>Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
+                                                        <h6 className="mb-0">Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
                                                     </div>
                                                 </div>
                                             </header>
@@ -926,7 +926,7 @@ export function EducationTimelineElem({
                                                 } */}
                                             </div>
                                             <div>
-                                                <h6>Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
+                                                <h6 className="mb-0">Module Coordinator{module_coordinators.length>1 ? "s" : ""}: {module_coordinators.join(", ")}</h6>
                                             </div>
                                         </div>
                                     </header>
@@ -1025,12 +1025,14 @@ export function EducationTimelineElem({
                                     {/* <h4 className="my-0">{awards_header} 🎖️</h4> */}
                                     <div className="grid sm:grid-cols-1 gap-4">
                                         {awards.map((award:Record<string, any>,idx: number)=>{
-                                            const {name, date} = award;
+                                            const {name, description, date} = award;
                                             
                                             return <div key={`award-${idx}`} className={`${currentTheme==="D" ? "bg-stone-800 text-stone-100" : "bg-stone-300 text-stone-950"} rounded-2xl p-4 ${transitionClasses}`}>
                                                 <div>
                                                     <h5 className="my-0">{name}</h5>
                                                     <p className="my-0 text-sm italic">{date && renderDate(date)}</p>
+                                                    <hr className={`${currentTheme==="D" ? "border-stone-700" : "border-stone-400"} my-4`}/>
+                                                    <p>{description}</p>
                                                 </div>
                                             </div>
                                         })}

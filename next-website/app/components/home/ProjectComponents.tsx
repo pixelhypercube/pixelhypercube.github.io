@@ -301,7 +301,7 @@ export function ProjectGridItem({
                         </ul>
                     </div>
                     {/* REFLECTION */}
-                    {reflection && (
+                    {reflection && reflection.length>0 && (
                         <div className={`${currentTheme==="D" ? "bg-mauve-800" : "bg-mauve-300"}  rounded-2xl p-4 mb-4 overflow-y-auto ${transitionClasses}`}>
                             <div onClick={()=>setReflectionOpened(!reflectionOpened)} className={`flex justify-between items-center`}>
                                 <h5 className="mb-0">{reflection_header}</h5>

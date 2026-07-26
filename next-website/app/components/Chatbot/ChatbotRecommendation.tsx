@@ -9,6 +9,7 @@ import {
   TrendingUp,
   HelpCircle 
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface ChatbotRecommendationProps {
     recommendation: string;
@@ -39,8 +40,14 @@ export function ChatbotRecommendation({
 } : ChatbotRecommendationProps) {
     const IconComponent = ICON_MAP[recType] || HelpCircle;
 
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(()=>{
+        setMounted(true);
+    },[mounted]);
+
     return (
-        <div onClick={onClick} className={`flex p-2 items-center rounded-xl border ${currentTheme==="D" ? "bg-olive-700 border-olive-500 hover:bg-olive-600 message-white" : "bg-olive-300 border-olive-500 hover:bg-olive-400 message-black"} transition-colors duration-150 ease-in-out`}>
+        <div onClick={onClick} className={`${mounted ? "opacity-100" : "opacity-0"} flex p-2 items-center rounded-xl border ${currentTheme==="D" ? "bg-olive-700 border-olive-500 hover:bg-olive-600 message-white" : "bg-olive-300 border-olive-500 hover:bg-olive-400 message-black"} transition-opacity duration-250 ease-in-out`}>
             <IconComponent size={20} className="shrink-0" />
             <p className="mb-0 ml-4 text-sm select-none">{recommendation}</p>
         </div>

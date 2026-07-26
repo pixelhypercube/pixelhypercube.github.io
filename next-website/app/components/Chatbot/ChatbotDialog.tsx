@@ -95,6 +95,22 @@ export default function ChatbotDialog({
         }
     }
 
+    const handleRepeat = (messages: any) => {
+        const prevMsg = messages[messages.length-2];
+
+        if (!prevMsg) return;
+
+        const prevMsgTextContent = prevMsg.content || (prevMsg.parts
+        ?.filter((part: any) => part.type === 'text')
+        .map((part: any) => part.text)
+        .join('')) || '';
+
+        if (prevMsgTextContent) {
+            messages.splice(messages.length-2,2);
+            handleSend(prevMsgTextContent);
+        }
+    }
+
     useEffect(() => {
         scrollToBottom();
         const timer = setTimeout(scrollToBottom, 50);
@@ -338,6 +354,10 @@ export default function ChatbotDialog({
                                 text={textContent}
                                 dateTime={new Date()}
                                 showTypingAnimation={isTyping}
+                                repeatFn={() => {
+                                    handleRepeat(messages);
+                                }}
+                                canRepeat={index>1}
                             />
                             {!isReceiver && (
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 self-end ${
@@ -351,28 +371,26 @@ export default function ChatbotDialog({
                 })}
 
                 {/* recommendations list */}
-                {recommendations && recommendations.length>0 && (
-                    <div className={`flex flex-col gap-4 items-end w-full max-w-full min-w-0 my-2`}>
-                        <p className="text-sm">Not sure what to ask? Choose something:</p>
-                        {
-                            recommendations.map((rec: any, index: number)=>{
-                                const {recommendation, message, type} = rec;
-                                return (
-                                    <div key={`rec-${index}`}>
-                                        <ChatbotRecommendation
-                                            recommendation={recommendation}
-                                            message={message}
-                                            recType={type}
-                                            onClick={()=>handleSend(message)}
-                                            currentTheme={currentTheme}
-                                            transitionClasses={transitionClasses}
-                                        />
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                )}
+                <div className={`flex flex-col gap-4 items-end w-full max-w-full ${recommendations && recommendations.length>0 ? "my-2" : "h-0 m-0"} min-w-0`}>
+                    <p className={`${recommendations && recommendations.length>0 ? "opacity-100 transition-opacity duration-250 ease-in-out" : "opacity-0 h-0"} select-none text-sm`}>Not sure what to ask? Choose something:</p>
+                    {
+                        recommendations.map((rec: any, index: number)=>{
+                            const {recommendation, message, type} = rec;
+                            return (
+                                <div key={`rec-${index}`}>
+                                    <ChatbotRecommendation
+                                        recommendation={recommendation}
+                                        message={message}
+                                        recType={type}
+                                        onClick={()=>handleSend(message)}
+                                        currentTheme={currentTheme}
+                                        transitionClasses={transitionClasses}
+                                    />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
                 
                 {error && (
                     <div className="justify-self-start bg-red-100 border border-red-300 text-red-800 p-3 m-5 rounded-xl text-sm max-w-96">
@@ -419,6 +437,7 @@ export default function ChatbotDialog({
                         <Send size={16}/>
                     </button>
                 </div>
+
                 <div className="w-full flex justify-center mt-2">
                     <small className={`text-[11px] ${currentTheme==="D" ? "text-stone-400" : "text-stone-500"}`}>AI can make mistakes, so double-check it</small>
                 </div>
