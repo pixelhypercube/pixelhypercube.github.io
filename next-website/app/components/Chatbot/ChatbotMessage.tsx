@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
 import { Check, Copy, Download, Repeat } from "lucide-react";
+import VoiceButton from "../VoiceButton";
 
 
 // helper function to trigger client-side file downloads
@@ -241,6 +242,9 @@ export default function ChatbotMessage({
                                 <Check size={16} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
                             }
                         </div>
+                        {
+                            currText && <VoiceButton textToSpeak={currText} />
+                        }
                         <p className={`mb-0 text-xs transition-opacity duration-150 ease-in-out select-none ${copied ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>Copied!</p>
                     </div>
                 )}
