@@ -15,7 +15,95 @@ import Footer from "./components/Footer";
 import OverlayCanvas from "./components/OverlayCanvas";
 import Navigation from "./components/Navigation";
 import GridDialog from "./components/GridDialog";
+import { X } from "lucide-react";
 const {tags,tagKeys} = tagObj;
+
+export class DialogOverlay extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHoveringIcon:false,
+      isVisible:true,
+      mouseX:0,
+      mouseY:0
+    }
+  }
+
+  render() {
+    const {title, description, link, linkCaption, closeDialogText} = this.props;
+
+    const {isHoveringIcon, isVisible, mouseX, mouseY} = this.state;
+    return (
+      <div style={{
+        zIndex:100,
+        background:"rgba(0,0,0,0.5)",
+        position:"fixed",
+        width:"100%",
+        height:"100%",
+        textAlign:"center",
+        display:isVisible ? "flex" : "none", 
+        justifyContent:"center",
+        alignItems:"center",
+        backdropFilter: "blur(4px)",
+        boxShadow:"0 20px 25px -5px rgba(0,0,0,0.5)"
+      }}>
+        <div style={{
+          background:"rgba(30,28,27)",
+          position:"fixed",
+          borderRadius:"20px",
+          padding:"20px",
+          width:"70%",
+          border:"1px solid grey"
+        }}
+        >
+          <header className="d-flex justify-content-between">
+            <X className="opacity-0"/>
+            <h3 className="m-0">{title}</h3>
+            <X 
+            onMouseEnter={()=>this.setState({isHoveringIcon:true})}
+            onMouseLeave={()=>this.setState({isHoveringIcon:false})}
+            onMouseMove={(e)=>{
+              const {clientX, clientY} = e;
+              this.setState({mouseX:clientX,mouseY:clientY});
+            }}
+            onClick={()=>this.setState({isVisible:false})}
+            />
+            {/* mini dialog */}
+            <div style={{
+              left:mouseX-63,
+              top:mouseY+10,
+              zIndex:1000,
+              background:"rgba(30,28,27)",
+              border:"1px solid grey",
+              borderRadius:"8px",
+              padding:"4px",
+              width:"125px",
+            }} className={`position-fixed user-select-none ${isHoveringIcon ? "d-block" : "d-none"}`}>
+              <span>{closeDialogText}</span>
+            </div>
+          </header>
+          <hr/>
+          <main>
+            <p>{description}</p>
+            <a style={{
+              background:"white",
+              color:"black",
+              textDecoration:"none",
+              padding:"8px",
+              borderRadius:"8px",
+              fontSize:"20px",
+              fontWeight:"600",
+            }} href={link}>{linkCaption}</a>
+          </main>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -169,6 +257,13 @@ export default class Home extends React.Component {
         mouseX={mouseX}
         mouseY={mouseY}
         mouseIsDown={mouseIsDown}
+        />
+        <DialogOverlay
+        title={"I've Moved!"}
+        description={"I built a fresh look for my new website, with updated projects and more cool features awaiting you! See you there!"}
+        link={"https://kj-teovercelapp.vercel.app/"}
+        linkCaption={"Visit New Website"}
+        closeDialogText={"Stay on old site"}
         />
         <Navigation/>
         <header
