@@ -66,7 +66,7 @@ export default function VoiceButton({ textToSpeak }: VoiceButtonProps) {
         >
             <Volume2 
                 className={`transition-opacity ${isPlaying ? "opacity-50" : "opacity-100"}`} 
-                size={16}
+                size={20}
             />
             <span className="text-xs font-medium text-left">
                 {loading

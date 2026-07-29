@@ -15,11 +15,11 @@ export async function POST(req: Request) {
         text,
         modelId: 'eleven_multilingual_v2',
         voiceSettings: {
-          stability: 0.38,
-          similarityBoost: 0.82,
-          style: 0.15,
+          stability: 0.5,
+          similarityBoost: 0.6,
+          style: 0.5,
           useSpeakerBoost: true,
-          speed: 1.0,
+          speed: 1.12,
         },
       }
     );

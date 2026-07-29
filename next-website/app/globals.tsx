@@ -618,34 +618,34 @@ Thanks for stopping by and enjoy your stay!`,
                     },
                     {
                         "company": "Eco Exchange Pte. Ltd.",
-                        "role": "Lead Frontend Developer (SP FYP)",
+                        "role": "Lead Frontend Developer (Industry Client Project)",
                         "json_model":experience_ecoexchange_logo,
                         "json_model_fov":45,
                         "description": [
                             [
-                                "Extended my FYP for ~3 months after the official FYP date (Feb 2022), where I was tasked on implementing more features according to the company's new requirements.",
-                                experience_ecoexchange_updates,
-                                {
-                                    "fov":35,
-                                }
-                            ],
-                            [
-                                "Led the frontend development section and coordinated a team of 2 frontend developers to build a responsive intranet system, replacing manual, paper-based workflows into digital frameworks.",
+                                "Led a 3-man frontend team to build a corporate intranet using HTML5, CSS3, and JavaScript.",
                                 experience_ecoexchange_frontend,
                                 {
                                     "fov":35,
                                 }
                             ],
                             [
-                                "Successfully processed 700+ recycling tickets during the pilot phase, eliminating paper inefficiencies and streamlining data entry.",
+                                "Digitized legacy paper-based operations into an interactive tracking portal, successfully processing 1,000+ live operational tickets.",
                                 experience_ecoexchange_tickets,
                                 {
                                     "fov":55,
                                     "camPosition":[0,5,80]
                                 }
-                            ]
+                            ],
+                            [
+                                "Extended project engagement for ~3 months beyond initial SP FYP timeline, where I implemented more features according to the company's new requirements.",
+                                experience_ecoexchange_updates,
+                                {
+                                    "fov":35,
+                                }
+                            ],
                         ],
-                        "reflection":`Even though this is mainly considered a polytechnic FYP, the reason why I chose to label this as valid experience is because I have actually done valid KPIs for the company by actually letting the company actually producing 700+ real live tickets, all thanks to my contributions to my significant contributions to the frontend (which is why they could use it in the first place). Leveraging all of this without the use of LLMs is generally a big headache for most of us in the team, as we had to rely on sites like StackOverflow which sounds like a nightmare. Overall, I felt like it was a genuinely great learning experience for me working with another company and I honestly felt privileged to have had the experience with working with them.`,
+                        "reflection":`While this originated as a polytechnic FYP, it delivered real business impact — the frontend system we built enabled the company to process over 1,000 live operational tickets. Because this was built in the pre-LLM era, we had to manually write all the code ourselves and dig through Stack Overflow to solve urgent coding issues and bugs. It was genuinely a tough grind for the entire team, but it forced us to truly master the core frontend stack: HTML5, CSS3, and JavaScript. Overall, it was a great learning experience collaborating with an external client and seeing our code come to life in daily operations!`,
                         // "description": [
                         //     "Architected C# programs to help with shipping management!",
                         //     "Developed Node.js and created databases for efficient inventory management!",
@@ -653,7 +653,7 @@ Thanks for stopping by and enjoy your stay!`,
                         // ],
                         "skills": ["HTML5", "CSS", "Javascript (ES6)"],
                         "dates": [
-                            [new Date("10/01/2022"), new Date("05/31/2023")] 
+                            [new Date("10/01/2021"), new Date("05/31/2022")] 
                         ]
                     },
                     {

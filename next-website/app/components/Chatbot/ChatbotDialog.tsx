@@ -352,7 +352,7 @@ export default function ChatbotDialog({
                                 currentTheme={currentTheme}
                                 isReceiver={isReceiver}
                                 text={textContent}
-                                dateTime={new Date()}
+                                dateTime={msg.dateTime}
                                 showTypingAnimation={isTyping}
                                 repeatFn={() => {
                                     handleRepeat(messages);

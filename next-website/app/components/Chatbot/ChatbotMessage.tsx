@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -42,6 +42,9 @@ export default function ChatbotMessage({
     repeatFn,
     canRepeat
 } : ChatbotMessageProps) {
+
+    const markdownRef = useRef<HTMLDivElement>(null); // ref to get text info
+
     const [mounted, setMounted] = useState(false);
     
     const [currText, setCurrText] = useState(""); // to determine the current state of the text (necessary for the typing animation when showTypingAnimation==true)
@@ -79,7 +82,8 @@ export default function ChatbotMessage({
 
     const handleCopy = async () => {
         try {
-            await navigator.clipboard.writeText(currText);
+            const rawText = markdownRef.current?.textContent || currText;
+            await navigator.clipboard.writeText(rawText);
             setCopied(true);
             
             setTimeout(() => setCopied(false), 2000);
@@ -93,7 +97,7 @@ export default function ChatbotMessage({
 
     return mounted && (
         <div className={`min-w-0 max-w-[calc(100%-3.25rem)] border ${isReceiver ? (currentTheme === "D" ? 'justify-self-start bg-stone-800 border-stone-600 text-stone-100' : 'justify-self-start bg-stone-300 border-stone-400 text-stone-800') : (currentTheme === "D" ? 'justify-self-end bg-olive-800 border-olive-600 text-white' : 'justify-self-end bg-olive-300 border-olive-400 text-olive-900')} p-2 mt-3 rounded-xl max-w-full wrap-anywhere ${transitionClasses}`}>
-            <div className="prose prose-sm dark:prose-invert max-w-none text-sm">
+            <div ref={markdownRef} className="prose prose-sm dark:prose-invert max-w-none text-sm">
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
@@ -229,21 +233,21 @@ export default function ChatbotMessage({
                 </ReactMarkdown>
             </div>
             <hr className={currentTheme === "D" ? 'border-stone-700/50 my-1' : 'border-stone-300 my-1'}/>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
                 {isReceiver && (
                     <div className="flex gap-2">
                         {
-                            canRepeat && <Repeat size={16} onClick={repeatFn} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                            canRepeat && <Repeat size={20} onClick={repeatFn} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
                         }
                         <div onClick={()=>handleCopy()}>
                             {
                                 !copied ?
-                                <Copy size={16} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/> :
-                                <Check size={16} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                                <Copy size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/> :
+                                <Check size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
                             }
                         </div>
                         {
-                            currText && <VoiceButton textToSpeak={currText} />
+                            currText && <VoiceButton textToSpeak={markdownRef?.current?.textContent || ""} />
                         }
                         <p className={`mb-0 text-xs transition-opacity duration-150 ease-in-out select-none ${copied ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>Copied!</p>
                     </div>

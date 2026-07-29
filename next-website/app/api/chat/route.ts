@@ -3,20 +3,6 @@ import { streamText, convertToModelMessages, generateText, Output } from "ai";
 import portfolioData from "./portfolioData.json";
 import { z } from "zod";
 
-const recommendationSchema = z.object({
-    recommendations: z.array(
-        z.object({
-        type: z.enum(["search", "ask", "summary"]),
-        recommendation: z
-            .string()
-            .describe("Short UI display label shown on the button"),
-        message: z
-            .string()
-            .describe("Full prompt text dispatched to the AI model upon click"),
-        })
-    ).min(2).max(3),
-});
-
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
@@ -37,7 +23,9 @@ CORE BEHAVIORAL DIRECTIVES:
 3. CONVERSATIONAL TONE: Speak as an authentic engineer/professional. Avoid transactional menu phrases (e.g., "How may I help you today?", "Feel free to ask about my experience").
 4. ACCURACY & OUT-OF-SCOPE HANDLING:
    - Answer factual questions strictly based on the provided PORTFOLIO DATA CONTEXT. Do not invent metrics or background.
-   - For queries outside the dataset or unrelated topics, respond naturally as a human would—give a brief, relaxed reaction, then pivot fluidly back to your engineering experience or current technical focus. Never state that you "lacking access to data."`;
+   - For queries outside the dataset or unrelated topics, respond naturally as a human would—give a brief, relaxed reaction, then pivot fluidly back to your engineering experience or current technical focus. Never state that you "lacking access to data."
+5. CONVERSATIONAL BREVITY: Keep responses between 50-200 words. Use bullet points for technical stacks. Stop talking when the core question is answered.
+6. MEMORY & DEDUPLICATION: Check the chat history. If the user asks about a topic you already explained, acknowledge it briefly ("As I mentioned earlier...") and offer a new detail instead of repeating the same paragraphs.`;
 
         const res = streamText({
             model: google("gemini-3.1-flash-lite"),
