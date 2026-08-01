@@ -342,43 +342,51 @@ export default function Navbar({
 
     return (
         <nav ref={ref} className={`
-        z-50 flex justify-around m-10 p-5 ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl justify-self-center w-8/9 fixed top-0 ${transitionClasses}`}>
-            <div className="flex justify-start items-center">
-                {
-                    itemsLeft.map((item: any,index : number)=>(
-                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
-                    ))
-                }
-            </div>
-            <div className="hidden lg:flex justify-center items-center">
-                {
-                    itemsCenter.map((item: any,index : number)=>(
-                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
-                    ))
-                }
-            </div>
-            <div className="hidden lg:flex justify-end items-center">
-                {
-                    itemsRight.map((item: any,index : number)=>(
-                        <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
-                    ))
-                }
-            </div>
+        z-50 justify-around ${currentTheme==="D" ? "bg-black/30 text-white" : "bg-white/30 text-black"} backdrop-blur-lg border border-white/20 shadow-lg justify-self-center w-full fixed top-0 ${transitionClasses}`}>
+            <div className={`flex w-full justify-around p-2`}>
+                <div className="flex justify-start items-center">
+                    {
+                        itemsLeft.map((item: any,index : number)=>(
+                            <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`left-${index}`} item={item}/>
+                        ))
+                    }
+                </div>
+                <div className="hidden lg:flex justify-center items-center">
+                    {
+                        itemsCenter.map((item: any,index : number)=>(
+                            <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`center-${index}`} item={item}/>
+                        ))
+                    }
+                </div>
+                <div className="hidden lg:flex justify-end items-center">
+                    {
+                        itemsRight.map((item: any,index : number)=>(
+                            <NavItemRenderer mobileHovering={false} windowWidth={windowWidth} currentTheme={currentTheme} isSelected={currentPos===item.id} selectedLanguage={selectedLanguage} key={`right-${index}`} item={item}/>
+                        ))
+                    }
+                </div>
 
-            <div className="flex lg:hidden items-center">
-                <button 
-                    className="p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl ml-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="flex lg:hidden items-center">
+                    <button 
+                        className="p-3 bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-2xl ml-2"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* MOBILE MENU DROPDOWN */}
-            {isMobileMenuOpen && (
-                <div className={`absolute top-[110%] left-0 w-full flex flex-col p-5 ${currentTheme==="D" ? "bg-stone-800/90" : "bg-stone-200/90"} backdrop-blur-3xl border border-white/20 shadow-xl rounded-2xl lg:hidden gap-4`}>
+            <div
+            className={`grid transition-all duration-300 ease-in-out ${
+                isMobileMenuOpen
+                ? "grid-rows-[1fr] opacity-100 border-t border-white/20"
+                : "grid-rows-[0fr] opacity-0 border-t-0 border-transparent"
+            }`}
+            >
+                <div className="overflow-hidden">
                     {/* Center Items for Mobile */}
-                    <div className="flex flex-col items-center gap-2 w-full">
+                    <div className="flex flex-col items-center gap-2 w-full my-4">
                         {itemsCenter.map((item: any, index: number) => (
                             <div key={item.id || `mob-center-${index}`} className="w-full text-center" onClick={() => setIsMobileMenuOpen(false)}>
                                 <NavItemRenderer 
@@ -392,7 +400,7 @@ export default function Navbar({
                     <hr className="border-white/20 w-full" />
                     
                     {/* Right Items (Settings) for Mobile */}
-                    <div className="flex justify-center items-center gap-4 w-full">
+                    <div className="flex justify-center items-center gap-4 w-full my-4">
                         {itemsRight.map((item: any, index: number) => (
                             <NavItemRenderer 
                             mobileHovering={true}
@@ -402,7 +410,7 @@ export default function Navbar({
                         ))}
                     </div>
                 </div>
-            )}
+            </div>
         </nav>
     )
 }

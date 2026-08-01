@@ -387,7 +387,7 @@ export default function Home() {
                             <h4>{headerContent["bottom"]}</h4>
                         </div>
                         <div className="w-full my-12 flex justify-center items-center">
-                            <Canvas3D voxelJson={computer} className="h-126 lg:w-full sm:w-1/2 justify-self-center z-11"/>
+                            <Canvas3D voxelJson={computer} className="h-126 w-full justify-self-center z-11"/>
                         </div>
                     </header>
                     <main className={`${layoutWidth === "N" ? "xl:w-6/9 w-8/9" : "w-8/9"} mx-8 justify-self-center ${transitionClasses}`}>
