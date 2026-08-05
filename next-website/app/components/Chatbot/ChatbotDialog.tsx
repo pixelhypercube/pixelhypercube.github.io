@@ -390,7 +390,7 @@ export default function ChatbotDialog({
                 <div
                 className={`${currentTheme==="D" ? "text-stone-300" : "text-stone-700"}
                     ${transitionClasses}
-                    w-full justify-items-center text-center gap-y-4
+                    flex flex-col items-center text-center w-full gap-y-4
                     `}
                 >
                     
