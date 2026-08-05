@@ -424,12 +424,12 @@ export default function Home() {
                                 {
                                     Object.keys(skills).map((skill: string, idx: number) => {
                                         return (
-                                            <div key={`skill-cat-${idx}`}>
+                                            <div key={`skill-cat-${idx}`} className="min-w-0">
                                                 <h4 className="text-left">{skillsInfo[`${skill}_header`]}</h4>
                                                 <div 
-                                                    className={`flex gap-4 mb-5 ${
+                                                    className={`flex gap-4 mb-5 max-w-full ${
                                                         isTouchDevice 
-                                                            ? "flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth" 
+                                                            ? "flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory scroll-smooth" 
                                                             : "flex-wrap"
                                                     }`}
                                                 >

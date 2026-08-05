@@ -9,6 +9,7 @@ import chatbot_model from "@/app/voxelModels/chatbot.json"
 import Canvas3D from "../Canvas3D";
 import { Canvas } from "@react-three/fiber";
 import { Preload, View } from "@react-three/drei";
+import { getWidthSize, MAX_HEIGHT, MAX_WIDTH } from "./utils";
 
 interface ChatbotMessageProps {
     isReceiver: boolean;
@@ -170,7 +171,13 @@ export default function ChatbotDialog({
     }, [isDragging]);
 
     // WINDOW RESIZE & MAXIMIZE FUNCTIONALITIES
-    const [size, setSize] = useState<{ width: number; height: number }>({ width: 400, height: 560 });
+    const [size, setSize] = useState<{ width: number; height: number }>(
+        { 
+            width: Math.min(MAX_WIDTH,window.innerWidth), 
+            height: Math.min(MAX_HEIGHT,window.innerHeight)
+
+        }
+    );
     const [isMaximized, setIsMaximized] = useState(false);
     const [isResizing, setIsResizing] = useState(false);
     
@@ -277,6 +284,13 @@ export default function ChatbotDialog({
         };
     }, [isResizing]);
 
+    const setReccomendationsGridClass = (screenSize: string) => {
+        if (screenSize==="sm") return "grid-cols-2";
+        else if (screenSize==="md") return "grid-cols-3";
+        else if (screenSize==="xl") return "grid-cols-4";
+
+        return "grid-cols-1";
+    }
 
     // EXTRACTED FROM 'globals.tsx'
     const chatbotInfo = content[selectedLanguage]["chatbot"];
@@ -428,7 +442,7 @@ export default function ChatbotDialog({
                 {/* recommendations list */}
                 <div className={`gap-4 items-end w-full max-w-full ${recommendations && recommendations.length>0 ? "my-2" : "h-0 m-0"} min-w-0`}>
                     <h5 className={`mb-4 text-center ${recommendations && recommendations.length>0 ? "opacity-100 transition-opacity duration-250 ease-in-out" : "opacity-0 h-0"} select-none text-[16px]`}>{chatbotInfo["recommendation_header"]}</h5>
-                    <div className={`grid grid-cols-2 gap-4`}>
+                    <div className={`grid ${setReccomendationsGridClass(getWidthSize(size.width))} gap-4`}>
                         {
                             recommendations.map((rec: any, index: number)=>{
                                 const {recommendation, message, type} = rec;
