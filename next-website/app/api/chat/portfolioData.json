@@ -223,10 +223,10 @@
       "location": "Singapore",
       "dates": [["2022-12-05", "2024-08-05"], ["2025-05-09", "2025-07-06"]],
       "kpis": [
-        "Developed a QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
+        "Developed an email-based QR Code attendance scanning system that helped to automate check-in processes using QR codes in emails for over 300 participants for non-training events in my unit.",
         "Featured on Army News for contributions to the QR Code attendance scanning system!",
         "QA-tested numerous unit-based Telegram chatbots (Parade State, Events Bot, etc.) and improved overall reliability.",
-        "Leveraged Microsoft Powerapps to improve and make new features for Personnel Admin Link (PAL), a program to efficiently carry out administrative tasks across Personnel Nodes (Persnodes) across army camps in Singapore!",
+        "Leveraged Microsoft PowerApps to improve and make new features for Personnel Admin Link (PAL), a program to efficiently carry out administrative tasks across Personnel Nodes (Persnodes) across army camps in Singapore!",
         "Awarded Outstanding Soldier of the Month for June 2025 for contributions to the Personnel Admin Link (PAL) team after my resumption!"
       ],
       "reflection": "My National Service (NS) experience was somewhat different from many others as I was posted to a clerical unit. During my service, I had the opportunity to apply my skills to develop and test systems designed to optimize manual processes. One of my greatest achievements was building a QR Code attendance scanning system that successfully streamlined tracking for hundreds of users. In addition, I managed administrative duties — a great introduction to the brutal realities of the working world. Despite the ups and downs I faced throughout my service, I am still thankful for all the opportunities I was given, as the entire experience helped me mature and grow significantly!",
@@ -397,7 +397,6 @@
   ],
   "hobbies": {
     "speedcubing": {
-      "wca_id": "2016JIET01",
       "ao5": "11.42s",
       "ao100": "13.15s",
       "method": "CFOP (Full OLL/PLL)",
@@ -422,22 +421,11 @@
       ]
     },
     "bouldering": {
-      "level": "Beginner / Developing",
-      "styles": {
-        "slab": "Slab / Balance: Proficient",
-        "overhang": "Overhang / Power: Projecting",
-        "dynos": "Dynos / Coordination: Developing",
-        "crimps": "Crimps / Pockets: Proficient"
-      }
+      "about":"Just started",
+      "level": "Beginner / Developing"
     },
     "gymming": {
-      "split": "Push / Pull / Legs (4x/week)",
-      "goal": "Hypertrophy & GPP",
-      "exercises": [
-        { "name": "Barbell Back Squat", "weight": "100 kg x 8 reps" },
-        { "name": "Barbell Bench Press", "weight": "85 kg x 6 reps" },
-        { "name": "Conventional Deadlift", "weight": "140 kg x 5 reps" }
-      ]
+      "bench_press_pb":"80kg"
     }
   },
   "frequently_asked_questions": [
@@ -496,6 +484,22 @@
     {
       "question": "I noticed you did not have any working/internship experience during your term break from May 2026 to Aug 2026. Why?",
       "answer": "One of the main reasons was that since I couldn't secure my desired internships at the time, I decided to use this break to not only work on this website, but also take time to reflect and recharge. The previous semester was academically intense, so I used this period to reset and prevent burnout, traveling to Japan with my mother and sister to explore Hokkaido and Tokyo!"
+    },
+    {
+      "question": "How serious are you with your speedcubing?",
+      "answer": "I used to be a lot more serious back in Secondary school, where I was running and managing a YouTube channel and an IG page named 'PixelHyperCuber' due to my intense interest in collecting speedcubes and practicing them. I did a variety of videos, ranging from hardware speedcube reviews, unboxings, and competition vlogs! Right now, I don't really practice speedcubing as often because I'm adulting."
+    },
+    {
+      "question": "What is your favourite pet?",
+      "answer": "I'm now a dog person (especially small ones), but I used to prefer cats when I was younger solely because I liked hearing them meow!"
+    },
+    {
+      "question": "How do you generally feel about studying CS at NTU?",
+      "answer": "I feel like CS at NTU is interesting and a relatively intellectually demanding course, where I felt like I have sharpened my fundamentals in core computer science concepts, like proving with discrete maths and understanding logic. However, it may be tough for me to secure top grades due to how competitive it is, so sometimes I have this slight fear that making some careless mistakes might even result in getting a lower grade. And to be very honest, I feel like the type of stuff that I learned in my course can feel a bit too superficial at times and that the teaching for my course can be improved a lot. However, I strive to have a better learning experience when I'm genuinely curious about the conceptual understanding of the modules by frequently asking profs about any doubts and knowledge gaps throughout my learning, instead of solely grinding for exceptional grades."
+    },
+    {
+      "question": "Why did you choose Singapore Polytechnic (IT course) right after completing your IGCSE at ACS (International)?",
+      "answer": "The main reason was that I wanted to pursue something more related to my interests and build my career even further. SP seemed like the best choice for me because it offers an IT course focused on using computers to make stuff through programming and web development—unlike IB back at ACS (International), which didn't offer a Computing subject. Also, my language skills weren't really the best at the time, so IB wasn't the most ideal for me. However, the good thing was that I managed to do well enough to get into NTU CS, which is known to have a relatively high cutoff point across tertiary routes. Had I stayed in IB with my weak language skills back then, I might not have gotten the results needed for the course I'm studying right now. Additionally, I'm thankful that my experience in polytechnic has further solidified my hands-on approach to learning things, and that I have learned to leverage my hands-on skills throughout my university life!"
     }
   ]
 }

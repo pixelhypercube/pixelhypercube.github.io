@@ -25,13 +25,13 @@ import resume_light from "./voxelModels/links/light/resume.json"
 
 import { addEffect, Canvas } from "@react-three/fiber";
 import { View, Preload } from "@react-three/drei";
-import { ChevronLeft, ChevronRight, Rows3, Grid, ChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight, Rows3, Grid, ChevronDown, Bot } from "lucide-react";
 import CustomToggle from "./components/CustomToggle";
 import { useLanguage } from "./components/LanguageContext";
 
 // NEW IMPORTS
 import { renderBioText, renderDate } from "./components/home/utils";
-import { SkillContainer } from "./components/home/SkillContainer";
+import { SkillContainer, SkillContainer2 } from "./components/home/SkillContainer";
 import { ExperienceListItem, ExperienceTimelineElem } from "./components/home/ExperienceComponents";
 import { ProjectGridItem, ProjectListItem } from "./components/home/ProjectComponents";
 import { EducationListItem, EducationTimelineElem } from "./components/home/EducationComponents";
@@ -312,7 +312,7 @@ export default function Home() {
             { id: '1', role: 'user', content: "this is a sender's message", parts: [{ type: 'text', text: "this is a sender's message" }] },
             { id: '2', role: 'assistant', content: "this is a receiver's message", parts: [{ type: 'text', text: "this is a receiver's message" }] }
         ] : [
-            { id: '1', role: 'assistant', content: openingMessage[selectedLanguage], parts: [{ type: 'text', text: openingMessage[selectedLanguage] }] }
+            // { id: '1', role: 'assistant', content: openingMessage[selectedLanguage], parts: [{ type: 'text', text: openingMessage[selectedLanguage] }] }
         ],
         onFinish: (message) => {
             fetchRecommendations([...chatbotMessages, message?.message]);
@@ -404,59 +404,67 @@ export default function Home() {
                                         </div>
                                         <hr className={`${currentTheme === "D" ? "border-stone-600" : "border-stone-400"} border-dashed mb-4 ${transitionClasses}`}/>
                                         <div>
-                                            {aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])}
+                                            {/* {aboutMeContent["bio2"] && renderBioText(aboutMeContent["bio2"])} */}
                                             <p className="text-sm font-light italic">{aboutMeContent["bio_bottom"]}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {/* <div className="mt-20 text-center">
+                                <h3>{aboutMeContent["bio_chatbot_header"]}</h3>
+                                <button className={`${currentTheme==="D" ? "bg-yellow-700" : "bg-yellow-500"} flex items-center justify-around gap-4 justify-self-center p-3 rounded-full font-medium mt-12`}>
+                                    <Bot size={32} />{aboutMeContent["bio_chatbot_button"]}
+                                </button>
+                            </div> */}
                         </div>
                         {/* SKILLS */}
-                        <div ref={containerSkillsRef} className="my-5">
+                        <div ref={containerSkillsRef}>
                             <h1>{skillsInfo["header"]}</h1>
-                            {
-                                Object.keys(skills).map((skill: string, idx: number) => {
-                                    return (
-                                        <div key={`skill-cat-${idx}`}>
-                                            <h4 className="text-left">{skillsInfo[`${skill}_header`]}</h4>
-                                            <div 
-                                                className={`flex gap-4 mb-5 ${
-                                                    isTouchDevice 
-                                                        ? "flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth" 
-                                                        : "flex-wrap"
-                                                }`}
-                                            >
-                                                {
-                                                    skills[skill].map((s: any, index: number) => {
-                                                        const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight, camPosition, fov} = s;
-                                                        const proficiency = 
-                                                            dict_obj === "lang" ? 
-                                                            skillsInfo["language_proficiencies"][skill_proficiency] : 
-                                                            dict_obj === "none" ?
-                                                            skill_proficiency :
-                                                            skillsInfo["skill_proficiencies"][skill_proficiency];
-                                                        
-                                                        return (
-                                                            <SkillContainer
-                                                                key={`skill-${index}`}
-                                                                transitionClasses={transitionClasses}
-                                                                currentTheme={currentTheme}
-                                                                name={name}
-                                                                proficiency={proficiency}
-                                                                jsonModelDark={jsonModelDark}
-                                                                jsonModelLight={jsonModelLight}
-                                                                className={isTouchDevice ? "shrink-0 snap-start" : ""}
-                                                                camPosition={camPosition}
-                                                                fov={fov}
-                                                            />
-                                                        )
-                                                    })
-                                                }
+                            <div className="grid lg:grid-cols-2 gap-x-20 gap-y-6">
+                                {
+                                    Object.keys(skills).map((skill: string, idx: number) => {
+                                        return (
+                                            <div key={`skill-cat-${idx}`}>
+                                                <h4 className="text-left">{skillsInfo[`${skill}_header`]}</h4>
+                                                <div 
+                                                    className={`flex gap-4 mb-5 ${
+                                                        isTouchDevice 
+                                                            ? "flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth" 
+                                                            : "flex-wrap"
+                                                    }`}
+                                                >
+                                                    {
+                                                        skills[skill].map((s: any, index: number) => {
+                                                            const {name, dict_obj, skill_proficiency, jsonModelDark, jsonModelLight, camPosition, fov} = s;
+                                                            const proficiency = 
+                                                                dict_obj === "lang" ? 
+                                                                skillsInfo["language_proficiencies"][skill_proficiency] : 
+                                                                dict_obj === "none" ?
+                                                                skill_proficiency :
+                                                                skillsInfo["skill_proficiencies"][skill_proficiency];
+                                                            
+                                                            return (
+                                                                <SkillContainer
+                                                                    key={`skill-${index}`}
+                                                                    transitionClasses={transitionClasses}
+                                                                    currentTheme={currentTheme}
+                                                                    name={name}
+                                                                    proficiency={proficiency}
+                                                                    jsonModelDark={jsonModelDark}
+                                                                    jsonModelLight={jsonModelLight}
+                                                                    className={isTouchDevice ? "shrink-0 snap-start" : ""}
+                                                                    camPosition={camPosition}
+                                                                    fov={fov}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
-                                })
-                            }
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
 
                         {/* PROJECTS */}

@@ -96,7 +96,10 @@ export default function ChatbotMessage({
     if (!mounted) return null;
 
     return mounted && (
-        <div className={`min-w-0 max-w-[calc(100%-3.25rem)] border ${isReceiver ? (currentTheme === "D" ? 'justify-self-start bg-stone-800 border-stone-600 text-stone-100' : 'justify-self-start bg-stone-300 border-stone-400 text-stone-800') : (currentTheme === "D" ? 'justify-self-end bg-olive-800 border-olive-600 text-white' : 'justify-self-end bg-olive-300 border-olive-400 text-olive-900')} p-2 mt-3 rounded-xl max-w-full wrap-anywhere ${transitionClasses}`}>
+        <div className={`min-w-0 max-w-[calc(100%-3.25rem)] border 
+        ${isReceiver ? 
+        (currentTheme === "D" ? 'justify-self-start bg-stone-900 border-stone-700 text-stone-100' : 'justify-self-start bg-stone-200 border-stone-300 text-stone-800') : 
+        (currentTheme === "D" ? 'justify-self-end bg-olive-900 border-olive-700 text-white' : 'justify-self-end bg-olive-200 border-olive-300 text-olive-900')} p-3 mt-3 rounded-3xl max-w-full wrap-anywhere ${transitionClasses}`}>
             <div ref={markdownRef} className="prose prose-sm dark:prose-invert max-w-none text-sm">
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
@@ -232,32 +235,38 @@ export default function ChatbotMessage({
                     {currText}
                 </ReactMarkdown>
             </div>
-            <hr className={currentTheme === "D" ? 'border-stone-700/50 my-1' : 'border-stone-300 my-1'}/>
-            <div className="flex justify-between items-center">
-                {isReceiver && (
-                    <div className="flex gap-2">
-                        {
-                            canRepeat && <Repeat size={20} onClick={repeatFn} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
-                        }
-                        <div onClick={()=>handleCopy()}>
-                            {
-                                !copied ?
-                                <Copy size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/> :
-                                <Check size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
-                            }
+            {
+                isReceiver && (
+                    <>
+                        <hr className={`${currentTheme === "D" ? 'border-stone-700' : 'border-stone-300'} my-2`}/>
+                        <div className="flex justify-between items-center">
+                            {isReceiver && (
+                                <div className="flex gap-2">
+                                    {
+                                        canRepeat && <Repeat size={20} onClick={repeatFn} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                                    }
+                                    <div onClick={()=>handleCopy()}>
+                                        {
+                                            !copied ?
+                                            <Copy size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/> :
+                                            <Check size={20} className={currentTheme === "D" ? "text-stone-300 hover:text-stone-400" : "text-stone-600 hover:text-stone-500"}/>
+                                        }
+                                    </div>
+                                    {
+                                        currText && <VoiceButton textToSpeak={markdownRef?.current?.textContent || ""} />
+                                    }
+                                    <p className={`mb-0 text-xs transition-opacity duration-150 ease-in-out select-none ${copied ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>Copied!</p>
+                                </div>
+                            )}
+                            {/* <p className={`text-right text-xs italic ${currentTheme === "D" ? 'text-stone-400' : 'text-stone-500'}`}>{dateTime.toLocaleTimeString('en-US', { 
+                                hour: 'numeric', 
+                                minute: '2-digit', 
+                                hour12: true 
+                            }).toLowerCase()}</p> */}
                         </div>
-                        {
-                            currText && <VoiceButton textToSpeak={markdownRef?.current?.textContent || ""} />
-                        }
-                        <p className={`mb-0 text-xs transition-opacity duration-150 ease-in-out select-none ${copied ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>Copied!</p>
-                    </div>
-                )}
-                <p className={`text-right text-xs italic ${currentTheme === "D" ? 'text-stone-400' : 'text-stone-500'}`}>{dateTime.toLocaleTimeString('en-US', { 
-                    hour: 'numeric', 
-                    minute: '2-digit', 
-                    hour12: true 
-                }).toLowerCase()}</p>
-            </div>
+                    </>
+                )
+            }
         </div>
     )
 }

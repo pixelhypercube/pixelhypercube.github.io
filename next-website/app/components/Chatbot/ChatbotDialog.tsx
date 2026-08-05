@@ -1,9 +1,14 @@
-import { Maximize, Maximize2, Minimize, Minimize2, Send, User, X } from "lucide-react";
+import { Bot, Maximize, Maximize2, Minimize, Minimize2, Send, User, X } from "lucide-react";
 import { Ref, useEffect, useRef, useState } from "react";
 import ChatbotMessage from "./ChatbotMessage";
-import { IS_DEBUG } from "@/app/globals";
+import { IS_DEBUG, content } from "@/app/globals";
 import { useChat } from "@ai-sdk/react";
-import { ChatbotRecommendation } from "./ChatbotRecommendation";
+import { ChatbotRecommendation, ChatbotRecommendation2 } from "./ChatbotRecommendation";
+
+import chatbot_model from "@/app/voxelModels/chatbot.json"
+import Canvas3D from "../Canvas3D";
+import { Canvas } from "@react-three/fiber";
+import { Preload, View } from "@react-three/drei";
 
 interface ChatbotMessageProps {
     isReceiver: boolean;
@@ -53,8 +58,10 @@ export default function ChatbotDialog({
     ref
 } : ChatbotDialogProps) {
     
+
     const [isOpen, setOpen] = useState(false);
     const inputRef = useRef<HTMLTextAreaElement>(null!);
+    const [canSend, setCanSend] = useState(false);
     const scrollContainerRef = useRef<HTMLElement>(null!);
 
     const scrollToBottom = () => {
@@ -79,6 +86,8 @@ export default function ChatbotDialog({
         if (inputRef.current) {
             inputRef.current.style.height = "auto";
             inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+
+            setCanSend(inputRef.current.value!==null && inputRef.current.value!=="");
         }
     };
 
@@ -171,7 +180,7 @@ export default function ChatbotDialog({
         position: { x: 0, y: 0 }
     });
 
-    const activeCornerRef = useRef<string | null>(null);
+    const activeCornerEdgeRef = useRef<string | null>(null);
     const resizeStartRef = useRef<{ mouseX: number; mouseY: number; startWidth: number; startHeight: number; startPosX: number; startPosY: number }>({
         mouseX: 0,
         mouseY: 0,
@@ -194,12 +203,12 @@ export default function ChatbotDialog({
         }
     };
 
-    const handleResizeMouseDown = (corner: string, e: React.MouseEvent) => {
+    const handleResizeMouseDown = (point: string, e: React.MouseEvent) => {
         e.stopPropagation();
         if (isMaximized) return;
 
         setIsResizing(true);
-        activeCornerRef.current = corner;
+        activeCornerEdgeRef.current = point;
         resizeStartRef.current = {
             mouseX: e.clientX,
             mouseY: e.clientY,
@@ -212,7 +221,7 @@ export default function ChatbotDialog({
 
     useEffect(() => {
         const handleResizeMouseMove = (e: MouseEvent) => {
-            if (!isResizing || !activeCornerRef.current) return;
+            if (!isResizing || !activeCornerEdgeRef.current) return;
 
             const minWidth = 320;
             const minHeight = 380;
@@ -221,7 +230,7 @@ export default function ChatbotDialog({
             const dy = e.clientY - resizeStartRef.current.mouseY;
 
             const { startWidth, startHeight, startPosX, startPosY } = resizeStartRef.current;
-            const corner = activeCornerRef.current;
+            const point = activeCornerEdgeRef.current;
 
             let newWidth = startWidth;
             let newHeight = startHeight;
@@ -229,21 +238,21 @@ export default function ChatbotDialog({
             let newPosY = startPosY;
 
             // HORIZONTAL RESIZING
-            if (corner === "tr" || corner === "br") {
+            if (point === "tr" || point === "br" || point === "r") {
                 newWidth = Math.max(minWidth, startWidth + dx);
                 const widthDelta = newWidth - startWidth;
                 newPosX = startPosX + widthDelta;
-            } else if (corner === "tl" || corner === "bl") {
+            } else if (point === "tl" || point === "bl" || point === "l") {
                 newWidth = Math.max(minWidth, startWidth - dx);
                 newPosX = startPosX;
             }
 
             // VERTICAL RESIZING
-            if (corner === "bl" || corner === "br") {
+            if (point === "bl" || point === "br" || point === "b") {
                 newHeight = Math.max(minHeight, startHeight + dy);
                 const heightDelta = newHeight - startHeight;
                 newPosY = startPosY + heightDelta;
-            } else if (corner === "tl" || corner === "tr") {
+            } else if (point === "tl" || point === "tr" || point === "t") {
                 newHeight = Math.max(minHeight, startHeight - dy);
                 newPosY = startPosY;
             }
@@ -254,7 +263,7 @@ export default function ChatbotDialog({
 
         const handleResizeMouseUp = () => {
             setIsResizing(false);
-            activeCornerRef.current = null;
+            activeCornerEdgeRef.current = null;
         };
 
         if (isResizing) {
@@ -267,6 +276,10 @@ export default function ChatbotDialog({
             window.removeEventListener("mouseup", handleResizeMouseUp);
         };
     }, [isResizing]);
+
+
+    // EXTRACTED FROM 'globals.tsx'
+    const chatbotInfo = content[selectedLanguage]["chatbot"];
     return (
         <div 
             ref={ref}
@@ -281,24 +294,51 @@ export default function ChatbotDialog({
                 currentTheme === "D" ? "bg-stone-900 border-stone-800" : "bg-white border-stone-200"
             } ${!isDragging && !isResizing ? (transitionClasses || "") : ""}`}
         >
-            {/* 4 CORNER RESIZE HANDLES */}
+            {/* RESIZE HANDLES */}
             {!isMaximized && (
                 <>
+                    {/* CORNERS */}
+                    {/* TOP-LEFT */}
                     <div
                         onMouseDown={(e) => handleResizeMouseDown("tl", e)}
-                        className="absolute -top-1 -left-1 w-4 h-4 cursor-nwse-resize z-30 select-none"
+                        className="absolute -top-2 -left-2 w-4 h-4 cursor-nwse-resize z-30 select-none"
                     />
+                    {/* TOP-RIGHT */}
                     <div
                         onMouseDown={(e) => handleResizeMouseDown("tr", e)}
-                        className="absolute -top-1 -right-1 w-4 h-4 cursor-nesw-resize z-30 select-none"
+                        className="absolute -top-2 -right-2 w-4 h-4 cursor-nesw-resize z-30 select-none"
                     />
+                    {/* BOTTOM-LEFT */}
                     <div
                         onMouseDown={(e) => handleResizeMouseDown("bl", e)}
-                        className="absolute -bottom-1 -left-1 w-4 h-4 cursor-nesw-resize z-30 select-none"
+                        className="absolute -bottom-2 -left-2 w-4 h-4 cursor-nesw-resize z-30 select-none"
                     />
+                    {/* BOTTOM-RIGHT */}
                     <div
                         onMouseDown={(e) => handleResizeMouseDown("br", e)}
-                        className="absolute -bottom-1 -right-1 w-4 h-4 cursor-nwse-resize z-30 select-none"
+                        className="absolute -bottom-2 -right-2 w-4 h-4 cursor-nwse-resize z-30 select-none"
+                    />
+
+                    {/* EDGES */}
+                    {/* TOP */}
+                    <div
+                        onMouseDown={(e) => handleResizeMouseDown("t", e)}
+                        className="absolute -top-1 inset-x-2 h-2 cursor-ns-resize z-30 select-none"
+                    />
+                    {/* RIGHT */}
+                    <div
+                        onMouseDown={(e) => handleResizeMouseDown("r", e)}
+                        className="absolute -right-1 inset-y-2 w-2 cursor-ew-resize z-30 select-none"
+                    />
+                    {/* LEFT */}
+                    <div
+                        onMouseDown={(e) => handleResizeMouseDown("l", e)}
+                        className="absolute -left-1 inset-y-2 w-2 cursor-ew-resize z-30 select-none"
+                    />
+                    {/* BOTTOM */}
+                    <div
+                        onMouseDown={(e) => handleResizeMouseDown("b", e)}
+                        className="absolute -bottom-1 inset-x-2 h-2 cursor-ns-resize z-30 select-none"
                     />
                 </>
             )}
@@ -309,20 +349,20 @@ export default function ChatbotDialog({
                 <div>
                     <h6 className="m-0 font-semibold">KJ's AI Chatbot (Beta)</h6>
                 </div>
-                <div className="gap-4">
+                <div className="gap-8">
                     <button
                         onClick={toggleMaximize}
                         className="opacity-80 hover:opacity-100 text-white transition-opacity p-0.5 rounded"
                         title={isMaximized ? "Restore Window" : "Maximize Window"}
                     >
-                        {isMaximized ? <Minimize size={18} /> : <Maximize size={18} />}
+                        {isMaximized ? <Minimize size={22} /> : <Maximize size={22} />}
                     </button>
                     <button
                         onClick={() => dialogCallbacks?.closeChatbot()}
                         className="opacity-80 hover:opacity-100 text-white transition-opacity p-0.5 rounded"
                         title="Close Window"
                     >
-                        <X size={18}/>
+                        <X size={22}/>
                     </button>
                 </div>
             </header>
@@ -331,6 +371,21 @@ export default function ChatbotDialog({
             <main ref={scrollContainerRef} data-lenis-prevent className={`flex-1 overflow-y-auto overflow-x-hidden w-full p-5 overscroll-y-contain custom-scrollbar ${
                 currentTheme === "D" ? "bg-stone-950" : "bg-olive-50/50"
             } ${transitionClasses}`}>
+                
+                {/* INTRO MESSAGE */}
+                <div
+                className={`${currentTheme==="D" ? "text-stone-300" : "text-stone-700"}
+                    ${transitionClasses}
+                    w-full justify-items-center text-center gap-y-4
+                    `}
+                >
+                    
+                    <Bot size={40} />
+                    <p className="my-4">{chatbotInfo["opening_message"]}</p>
+                    <p>{chatbotInfo["opening_message_2"]}</p>
+                    <hr className={`my-6 w-full h-px border-0 bg-linear-to-r from-transparent ${currentTheme==="D" ? "via-stone-300" : "via-stone-700"} to-transparent ${transitionClasses}`}/>
+                </div>
+                
                 {messages.map((msg, index)=>{
                     const isReceiver = msg.role === 'assistant'
                     // const isTyping = isReceiver && (status === 'submitted' || status ==='streaming') && index === messages.length-1;
@@ -371,25 +426,28 @@ export default function ChatbotDialog({
                 })}
 
                 {/* recommendations list */}
-                <div className={`flex flex-col gap-4 items-end w-full max-w-full ${recommendations && recommendations.length>0 ? "my-2" : "h-0 m-0"} min-w-0`}>
-                    <p className={`${recommendations && recommendations.length>0 ? "opacity-100 transition-opacity duration-250 ease-in-out" : "opacity-0 h-0"} select-none text-sm`}>Not sure what to ask? Choose something:</p>
-                    {
-                        recommendations.map((rec: any, index: number)=>{
-                            const {recommendation, message, type} = rec;
-                            return (
-                                <div key={`rec-${index}`}>
-                                    <ChatbotRecommendation
-                                        recommendation={recommendation}
-                                        message={message}
-                                        recType={type}
-                                        onClick={()=>handleSend(message)}
-                                        currentTheme={currentTheme}
-                                        transitionClasses={transitionClasses}
-                                    />
-                                </div>
-                            )
-                        })
-                    }
+                <div className={`gap-4 items-end w-full max-w-full ${recommendations && recommendations.length>0 ? "my-2" : "h-0 m-0"} min-w-0`}>
+                    <h5 className={`mb-4 text-center ${recommendations && recommendations.length>0 ? "opacity-100 transition-opacity duration-250 ease-in-out" : "opacity-0 h-0"} select-none text-[16px]`}>{chatbotInfo["recommendation_header"]}</h5>
+                    <div className={`grid grid-cols-2 gap-4`}>
+                        {
+                            recommendations.map((rec: any, index: number)=>{
+                                const {recommendation, message, type} = rec;
+                                return (
+                                    <div key={`rec-${index}`}>
+                                        <ChatbotRecommendation2
+                                            recommendation={recommendation}
+                                            message={message}
+                                            recType={type}
+                                            onClick={()=>handleSend(message)}
+                                            currentTheme={currentTheme}
+                                            transitionClasses={transitionClasses}
+                                            recIndex={index}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
                 
                 {error && (
@@ -422,6 +480,7 @@ export default function ChatbotDialog({
                                 : "bg-white border-stone-300 text-stone-900 placeholder-stone-400 focus:ring-olive-500"
                         } ${transitionClasses}`}
                         onKeyDown={(e)=>{
+                            if (!canSend) return;
                             if (e.key==='Enter' && !e.shiftKey) {
                                 e.preventDefault();
                                 handleSend();
@@ -429,7 +488,7 @@ export default function ChatbotDialog({
                         }}
                     />
                     <button 
-                        className={`p-2 w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0 ${
+                        className={`${!canSend ? "opacity-50" : ""} p-2 w-10 h-10 rounded-xl flex items-center justify-center transition-colors shrink-0 ${
                             currentTheme === "D" ? "bg-olive-700 hover:bg-olive-600 text-white" : "bg-olive-600 hover:bg-olive-700 text-white"
                         } ${transitionClasses}`} 
                         onClick={()=>handleSend()}
@@ -442,7 +501,17 @@ export default function ChatbotDialog({
                     <small className={`text-[11px] ${currentTheme==="D" ? "text-stone-400" : "text-stone-500"}`}>AI can make mistakes, so double-check it</small>
                 </div>
             </footer>
-            
+
+            {/* GLOBAL CANVAS */}
+                {/* <Canvas 
+                    eventSource={ref as React.RefObject<HTMLElement>}
+                    className="fixed! inset-0! pointer-events-none z-10"
+                    events={undefined}
+                    camera={{fov: 10, zoom: 0.5}}
+                >
+                    <View.Port />
+                    <Preload all/>
+                </Canvas> */}
         </div>
     )
 }

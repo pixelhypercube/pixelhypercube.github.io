@@ -149,13 +149,13 @@ import { BsTypescript } from "react-icons/bs"
 export const skills : Record<any, any> = {
     "languages": [
         {
-            "name":"Javascript (ES6)",
+            "name":"JavaScript",
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_javascript,
             "jsonModelLight":skill_light_javascript
         },
         {
-            "name":"Typescript",
+            "name":"TypeScript",
             "skill_proficiency":1,
             "jsonModelDark":skill_dark_typescript,
             "jsonModelLight":skill_light_typescript,
@@ -367,8 +367,8 @@ export const skills : Record<any, any> = {
 
 export const projectSkillsTabsDark : Record<string, any> = {
     // Languages
-    "Javascript (ES6)": <DiJavascript1 className="text-yellow-500 w-6 h-6" />,
-    "Typescript": <BsTypescript className="text-blue-500 w-6 h-6" />,
+    "JavaScript": <DiJavascript1 className="text-yellow-500 w-6 h-6" />,
+    "TypeScript": <BsTypescript className="text-blue-500 w-6 h-6" />,
     "Python": <DiPython className="text-blue-500 w-6 h-6" />,
     "C#": <TbBrandCSharp className="text-purple-600 w-6 h-6" />,
     "C": <SiC className="text-blue-600 w-6 h-6" />,
@@ -405,8 +405,8 @@ export const projectSkillsTabsDark : Record<string, any> = {
 
 export const projectSkillsTabsLight : Record<string, any> = {
     // Languages
-    "Javascript (ES6)": <DiJavascript1 className="text-yellow-600 w-6 h-6" />,
-    "Typescript": <BsTypescript className="text-blue-500 w-6 h-6" />,
+    "JavaScript": <DiJavascript1 className="text-yellow-600 w-6 h-6" />,
+    "TypeScript": <BsTypescript className="text-blue-500 w-6 h-6" />,
     "Python": <DiPython className="text-blue-600 w-6 h-6" />,
     "C#": <TbBrandCSharp className="text-purple-700 w-6 h-6" />,
     "C": <SiC className="text-blue-700 w-6 h-6" />,
@@ -456,6 +456,9 @@ export const content : Record<any,any> = {
         },
         "chatbot": {
             "intro_dialog": "Any further inquiries? Ask my AI twin instead!",
+            "opening_message":`Welcome to KJ's AI Twin! Feel free to ask me anything.`,
+            "opening_message_2":`Please note that this bot is constantly undergoing testing to ensure smoother performance and higher accuracy!`,
+            "recommendation_header":`Not sure what to ask? Choose something:`,
         },
         "home" : {
             // COMPONENT SPECIFIC
@@ -470,19 +473,22 @@ export const content : Record<any,any> = {
 
                 // bio subdivided by \n
 
-                "bio":`Congrats, you finally found my website! My interest in computers and software began back in preschool, and by primary school I was already experimenting with programs like Cinema 4D. As I grew older, I realized how fulfilling it was to create software that people could actually use and benefit from.
+                "bio":`Hi! I'm Kai Jie (or KJ or Kendrick is good!), and congrats, you finally found my website! My interest in computers and software began back in preschool, and by primary school I was already experimenting with programs like Cinema 4D. As I grew older, I realized how fulfilling it was to create software that people could actually use and benefit from.
 
 Ever since I started learning to code, I've approached software and web development with a *builder* and *tinkerer* mindset that's reflected in the self-made 3D models scattered across this website! I not only enjoy creating software, but I'm also fascinated with breaking down convoluted systems into simpler, more accessible components.
 
 Right now, I'm a penultimate-year Computer Science undergraduate at Nanyang Technological University (NTU)!
 
-If I'm not programming, you can catch me going out for long runs, going to the gym, attempting to constantly break sub-10 seconds in speedcubing, and playing modded Minecraft!`, 
-                // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
-                "bio2":`This site mainly serves as my digital portfolio of all my technical projects and experience.
+If I'm not programming, you can catch me going out for long runs, going to the gym, attempting to constantly break sub-10 seconds in speedcubing, and playing modded Minecraft!
 
-Thanks for stopping by and enjoy your stay!`,
+Thanks for stopping by and enjoy your stay!`, 
+                // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
+//                 "bio2":`This site mainly serves as my digital portfolio of all my technical projects and experience.
+
+// Thanks for stopping by and enjoy your stay!`,
                 "bio_bottom": "Feel free to click and drag the 3D models across the website to interact with them!",
-                
+                "bio_chatbot_header": `Any more questions? Ask my AI twin!`,
+                "bio_chatbot_button": `Open AI Twin`,
                 "hobbies_header": "My Hobbies",
                 "hobbies_header1": "These are some things I like to do during my free time!",
                 "hobbies_header2": "Click on one of them to find out more!",
@@ -651,7 +657,7 @@ Thanks for stopping by and enjoy your stay!`,
                         //     "Developed Node.js and created databases for efficient inventory management!",
                         //     "Made an app using Appgyver to help 10+ staff with tracking warehouse management systems!"
                         // ],
-                        "skills": ["HTML5", "CSS", "Javascript (ES6)"],
+                        "skills": ["HTML5", "CSS", "JavaScript"],
                         "dates": [
                             [new Date("10/01/2021"), new Date("05/31/2022")] 
                         ]
@@ -724,7 +730,7 @@ Thanks for stopping by and enjoy your stay!`,
                             ["On top of this, debugging and testing out the LLM chatbot was a bit of a challenge, as I had to constantly brainstorm all of the data about me to let users have a pleasant experience interacting with the chatbot.", null],
                             ["Overall, I felt like this was a great experience to showcase my personality because it's generally quite difficult to do it while creating a website at the same time!", null]
                         ],
-                        "skillsList":["Next.js","Typescript"],
+                        "skillsList":["Next.js","TypeScript"],
                         "date": new Date(),
                         "media_url":["./projects/website.png","./projects/website2.png","./projects/website3.png"],
                         "source_code":"https://github.com/pixelhypercube/pixelhypercube.github.io",
@@ -960,7 +966,7 @@ Thanks for stopping by and enjoy your stay!`,
                             ["A replica of the 'Loves Me...' minigame from Super Mario 64 DS, made using p5.js!", null]
                         ],
                         "reflection":[],
-                        "skillsList":["HTML5","CSS","Javascript (ES6)"],
+                        "skillsList":["HTML5","CSS","JavaScript"],
                         "date": new Date("05/21/2021"),
                         "media_url":[
                             "./projects/lovesMe.gif"
@@ -984,7 +990,7 @@ Thanks for stopping by and enjoy your stay!`,
                             ["A mini 2D online Coin Dozer to relive one of my favorite childhood games using p5.js & matter.js!", null]
                         ],
                         "reflection":[],
-                        "skillsList":["HTML5","CSS","Javascript (ES6)"],
+                        "skillsList":["HTML5","CSS","JavaScript"],
                         "date": new Date("01/01/2021"),
                         "media_url":[
                             "./projects/coinDozerReplica.gif"
@@ -1256,7 +1262,7 @@ Thanks for stopping by and enjoy your stay!`,
                         //     "Java",
                         //     "HTML5",
                         //     "CSS",
-                        //     "Javascript (ES6)"
+                        //     "JavaScript"
                         // ]
                     },
                     {
