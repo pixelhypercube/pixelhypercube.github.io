@@ -287,7 +287,7 @@ export default function ChatbotDialog({
     const setReccomendationsGridClass = (screenSize: string) => {
         if (screenSize==="sm") return "grid-cols-2";
         else if (screenSize==="md") return "grid-cols-3";
-        else if (screenSize==="xl") return "grid-cols-4";
+        else if (screenSize==="lg" || screenSize==="xl" || screenSize==="2xl") return "grid-cols-4";
 
         return "grid-cols-1";
     }
