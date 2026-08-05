@@ -455,6 +455,7 @@ export const content : Record<any,any> = {
             "resume":"Download Resume"
         },
         "chatbot": {
+            "header_title":"KJ's AI Twin (Beta)",
             "intro_dialog": "Any further inquiries? Ask my AI twin instead!",
             "opening_message":`Welcome to KJ's AI Twin! Feel free to ask me anything.`,
             "opening_message_2":`Please note that this bot is constantly undergoing testing to ensure smoother performance and higher accuracy!`,
