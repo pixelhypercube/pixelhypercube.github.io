@@ -12,9 +12,11 @@ import skill_dark_nodejs from "./voxelModels/skills/dark/nodejs.json"
 import skill_dark_express from "./voxelModels/skills/dark/express.json"
 import skill_dark_postgresql from "./voxelModels/skills/dark/postgresql.json"
 import skill_dark_mysql from "./voxelModels/skills/dark/mysql.json"
+import skill_dark_prisma from "./voxelModels/skills/dark/prisma.json"
 import skill_dark_websockets from "./voxelModels/skills/dark/websockets.json"
 import skill_dark_git from "./voxelModels/skills/dark/git.json"
 import skill_dark_github from "./voxelModels/skills/dark/github.json"
+import skill_dark_docker from "./voxelModels/skills/dark/docker.json"
 
 import skill_dark_javascript from "./voxelModels/skills/dark/javascript.json"
 import skill_dark_typescript from "./voxelModels/skills/dark/typescript.json"
@@ -49,9 +51,11 @@ import skill_light_nodejs from "./voxelModels/skills/light/nodejs.json"
 import skill_light_express from "./voxelModels/skills/light/express.json"
 import skill_light_postgresql from "./voxelModels/skills/light/postgresql.json"
 import skill_light_mysql from "./voxelModels/skills/light/mysql.json"
+import skill_light_prisma from "./voxelModels/skills/light/prisma.json"
 import skill_light_websockets from "./voxelModels/skills/light/websockets.json"
 import skill_light_git from "./voxelModels/skills/light/git.json"
 import skill_light_github from "./voxelModels/skills/light/github.json"
+import skill_light_docker from "./voxelModels/skills/light/docker.json"
 
 import skill_light_figma from "./voxelModels/skills/light/figma.json"
 import skill_light_canva from "./voxelModels/skills/light/canva.json"
@@ -206,13 +210,13 @@ export const skills : Record<any, any> = {
     "frontend": [
         {
             "name":"React.js",
-            "skill_proficiency":1,
+            "skill_proficiency":2,
             "jsonModelDark":skill_dark_react,
             "jsonModelLight":skill_light_react
         },
         {
             "name":"Next.js",
-            "skill_proficiency":1,
+            "skill_proficiency":2,
             "jsonModelDark":skill_dark_next2,
             "jsonModelLight":skill_light_next2
         },
@@ -256,6 +260,12 @@ export const skills : Record<any, any> = {
             "skill_proficiency":2,
             "jsonModelDark":skill_dark_mysql,
             "jsonModelLight":skill_light_mysql
+        },
+        {
+            "name":"Prisma ORM",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_prisma,
+            "jsonModelLight":skill_light_prisma
         }
     ],
     "deployment": [
@@ -272,6 +282,12 @@ export const skills : Record<any, any> = {
             "jsonModelDark":skill_dark_github,
             "jsonModelLight":skill_light_github,
             "fov":65,
+        },
+        {
+            "name":"Docker",
+            "skill_proficiency":1,
+            "jsonModelDark":skill_dark_docker,
+            "jsonModelLight":skill_light_docker
         }
     ],
     "design": [
@@ -288,81 +304,81 @@ export const skills : Record<any, any> = {
             "jsonModelLight":skill_light_canva
         }
     ],
-    "others": [
-        {
-            "name":"English",
-            "dict_obj": "lang", // default is skill_proficiencies
-            "skill_proficiency":5,
-            "jsonModelDark":skill_dark_lang_en,
-            "jsonModelLight":skill_light_lang_en,
-            "fov":30
-        },
-        {
-            "name":"Chinese",
-            "dict_obj": "lang",
-            "skill_proficiency":2,
-            "jsonModelDark":skill_dark_lang_cn,
-            "jsonModelLight":skill_light_lang_cn,
-            "fov":35
-        },
-        {
-            "name":"Japanese",
-            "dict_obj": "lang",
-            "skill_proficiency":1,
-            "jsonModelDark":skill_dark_lang_jp,
-            "jsonModelLight":skill_light_lang_jp,
-            "fov":40
-        },
-        {
-            "name":"Korean",
-            "dict_obj": "lang",
-            "skill_proficiency":1,
-            "jsonModelDark":skill_dark_lang_kr,
-            "jsonModelLight":skill_light_lang_kr,
-            "fov":40
-        },
-        {
-            "name":"Typing Speed",
-            "dict_obj": "none", 
-            "skill_proficiency":"100-120wpm",
-            "jsonModelDark":skill_dark_typing,
-            "jsonModelLight":skill_light_typing
-        },
-        {
-            "name":"Video Editing",
-            "skill_proficiency":2,
-            "jsonModelDark":skill_dark_video_editing,
-            "jsonModelLight":skill_light_video_editing
-        },
-        {
-            "name":"LaTeX",
-            "skill_proficiency":1,
-            "jsonModelDark":skill_dark_latex,
-            "jsonModelLight":skill_light_latex,
-            "fov":80,
-            "camPosition":[0,5,60]
-        },
-        {
-            "name":"Shell Scripting",
-            "skill_proficiency":0,
-            "jsonModelDark":skill_dark_shell_scripting,
-            "jsonModelLight":skill_light_shell_scripting,
-            "fov":35
-        },
-        {
-            "name":"Pygame",
-            "skill_proficiency":1,
-            "jsonModelDark":skill_dark_pygame,
-            "jsonModelLight":skill_light_pygame,
-            "fov":80
-        },
-        {
-            "name":"Technical Docs",
-            "skill_proficiency":2,
-            "jsonModelDark":skill_dark_tech_doc,
-            "jsonModelLight":skill_light_tech_doc
-        },
-    ]
+    // "others": [
+    //     {
+    //         "name":"English",
+    //         "dict_obj": "lang", // default is skill_proficiencies
+    //         "skill_proficiency":5,
+    //         "jsonModelDark":skill_dark_lang_en,
+    //         "jsonModelLight":skill_light_lang_en,
+    //         "fov":30
+    //     },
+    //     {
+    //         "name":"Chinese",
+    //         "dict_obj": "lang",
+    //         "skill_proficiency":2,
+    //         "jsonModelDark":skill_dark_lang_cn,
+    //         "jsonModelLight":skill_light_lang_cn,
+    //         "fov":35
+    //     },
+    //     {
+    //         "name":"Japanese",
+    //         "dict_obj": "lang",
+    //         "skill_proficiency":1,
+    //         "jsonModelDark":skill_dark_lang_jp,
+    //         "jsonModelLight":skill_light_lang_jp,
+    //         "fov":40
+    //     },
+    //     {
+    //         "name":"Korean",
+    //         "dict_obj": "lang",
+    //         "skill_proficiency":1,
+    //         "jsonModelDark":skill_dark_lang_kr,
+    //         "jsonModelLight":skill_light_lang_kr,
+    //         "fov":40
+    //     },
+    //     {
+    //         "name":"Typing Speed",
+    //         "dict_obj": "none", 
+    //         "skill_proficiency":"100-120wpm",
+    //         "jsonModelDark":skill_dark_typing,
+    //         "jsonModelLight":skill_light_typing
+    //     },
+    //     {
+    //         "name":"Video Editing",
+    //         "skill_proficiency":2,
+    //         "jsonModelDark":skill_dark_video_editing,
+    //         "jsonModelLight":skill_light_video_editing
+    //     },
+    //     {
+    //         "name":"LaTeX",
+    //         "skill_proficiency":1,
+    //         "jsonModelDark":skill_dark_latex,
+    //         "jsonModelLight":skill_light_latex,
+    //         "fov":80,
+    //         "camPosition":[0,5,60]
+    //     },
+    //     {
+    //         "name":"Shell Scripting",
+    //         "skill_proficiency":0,
+    //         "jsonModelDark":skill_dark_shell_scripting,
+    //         "jsonModelLight":skill_light_shell_scripting,
+    //         "fov":35
+    //     },
+    //     {
+    //         "name":"Pygame",
+    //         "skill_proficiency":1,
+    //         "jsonModelDark":skill_dark_pygame,
+    //         "jsonModelLight":skill_light_pygame,
+    //         "fov":80
+    //     },
+    //     {
+    //         "name":"Technical Docs",
+    //         "skill_proficiency":2,
+    //         "jsonModelDark":skill_dark_tech_doc,
+    //         "jsonModelLight":skill_light_tech_doc
+    //     },
+    // ]
 };
 
 export const projectSkillsTabsDark : Record<string, any> = {
