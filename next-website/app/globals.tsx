@@ -1428,7 +1428,7 @@ Thanks for stopping by and enjoy your stay!`,
                     "message": "Message",
                     "send_button": "Send"
                 },
-                "bottom": "Made with 🤍 Next.js & Three.js!"
+                "bottom": "Made with 🤍 using Next.js & Three.js!"
             },
 
             // // NTU SPECIFIC
@@ -1444,6 +1444,51 @@ Thanks for stopping by and enjoy your stay!`,
             //     },
             // }
         },
+        "blogs": {
+            "header": "Blogs",
+            "subheader": "Select a blog to read!",
+            "blogsList": [
+                {
+                    "title":"Reminiscing My Days as a Teen YT Content Creator",
+                    "blogTextHTML":`
+                        Long before I started writing a single line of code, I was running two YouTube channels, PixelHyperCube (for gaming) and PixelHyperCuber (for speedcubing) when I was 13-14 years old in Sec 1-2. The main reason I was on YouTube was that I was genuinely inspired by huge YouTube Content Creators like DanTDM, SkyDoesMinecraft, AntVenom and SethBling, and I aspired to become a full-fledged content creator once I grew up. I wanted a platform where I could freely express what I really liked at the time: Minecraft, Agar.io and Speedcubing.
+
+PixelHyperCube (my original gaming channel):
+
+So, it was in the middle of 2015 where I had started out my channel, where I had uploaded a purely unedited video of me solving SethBling's Rubik's Cube in Minecraft, as I thought this would be an interesting hook for me to start off my YouTube channel. However, because I had several mistakes like coughing in the video numerous times (due to my sinus issues), as well as not setting up the environment correctly, it was pretty normal that I cringed at the video numerous times. However, the benefit that I took from making this video was not only because I managed to solve a Rubik's Cube in Minecraft, but I also learned about identifying the numerous flaws from the video itself. 
+
+From there, I began to make more interesting Minecraft uploads, such as my rollercoaster creations and my Minecraft Command block tutorials. As those videos have gained popularity in terms of the number of views, likes and subscribers I get, I roughly learned about how the YouTube algorithm works, where I learned what viewers typically liked when watching videos. For instance, I got constructive feedback where commenters were saying that the rollercoaster has too much boring stuff like going around in circles numerous times. 
+
+PixelHyperCuber (my cubing channel) (Nov 2015 - late 2016):
+
+When my uploads had been gradually increasing on my original channel, PixelHyperCube, I realized a certain problem: I had been combining gaming and speedcubing into one single channel, where it can cause a certain amount of confusion amongst gaming and speedcubing viewers. In simple terms, gamers might probably not prefer speedcubing videos, and vice versa (no offence, but this might be one pattern!). So, I decided to create PixelHyperCuber to strictly upload cubing videos and remain PixelHyperCube as my gaming channel. From there, I made numerous hardware reviews, tutorials, competition vlogs, and so much more cubing related content on PixelHyperCuber.
+
+However, the process of filming a speedcubing video can be quite daunting -- it requires scripting, filming and shooting the right photos and videos, 3-5 hour editing streaks and finally, uploading. At the same time, I was also a Sec 2 student, where I had to constantly work on completing all my school tasks. I was privileged enough to have a huge amount of time and capital for me to invest more on making YouTube videos, and I had my parent’s support because they acknowledged my interests in content creation at the time. Even though the process of making a single speedcubing video can have a high workload at times, I genuinely loved the process of making it because I aspired to make high quality videos for viewers to happily watch my videos. 
+
+In terms of the videos I made, I was inspired by many big YouCubers (a.k.a. YouTubers who make speedcubing content) like JRCuber, CrazyBadCuber, RedKB, etc. So, I decided to emulate how they make quality videos by learning how to edit their style. From there, I self-taught myself the entire process of making a speedcubing video - from scripting, shooting, editing and finally uploading. As I ventured deeper into my content creation journey, I decided that I wanted an upgrade in hardware and software, like getting a DSLR and a new high-quality microphone, as well as finding a way for me to ‘hack’ the trial version of Final Cut Pro X on iMac (knowing that it costs $300+), solely to greatly improve the quality of each video I create. And to a certain extent, it did work to a certain degree, where videos like these are greatly praised by the community because it mainly provides them with a better viewership experience. This is essentially a similar process of finding bugs in hundreds of lines of code and then later on fixing them. As a result, a respectable number of loyal viewers would regularly watch my content, and I was even lucky enough to have one fan come up to me to ask me for a photograph at a speedcubing competition in Singapore (which was also something that made my Mum proud, even though I was a bit too young to understand at the time)! However, all of these came at an emotional cost of something we cannot control -- negativity from certain groups of people.
+
+Dealing with Unconstructive Criticism:
+
+Even though I am genuinely very appreciative of all the support I was given while running those channels independently, one of the moments that stung me was when one troll who commented on my Cube Showdown video to ‘go kys’ after he said that my channel name was unoriginal (he did that to numerous other YouCubers too). After deleting the comment and blocking him because I don’t want to spread any form of negativity throughout my channel, I was still badly affected because my brain was not mature enough to process emotions like an adult, as I was only 13-14 years old at the time. It was a hard lesson for me to learn that we could not please everyone, and I had faced similar things during my current career. Even though there might be a huge majority of people who would actively support your channel, there will be some who would not even approve of the sheer amount of hard work you did to make it. 
+
+The constant experience I feared as a teen YouTuber was very unideal to go through. But even though I honestly felt the ‘trauma’ after this episode, I slowly began to learn that we all could not control what others think about you. Even until right now, I had dealt with similar groups of people in developer teams, where I was not fully appreciated and recognized for what I had done.
+
+Burnout and my sudden withdrawal from YouTube:
+
+After securing a deal with CubeZZ to sponsor my YouTube channel after they recognized the hard work I put into the channel, they sent me one cube for me to review. However, while I was doing the scripting, my fear of uploading another video to YouTube spiked up badly to the point where I would be afraid of being in a situation where people would be throwing stones at me. The internet is a very weird place, where numerous types of personalities linger throughout the space. Because of this, there would be numerous people who would not even appreciate the 10-15 hours of work for a simple 5 minute video for YouTube. As a result, uploading a new video on YouTube meant that I would have to face the public crowd again, and I might not know how viewers might treat me. Simultaneously, knowing that I was perfectionistic and that I desired to keep up the quality of my current videos so badly to produce great reviews for my sponsors, it has further driven me into a state of burnout.
+
+This eventually led to me retreating from uploading a new video, as I was constantly afraid of online judgement for everything I make in a video. As a result, I did not proceed with making more videos and I felt bad that I had to end this all of a sudden without a proper notice to my viewers and subscribers. Looking back, whenever my classmates asked me why I stopped uploading all of a sudden, I really couldn’t explain to them the true reason why because I didn’t even know that I was going through a burnout phase due to those aforementioned reasons in the first place, likely due to my biologically young age.
+
+What I've learned throughout this experience:
+
+After running YouTube channels for ~2 years, I had experienced the ups and downs of my life as a teenage Content Creator. I was extremely fortunate to gain numerous experiences at such a young age, where they are transferable to the skillsets I gain in my current career as a software and web developer. The small editing and filming mistakes I made as a YouTuber are equivalent to bugs in code, the process of making the video itself is equivalent to writing lines of code, and of course, the editing of each video is directly transferable to skillsets in having great UI/UX design. Even though it was objectively unfortunate that I had to deal with trolls and the possible negativity that exists online, the work and the skills I put in would never be erased. Knowing that I’m already approaching my mid-20s by the time I’m writing this blog, my brain is much more well-equipped at reacting to harsh comments and ‘funny’ personalities! And lastly, I am thankful for the privileges I had been offered to fulfil my interests in content creation to help me grow in not only my useful skillsets but also many useful life lessons along the way.
+
+                    `,
+                    "imgThumbnailURL":"/"
+
+                }
+            ] 
+        }
     },
 
     // DEMO LANGUAGES CONTENT (CHANGE LATER)
