@@ -21,12 +21,12 @@ export function BlogObj({
 }: BlogProps) {
     const handleClick = (e: React.MouseEvent) => {
         if (onClick) {
-        e.preventDefault();
-        onClick(id);
+            e.preventDefault();
+            onClick(id);
         }
     };
 
-    // Strips HTML tags to show a clean plain-text snippet on the card
+    // strips HTML tags to show a clean plain-text snippet on the card
     const snippet = blogTextHTML
         ? blogTextHTML.replace(/<[^>]*>?/gm, "").slice(0, 120) + "..."
         : "";
@@ -36,7 +36,7 @@ export function BlogObj({
         className={`blog-card ${currentTheme} ${transitionClasses}`.trim()}
         >
             <a
-                href={href || `/blog/${id}`}
+                href={href || `/blogs/${id}`}
                 onClick={handleClick}
                 className="blog-card-link"
                 aria-label={`Read post: ${title}`}
@@ -51,9 +51,9 @@ export function BlogObj({
                 </div>
 
                 <div className="blog-card-body">
-                <h3 className="blog-card-title">{title}</h3>
-                {snippet && <p className="blog-card-snippet">{snippet}</p>}
-                <span className="blog-card-cta">Read more &rarr;</span>
+                    <h3 className="blog-card-title">{title}</h3>
+                    {snippet && <p className="blog-card-snippet">{snippet}</p>}
+                    <span className="blog-card-cta">Read more &rarr;</span>
                 </div>
             </a>
         </article>
