@@ -805,7 +805,7 @@ Thanks for stopping by and enjoy your stay!`,
                         "date": new Date("6/01/2025"),
                         "media_url":["./projects/cellCollab.gif"],
                         "source_code":"https://github.com/pixelhypercube/CellCollab",
-                        "web_link":"https://pixelhypercube.github.io/CellCollab",
+                        "web_link":"https://cell-collab.vercel.app/",
                         "changelog": [
                             {
                                 "header":"V1.2",
