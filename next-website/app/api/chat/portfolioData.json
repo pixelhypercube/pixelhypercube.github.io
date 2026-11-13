@@ -9,8 +9,8 @@
     "physical_info": {
       "morning_height": 180,
       "evening_height": 178,
-      "weight": 68,
-      "pbf": 12,
+      "weight": 65,
+      "pbf": 10,
       "build_type": "Ecto-Mesomorph"
     }
   },
@@ -91,7 +91,7 @@
         }
       ],
       "bio_reflections": [
-        "Clinched my childhood dream of studying computer science, huge kudos to Sethbling for the inspiration!",
+        "Clinched my childhood dream of studying computer science, huge kudos to speedcubing and Sethbling for the inspiration!",
         "If I have to sum up my university life in one sentence, it'll be: 'Interesting, but very competitive 😂'!"
       ]
     },
@@ -397,17 +397,42 @@
   ],
   "hobbies": {
     "speedcubing": {
-      "ao5": "11.42s",
-      "ao100": "13.15s",
-      "method": "CFOP (Full OLL/PLL)",
-      "cube_main": "GAN 12 MagLev"
+      "pbs": {
+        "3x3":{
+          "single":"4.80s",
+          "ao5": "9.61s"
+        },
+        "3x3_oh":{
+          "single":"12.01s"
+        }
+      },
+      "global_averages":{
+        "3x3":"sub-11s",
+        "2x2":"sub-4s"
+      },
+      "methods": {
+        "3x3":"CFOP",
+        "2x2":"Ortega",
+        "4x4":"Yau",
+        "5x5":"Reduction",
+        "6x6":"Reduction",
+        "7x7":"Reduction"
+      },
+      "cube_mains": {
+        "3x3":"RSVM v5",
+        "2x2":"Gan 251M Pro",
+        "4x4":"Moyu Aosu V7",
+        "5x5":"Moyu Aochuang V6",
+        "6x6":"Moyu Aoshi V4",
+        "7x7":"Moyu Aofu V5"
+      }
     },
     "running": {
       "5k_personal_best": "21:20",
       "10k_personal_best": "45:45",
       "half_marathon_personal_best": "1:44:40",
       "full_marathon_personal_best": "3:34:19",
-      "current_weekly_mileage": "~10km 4-6 times a week",
+      "current_weekly_mileage": "10-20km a week (since I'm currently lean bulking)",
       "shoe_rotation": {
         "daily": "Asics Superblast 3",
         "race": "Nike Vaporfly 3"
@@ -421,11 +446,11 @@
       ]
     },
     "bouldering": {
-      "about":"Just started",
+      "about": "Just started",
       "level": "Beginner / Developing"
     },
     "gymming": {
-      "bench_press_pb":"80kg"
+      "bench_press_pb": "95kg"
     }
   },
   "frequently_asked_questions": [
@@ -442,7 +467,7 @@
       "answer": "My greatest strength is my intense focus and reliability in delivering projects on time under tight constraints. My key area of continuous improvement is maintaining meticulous precision across high-velocity development cycles."
     },
     {
-      "question": "Who and what was your biggest influence in getting into computing?",
+      "question": "Who and what was your biggest influence in getting into IT & computing?",
       "answer": "Minecraft was my all-time biggest inspiration for what I'm doing right now, because it allowed me to build and tinker with stuff just like how I use programming and web development to do the same things! Also, early exposure to technical creators like SethBling building complex Redstone logic gates in Minecraft inspired me to understand the principles behind computing systems."
     },
     {
@@ -459,11 +484,11 @@
     },
     {
       "question": "What skillsets are you focusing on refining?",
-      "answer": "Definitely Next.js, because most modern websites rely on Next.js nowadays. Additionally, one of my favorite things about Next.js is the fact that I can combine backend routes with frontend!"
+      "answer": "Definitely Next.js, because so many modern websites rely on Next.js nowadays. Additionally, one of my favorite things about Next.js is the fact that I can combine backend routes with frontend!"
     },
     {
       "question": "What are your favourite comfort foods?",
-      "answer": "Sushi, Sashimi, Egg Fried Rice, and Tomahawk Steak (to max protein)."
+      "answer": "Sushi, Sashimi, Egg Fried Rice, and Tomahawk Steak (to max protein, since I'm currently planning to lean bulk as of late 2026)."
     },
     {
       "question": "What are your biggest motivations to pursue fitness (especially running)?",
@@ -475,11 +500,11 @@
     },
     {
       "question": "Are you an introvert or an extrovert?",
-      "answer": "Growing up, I was generally considered an introverted person — described as soft-spoken and preferring to recharge by myself. After NS and staying in hall, I opened up more and have gotten a lot more sociable, but I still definitely need my alone time! Right now, I can 'mask' as an extrovert — a lecturer once asked if I was naturally outspoken because I asked many questions and voiced out in class — but I still prefer to recharge by myself!"
+      "answer": "Growing up, I was generally considered an introverted person. During my youth and polytechnic days, I described myself as soft-spoken and preferring to recharge by myself. After NS and staying in hall, I opened up more and have gotten a lot more sociable, but I still definitely need my alone time! Right now, I can 'mask' as an extrovert — a lecturer once asked if I was naturally outspoken because I asked many questions and voiced out in class — but I still prefer to recharge by myself!"
     },
     {
       "question": "What are your pet peeves?",
-      "answer": "No offense, but it's when I find UI components that look a bit off or vibe-coded, or parts of code that look too redundant (might be common among developers too)."
+      "answer": "No offense, but it's when I find UI components that look a bit off or vibe-coded, or parts of code that look too redundant (might be common among developers too). Not only that, but I also do have pet peeves on seeing words that are commonly generated from LLMs like 'jargon', 'minicry', 'robust', etc."
     },
     {
       "question": "I noticed you did not have any working/internship experience during your term break from May 2026 to Aug 2026. Why?",
@@ -487,7 +512,7 @@
     },
     {
       "question": "How serious are you with your speedcubing?",
-      "answer": "I used to be a lot more serious back in Secondary school, where I was running and managing a YouTube channel and an IG page named 'PixelHyperCuber' due to my intense interest in collecting speedcubes and practicing them. I did a variety of videos, ranging from hardware speedcube reviews, unboxings, and competition vlogs! Right now, I don't really practice speedcubing as often because I'm adulting."
+      "answer": "I used to be a lot more serious back in Secondary school, where I was running and managing a YouTube channel and an IG page named 'PixelHyperCuber' due to my intense interest in collecting speedcubes and practicing them. I did a variety of videos, ranging from hardware speedcube reviews, unboxings, and competition vlogs! Right now, I'm getting back into speedcubing and puzzle collecting as I wanted to use this as a fun time for me to solve a wide variety of twisty puzzles during my free time! I recently bought over a thousand dollars worth of twisty puzzles this year and one of my favorites is the Tuttminx (a cube that is shaped like a soccer ball)!"
     },
     {
       "question": "What is your favourite pet?",
@@ -495,11 +520,15 @@
     },
     {
       "question": "How do you generally feel about studying CS at NTU?",
-      "answer": "I feel like CS at NTU is interesting and a relatively intellectually demanding course, where I felt like I have sharpened my fundamentals in core computer science concepts, like proving with discrete maths and understanding logic. However, it may be tough for me to secure top grades due to how competitive it is, so sometimes I have this slight fear that making some careless mistakes might even result in getting a lower grade. And to be very honest, I feel like the type of stuff that I learned in my course can feel a bit too superficial at times and that the teaching for my course can be improved a lot. However, I strive to have a better learning experience when I'm genuinely curious about the conceptual understanding of the modules by frequently asking profs about any doubts and knowledge gaps throughout my learning, instead of solely grinding for exceptional grades."
+      "answer": "I feel like CS at NTU is interesting and a relatively intellectually demanding course, where I felt like I have sharpened my fundamentals in core computer science concepts, like proving with discrete maths and understanding logic. However, it can be insanely tough for me to secure top grades due to how competitive it is, so sometimes I have this slight fear that making some careless mistakes might even result in getting a lower grade. And to be very honest, I feel like the type of stuff that I learned in my course can feel a bit too superficial at times and that the teaching for my course can be improved a lot. However, I strive to have a better learning experience when I'm genuinely curious about the conceptual understanding of the modules by frequently asking profs about any doubts and knowledge gaps throughout my learning, instead of solely grinding for exceptional grades."
     },
     {
       "question": "Why did you choose Singapore Polytechnic (IT course) right after completing your IGCSE at ACS (International)?",
       "answer": "The main reason was that I wanted to pursue something more related to my interests and build my career even further. SP seemed like the best choice for me because it offers an IT course focused on using computers to make stuff through programming and web development—unlike IB back at ACS (International), which didn't offer a Computing subject. Also, my language skills weren't really the best at the time, so IB wasn't the most ideal for me. However, the good thing was that I managed to do well enough to get into NTU CS, which is known to have a relatively high cutoff point across tertiary routes. Had I stayed in IB with my weak language skills back then, I might not have gotten the results needed for the course I'm studying right now. Additionally, I'm thankful that my experience in polytechnic has further solidified my hands-on approach to learning things, and that I have learned to leverage my hands-on skills throughout my university life!"
+    },
+    {
+      "question": "You have gotten to about 10-11% body fat as of late 2026! What has changed after you started to become leaner?",
+      "answer": "I would say that I have gotten more confident in how I carry myself, and I would be less shy and hesitant to talk to people I'm not familiar with! Even though I believe that there are many extrinsic benefits of getting lean, I feel like it worked out better for me intrinsically because I learned how to treat myself better as a person overall, as well as learning how to take care of my own body and health! And also, getting to 10-11% body fat is not easy, as I had to cut many previous habits like limiting my sugar intake by cutting down sugary drinks (which was insanely hard for me to change)."
     }
   ]
 }

@@ -744,7 +744,7 @@ export function EducationTimelineElem({
 
                             return (
                                 <div className={`${currentTheme==="D" ? "bg-stone-800 text-white" : "bg-stone-300 text-stone-900"} rounded-3xl p-4`} key={index}>
-                                    {json_model && <div className="w-full h-30 relative">
+                                    {json_model && <div className="w-full h-44 relative">
                                         {isModelVisible && 
                                         <Canvas3D 
                                         fov={fov}

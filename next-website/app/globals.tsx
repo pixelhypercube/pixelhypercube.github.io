@@ -105,7 +105,7 @@ import edu_logo_ntu from "./voxelModels/edu/ntu/logo.json"
 import edu_logo_sp from "./voxelModels/edu/sp/logo.json"
 import edu_logo_acsint from "./voxelModels/edu/acsint/logo.json"
 import edu_logo_acsbr from "./voxelModels/edu/acsbr/logo.json"
-import edu_ntu_sethbling from "./voxelModels/edu/ntu/sethbling.json"
+import edu_ntu_sethbling_cube from "./voxelModels/edu/ntu/sethbling_cube.json"
 import edu_ntu_uni_life from "./voxelModels/edu/ntu/uni_life.json"
 import kj_glasses from "./voxelModels/kj_glasses.json" // special nerdy avatar
 import edu_sp_group_work from "./voxelModels/edu/sp/group_work.json"
@@ -496,8 +496,7 @@ Ever since I started learning to code, I've approached software and web developm
 
 Right now, I'm a penultimate-year Computer Science undergraduate at Nanyang Technological University (NTU)!
 
-If I'm not programming, you can catch me going out for long runs, going to the gym, attempting to constantly break sub-10 seconds in speedcubing, and playing modded Minecraft!
-
+If I'm not programming, you can catch me going on long runs, gym-hopping across Anytime Fitness branches, playing modded Minecraft, or trying to break the sub-10-second average barrier in Rubik's Cube solving!
 Thanks for stopping by and enjoy your stay!`, 
                 // "bio": "Hi! I'm currently a second-year undergraduate pursuing a degree in Computer Science at Nanyang Technological University (NTU). As a builder at heart, I approach software engineering the same way I approach building blocks: by breaking down complex systems into clean and interactive components (much like the 3D models scattered across this site)! This website serves as a digital space for all my technical projects and work experience.",
 //                 "bio2":`This site mainly serves as my digital portfolio of all my technical projects and experience.
@@ -1134,11 +1133,11 @@ Thanks for stopping by and enjoy your stay!`,
                         ],
                         "bio":[
                             {
-                                "json_model":edu_ntu_sethbling,
+                                "json_model":edu_ntu_sethbling_cube,
                                 "json_model_cam_settings":{
-                                    "fov":15,
+                                    "fov":85,
                                 },
-                                "info":<p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> for the inspiration!</p>
+                                "info":<p>Clinched my childhood dream of studying computer science, huge kudos to <a className=" underline" href="https://www.youtube.com/@SethBling">Sethbling</a> and speedcubing for the inspiration!</p>
                             },
                             {
                                 "json_model":edu_ntu_uni_life,
