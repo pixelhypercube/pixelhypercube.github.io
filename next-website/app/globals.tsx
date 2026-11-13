@@ -1192,7 +1192,7 @@ Thanks for stopping by and enjoy your stay!`,
                                     "Developed the complete frontend user interface using Next.js.",
                                     "Designed and implemented the core client-side layout structures, cross-page navigation routers, and reusable UI components.",
                                 ],
-                                "source_code":"https://github.com/pixelhypercube/sc2002-oop",
+                                "source_code":"https://github.com/pixelhypercube/sc2006-project",
                             }
                         ],
                         // for skills
