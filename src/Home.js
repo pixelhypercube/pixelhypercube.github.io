@@ -261,7 +261,7 @@ export default class Home extends React.Component {
         <DialogOverlay
         title={"I've Moved!"}
         description={"I built a fresh look for my new website, with updated projects and more cool features awaiting you! See you there!"}
-        link={"https://kj-teovercelapp.vercel.app/"}
+        link={"https://kj-teo.vercel.app/"}
         linkCaption={"Visit New Website"}
         closeDialogText={"Stay on old site"}
         />
